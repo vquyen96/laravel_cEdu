@@ -1,0 +1,66 @@
+a{
+	text-decoration: none !important;
+}
+h3{
+	text-transform: uppercase;
+	font-family: 'IBM Plex Serif', serif;
+}
+.mainHead{
+	position: relative;
+	margin-bottom: 30px;
+}
+.mainHeadLine{
+	position: absolute;
+	width: 100%;
+	height: 3px;
+    background: #ccc;
+	z-index: -1;
+	top: 15px;
+}
+.mainHeadTitle{
+	width: 300px;
+	text-align: center;
+	background: #eee;
+	margin: auto;
+}
+.mainBody{
+	margin: 100px auto;
+}
+.docItem{
+	background: #284da9;
+	margin: 20px 0;
+	height: 250px; 
+	padding: 30px;
+	cursor: pointer;
+	transition: 1s;
+	display: block;
+	
+
+}
+.docItem:hover{
+	background: #f5b222;
+	box-shadow: 10px 14px 20px #8c8c8c;
+	transform : translate(0 ,-20px);
+}
+.docItemBorder{
+	border:2px solid #fff; 
+	display: block;
+	height: 100%;
+}
+.docItemImg{
+	width: 88px;
+	margin: auto;
+	padding: 20px 0;
+}
+.docItemImg img{
+	/* filter: saturate(3);
+	 filter: grayscale(100%);
+	 filter: contrast(160%);*/
+	 filter: brightness(20);
+}
+.docItemContent{
+	color: #fff;
+	text-align: center;
+	font-size: 17px;
+	text-decoration: none;
+}

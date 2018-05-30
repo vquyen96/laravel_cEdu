@@ -1,0 +1,1022 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 30, 2018 lúc 03:35 PM
+-- Phiên bản máy phục vụ: 10.1.31-MariaDB
+-- Phiên bản PHP: 7.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Cơ sở dữ liệu: `c_edu`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `about`
+--
+
+CREATE TABLE `about` (
+  `about_id` int(10) UNSIGNED NOT NULL,
+  `about_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `about_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `about_text` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `about`
+--
+
+INSERT INTO `about` (`about_id`, `about_name`, `about_slug`, `about_text`, `created_at`, `updated_at`) VALUES
+(1, 'Giới thiệu', 'gioi-thieu', '<p>Cedu tự h&agrave;o l&agrave; &quot;si&ecirc;u thị&quot; c&aacute;c kh&oacute;a học trực tuyến ngắn hạn lớn nhất Đ&ocirc;ng Nam &Aacute; với h&agrave;ng ngh&igrave;n kh&oacute;a học thuộc mọi lĩnh vực, đội ngũ giảng vi&ecirc;n chuy&ecirc;n nghiệp, gi&agrave;u kinh nghiệm v&agrave; mạng lưới học vi&ecirc;n rộng khắp cả nước. Edumall - nơi bạn học mọi kĩ năng l&agrave;m chủ tương lai.</p>\r\n\r\n<p><img alt=\"\" src=\"http://localhost/c_edu/public/upload/files/7mj_baocaotaichinh2.jpg\" style=\"height:325px; width:639px\" /></p>', '2018-05-18 03:01:58', '2018-05-18 03:07:00'),
+(2, 'Điều khoản', 'dieu-khoan', '<p>Về t&agrave;i khoản sử dụng: Khi đăng k&yacute; t&agrave;i khoản, người sử dụng (NSD) phải cung cấp đầy đủ v&agrave; ch&iacute;nh x&aacute;c th&ocirc;ng tin về T&ecirc;n, Email, Số điện thoại... Đ&acirc;y l&agrave; những th&ocirc;ng tin bắt buộc li&ecirc;n quan tới việc hỗ trợ NSD trong qu&aacute; tr&igrave;nh sử dụng dịch vụ tại Edumall.vn. V&igrave; vậy khi c&oacute; những rủi ro, mất m&aacute;t sau n&agrave;y, Edumall chỉ tiếp nhận những trường hợp điền đ&uacute;ng v&agrave; đầy đủ những th&ocirc;ng tin tr&ecirc;n. Những trường hợp điền thiếu th&ocirc;ng tin hoặc th&ocirc;ng tin sai sự thật sẽ kh&ocirc;ng được giải quyết. Những th&ocirc;ng tin n&agrave;y sẽ được d&ugrave;ng l&agrave;m căn cứ để hỗ trợ giải quyết.</p>\r\n\r\n<p>Mật khẩu của t&agrave;i khoản (MKTK): Sau khi thanh to&aacute;n, Trong phần quản l&yacute; t&agrave;i khoản, đối với một t&agrave;i khoản, NSD sẽ c&oacute; một mật khẩu. Mật khẩu được sử dụng để đăng nhập v&agrave;o c&aacute;c website v&agrave; c&aacute;c dịch vụ trong hệ thống của Edumall. NSD c&oacute; tr&aacute;ch nhiệm phải tự m&igrave;nh bảo quản mật khẩu, nếu mật khẩu bị lộ ra ngo&agrave;i dưới bất kỳ h&igrave;nh thức n&agrave;o, Edumall sẽ kh&ocirc;ng chịu tr&aacute;ch nhiệm về mọi tổn thất ph&aacute;t sinh.</p>\r\n\r\n<p>Tuyệt đối kh&ocirc;ng sử dụng bất kỳ chương tr&igrave;nh, c&ocirc;ng cụ hay h&igrave;nh thức n&agrave;o kh&aacute;c để can thiệp v&agrave;o c&aacute;c kh&oacute;a học của Edumall. Mọi vi phạm khi bị ph&aacute;t hiện sẽ bị x&oacute;a t&agrave;i khoản v&agrave; c&oacute; thể xử l&yacute; theo quy định của ph&aacute;p luật.</p>\r\n\r\n<p>Nghi&ecirc;m cấm việc ph&aacute;t t&aacute;n, truyền b&aacute; hay cổ vũ cho bất kỳ hoạt động n&agrave;o nhằm can thiệp, ph&aacute; hoại hay x&acirc;m nhập v&agrave;o dữ liệu của c&aacute;c kh&oacute;a học trong hệ thống của Edumall. Nghi&ecirc;m cấm việc sử dụng chung t&agrave;i khoản. Việc tr&ecirc;n 2 người c&ugrave;ng sử dụng chung một t&agrave;i khoản khi bị ph&aacute;t hiện sẽ bị x&oacute;a t&agrave;i khoản ngay lập tức.</p>\r\n\r\n<p>Nghi&ecirc;m cấm việc ph&aacute;t t&aacute;n nội dung c&aacute;c b&agrave;i học tr&ecirc;n hệ thống của Edumall ra b&ecirc;n ngo&agrave;i. Mọi vi phạm khi bị ph&aacute;t hiện sẽ bị x&oacute;a t&agrave;i khoản v&agrave; c&oacute; thể xử l&yacute; theo quy định của ph&aacute;p luật về việc vi phạm bản quyền.</p>\r\n\r\n<p>Kh&ocirc;ng được c&oacute; bất kỳ h&agrave;nh vi n&agrave;o nhằm đăng nhập tr&aacute;i ph&eacute;p hoặc t&igrave;m c&aacute;ch đăng nhập tr&aacute;i ph&eacute;p cũng như g&acirc;y thiệt hại cho hệ thống m&aacute;y chủ của Edumall. Mọi h&agrave;nh vi n&agrave;y đều bị xem l&agrave; những h&agrave;nh vi ph&aacute; hoại t&agrave;i sản của người kh&aacute;c v&agrave; sẽ bị tước bỏ mọi quyền lợi đối với t&agrave;i kho&agrave;n cũng như sẽ bị truy tố trước ph&aacute;p luật nếu cần thiết.</p>\r\n\r\n<p>Khi giao tiếp với người d&ugrave;ng kh&aacute;c trong hệ thống dịch vụ của Edumall, NSD kh&ocirc;ng được quấy rối, chửi bới, l&agrave;m phiền hay c&oacute; bất kỳ h&agrave;nh vi thiếu văn ho&aacute; n&agrave;o đối với người kh&aacute;c. Tuyệt đối nghi&ecirc;m cấm việc x&uacute;c phạm, nhạo b&aacute;ng người kh&aacute;c dưới bất kỳ h&igrave;nh thức n&agrave;o (nhạo b&aacute;ng, ch&ecirc; bai, kỳ thị t&ocirc;n gi&aacute;o, giới t&iacute;nh, sắc tộc&hellip;.).</p>\r\n\r\n<p>Tuyệt đối nghi&ecirc;m cấm mọi h&agrave;nh vi mạo nhận hay cố &yacute; l&agrave;m người kh&aacute;c tưởng lầm m&igrave;nh l&agrave; một người sử dụng kh&aacute;c trong hệ thống dịch vụ của Edumall. Mọi h&agrave;nh vi vi phạm sẽ bị xử l&yacute; hoặc x&oacute;a t&agrave;i khoản.</p>\r\n\r\n<p>Khi ph&aacute;t hiện những vi phạm như vi phạm bản quyền, hoặc những lỗi vi phạm quy định kh&aacute;c, Edumall c&oacute; quyền sử dụng những th&ocirc;ng tin m&agrave; NSD cung cấp khi đăng k&yacute; t&agrave;i khoản để chuyển cho Cơ quan chức năng giải quyết theo quy định của ph&aacute;p luật.</p>\r\n\r\n<p>Trong những trường hợp bất khả kh&aacute;ng như chập điện, hư hỏng phần cứng, phần mềm, hoặc do thi&ecirc;n tai .v.v. NSD phải chấp nhận những thiệt hại nếu c&oacute;.</p>\r\n\r\n<p>Tuyệt đối nghi&ecirc;m cấm mọi h&agrave;nh vi tuy&ecirc;n truyền, chống ph&aacute; v&agrave; xuy&ecirc;n tạc ch&iacute;nh quyền, thể chế ch&iacute;nh trị, v&agrave; c&aacute;c ch&iacute;nh s&aacute;ch của Nh&agrave; nước... Trường hợp ph&aacute;t hiện, kh&ocirc;ng những bị x&oacute;a bỏ t&agrave;i khoản m&agrave; ch&uacute;ng t&ocirc;i c&ograve;n c&oacute; thể cung cấp th&ocirc;ng tin của NSD đ&oacute; cho c&aacute;c cơ quan chức năng để xử l&yacute; theo ph&aacute;p luật.</p>\r\n\r\n<p>Tuyệt đối kh&ocirc;ng b&agrave;n luận về c&aacute;c vấn đề ch&iacute;nh trị, kỳ thị t&ocirc;n giao, kỳ thị sắc tộc. Kh&ocirc;ng c&oacute; những h&agrave;nh vi, th&aacute;i độ l&agrave;m tổn hại đến uy t&iacute;n của c&aacute;c sản phẩm, dịch vụ, kh&oacute;a học trong hệ thống Edumall dưới bất kỳ h&igrave;nh thức n&agrave;o, phương thức n&agrave;o. Mọi vi phạm sẽ bị tước bỏ mọi quyền lợi li&ecirc;n quan đối với t&agrave;i khoản hoặc xử l&yacute; trước ph&aacute;p luật nếu cần thiết. Mọi th&ocirc;ng tin c&aacute; nh&acirc;n của NSD sẽ được ch&uacute;ng t&ocirc;i bảo mật, kh&ocirc;ng tiết lộ ra ngo&agrave;i. Ch&uacute;ng t&ocirc;i kh&ocirc;ng b&aacute;n hay trao đổi những th&ocirc;ng tin n&agrave;y với bất kỳ một b&ecirc;n thứ ba n&agrave;o kh&aacute;c. Như tr&ecirc;n đ&atilde; n&oacute;i, mọi th&ocirc;ng tin đăng k&yacute; của NSD sẽ được bảo mật, nhưng trong trường hợp cơ quan chức năng y&ecirc;u cầu, ch&uacute;ng t&ocirc;i sẽ buộc phải cung cấp những th&ocirc;ng tin n&agrave;y cho c&aacute;c cơ quan chức năng.</p>\r\n\r\n<p>Edumall c&oacute; to&agrave;n quyền x&oacute;a, sửa chữa hay thay đổi c&aacute;c dữ liệu, th&ocirc;ng tin t&agrave;i khoản của NSD trong c&aacute;c trường hợp người đ&oacute; vi phạm những qui định kể tr&ecirc;n m&agrave; kh&ocirc;ng cần sự đồng &yacute; của người sử dụng.</p>\r\n\r\n<p>Edumall c&oacute; thể thay đổi, bổ sung hoặc sửa chữa thỏa thuận n&agrave;y bất cứ l&uacute;c n&agrave;o v&agrave; sẽ c&ocirc;ng bố r&otilde; tr&ecirc;n Website hoặc c&aacute;c k&ecirc;nh truyền th&ocirc;ng ch&iacute;nh thức kh&aacute;c của Edumall.</p>', '2018-05-18 03:07:59', '2018-05-18 03:07:59'),
+(3, 'Chính sách bảo mật', 'chinh-sach-bao-mat', '<h3><strong>I. THU THẬP TH&Ocirc;NG TIN C&Aacute;C NH&Acirc;N</strong></h3>\r\n\r\n<p>Edumall sẽ thu thập th&ocirc;ng tin như t&ecirc;n v&agrave; địa chỉ email của kh&aacute;ch h&agrave;ng để thiết lập hồ sơ c&aacute; nh&acirc;n.</p>\r\n\r\n<p>Th&ocirc;ng tin n&agrave;y sẽ được m&atilde; ho&aacute; tr&ecirc;n hệ thống bảo mật. Khi đ&atilde; l&agrave; học vi&ecirc;n, kh&aacute;ch h&agrave;ng sẽ được th&ecirc;m v&agrave;o danh s&aacute;ch nhận tin tức, đề xuất đặc biệt hoặc ưu đ&atilde;i kh&ocirc;ng thường xuy&ecirc;n từ Edumall.</p>\r\n\r\n<h3><strong>II. SỬ DỤNG TH&Ocirc;NG TIN C&Aacute; NH&Acirc;N</strong></h3>\r\n\r\n<p>Khi y&ecirc;u cầu khai b&aacute;o th&ocirc;ng tin c&aacute; nh&acirc;n, Edumall mong muốn cung cấp những dịch vụ thiết thực nhất tới kh&aacute;ch h&agrave;ng. Edumall t&ocirc;n trọng sự ri&ecirc;ng tư v&agrave; sẽ kh&ocirc;ng b&aacute;n, cho thu&ecirc; hay trao đổi t&ecirc;n cũng như th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng với c&aacute;c tổ chức kh&aacute;c ngo&agrave;i những tổ chức được liệt k&ecirc; trong điều khoản n&agrave;y.</p>\r\n\r\n<p>- C&aacute;c th&ocirc;ng tin thu thập th&ocirc;ng qua website sẽ gi&uacute;p cho Edumall</p>\r\n\r\n<ul>\r\n	<li>Tư vấn cho kh&aacute;ch h&agrave;ng qua điện thoại.</li>\r\n	<li>Giải đ&aacute;p thắc mắc kh&aacute;ch h&agrave;ng</li>\r\n	<li>Cung cấp cho kh&aacute;ch h&agrave;ng th&ocirc;ng tin mới nhất về Edumall</li>\r\n	<li>Thực hiện c&aacute;c bản khảo s&aacute;t kh&aacute;ch h&agrave;ng</li>\r\n	<li>Thực hiện c&aacute;c hoạt động quảng b&aacute; li&ecirc;n quan đến c&aacute;c kh&oacute;a học.</li>\r\n</ul>\r\n\r\n<p>Bảo mật th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng l&agrave; ưu ti&ecirc;n của ch&uacute;ng t&ocirc;i. Ch&uacute;ng t&ocirc;i lu&ocirc;n bắt kịp những ti&ecirc;u chuẩn c&ocirc;ng nghiệp về bảo vệ th&ocirc;ng tin c&aacute; nh&acirc;n m&agrave; kh&aacute;ch h&agrave;ng cung cấp, kể cả trong thời gian gửi đi v&agrave; khi ch&uacute;ng t&ocirc;i nhận th&ocirc;ng tin.</p>\r\n\r\n<p>Edumall cũng y&ecirc;u cầu x&aacute;c nhận mật khẩu khi đăng nhập để chống lại những truy cập tr&aacute;i ph&eacute;p v&agrave;o th&ocirc;ng tin c&aacute; nh&acirc;n. Nếu kh&aacute;ch h&agrave;ng rời m&aacute;y t&iacute;nh m&agrave; chưa đăng xuất tr&ecirc;n trang web, hệ thống sẽ tự động đăng xuất sau một khoảng thời gian.</p>\r\n\r\n<h3><strong>III. THỜI GIAN LƯU TRỮ TH&Ocirc;NG TIN</strong></h3>\r\n\r\n<p>Edumall sẽ giữ th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng cho đến khi t&agrave;i khoản của học vi&ecirc;n ngừng hoạt động. Edumall sẽ lưu giữ v&agrave; sử dụng th&ocirc;ng tin của kh&aacute;ch h&agrave;ng khi cần tu&acirc;n theo nghĩa vụ ph&aacute;p l&yacute;, giải quyết tranh chấp v&agrave; thực thi c&aacute;c thoả thuận của Edumall</p>\r\n\r\n<p>Kh&aacute;ch h&agrave;ng c&oacute; thể xo&aacute; hoặc v&ocirc; hiệu ho&aacute; t&agrave;i khoản bất k&igrave; l&uacute;c n&agrave;o bằng c&aacute;ch li&ecirc;n hệ với Edumall.</p>\r\n\r\n<h3><strong>IV. ĐỐI TƯỢNG CHIA SẺ TH&Ocirc;NG TIN</strong></h3>\r\n\r\n<p>Edumall c&oacute; thể tiết lộ th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng theo y&ecirc;u cầu của luật sư cũng như cơ quan chức năng c&oacute; thẩm quyền.</p>\r\n\r\n<p>Edumall sẽ cung cấp th&ocirc;ng tin của kh&aacute;ch h&agrave;ng khi Edumall tin rằng việc l&agrave;m đ&oacute; l&agrave; cần thiết để bảo vệ quyền lợi của kh&aacute;ch h&agrave;ng, đảm bảo sự an to&agrave;n của kh&aacute;ch h&agrave;ng hoặc người kh&aacute;c, điều tra gian lận .</p>\r\n\r\n<p>Nếu Topica English tham gia v&agrave;o s&aacute;t nhập hoặc được mua lại một phần hay to&agrave;n bộ t&agrave;i sản, kh&aacute;ch h&agrave;ng sẽ được th&ocirc;ng b&aacute;o qua email hoặc qua tin tức ch&iacute;nh thức tr&ecirc;n trang web của Edumall về bất k&igrave; sự thay đổi quyền sở hữu hoặc sử dụng th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng, cũng như bất k&igrave; quyền của kh&aacute;ch h&agrave;ng n&agrave;o li&ecirc;n quan đến th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng, tới bất k&igrave; b&ecirc;n thứ 3 n&agrave;o với sự đồng &yacute; của kh&aacute;ch h&agrave;ng.</p>\r\n\r\n<p>Ch&uacute;ng t&ocirc;i chia sẻ th&ocirc;ng tin c&aacute; nh&acirc;n của bạn với c&aacute;c c&ocirc;ng ty kh&aacute;c trong TOPICA Edtech Group để nghi&ecirc;n cứu v&agrave; đưa đến những sản phẩm v&agrave; dịch vụ tốt hơn tới từng kh&aacute;ch h&agrave;ng. Ch&uacute;ng t&ocirc;i chỉ chia sẻ những th&ocirc;ng tin bao gồm họ t&ecirc;n, nh&oacute;m tuổi, địa chỉ email. Nếu bạn kh&ocirc;ng muốn chia sẻ những th&ocirc;ng tin tr&ecirc;n, h&atilde;y li&ecirc;n hệ với ch&uacute;ng t&ocirc;i.</p>\r\n\r\n<p>Cookie l&agrave; một mẩu th&ocirc;ng tin m&agrave; trang web lưu trữ lại ở tr&igrave;nh duyệt m&aacute;y t&iacute;nh hoặc tr&ecirc;n ổ cứng của kh&aacute;ch h&agrave;ng khi kh&aacute;ch h&agrave;ng truy cập v&agrave;o trang web bất k&igrave;.</p>\r\n\r\n<p>Ch&uacute;ng t&ocirc;i v&agrave; c&aacute;c đối t&aacute;c sử dụng Cookies để ghi nhớ th&ocirc;ng tin kh&aacute;ch h&agrave;ng khi bạn truy cập v&agrave;o trang web. V&iacute; dụ như, nếu bạn chọn hiển thị trang web của ch&uacute;ng t&ocirc;i bằng tiếng Ph&aacute;p, ch&uacute;ng t&ocirc;i sẽ lưu th&ocirc;ng tin đ&oacute; v&agrave; sẽ hiển thị tiếng Ph&aacute;p v&agrave;o lần truy cập tiếp theo. Ch&uacute;ng t&ocirc;i cũng sử dụng Cookies để lưu trữ ID đăng nhập của bạn, gi&uacute;p bạn thuận tiện hơn khi đăng nhập v&agrave;o trang web. Hầu hết c&aacute;c tr&igrave;nh duyệt cho ph&eacute;p người d&ugrave;ng tuỳ chỉnh việc ngăn chặn lưu trữ Cookies trong m&aacute;y t&iacute;nh, mặc d&ugrave; l&agrave;m vậy sẽ mất nhiều lợi &iacute;ch từ Edumall.</p>\r\n\r\n<p>Ch&uacute;ng t&ocirc;i sử dụng cả 2 phi&ecirc;n bản Cookies tạm thời v&agrave; Cookies d&agrave;i hạn. Phi&ecirc;n bản Cookies tạm thời sẽ hết hạn khi bạn đ&oacute;ng tr&igrave;nh duyệt. C&ograve;n Cookies li&ecirc;n tục sẽ lưu lại tr&ecirc;n ổ cứng của bạn một thời gian sau.</p>\r\n\r\n<p>Ch&uacute;ng t&ocirc;i sử dụng dịch vụ của b&ecirc;n thứ 3 để gi&aacute;m s&aacute;t t&iacute;nh hữu dụng của c&ocirc;ng ty để theo d&otilde;i h&agrave;nh vi kh&aacute;ch h&agrave;ng truy cập v&agrave;o trang web ch&uacute;ng t&ocirc;i. Tuy nhi&ecirc;n, ch&uacute;ng t&ocirc;i kh&ocirc;ng c&oacute; quyền tham gia hoặc điều chỉnh Cookies của họ. Th&ocirc;ng tin ch&uacute;ng t&ocirc;i thu được th&ocirc;ng qua sự theo d&otilde;i của b&ecirc;n thứ 3, ho&agrave;n to&agrave;n ẩn danh v&agrave; sử dụng để cải thiện dịch vụ v&agrave; hiệu quả marketing.</p>\r\n\r\n<p>Như hầu hết c&aacute;c trang web kh&aacute;c, ch&uacute;ng t&ocirc;i tự động tổng hợp th&ocirc;ng tin v&agrave; lưu trữ ch&uacute;ng tr&ecirc;n tập tin lịch sử lưu trữ.</p>\r\n\r\n<p>Th&ocirc;ng tin n&agrave;y bao gồm địa chỉ Internet, loại tr&igrave;nh duyệt v&agrave; ng&ocirc;n ngữ, nh&agrave; cung cấp dịch vụ Internet, trang đến v&agrave; trang đi, hệ thống vận h&agrave;nh, ng&agrave;y th&aacute;ng v&agrave; th&ocirc;ng tin về click chuột. Ch&uacute;ng t&ocirc;i sử dụng th&ocirc;ng tin n&agrave;y để t&igrave;m hiểu v&agrave; ph&acirc;n t&iacute;ch xu hướng, để quản trị trang web đồng thời nghi&ecirc;n cứu h&agrave;nh vi kh&aacute;ch h&agrave;ng, thu thập th&ocirc;ng tin c&aacute; nh&acirc;n của người d&ugrave;ng.</p>\r\n\r\n<h3><strong>V. THAY ĐỔI HOẶC LOẠI BỎ TH&Ocirc;NG TIN HỒ SƠ C&Aacute; NH&Acirc;N</strong></h3>\r\n\r\n<p>Nếu th&ocirc;ng tin c&aacute; nh&acirc;n của bạn bị thay đổi, hoặc bạn kh&ocirc;ng sử dụng dịch vụ của Edumall nữa, bạn c&oacute; thể sửa chữa, thay đổi, bổ sung hoặc xo&aacute; th&ocirc;ng tin c&aacute; nh&acirc;n bằng c&aacute;c c&aacute;ch sau: thay đổi th&ocirc;ng tin tr&ecirc;n trang d&agrave;nh cho th&agrave;nh vi&ecirc;n, li&ecirc;n hệ với Hỗ trợ Kh&aacute;ch h&agrave;ng của ch&uacute;ng t&ocirc;i hoặc gọi điện, gửi thư bưu điện đến địa điểm được ghi dưới đ&acirc;y. Ch&uacute;ng t&ocirc;i sẽ hồi đ&aacute;p y&ecirc;u cầu truy vấn th&ocirc;ng tin c&aacute; nh&acirc;n của bạn trong v&ograve;ng 30 ng&agrave;y. Edumall sẽ giữ th&ocirc;ng tin c&aacute; nh&acirc;n của bạn cho đến khi t&agrave;i khoản của bạn ngưng hoạt động v&agrave;o c&aacute;c t&igrave;nh huống cần thiết để cung cấp dịch vụ cho bạn. Ch&uacute;ng t&ocirc;i sẽ lưu giữ v&agrave; sử dụng th&ocirc;ng tin của bạn khi cần thiết tu&acirc;n theo nghĩa vụ ph&aacute;p l&yacute;, giải quyết tranh chấp v&agrave; thực thi c&aacute;c thoả thuận của ch&uacute;ng t&ocirc;i.</p>\r\n\r\n<ul>\r\n	<li>Bi&ecirc;n tập hồ sơ của kh&aacute;ch h&agrave;ng: Kh&aacute;ch h&agrave;ng c&oacute; thể thay đổi hồ sơ bất k&igrave; l&uacute;c n&agrave;o bằng c&aacute;ch cập nhật trong t&agrave;i khoản c&aacute; nh&acirc;n. Thay đổi của kh&aacute;ch h&agrave;ng sẽ được cập nhật ngay sau đ&oacute;.</li>\r\n	<li>Xo&aacute; hoặc v&ocirc; hiệu ho&aacute; hồ sơ: Kh&aacute;ch h&agrave;ng c&oacute; thể xo&aacute; hoặc v&ocirc; hiệu ho&aacute; bất k&igrave; l&uacute;c n&agrave;o bằng c&aacute;ch li&ecirc;n hệ với Edumall.</li>\r\n	<li>Loại bỏ hồ sơ tr&aacute;i ph&eacute;p: Nếu kh&aacute;ch h&agrave;ng muốn y&ecirc;u cầu loại bỏ những hồ sơ tr&aacute;i ph&eacute;p, h&atilde;y li&ecirc;n hệ với Edumall</li>\r\n</ul>\r\n\r\n<h3><strong>VI. ĐỊA CHỈ CỦA ĐƠN VỊ THU THẬP V&Agrave; QUẢN L&Yacute; TH&Ocirc;NG TIN C&Aacute; NH&Acirc;N</strong></h3>\r\n\r\n<p>C&Ocirc;NG TY CỔ PHẦN GI&Aacute;O DỤC TOPICA ENGLISH</p>\r\n\r\n<p>Tầng 3 số 75 Phương Mai, Đống Đa, H&agrave; Nội.</p>\r\n\r\n<p>Nếu bạn c&oacute; bất k&igrave; c&acirc;u hỏi n&agrave;o về hệ thống ch&iacute;nh s&aacute;ch, hoặc bất k&igrave; thắc mắc về Edumall, vui l&ograve;ng li&ecirc;n hệ với ch&uacute;ng t&ocirc;i theo th&ocirc;ng tin sau để được hỗ trợ kịp thời.</p>\r\n\r\n<p>Hotline: 1800.6816</p>\r\n\r\n<p>Email: cskh@edumall.vn</p>\r\n\r\n<p>Một số đề mục trong ch&iacute;nh s&aacute;ch bảo mật của Edumall c&oacute; thể thay đổi. Nếu ch&uacute;ng t&ocirc;i quyết định thay đổi c&aacute;ch thức thu thập, sử dụng hoặc chia sẻ th&ocirc;ng tin, ch&uacute;ng t&ocirc;i sẽ thương mại ho&aacute; c&aacute;c bước để th&ocirc;ng b&aacute;o tới c&aacute;c th&agrave;nh vi&ecirc;n bằng email v&agrave; giải tr&igrave;nh sự thay đổi đ&oacute; v&agrave; đưa ra lựa chọn c&oacute; cho ph&eacute;p hay kh&ocirc;ng việc sử dụng th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng tr&ecirc;n c&aacute;c thay đổi mới. Nếu bạn c&oacute; bất k&igrave; c&acirc;u hỏi n&agrave;o về hệ thống ch&iacute;nh s&aacute;ch, hoặc bất k&igrave; thắc mắc về TOPICA EDTECH GROUP, vui l&ograve;ng li&ecirc;n hệ với ch&uacute;ng t&ocirc;i theo th&ocirc;ng tin sau để được hỗ trợ kịp thời.</p>', '2018-05-18 03:08:25', '2018-05-18 03:08:25');
+INSERT INTO `about` (`about_id`, `about_name`, `about_slug`, `about_text`, `created_at`, `updated_at`) VALUES
+(4, 'Quy chế hoạt động', 'quy-che-hoat-dong', '<h3><strong>I. NGUY&Ecirc;N TẮC CHUNG</strong></h3>\r\n\r\n<p>S&agrave;n giao dịch điện tử www.edumall.vn do C&ocirc;ng ty Cổ phần Gi&aacute;o dục Topica English (&ldquo;C&ocirc;ng ty&rdquo;) thực hiện hoạt động v&agrave; vận h&agrave;nh.</p>\r\n\r\n<p>Th&agrave;nh vi&ecirc;n tr&ecirc;n s&agrave;n giao dịch điện tử l&agrave; c&aacute;c thương nh&acirc;n, tổ chức, c&aacute; nh&acirc;n c&oacute; hoạt động thương mại hợp ph&aacute;p được edumall.vn ch&iacute;nh thức c&ocirc;ng nhận v&agrave; được ph&eacute;p sử dụng dịch vụ do S&agrave;n giao dịch điện tử edumall.vn v&agrave; c&aacute;c b&ecirc;n li&ecirc;n quan cung cấp.</p>\r\n\r\n<h3><strong>II. QUY ĐỊNH CHUNG</strong></h3>\r\n\r\n<p>T&ecirc;n Miền Website thương mại điện tử: S&agrave;n giao dịch TMĐT www.edumall.vn do C&ocirc;ng ty CP Gi&aacute;o dục Topica English ph&aacute;t triển với t&ecirc;n miền Website TMĐT l&agrave;: www.Edumall.vn</p>\r\n\r\n<p>C&aacute;c định nghĩa:</p>\r\n\r\n<ul>\r\n	<li>Kh&oacute;a đ&agrave;o tạo trực tuyến: L&agrave; tập hợp c&aacute;c B&agrave;i giảng đa phương tiện theo một chủ đề nhất định</li>\r\n	<li>Gi&aacute; b&aacute;n (Ph&iacute; dịch vụ): l&agrave; chi ph&iacute; m&agrave; kh&aacute;ch h&agrave;ng phải trả để mua quyền truy cập 01 (một) Kh&oacute;a đ&agrave;o tạo trực tuyến cụ thể do Edumall cung cấp. Gi&aacute; b&aacute;n đăng tr&ecirc;n website Edumall.vn đ&atilde; bao gồm Thuế gi&aacute; trị gia tăng. Kh&aacute;ch h&agrave;ng chỉ cần thanh to&aacute;n 1 kh&oacute;a học 1 lần v&agrave; c&oacute; thể học m&atilde;i m&atilde;i.</li>\r\n	<li>Đối t&aacute;c sản xuất nội dung: Edumall cộng t&aacute;c với c&aacute;c giảng vi&ecirc;n / chuy&ecirc;n gia / chuy&ecirc;n vi&ecirc;n / nh&acirc;n sự cấp cao / cấp quản l&yacute; / doanh nh&acirc;n c&oacute; năng lực, c&oacute; khả năng giảng dạy tốt, kỹ năng truyền đạt dễ hiểu, ng&ocirc;n ngữ cơ thể tốt.</li>\r\n	<li>C&aacute;c giảng vi&ecirc;n / chuy&ecirc;n gia / chuy&ecirc;n vi&ecirc;n hợp t&aacute;c với Edumall soạn thảo kh&oacute;a học chất lượng về nội dung. Video b&agrave;i giảng được quay phim, bi&ecirc;n tập h&igrave;nh ảnh v&agrave; sản xuất hậu kỳ chuy&ecirc;n nghiệp tại Edumall Studio.</li>\r\n</ul>\r\n\r\n<h3><strong>III. QUY TR&Igrave;NH GIAO DỊCH</strong>&nbsp;</h3>\r\n\r\n<p><strong>1. Quy tr&igrave;nh d&agrave;nh cho người mua h&agrave;ng</strong></p>\r\n\r\n<p>Khi c&oacute; nhu cầu mua h&agrave;ng tr&ecirc;n www.edumall.vn người mua n&ecirc;n thực hiện theo c&aacute;c bước sau đ&acirc;y:</p>\r\n\r\n<ul>\r\n	<li>T&igrave;m kiếm, tham khảo th&ocirc;ng tin c&aacute;c Kh&oacute;a đ&agrave;o tạo trực tuyến m&agrave; người mua đang quan t&acirc;m;</li>\r\n	<li>Tham khảo th&ocirc;ng tin gi&aacute; v&agrave; ch&iacute;nh s&aacute;ch hỗ trợ Edumall.</li>\r\n	<li>Dựa tr&ecirc;n th&ocirc;ng tin tham khảo, người mua tiến h&agrave;nh đặt h&agrave;ng v&agrave; thanh to&aacute;n</li>\r\n	<li>Người mua lựa chọn c&aacute;ch thức thanh to&aacute;n(qua chuyển khoản, thẻ điện thoại)</li>\r\n	<li>Hoặc:</li>\r\n	<li>Cung cấp c&aacute;c th&ocirc;ng tin địa chỉ nhận h&agrave;ng (COD); Người mua nhận m&atilde; K&iacute;ch hoạt từ COD;</li>\r\n	<li>Người mua k&iacute;ch hoạt kh&oacute;a học trực tiếp tr&ecirc;n website edumall.vn</li>\r\n	<li>Người mua thắc mắc, khiếu nại (nếu c&oacute;)</li>\r\n</ul>\r\n\r\n<p><strong>2. Quy tr&igrave;nh giao nhận vận chuyển</strong></p>\r\n\r\n<p><strong>Thanh to&aacute;n trực tiếp bằng tiền mặt</strong>&nbsp;<br />\r\nKhi kh&aacute;ch h&agrave;ng đ&oacute;ng tiền trực tiếp tại quầy giao dịch thuộc Hệ thống của Edumall, kh&aacute;ch h&agrave;ng sẽ được k&iacute;ch hoạt ngay t&agrave;i khoản hoặc nhận Phiếu chứa m&atilde; k&iacute;ch hoạt<br />\r\n<strong>Thanh to&aacute;n trực tuyến bằng thẻ ATM hoặc Visa/Master</strong>&nbsp;<br />\r\nSau khi kh&aacute;ch h&agrave;ng tiến h&agrave;nh thanh to&aacute;n trực tiếp th&agrave;nh c&ocirc;ng, kh&aacute;ch h&agrave;ng c&oacute; thể tiến h&agrave;nh học tập ngay lập tức.<br />\r\n<strong>Thanh to&aacute;n bằng chuyển khoản hoặc dịch vụ COD</strong>&nbsp;<br />\r\nSau khi nhận được th&ocirc;ng tin đặt h&agrave;ng của Kh&aacute;ch h&agrave;ng, Edumall sẽ li&ecirc;n lạc để x&aacute;c nhận ch&iacute;nh x&aacute;c địa chỉ, số điện thoại. Nh&acirc;n vi&ecirc;n giao h&agrave;ng của Edumall sẽ li&ecirc;n lạc với bạn để giao M&atilde; k&iacute;ch hoạt để bạn c&oacute; thể tự k&iacute;ch hoạt t&agrave;i khoản của m&igrave;nh v&agrave; tham gia v&agrave;o học ngay.<br />\r\nThời gian giao h&agrave;ng: Chậm nhất 7 ng&agrave;y.</p>\r\n\r\n<p><strong>3. Quy tr&igrave;nh x&aacute;c nhận/hủy đơn h&agrave;ng</strong></p>\r\n\r\n<p>Nếu Kh&aacute;ch h&agrave;ng đang học cảm thấy kh&oacute;a học kh&ocirc;ng hiệu quả, kh&aacute;ch h&agrave;ng c&oacute; thể gọi đến hotline 1800.6816 để được tư vấn chuyển đổi sang kh&oacute;a học kh&aacute;c hoặc Edumall sẽ ho&agrave;n trả lại 100% số tiền.</p>\r\n\r\n<p><strong>4. Quy tr&igrave;nh hỗ trợ/bảo h&agrave;nh</strong></p>\r\n\r\n<p>Nếu gặp kh&oacute; khăn về kỹ thuật kh&aacute;ch h&agrave;ng c&oacute; thể Li&ecirc;n hệ với Edumall trong giờ h&agrave;nh ch&iacute;nh để được hỗ trợ kịp thời.</p>\r\n\r\n<p>Hotline: 1800.6816 Email: cskh@edumall.vn C&aacute;c dịch vụ hỗ trợ cụ thể như sau: Dịch vụ kiểm tra kỹ thuật v&agrave; tư vấn n&acirc;ng cấp thiết bị. Dịch vụ xử l&yacute; tại chỗ c&aacute;c lỗi kỹ thuật. Dịch vụ hỗ trợ n&acirc;ng cấp thiết bị, đường truyền mạng.&nbsp;</p>\r\n\r\n<h3><strong>IV. QUY TR&Igrave;NH THANH TO&Aacute;N</strong></h3>\r\n\r\n<p><strong>1. Giao kh&oacute;a học v&agrave; thu tiền tận nơi (cod)</strong></p>\r\n\r\n<p>Bạn cần cung cấp cho Edumall ch&iacute;nh x&aacute;c địa chỉ, số điện thoại. Nh&acirc;n vi&ecirc;n giao h&agrave;ng của Edumall sẽ li&ecirc;n lạc với bạn để giao M&atilde; k&iacute;ch hoạt để bạn c&oacute; thể tự k&iacute;ch hoạt t&agrave;i khoản của m&igrave;nh v&agrave; tham gia v&agrave;o học ngay.</p>\r\n\r\n<p>Ph&iacute; nhận COD: miễn ph&iacute;.<strong>3. Thanh to&aacute;n trực tiếp bằng tiền mặt</strong></p>\r\n\r\n<p>Qu&yacute; kh&aacute;ch đến quầy giao dịch thuộc Hệ thống Edumall để thực hiện thanh to&aacute;n, nh&acirc;n vi&ecirc;n của Edumall sẽ hướng dẫn Qu&yacute; kh&aacute;ch. Qu&yacute; kh&aacute;ch lưu &yacute; khi thanh to&aacute;n sẽ c&oacute; &ldquo;Phiếu thu&rdquo; của C&ocirc;ng ty Cổ Phần Gi&aacute;o dục TOPICA ENGLISH.</p>\r\n\r\n<p>Địa chỉ văn ph&ograve;ng tại H&agrave; Nội Tầng 3, Số 75 Phương Mai, Phường Phương Mai, Quận Đống Đa, H&agrave; Nội (Thời gian l&agrave;m việc: từ 8:30 - 17:30 , từ Thứ 2 đến Thứ 7 h&agrave;ng tuần) Địa chỉ văn ph&ograve;ng tại th&agrave;nh phố Hồ Ch&iacute; Minh 58/10 Th&agrave;nh Th&aacute;i, Phường 12, Quận 10, tp Hồ Ch&iacute; Minh (Thời gian l&agrave;m việc: từ 8:30 - 17:30 , từ Thứ 2 đến Thứ 7 h&agrave;ng tuần)<strong>4. Thanh to&aacute;n bằng chuyển khoản</strong></p>\r\n\r\n<p>Bạn c&oacute; thể đến bất kỳ ng&acirc;n h&agrave;ng n&agrave;o ở Việt Nam (hoặc sử dụng Internet Banking) để chuyển tiền theo th&ocirc;ng tin b&ecirc;n dưới:</p>\r\n\r\n<p>1. Số t&agrave;i khoản: 1303201050134</p>\r\n\r\n<p>Chủ t&agrave;i khoản: Cty CP Gi&aacute;o dục Topica English Ng&acirc;n h&agrave;ng: Agribank - chi nh&aacute;nh H&agrave; Th&agrave;nh</p>\r\n\r\n<p>2. Số t&agrave;i khoản: 88186777</p>\r\n\r\n<p>Chủ t&agrave;i khoản: Cty CP Gi&aacute;o dục Topica English Ng&acirc;n h&agrave;ng: Vpbank - chi nh&aacute;nh Chương Dương</p>\r\n\r\n<p>3. Số t&agrave;i khoản: 11004263240</p>\r\n\r\n<p>Chủ t&agrave;i khoản: Cty CP Gi&aacute;o dục Topica English Ng&acirc;n h&agrave;ng: Ng&acirc;n h&agrave;ng Vietcom bank, Sở Giao Dịch - H&agrave; Nội</p>\r\n\r\n<p>4. Số t&agrave;i khoản: 204765859</p>\r\n\r\n<p>Chủ t&agrave;i khoản: Cty CP Gi&aacute;o dục Topica English Ng&acirc;n h&agrave;ng: Ng&acirc;n h&agrave;ng ACB, H&agrave; Nội</p>\r\n\r\n<p>5. Số t&agrave;i khoản: 15110000487481</p>\r\n\r\n<p>Chủ t&agrave;i khoản: Cty CP Gi&aacute;o dục Topica English Ng&acirc;n h&agrave;ng: Ng&acirc;n h&agrave;ng BIDV, chi nh&aacute;nh Th&agrave;nh Đ&ocirc;, H&agrave; Nội Ghi ch&uacute; khi chuyển khoản Tại mục &quot;Ghi ch&uacute;&quot; khi chuyển khoản, bạn ghi r&otilde;: Số điện thoại - Họ T&ecirc;n - Email đăng k&yacute; học - Kh&oacute;a học đăng k&yacute; V&iacute; dụ: 0909090909 - Nguyen Thi Huong Lan - lannguyen@gmail.com - Ky nang quan ly cam xuc</p>\r\n\r\n<h3><strong>V. ĐẢM BẢO AN TO&Agrave;N GIAO DỊCH</strong></h3>\r\n\r\n<p>Người mua tuyệt đối kh&ocirc;ng sử dụng bất kỳ chương tr&igrave;nh, c&ocirc;ng cụ hay h&igrave;nh thức n&agrave;o kh&aacute;c để can thiệp v&agrave;o hệ thống hay l&agrave;m thay đổi cấu tr&uacute;c dữ liệu. Nghi&ecirc;m cấm việc ph&aacute;t t&aacute;n, truyền b&aacute; hay cổ vũ cho bất kỳ hoạt động n&agrave;o nhằm can thiệp, ph&aacute; hoại hay x&acirc;m nhập của hệ thống website. Mọi vi phạm sẽ bị xử l&yacute; theo Quy chế v&agrave; quy định của ph&aacute;p luật.</p>\r\n\r\n<p>Mọi th&ocirc;ng tin giao dịch được bảo mật, trừ trường hợp buộc phải cung cấp khi Cơ quan ph&aacute;p luật y&ecirc;u cầu.</p>\r\n\r\n<h3><strong>VI. BẢO VỆ TH&Ocirc;NG TIN C&Aacute; NH&Acirc;N KH&Aacute;CH H&Agrave;NG</strong></h3>\r\n\r\n<p><strong>1. Thu thập th&ocirc;ng tin c&aacute; nh&acirc;n</strong></p>\r\n\r\n<p>Edumall sẽ thu thập th&ocirc;ng tin như t&ecirc;n v&agrave; địa chỉ email của kh&aacute;ch h&agrave;ng để thiết lập hồ sơ c&aacute; nh&acirc;n.</p>\r\n\r\n<p>Th&ocirc;ng tin n&agrave;y sẽ được m&atilde; ho&aacute; tr&ecirc;n hệ thống bảo mật. Khi đ&atilde; l&agrave; học vi&ecirc;n, kh&aacute;ch h&agrave;ng sẽ được th&ecirc;m v&agrave;o danh s&aacute;ch nhận tin tức, đề xuất đặc biệt hoặc ưu đ&atilde;i kh&ocirc;ng thường xuy&ecirc;n từ Edumall.<strong>2. Sử dụng th&ocirc;ng tin c&aacute; nh&acirc;n</strong></p>\r\n\r\n<p>Khi y&ecirc;u cầu khai b&aacute;o th&ocirc;ng tin c&aacute; nh&acirc;n, Edumall mong muốn cung cấp những dịch vụ thiết thực nhất tới kh&aacute;ch h&agrave;ng. Edumall t&ocirc;n trọng sự ri&ecirc;ng tư v&agrave; sẽ kh&ocirc;ng b&aacute;n, cho thu&ecirc; hay trao đổi t&ecirc;n cũng như th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng với c&aacute;c tổ chức kh&aacute;c ngo&agrave;i những tổ chức được liệt k&ecirc; trong điều khoản n&agrave;y.</p>\r\n\r\n<p>- C&aacute;c th&ocirc;ng tin thu thập th&ocirc;ng qua website sẽ gi&uacute;p cho Edumall</p>\r\n\r\n<ul>\r\n	<li>Tư vấn cho kh&aacute;ch h&agrave;ng qua điện thoại.</li>\r\n	<li>Giải đ&aacute;p thắc mắc kh&aacute;ch h&agrave;ng</li>\r\n	<li>Cung cấp cho kh&aacute;ch h&agrave;ng th&ocirc;ng tin mới nhất về Edumall</li>\r\n	<li>Thực hiện c&aacute;c bản khảo s&aacute;t kh&aacute;ch h&agrave;ng</li>\r\n	<li>Thực hiện c&aacute;c hoạt động quảng b&aacute; li&ecirc;n quan đến c&aacute;c kh&oacute;a học.</li>\r\n</ul>\r\n\r\n<p>Bảo mật th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng l&agrave; ưu ti&ecirc;n của ch&uacute;ng t&ocirc;i. Ch&uacute;ng t&ocirc;i lu&ocirc;n bắt kịp những ti&ecirc;u chuẩn c&ocirc;ng nghiệp về bảo vệ th&ocirc;ng tin c&aacute; nh&acirc;n m&agrave; kh&aacute;ch h&agrave;ng cung cấp, kể cả trong thời gian gửi đi v&agrave; khi ch&uacute;ng t&ocirc;i nhận th&ocirc;ng tin.</p>\r\n\r\n<p>Edumall cũng y&ecirc;u cầu x&aacute;c nhận mật khẩu khi đăng nhập để chống lại những truy cập tr&aacute;i ph&eacute;p v&agrave;o th&ocirc;ng tin c&aacute; nh&acirc;n. Nếu kh&aacute;ch h&agrave;ng rời m&aacute;y t&iacute;nh m&agrave; chưa đăng xuất tr&ecirc;n trang web, hệ thống sẽ tự động đăng xuất sau một khoảng thời gian.</p>\r\n\r\n<p><strong>3. Thời gian lưu trữ th&ocirc;ng tin</strong></p>\r\n\r\n<p>Edumall sẽ giữ th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng cho đến khi t&agrave;i khoản của học vi&ecirc;n ngừng hoạt động. Edumall sẽ lưu giữ v&agrave; sử dụng th&ocirc;ng tin của kh&aacute;ch h&agrave;ng khi cần tu&acirc;n theo nghĩa vụ ph&aacute;p l&yacute;, giải quyết tranh chấp v&agrave; thực thi c&aacute;c thoả thuận của Edumall</p>\r\n\r\n<p>Kh&aacute;ch h&agrave;ng c&oacute; thể xo&aacute; hoặc v&ocirc; hiệu ho&aacute; t&agrave;i khoản bất k&igrave; l&uacute;c n&agrave;o bằng c&aacute;ch li&ecirc;n hệ với Edumall.</p>\r\n\r\n<p><strong>4. Đối tượng chia sẻ th&ocirc;ng tin</strong></p>\r\n\r\n<p>Edumall c&oacute; thể tiết lộ th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng theo y&ecirc;u cầu của luật sư cũng như cơ quan chức năng c&oacute; thẩm quyền.</p>\r\n\r\n<p>Edumall sẽ cung cấp th&ocirc;ng tin của kh&aacute;ch h&agrave;ng khi Edumall tin rằng việc l&agrave;m đ&oacute; l&agrave; cần thiết để bảo vệ quyền lợi của kh&aacute;ch h&agrave;ng, đảm bảo sự an to&agrave;n của kh&aacute;ch h&agrave;ng hoặc người kh&aacute;c, điều tra gian lận .</p>\r\n\r\n<p>Nếu Topica English tham gia v&agrave;o s&aacute;t nhập hoặc được mua lại một phần hay to&agrave;n bộ t&agrave;i sản, kh&aacute;ch h&agrave;ng sẽ được th&ocirc;ng b&aacute;o qua email hoặc qua tin tức ch&iacute;nh thức tr&ecirc;n trang web của Edumall về bất k&igrave; sự thay đổi quyền sở hữu hoặc sử dụng th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng, cũng như bất k&igrave; quyền của kh&aacute;ch h&agrave;ng n&agrave;o li&ecirc;n quan đến th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng, tới bất k&igrave; b&ecirc;n thứ 3 n&agrave;o với sự đồng &yacute; của kh&aacute;ch h&agrave;ng.</p>\r\n\r\n<p>Ch&uacute;ng t&ocirc;i chia sẻ th&ocirc;ng tin c&aacute; nh&acirc;n của bạn với c&aacute;c c&ocirc;ng ty kh&aacute;c trong TOPICA Edtech Group để nghi&ecirc;n cứu v&agrave; đưa đến những sản phẩm v&agrave; dịch vụ tốt hơn tới từng kh&aacute;ch h&agrave;ng. Ch&uacute;ng t&ocirc;i chỉ chia sẻ những th&ocirc;ng tin bao gồm họ t&ecirc;n, nh&oacute;m tuổi, địa chỉ email. Nếu bạn kh&ocirc;ng muốn chia sẻ những th&ocirc;ng tin tr&ecirc;n, h&atilde;y li&ecirc;n hệ với ch&uacute;ng t&ocirc;i.</p>\r\n\r\n<p>Cookie l&agrave; một mẩu th&ocirc;ng tin m&agrave; trang web lưu trữ lại ở tr&igrave;nh duyệt m&aacute;y t&iacute;nh hoặc tr&ecirc;n ổ cứng của kh&aacute;ch h&agrave;ng khi kh&aacute;ch h&agrave;ng truy cập v&agrave;o trang web bất k&igrave;.</p>\r\n\r\n<p>Ch&uacute;ng t&ocirc;i v&agrave; c&aacute;c đối t&aacute;c sử dụng Cookies để ghi nhớ th&ocirc;ng tin kh&aacute;ch h&agrave;ng khi bạn truy cập v&agrave;o trang web. V&iacute; dụ như, nếu bạn chọn hiển thị trang web của ch&uacute;ng t&ocirc;i bằng tiếng Ph&aacute;p, ch&uacute;ng t&ocirc;i sẽ lưu th&ocirc;ng tin đ&oacute; v&agrave; sẽ hiển thị tiếng Ph&aacute;p v&agrave;o lần truy cập tiếp theo. Ch&uacute;ng t&ocirc;i cũng sử dụng Cookies để lưu trữ ID đăng nhập của bạn, gi&uacute;p bạn thuận tiện hơn khi đăng nhập v&agrave;o trang web. Hầu hết c&aacute;c tr&igrave;nh duyệt cho ph&eacute;p người d&ugrave;ng tuỳ chỉnh việc ngăn chặn lưu trữ Cookies trong m&aacute;y t&iacute;nh, mặc d&ugrave; l&agrave;m vậy sẽ mất nhiều lợi &iacute;ch từ Edumall.</p>\r\n\r\n<p>Ch&uacute;ng t&ocirc;i sử dụng cả 2 phi&ecirc;n bản Cookies tạm thời v&agrave; Cookies d&agrave;i hạn. Phi&ecirc;n bản Cookies tạm thời sẽ hết hạn khi bạn đ&oacute;ng tr&igrave;nh duyệt. C&ograve;n Cookies li&ecirc;n tục sẽ lưu lại tr&ecirc;n ổ cứng của bạn một thời gian sau.</p>\r\n\r\n<p>Ch&uacute;ng t&ocirc;i sử dụng dịch vụ của b&ecirc;n thứ 3 để gi&aacute;m s&aacute;t t&iacute;nh hữu dụng của c&ocirc;ng ty để theo d&otilde;i h&agrave;nh vi kh&aacute;ch h&agrave;ng truy cập v&agrave;o trang web ch&uacute;ng t&ocirc;i. Tuy nhi&ecirc;n, ch&uacute;ng t&ocirc;i kh&ocirc;ng c&oacute; quyền tham gia hoặc điều chỉnh Cookies của họ. Th&ocirc;ng tin ch&uacute;ng t&ocirc;i thu được th&ocirc;ng qua sự theo d&otilde;i của b&ecirc;n thứ 3, ho&agrave;n to&agrave;n ẩn danh v&agrave; sử dụng để cải thiện dịch vụ v&agrave; hiệu quả marketing.</p>\r\n\r\n<p>Như hầu hết c&aacute;c trang web kh&aacute;c, ch&uacute;ng t&ocirc;i tự động tổng hợp th&ocirc;ng tin v&agrave; lưu trữ ch&uacute;ng tr&ecirc;n tập tin lịch sử lưu trữ.</p>\r\n\r\n<p>Th&ocirc;ng tin n&agrave;y bao gồm địa chỉ Internet, loại tr&igrave;nh duyệt v&agrave; ng&ocirc;n ngữ, nh&agrave; cung cấp dịch vụ Internet, trang đến v&agrave; trang đi, hệ thống vận h&agrave;nh, ng&agrave;y th&aacute;ng v&agrave; th&ocirc;ng tin về click chuột. Ch&uacute;ng t&ocirc;i sử dụng th&ocirc;ng tin n&agrave;y để t&igrave;m hiểu v&agrave; ph&acirc;n t&iacute;ch xu hướng, để quản trị trang web đồng thời nghi&ecirc;n cứu h&agrave;nh vi kh&aacute;ch h&agrave;ng, thu thập th&ocirc;ng tin c&aacute; nh&acirc;n của người d&ugrave;ng.</p>\r\n\r\n<p><strong>5. Thay đổi hoặc loại bỏ th&ocirc;ng tin hồ sơ c&aacute; nh&acirc;n</strong></p>\r\n\r\n<p>Nếu th&ocirc;ng tin c&aacute; nh&acirc;n của bạn bị thay đổi, hoặc bạn kh&ocirc;ng sử dụng dịch vụ của Edumall nữa, bạn c&oacute; thể sửa chữa, thay đổi, bổ sung hoặc xo&aacute; th&ocirc;ng tin c&aacute; nh&acirc;n bằng c&aacute;c c&aacute;ch sau: thay đổi th&ocirc;ng tin tr&ecirc;n trang d&agrave;nh cho th&agrave;nh vi&ecirc;n, li&ecirc;n hệ với Hỗ trợ Kh&aacute;ch h&agrave;ng của ch&uacute;ng t&ocirc;i hoặc gọi điện, gửi thư bưu điện đến địa điểm được ghi dưới đ&acirc;y. Ch&uacute;ng t&ocirc;i sẽ hồi đ&aacute;p y&ecirc;u cầu truy vấn th&ocirc;ng tin c&aacute; nh&acirc;n của bạn trong v&ograve;ng 30 ng&agrave;y. Edumall sẽ giữ th&ocirc;ng tin c&aacute; nh&acirc;n của bạn cho đến khi t&agrave;i khoản của bạn ngưng hoạt động v&agrave;o c&aacute;c t&igrave;nh huống cần thiết để cung cấp dịch vụ cho bạn. Ch&uacute;ng t&ocirc;i sẽ lưu giữ v&agrave; sử dụng th&ocirc;ng tin của bạn khi cần thiết tu&acirc;n theo nghĩa vụ ph&aacute;p l&yacute;, giải quyết tranh chấp v&agrave; thực thi c&aacute;c thoả thuận của ch&uacute;ng t&ocirc;i.</p>\r\n\r\n<ul>\r\n	<li>Bi&ecirc;n tập hồ sơ của kh&aacute;ch h&agrave;ng: Kh&aacute;ch h&agrave;ng c&oacute; thể thay đổi hồ sơ bất k&igrave; l&uacute;c n&agrave;o bằng c&aacute;ch cập nhật trong t&agrave;i khoản c&aacute; nh&acirc;n. Thay đổi của kh&aacute;ch h&agrave;ng sẽ được cập nhật ngay sau đ&oacute;.</li>\r\n	<li>Xo&aacute; hoặc v&ocirc; hiệu ho&aacute; hồ sơ: Kh&aacute;ch h&agrave;ng c&oacute; thể xo&aacute; hoặc v&ocirc; hiệu ho&aacute; bất k&igrave; l&uacute;c n&agrave;o bằng c&aacute;ch li&ecirc;n hệ với Edumall.</li>\r\n	<li>Loại bỏ hồ sơ tr&aacute;i ph&eacute;p: Nếu kh&aacute;ch h&agrave;ng muốn y&ecirc;u cầu loại bỏ những hồ sơ tr&aacute;i ph&eacute;p, h&atilde;y li&ecirc;n hệ với Edumall</li>\r\n</ul>\r\n\r\n<p><strong>6. Địa chỉ của đơn vị thu thập v&agrave; quản l&yacute; th&ocirc;ng tin c&aacute; nh&acirc;n</strong></p>\r\n\r\n<p>C&Ocirc;NG TY CỔ PHẦN GI&Aacute;O DỤC TOPICA ENGLISH</p>\r\n\r\n<p>Tầng 3 số 75 Phương Mai, Đống Đa, H&agrave; Nội. Nếu bạn c&oacute; bất k&igrave; c&acirc;u hỏi n&agrave;o về hệ thống ch&iacute;nh s&aacute;ch, hoặc bất k&igrave; thắc mắc về EDUMALL, vui l&ograve;ng li&ecirc;n hệ với ch&uacute;ng t&ocirc;i theo th&ocirc;ng tin sau để được hỗ trợ kịp thời. Hotline: 0961.215.368 Email: cskh@edumall.vn</p>\r\n\r\n<p>Một số đề mục trong ch&iacute;nh s&aacute;ch bảo mật của Edumall c&oacute; thể thay đổi. Nếu ch&uacute;ng t&ocirc;i quyết định thay đổi c&aacute;ch thức thu thập, sử dụng hoặc chia sẻ th&ocirc;ng tin, ch&uacute;ng t&ocirc;i sẽ thương mại ho&aacute; c&aacute;c bước để th&ocirc;ng b&aacute;o tới c&aacute;c th&agrave;nh vi&ecirc;n bằng email v&agrave; giải tr&igrave;nh sự thay đổi đ&oacute; v&agrave; đưa ra lựa chọn c&oacute; cho ph&eacute;p hay kh&ocirc;ng việc sử dụng th&ocirc;ng tin c&aacute; nh&acirc;n của kh&aacute;ch h&agrave;ng tr&ecirc;n c&aacute;c thay đổi mới. Nếu bạn c&oacute; bất k&igrave; c&acirc;u hỏi n&agrave;o về hệ thống ch&iacute;nh s&aacute;ch, hoặc bất k&igrave; thắc mắc về TOPICA EDTECH GROUP, vui l&ograve;ng li&ecirc;n hệ với ch&uacute;ng t&ocirc;i theo th&ocirc;ng tin sau để được hỗ trợ kịp thời.</p>\r\n\r\n<h3><strong>VII. QUẢN L&Yacute; TH&Ocirc;NG TIN XẤU</strong></h3>\r\n\r\n<p><strong>1. Nghi&ecirc;m cấm c&aacute;c h&agrave;nh động</strong></p>\r\n\r\n<p>- Tr&aacute;i với luật ph&aacute;p của Việt Nam v&agrave; quốc tế, x&acirc;m phạm quyền lợi của b&ecirc;n thứ 3, v&agrave; tr&aacute;i với c&aacute;c ch&iacute;nh s&aacute;ch S&agrave;n giao dịch TMĐT Edumall đề ra.</p>\r\n\r\n<p>- Sử dụng tr&aacute;i ph&eacute;p t&agrave;i khoản, b&agrave;i đăng, giao dịch của người kh&aacute;c.</p>\r\n\r\n<p>- Đăng c&aacute;c nội dung g&acirc;y hiểu lầm, kh&ocirc;ng ch&iacute;nh x&aacute;c, xuy&ecirc;n tạc hoặc gian lận.</p>\r\n\r\n<p>- Gửi thư r&aacute;c c&aacute;c loại.</p>\r\n\r\n<p>- D&ugrave;ng virus, phần mềm độc hại&hellip; g&acirc;y ảnh hưởng đến hoạt động của trang web hay x&acirc;m phạm đến quyền lợi t&agrave;i sản của người sử dụng.</p>\r\n\r\n<p>- Copy hay sửa đổi nội dung trang web bao gồm bản quyền, logo, nh&atilde;n hiệu.</p>\r\n\r\n<p>- Sử dụng th&ocirc;ng tin của người d&ugrave;ng kh&aacute;c m&agrave; kh&ocirc;ng được đồng &yacute;.</p>\r\n\r\n<p><strong>2. Sản phẩm kh&ocirc;ng đăng b&aacute;n</strong></p>\r\n\r\n<p>- Những kh&oacute;a học, b&agrave;i giảng miễn ph&iacute; ở c&aacute;c điểm ph&acirc;n phối kh&aacute;c (tr&ecirc;n internet hoặc kh&ocirc;ng tr&ecirc;n internet) kh&ocirc;ng được kinh doanh, bu&ocirc;n b&aacute;n trả ph&iacute; tr&ecirc;n Edumall.</p>\r\n\r\n<p>- Những kh&oacute;a học, b&agrave;i giảng c&oacute; li&ecirc;n quan đến ch&iacute;nh trị, kh&iacute;ch động t&ocirc;n gi&aacute;o, diễn biến h&ograve;a b&igrave;nh...tr&aacute;i với ph&aacute;p luật nh&agrave; nước Cộng h&ograve;a X&atilde; hội Chủ nghĩa Việt Nam.</p>\r\n\r\n<p>- Những kh&oacute;a học, b&agrave;i giảng c&oacute; nội dung v&agrave; h&igrave;nh ảnh vi phạm Nghị định 72/2013/NĐ-CP Quản l&yacute;, cung cấp, sử dụng dịch vụ internet v&agrave; th&ocirc;ng tin tr&ecirc;n mạng</p>\r\n\r\n<h3><strong>VIII. TR&Aacute;CH NHIỆM TRONG TRƯỜNG HỢP PH&Aacute;T SINH LỖI KỸ THUẬT</strong></h3>\r\n\r\n<p>Nếu gặp kh&oacute; khăn về kỹ thuật kh&aacute;ch h&agrave;ng c&oacute; thể Li&ecirc;n hệ với Edumall trong giờ h&agrave;nh ch&iacute;nh để được hỗ trợ kịp thời.</p>\r\n\r\n<p>Hotline: 1800.6816</p>\r\n\r\n<p>Email: cskh@edumall.vn</p>\r\n\r\n<p>C&aacute;c dịch vụ hỗ trợ cụ thể như sau:</p>\r\n\r\n<p>- Dịch vụ xử l&yacute; c&aacute;c lỗi kỹ thuật.</p>\r\n\r\n<p>- Dịch vụ giải đ&aacute;p thắc mắc v&agrave; tư vấn về sản phẩm.</p>\r\n\r\n<h3><strong>IX. QUYỀN V&Agrave; NGHĨA VỤ CỦA BAN QUẢN L&Yacute; WEBSITE</strong></h3>\r\n\r\n<p><strong>1. Quyền của Ban quản l&yacute; Edumall</strong></p>\r\n\r\n<p>- Y&ecirc;u cầu th&agrave;nh vi&ecirc;n phải cung cấp th&ocirc;ng tin đầy đủ, ch&iacute;nh x&aacute;c v&agrave; trung thực. Trong trường hợp c&oacute; cơ sở chứng minh th&agrave;nh vi&ecirc;n cung cấp th&ocirc;ng tin kh&ocirc;ng ch&iacute;nh x&aacute;c, sai lệnh, kh&ocirc;ng đầy đủ hoặc vi phạm ph&aacute;p luật hay thuần phong mỹ tục Việt Nam th&igrave; Edumall c&oacute; quyền từ chối, tạm ngừng hoặc chấm dứt quyền sử dụng dịch vụ của th&agrave;nh vi&ecirc;n.</p>\r\n\r\n<p>- Edumall c&oacute; quyền tạm ngừng ph&aacute;t h&agrave;nh kh&oacute;a học, chỉnh sửa hoặc x&oacute;a nội dung kh&oacute;a học nếu Edumall ph&aacute;t hiện kh&oacute;a học đ&oacute; c&oacute; nội dung vi phạm ph&aacute;p luật, vi phạm quyền sở hữu tr&iacute; tuệ, x&acirc;m phạm danh dự v&agrave; nh&acirc;n phẩm của người kh&aacute;c.</p>\r\n\r\n<p>- Edumall c&oacute; quyền giữ bản quyền sử dụng dịch vụ v&agrave; c&aacute;c nội dung kh&oacute;a học tr&ecirc;n S&agrave;n giao dịch theo c&aacute;c quy dịnh ph&aacute;p luật về bảo hộ sở hữu tr&iacute; tuệ tại Việt Nam. Tất cả c&aacute;c biểu tượng, nội dung theo c&aacute;c ng&ocirc;n ngữ kh&aacute;c nhau đều thuộc quyền sở hữu của Edumall Nghi&ecirc;m cấm mọi h&agrave;nh vi sao ch&eacute;p, sử dụng v&agrave; phổ biến bất hợp ph&aacute;p c&aacute;c quyền sở hữu tr&ecirc;n.</p>\r\n\r\n<p>- Edumall c&oacute; thể chấm dứt ngay quyền sử dụng dịch vụ v&agrave; quyền th&agrave;nh vi&ecirc;n của th&agrave;nh vi&ecirc;n nếu ph&aacute;t hiện th&agrave;nh vi&ecirc;n đ&atilde; ph&aacute; sản, bị kết &aacute;n hoặc đang trong thời gian thụ &aacute;n, trong trường hợp th&agrave;nh vi&ecirc;n tiếp tục hoạt động c&oacute; thể g&acirc;y cho S&agrave;n giao dịch tr&aacute;ch nhiệm ph&aacute;p l&yacute;; c&oacute; những hoạt động lừa đảo, giả mạo, g&acirc;y rối loạn thị trường, g&acirc;y mất đo&agrave;n kết đối với c&aacute;c th&agrave;nh vi&ecirc;n kh&aacute;c của S&agrave;n giao dịch; hoạt động vi phạm ph&aacute;p luật hiện h&agrave;nh của Việt Nam. Trong trường hợp chấm dứt quyền th&agrave;nh vi&ecirc;n v&agrave; quyền sử dụng dịch vụ th&igrave; tất cả c&aacute;c chứng nhận, c&aacute;c quyền của th&agrave;nh vi&ecirc;n được cấp sẽ mặc nhi&ecirc;n hết gi&aacute; trị v&agrave; bị chấm dứt.</p>\r\n\r\n<p>- Edumall c&oacute; quyền thay đổi bảng gi&aacute; c&aacute;c kh&oacute;a học v&agrave; phương thức thanh to&aacute;n để ph&ugrave; hợp với nhu cầu v&agrave; hướng ph&aacute;t triển của website Edumall.vn cũng như của C&ocirc;ng ty Cổ phần Gi&aacute;o dục Topica English</p>\r\n\r\n<p><strong>2. Nghĩa vụ của Ban quản l&yacute; Edumall</strong></p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm x&acirc;y dựng Website bao gồm một số c&ocirc;ng việc ch&iacute;nh như: nghi&ecirc;n cứu, thiết kế, mua sắm c&aacute;c thiết bị phần cứng v&agrave; phần mềm, kết nối Internet, x&acirc;y dựng ch&iacute;nh s&aacute;ch phục vụ cho hoạt động Website Edumall trong điều kiện v&agrave; phạm vi cho ph&eacute;p.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm x&acirc;y dựng, bổ sung hệ thống c&aacute;c kiến thức, th&ocirc;ng tin về: nghiệp vụ thương mại điện tử, hệ thống văn bản ph&aacute;p luật thương mại trong nước v&agrave; quốc tế, thị trường nước ngo&agrave;i, cũng như c&aacute;c tin tức c&oacute; li&ecirc;n quan đến hoạt động của Website Edumall.vn</p>\r\n\r\n<p>- Cung cấp đầy đủ v&agrave; ch&iacute;nh x&aacute;c th&ocirc;ng tin v&agrave; phương thức li&ecirc;n lạc của Đối t&aacute;c sản xuất nội dung.</p>\r\n\r\n<p>- Cung cấp đầy đủ th&ocirc;ng tin về sản phẩm được cung cấp tr&ecirc;n s&agrave;n giao dịch Edumall.vn: th&ocirc;ng tin về sản phẩm, gi&aacute; cả, phương thức thanh to&aacute;n v&agrave; giao nhận...</p>\r\n\r\n<p>- Đảm bảo t&iacute;nh ch&iacute;nh x&aacute;c, trung thực của th&ocirc;ng tin về c&aacute;c Kh&oacute;a học trực tuyến cung cấp tr&ecirc;n s&agrave;n giao dịch thương mại điện tử.</p>\r\n\r\n<p>- Cung cấp th&ocirc;ng tin về t&igrave;nh h&igrave;nh kinh doanh của m&igrave;nh khi c&oacute; y&ecirc;u cầu của cơ quan nh&agrave; nước c&oacute; thẩm quyền để phục vụ hoạt động thống k&ecirc; thương mại điện tử.</p>\r\n\r\n<p>- Tu&acirc;n thủ quy định của ph&aacute;p luật về thanh to&aacute;n, quảng c&aacute;o, khuyến mại, bảo vệ quyền sở hữu tr&iacute; tuệ, bảo vệ quyền lợi người ti&ecirc;u d&ugrave;ng v&agrave; c&aacute;c quy định của ph&aacute;p luật c&oacute; li&ecirc;n quan kh&aacute;c khi b&aacute;n h&agrave;ng h&oacute;a hoặc cung ứng dịch vụ tr&ecirc;n s&agrave;n giao dịch thương mại điện tử.</p>\r\n\r\n<h3><strong>X. QUYỀN V&Agrave; TR&Aacute;CH NHIỆM HỌC VI&Ecirc;N THAM GIA S&Agrave;N GIAO DỊCH WEBSITE</strong></h3>\r\n\r\n<p><strong>1. Quyền v&agrave; nghĩa vụ của học vi&ecirc;n</strong><strong>1.1 Quyền</strong></p>\r\n\r\n<p>- Học vi&ecirc;n c&oacute; quyền tham gia v&agrave;o c&aacute;c kh&oacute;a học miễn ph&iacute;/ trả ph&iacute; của Edumall</p>\r\n\r\n<p>- Học vi&ecirc;n sẽ được hưởng c&aacute;c ch&iacute;nh s&aacute;ch ưu đ&atilde;i do Edumall cung cấp. Ch&iacute;nh s&aacute;ch ưu đ&atilde;i sẽ được đăng tải trực tiếp tr&ecirc;n trang chủ của website Edumall.vn v&agrave; c&aacute;c k&ecirc;nh th&ocirc;ng tin kh&aacute;c</p>\r\n\r\n<p>- Học vi&ecirc;n c&oacute; quyền đ&oacute;ng g&oacute;p &yacute; kiến về Edumall trong qu&aacute; tr&igrave;nh sử dụng, mọi kiến nghị được gửi trực tiếp qua thư, điện thoại, email . Tất cả c&aacute;c &yacute; kiến, thắc mắc sẽ được ph&ograve;ng chăm s&oacute;c kh&aacute;ch h&agrave;ng giải đ&aacute;p trong thời gian ngắn nhất c&oacute; thể.</p>\r\n\r\n<p><strong>1.2 Nghĩa vụ</strong></p>\r\n\r\n<p>- Học vi&ecirc;n sẽ chịu tr&aacute;ch nhiệm về bảo mật v&agrave; lưu giữ v&agrave; mọi hoạt động sử dụng dịch vụ dưới t&ecirc;n đăng k&yacute;, mật khẩu v&agrave; h&ograve;m thư điện tử của m&igrave;nh. Học vi&ecirc;n c&oacute; tr&aacute;ch nhiệm th&ocirc;ng b&aacute;o kịp thời cho Edumall về những h&agrave;nh vi sử dụng tr&aacute;i ph&eacute;p t&agrave;i khoản để bai b&ecirc;n c&ugrave;ng hợp t&aacute;c xử l&yacute;.</p>\r\n\r\n<p>- Học vi&ecirc;n cam kết, đồng &yacute; kh&ocirc;ng sử dụng dịch vụ của Edumall v&agrave;o những mục đ&iacute;ch bất hợp ph&aacute;p, lừa đảo , thăm d&ograve; th&ocirc;ng tin bất hợp ph&aacute;p, ph&aacute; hoại, tạo ra v&agrave; ph&aacute;t t&aacute;n virus g&acirc;y hư hại tới hệ thống, cấu h&igrave;nh, truyền tải th&ocirc;ng tin của Edumall. Hay sử dụng dịch vụ, tạo đơn h&agrave;ng giả v&agrave;o mục đ&iacute;ch đầu cơ, g&acirc;y lũng đoạn thị trường.</p>\r\n\r\n<p>- Học vi&ecirc;n cam kết kh&ocirc;ng sao ch&eacute;p, sửa đổi, truyền b&aacute;, ph&acirc;n phối c&aacute;c kh&oacute;a học hay tạo c&aacute;c c&ocirc;ng cụ tương tự như của Edumall khi kh&ocirc;ng được sự đồng &yacute; của S&agrave;n giao dịch Edumall.</p>\r\n\r\n<p>- Học vi&ecirc;n kh&ocirc;ng được h&agrave;nh động g&acirc;y mất uy t&iacute;n của Edumall dưới mọi h&igrave;nh thức như g&acirc;y mất đo&agrave;n kết giữa c&aacute;c th&agrave;nh vi&ecirc;n, tuy&ecirc;n truyền, phổ biến th&ocirc;ng tin sai sự thật hoặc kh&ocirc;ng c&oacute; lợi cho uy t&iacute;n của S&agrave;n giao dịch Edumall.vn</p>\r\n\r\n<p><strong>2. Quyền v&agrave; nghĩa vụ của Đối t&aacute;c sản xuất nội dung</strong><strong>2.1 Quyền</strong></p>\r\n\r\n<p>- C&oacute; quyền y&ecirc;u cầu hỗ trợ từ Edumall trong qu&aacute; tr&igrave;nh soạn thảo, quay phim c&aacute;c kh&oacute;a học để đảm bảo nội dung đạt chất lượng cao. Việc hỗ trợ cụ thể sẽ được quy định trong hợp đồng hợp t&aacute;c.</p>\r\n\r\n<p>- Đưa ra c&aacute;c khuyến nghị v&agrave; /hoặc đề nghị cho Edumall sửa đổi hay bổ sung nội dung của B&agrave;i giảng đa phương tiện trong trường hợp c&oacute; c&aacute;c chi tiết c&oacute; thể g&acirc;y ảnh hưởng đến chất lượng sản phẩm, uy t&iacute;n v&agrave; thương hiệu của mỗi B&ecirc;n.</p>\r\n\r\n<p><strong>2.2 Nghĩa vụ</strong></p>\r\n\r\n<p>- Bảo đảm nội dung B&agrave;i giảng ph&ugrave; hợp với mục ti&ecirc;u của Edumall v&agrave; Chương tr&igrave;nh kh&oacute;a đ&agrave;o tạo kĩ năng; đ&uacute;ng kiến thức khoa học v&agrave; truyền tải kĩ năng ph&ugrave; hợp thực tế; kh&ocirc;ng tr&aacute;i với chuẩn mực đạo đức, thuần phong mỹ tục của d&acirc;n tộc Việt Nam.</p>\r\n\r\n<p>- Thực hiện đầy đủ nghĩa vụ thuế theo quy định của ph&aacute;p luật.</p>\r\n\r\n<p>- Trong trường hợp c&oacute; khiếu nại của học vi&ecirc;n về kh&oacute;a học, giảng vi&ecirc;n phải hợp t&aacute;c với ban quản l&yacute; S&agrave;n giao dịch Edumall để giải quyết.</p>\r\n\r\n<h3><strong>XI. ĐIỀU KHOẢN &Aacute;P DỤNG</strong></h3>\r\n\r\n<p>- Trong trường hợp ph&aacute;t sinh tranh chấp, S&agrave;n giao dịch TMĐT Edumall v&agrave; Đối t&aacute;c sản xuất nội dung sẽ h&ograve;a giải tr&ecirc;n cơ sở thương lượng v&agrave; đ&ocirc;i b&ecirc;n c&ugrave;ng c&oacute; lợi. Trong trường hợp c&oacute; những tranh chấp Hai B&ecirc;n kh&ocirc;ng thể tự giải quyết v&agrave; ho&agrave; giải, Hai B&ecirc;n sẽ đưa ra To&agrave; Kinh Tế nơi B&ecirc;n A đặt trụ sở ch&iacute;nh để giải quyết. Ph&aacute;n quyết của To&agrave; &aacute;n l&agrave; quyết định cuối c&ugrave;ng v&agrave; c&oacute; hiệu lực r&agrave;ng buộc thực hiện đối với c&aacute;c b&ecirc;n. Mọi chi ph&iacute; ph&aacute;t sinh bao gồm cả ph&iacute; luật sư của b&ecirc;n thắng kiện do b&ecirc;n thua kiện chịu.</p>\r\n\r\n<p>- Edumall c&oacute; tr&aacute;ch nhiệm tiếp nhận th&ocirc;ng tin về c&aacute;c vấn đề ph&aacute;p sinh, thực hiện chức năng điều phối , y&ecirc;u cầu c&aacute;c b&ecirc;n hợp t&aacute;c để xử l&yacute; vấn đề.</p>\r\n\r\n<p>- Sau khi qu&aacute; tr&igrave;nh thương lượng nhằm xử l&yacute; vấn đề ho&agrave;n tất, c&aacute;c b&ecirc;n c&oacute; tr&aacute;ch nhiệm thực hiện theo đ&uacute;ng thỏa thuận đ&atilde; đề ra.</p>\r\n\r\n<h3><strong>XII. ĐIỀU KHOẢN CAM KẾT</strong></h3>\r\n\r\n<p>Địa chỉ li&ecirc;n lạc ch&iacute;nh thức của S&agrave;n giao dịch/website TMĐT edumall.vn</p>\r\n\r\n<ul>\r\n	<li>S&agrave;n giao dịch/Website Thương mại điện tử edumall.vn</li>\r\n	<li>C&ocirc;ng ty/Tổ chức : C&Ocirc;NG TY CỔ PHẦN GI&Aacute;O DỤC TOPICA ENGLISH</li>\r\n	<li>Địa chỉ: Số 12, ng&otilde; 94, phố Trần Đại Nghĩa, Phường Đồng T&acirc;m, Quận Hai B&agrave; Trưng, Th&agrave;nh phố H&agrave; Nội, Việt Nam</li>\r\n	<li>Tel: 0422606332 Fax: Email:</li>\r\n</ul>\r\n\r\n<p>Quy chế của S&agrave;n giao dịch TMĐT Edumall ch&iacute;nh thức c&oacute; hiệu lực kể từ ng&agrave;y đăng l&ecirc;n website edumall.vn . S&agrave;n giao dịch TMĐT Edumall c&oacute; quyền điều chỉnh, thay đổi Quy chế n&agrave;y cho ph&ugrave; hợp với thực tiễn hoạt động v&agrave; c&oacute; tr&aacute;ch nhiệm th&ocirc;ng b&aacute;o l&ecirc;n S&agrave;n giao dịch TMĐT Edumall cho c&aacute;c th&agrave;nh vi&ecirc;n biết. Quy chế sửa đổi c&oacute; hiệu lực kể từ ng&agrave;y c&oacute; th&ocirc;ng b&aacute;o sửa đổi.Việc th&agrave;nh vi&ecirc;n tiếp tục sử dụng dịch vụ sau khi Quy chế sửa đổi được c&ocirc;ng bố v&agrave; thực thi đồng nghĩa với việc họ đ&atilde; chấp nhận Quy chế sửa đổi n&agrave;y.</p>\r\n\r\n<p>S&agrave;n giao dịch TMĐT Edumall v&agrave; Th&agrave;nh vi&ecirc;n đồng &yacute; cam kết thực hiện đ&uacute;ng c&aacute;c điều khoản trong nội dung Quy chế n&agrave;y</p>', '2018-05-18 03:10:47', '2018-05-18 03:10:47');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user.png',
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `job` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Tự do',
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `level` tinyint(4) NOT NULL,
+  `teacher_wait` tinyint(4) DEFAULT '0',
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `provider` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `name`, `img`, `email`, `phone`, `password`, `job`, `content`, `level`, `teacher_wait`, `remember_token`, `created_at`, `updated_at`, `provider`, `provider_id`) VALUES
+(1, 'admin', '1525227724.jpg', 'admin@cphonevn.com', '0', '$2y$10$a5U19gO4yiBPvX.vwZ.Gk.2TN4ePd2P0uVIza9MPVueW/zCzQHCRe', 'Tu do', '<p>Tao l&agrave; boss</p>', 1, 0, 'misTVITn75J2ce9GiDpCeINhaMcEG8Ukyr5bFouKIonrIloGY87gO0EvRcKy', NULL, '2018-05-07 21:17:03', '', ''),
+(3, 'Quyến Đỗ', 'ava.jpg', 'vquyenaaa@gmail.com', '0', '$2y$10$n20lhs7.E1lx4Zo2/qwLLeEwmuPYvMwDw5jNENvpxSobKD7LHocmK', 'Tu do', 'Cái gì đó', 4, 0, '7cdWuxEyTBXtpV9LsOzkRCUB9DbXsZF43uYqe57mWe7biB3lVYkw3L7nASsx', '2018-04-04 00:03:55', '2018-05-03 03:18:13', '', ''),
+(4, 'Xuân Hùng', 'tải xuống (1).jpg', 'xuanhung2401@gmail.com', '0', '$2y$10$eiYJvpevEMeOXyMmNffZE.XJypYDnSl4M8lBIRNkao1jZilCmi9hy', 'Tu do', '<p>Là một nhân viên của một tập đoàn lớn của Việt Nam nhưng chị luôn dành thời gian rảnh rỗi của mình cho sở thích nấu nướng và làm bánh. Tuy bận rộn nhưng chị luôn có thói quen tìm hiểu tận gốc nguyên liệu để tạo ra công thức nấu ăn cũng như làm bánh Từ năm 2016 chị bắt đầu làm quen với kem bơ. Bằng việc luôn tìm tòi, nghiên cứu tận gốc công thức chị có rất nhiều kinh nghiệm tạo ra những công thức cốt bánh và kem bơ ngon và dễ ăn.</p>', 3, 0, '4lPpDrwu1ZJKdc4c7Kksa3n7EhXtrUTksvkMRjxIAW01dJsMQWFgu20Low9M', '2018-04-04 00:08:16', '2018-04-27 02:12:05', '', ''),
+(5, 'Phan Huy', 'user.png', 'phanhuy@cphonevn.com', '0', '$2y$10$sdgwcuzBYJ04a76ZunNsYOOQYv2/L3K7XmAWtXmud2zbHNBnO3vCK', 'Tu do', '<p>OK</p>', 4, 0, NULL, '2018-04-04 00:34:46', '2018-04-04 00:34:46', '', ''),
+(8, 'admin001', 'ic_avar.png', 'admin001@cphonevn.com', '0', '$2y$10$IL8bY/IIT6rOJizypI72TeqZ5IS5VSSvODaT8k3htq7Dz75ZM/Wkm', 'Tu do', '<p>Th&acirc;n thiện</p>', 1, 0, 'K8Qdw8RVwElREW0wvLzcRjlioVAhPCcboIXi2Txi4zICPRtkYeaA8uweQW4E', NULL, '2018-04-18 19:14:55', '', ''),
+(9, 'q.uyen96', 'user.png', 'quyendo.site4@cphonevn.com', '0', '$2y$10$fMelEGjuadmQLsMs7vN6Le7Pm/ndFzf35aym9k1jtedQyMhMQSJVC', 'Sếp', 'Thân thiện', 1, 0, NULL, NULL, NULL, '', ''),
+(11, 'Mỹ Duyên', 'images.jpg', 'duyenmy@gmail.com', '0', '$2y$10$PIWA.ZzfWLaM4BsK7zk.bOj.jV.aIM2/bWiojOFSfgpQs59Rg96Aa', 'Tu do', '<p>- Chuy&ecirc;n gia trang điểm Mỹ Duy&ecirc;n l&agrave; một trong những &ldquo;nữ ph&ugrave; thủy&rdquo; make-up với nhiều năm kinh nghiệm l&agrave;m đẹp v&agrave; đ&agrave;o tạo trang điểm. Mỹ Duy&ecirc;n l&agrave; nữ CEO trẻ tuổi xinh đẹp của c&ocirc;ng ty TNHH NYD về mỹ phẩm v&agrave; l&agrave;m đẹp.</p>\r\n\r\n<p>- Với t&acirc;m huyết chia sẻ điều m&igrave;nh c&oacute; để l&agrave;m đẹp cho ph&aacute;i yếu m&agrave; một trong những động lực gi&uacute;p Mỹ Duy&ecirc;n triển khai rất nhiều dự &aacute;n hỗ trợ v&agrave; chia sẻ kiến thức trang điểm, l&agrave;m đẹp đến với nhiều người.</p>', 3, 0, NULL, '2018-04-04 02:16:44', '2018-04-25 07:07:01', '', ''),
+(12, 'Tuấn Sơn', 'user.png', 'tuanson.site3@cphonevn.com', '0', '$2y$10$si3TFx6zu5WiX24FrPnczOI/UU5MhHO89.G4vj1HTjjeK7NQhmO.W', 'Tu do', '<p>- Tổ trưởng bộ m&ocirc;n Kỹ năng sống tại trường song ngữ li&ecirc;n cấp quốc tế Wellspring S&agrave;i G&ograve;n.</p>\r\n\r\n<p>- Tốt nghiệp Cử nh&acirc;n T&acirc;m l&yacute; - gi&aacute;o dục loại giỏi.</p>\r\n\r\n<p>- Tốt nghiệp kh&oacute;a học l&atilde;nh đạo Ch&acirc;u &Aacute; - Way to Success.</p>\r\n\r\n<p>- Quản l&yacute; c&aacute;c kh&oacute;a học Kỹ năng sống tại c&ocirc;ng ty tư vấn kinh doanh v&agrave; gi&aacute;o dục SeedGlobal Consultant Co.</p>\r\n\r\n<p>- Thiết kế chương tr&igrave;nh Tham vấn t&acirc;m l&yacute; cho sinh vi&ecirc;n Đại học FPT - TP. HCM.</p>\r\n\r\n<p>- Tham vấn t&acirc;m l&yacute; học đường cho 6 trường học tr&ecirc;n địa b&agrave;n TP. HCM.</p>\r\n\r\n<p>- Ph&aacute;t thanh vi&ecirc;n dự &aacute;n Đọc s&aacute;ch n&oacute;i cho người khiếm thị do Trung t&acirc;m hướng nghiệp v&agrave; c&ocirc;ng nghệ trợ gi&uacute;p cho người m&ugrave; Sao Mai.</p>', 3, 0, NULL, '2018-04-05 20:27:21', '2018-04-20 19:21:40', '', ''),
+(13, 'Quyến Đỗ', 'ava.jpg', 'quyendo.site3@cphonevn.com', '0', '$2y$10$cIG7Ceh/iYorwnXZBi3cneJz4lKK/jIeMKp7PEPeyNae0BTJuHvti', 'Tu do', '<p>Anh Quyến&nbsp;hiện l&agrave; CEO của VinaLink - đơn vị đ&agrave;o tạo lớn nhất về Digital Marketing tại Việt Nam. Đ&acirc;y l&agrave; nơi quy tụ những chuy&ecirc;n gia h&agrave;ng đầu Việt Nam gi&agrave;u kinh nghiệm trong c&aacute;c lĩnh vực Digital Marketing, SEO, Adwords, Brand v&agrave; Facebook ... từng tư vấn v&agrave; đ&agrave;o tạo chiến lược Digital Marketing cho c&aacute;c tập đo&agrave;n h&agrave;ng đầu Việt Nam như Vingroup, Vccorp, VNP Group, Bảo Việt, Viettel, Vietnam Airline v.v.<br />\r\nNgo&agrave;i c&ocirc;ng việc quản l&yacute; c&ocirc;ng ty, anh Tuấn H&agrave; hiện c&ograve;n l&agrave; Giảng vi&ecirc;n Cao học marketing Ph&aacute;p Việt CFVG, s&aacute;ng lập vi&ecirc;n Cộng đồng truyền th&ocirc;ng tiếp thị Việt Nam VMCC, Chủ tịch CLB SEO/SMM Việt nam, chuy&ecirc;n gia Viral marketing.</p>', 3, 0, 'rSV4k3K7gMNch59gRAjirLh7K2B5kNlR8NR7AcaI86yK1JxzUb8IRKjHuTiN', '2018-04-05 20:43:27', '2018-04-25 07:08:20', '', ''),
+(14, 'Xuân Trường', 'user.png', 'xuantruong@gmail.com', '0', '$2y$10$afT5/PTAVPJbBSg7hMKqe.amPGZr6zRKy.uRjYmxkp3agDIC56SWm', 'Tu do', '', 4, 0, NULL, '2018-04-22 23:32:44', '2018-04-22 23:32:44', '', ''),
+(15, 'Tài smile', 'user.png', 'taismile@gmail.com', '0', '$2y$10$grUIoCnjLupKVy0xK1AXDOkDUcQKqYR64JXu2BlogPSMzXwicX6Xa', ' ', '', 4, 0, 'wcfpfNcSASf7Ymb9YTVRarYvx7eDkEnBCSW78AnUt21fSJBmavmszQiEclZs', '2018-04-22 23:40:12', '2018-04-22 23:40:12', '', ''),
+(16, 'Sơn Lều', 'user.png', 'leuson@gmail.com', '0', '$2y$10$61OcvO4ySQKGvRoIFoe59eecbM/qqYut/3dhsy20Qn4l7.9waDChu', ' ', '', 4, 0, NULL, '2018-04-22 23:45:09', '2018-04-22 23:45:09', '', ''),
+(17, 'Sơn Lều', 'user.png', 'leuson1@gmail.com', '0', '$2y$10$bnUCd9NgN3HK8kp/BVFEb.3bp.2o9CsYjYSPFrLG66kE/Yx9hJG0S', ' ', '', 4, 0, NULL, '2018-04-22 23:45:50', '2018-04-22 23:45:50', '', ''),
+(18, 'DEV Quyến', 'tải xuống.jpg', 'quyendev@gmail.com', '0', '$2y$10$75CkBiKiJieih52W.2v5KuGDEXkPj1H52tRjJnGObN643tLctKSX6', 'Deverloper', 'OKe Oke', 4, 0, 'VvTdeLge8vEho1WTlVMIl21LIJy8ZFWApq0GRUENlWjTD1mhla2idiXOPoY7', '2018-04-27 02:15:15', '2018-04-27 02:17:02', '', ''),
+(19, 'Phương Bùi', 'user.png', 'phươngbui@gmail.com', '0', '$2y$10$nJg25veHLCcHkQcDl7whWO9lj8dbrPRG.IBVGSQfc4B1YFuyq.QwS', ' ', '', 4, 0, NULL, '2018-04-27 02:30:02', '2018-04-27 02:30:02', '', ''),
+(21, 'Sơn Lều', '1526541844.jpg', 'sonleu@gmail.com', '0', '$2y$10$7q/0yXad4mbY99qSJ0MU7.7hlSPyoQoo3en8tYS7942u9vm7.TdOy', 'Tu do', '<p>OK</p>', 5, 0, '2nkSkh90os8QNmlGslbMBNUuIW2rNJ4q4SDh07S6TF3cDikju9EExxZpvT15', '2018-04-27 02:34:54', '2018-05-17 00:28:03', '', ''),
+(22, 'ai do', 'user.png', 'xuanhung24011@gmail.com', '0', '$2y$10$LhSFgJxQh6Xrw8PmcR7XCuoVqdqOzWUbkfTRlxrR444twLg2RGqYi', 'Tự do', ' ', 4, 0, '8xsHu0Our5y5eRizlwGZRRzzh9pbFosfhx1KOstuSPvdIyM9vFfciet7eDI1', '2018-04-28 19:51:51', '2018-04-28 19:51:51', '', ''),
+(23, 'OKEOK', '1525228673.jpg', 'okeoke@gmail.com', '0', '$2y$10$MFslt.imUbmpf1tF.l3yy.OfAMsOKgd6sdyEqd8/bURwrcgbDJ9Jy', 'Tu do', '<p>OKe OKe</p>', 4, 0, 'Ql3cSMpSr8KiUgjQTvw94IgnVo0LHGJABXZWhNFG4YIxO3WnH6Kj3fIXsQVO', '2018-04-28 19:53:06', '2018-05-01 19:39:01', '', ''),
+(24, 'Cao T.Linh', 'user.png', 'caolinh@gmail.com', '0123654789', '$2y$10$TkjSPFWtXlRMccYEZkjPjuIPHXCOEocjwiYJcek1A5jSAPHQRolu2', 'Tự do', 'fb: oke | Chủ đề giảng dạy: Design | Kinh Nghiệm: 5 năm', 3, 0, 'xyCAaz8JjNml0tuPPTdOeKuSbfPPXJbaFMfvTPe36VR5nCno7yCIJ1Ku1C7Y', '2018-05-18 05:01:51', '2018-05-18 05:03:09', '', ''),
+(25, 'Thư Uyển', 'user.png', 'thuuyen@gmail.com', '096963231', '$2y$10$dGoBaEGpylKDQ0eO1uQNbeaOMnuzI/wQxijn.xczub2DTKa5OqQzy', 'Tự do', 'fb: ahihi | Chủ đề giảng dạy: Désign | Kinh Nghiệm: 9 năm', 3, 0, 'b3s0rEu31oOsRGCP3FILJlCOxSSOnNRMxz978JYovxSTXeoFN9EjkUN8sIk1', '2018-05-18 05:23:05', '2018-05-21 03:15:58', '', ''),
+(26, 'Phương Bùi', 'user.png', 'phuong_bui@gmail.com', '0', '$2y$10$oKUVyA2zOJ8KP7PKpO.YW.jfnKZU/c4WnCTAN1FCw7BB2OTYARK6y', 'Tự do', ' ', 4, 0, 'RYhhdHqRjOhWeEMtsIJp7VEG2eqlkPDJyl1R5ThwtNauAQ7YjBuMkeVdf6mY', '2018-05-29 18:21:43', '2018-05-29 18:21:43', NULL, NULL),
+(27, 'Đào Đức', 'user.png', 'dao_duc@gmail.com', '0', '$2y$10$JiF9721YUdBJ2cKmFb.rte.k5Ymm7CVMMGtZWdqjW4tFlF/jBm42u', 'Tự do', ' ', 4, 0, 'bXrcVPP2ut70NR86MuBEnvjkEw7u9pfr8dBeeMcRmfwJrz7MeKOIWSdFM8Y7', '2018-05-30 00:39:26', '2018-05-30 00:39:26', NULL, NULL),
+(28, 'Hà My', 'user.png', 'hamy@cphonevn.com', '0', '$2y$10$xc76bBzxEdMhoaGqQbFl7epvvVir5bve0IfbG/bh227n4FQUo5mbC', 'Tự do', ' ', 4, 0, 'yT0bfxjjzikofG4ww78JnezHFkIec4T5h7X06F95dmqH4lOJCaJFUvu7KCbe', '2018-05-30 02:35:36', '2018-05-30 02:35:36', NULL, NULL),
+(29, 'Bích Phương', 'user.png', 'bichphuong@gmail.com', '0', '$2y$10$EyeYQ2vhjVSgjE0UGgmHIuCIM7b2J7JqOmvvnvJ6fepvhEggRLxqW', 'Tự do', ' ', 4, 0, 'aknudy5nJnBxHdh0hnwD7JZcef45IqUeX38qnwMwlTEUL1p8LeN0jA8kVj8i', '2018-05-30 05:39:28', '2018-05-30 05:39:28', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `aff`
+--
+
+CREATE TABLE `aff` (
+  `aff_id` int(10) UNSIGNED NOT NULL,
+  `aff_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `aff_acc_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `aff`
+--
+
+INSERT INTO `aff` (`aff_id`, `aff_code`, `aff_acc_id`, `created_at`, `updated_at`) VALUES
+(1, '605852', 21, '2018-05-17 01:23:53', '2018-05-17 01:23:53');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `banner`
+--
+
+CREATE TABLE `banner` (
+  `ban_id` int(10) UNSIGNED NOT NULL,
+  `ban_img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ban_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `banner`
+--
+
+INSERT INTO `banner` (`ban_id`, `ban_img`, `ban_name`, `created_at`, `updated_at`) VALUES
+(1, '1525923965.png', 'Banner Trang Chủ_Phía Trên', '2018-05-09 20:46:05', '2018-05-09 20:57:26'),
+(2, '1525932856.png', 'Banner Trang Chủ_Phía Trên', '2018-05-09 23:14:16', '2018-05-09 23:14:16'),
+(3, '1525932957.png', 'Banner Trang Chủ_Phía Trên', '2018-05-09 23:15:57', '2018-05-09 23:15:57'),
+(4, '1525943216.jpg', 'Banner Trang Chủ_Phía Trên', '2018-05-10 02:06:56', '2018-05-10 02:06:56'),
+(5, '1526893699.png', 'Banner Thân Trang Chủ Bên Phải', '2018-05-21 02:08:19', '2018-05-21 02:08:19'),
+(6, '1526894801.jpg', 'Banner Thân Trang Chủ Bên Phải', '2018-05-21 02:26:41', '2018-05-21 02:26:41'),
+(7, '1526898151.jpg', 'Banner Thân Trang Chủ Bên Trái Phía Trên', '2018-05-21 03:22:31', '2018-05-21 03:22:31'),
+(8, '1526898168.png', 'Banner Thân Trang Chủ Bên Trái Phía Trên', '2018-05-21 03:22:48', '2018-05-21 03:22:48'),
+(9, '1526898296.png', 'Banner Thân Trang Chủ Bên Trái Phía Dưới', '2018-05-21 03:24:56', '2018-05-21 03:24:56'),
+(10, '1526898317.png', 'Banner Thân Trang Chủ Bên Trái Phía Dưới', '2018-05-21 03:25:17', '2018-05-21 03:25:17');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `code`
+--
+
+CREATE TABLE `code` (
+  `code_id` int(10) UNSIGNED NOT NULL,
+  `code_value` int(11) NOT NULL,
+  `code_acc_id` int(10) UNSIGNED NOT NULL,
+  `code_cou_id` int(10) UNSIGNED NOT NULL,
+  `code_status` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `code`
+--
+
+INSERT INTO `code` (`code_id`, `code_value`, `code_acc_id`, `code_cou_id`, `code_status`, `created_at`, `updated_at`) VALUES
+(19, 768144, 3, 1, 0, '2018-05-02 02:48:24', '2018-05-02 02:48:24'),
+(20, 645665, 3, 6, 1, '2018-05-02 03:39:00', '2018-05-02 03:50:10'),
+(21, 147892, 3, 4, 1, '2018-05-02 23:49:40', '2018-05-02 23:50:45'),
+(22, 614123, 3, 7, 1, '2018-05-03 03:09:28', '2018-05-03 03:11:57'),
+(23, 747429, 3, 9, 1, '2018-05-18 06:01:11', '2018-05-18 06:02:26'),
+(24, 176307, 3, 12, 1, '2018-05-18 06:22:15', '2018-05-18 06:22:54');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `comment`
+--
+
+CREATE TABLE `comment` (
+  `com_id` int(10) UNSIGNED NOT NULL,
+  `com_star` tinyint(4) NOT NULL,
+  `com_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `com_content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `com_acc_id` int(10) UNSIGNED NOT NULL,
+  `com_cou_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `comment`
+--
+
+INSERT INTO `comment` (`com_id`, `com_star`, `com_title`, `com_content`, `com_acc_id`, `com_cou_id`, `created_at`, `updated_at`) VALUES
+(1, 5, 'Hay lắm', 'Khóa học khá là hữu ích và mình học đưuọc rất nhiều', 11, 5, NULL, '2018-04-05 19:22:49'),
+(2, 5, 'Đưuọc đó', 'Khóa học này cực kì hay .. và giáo viên rât xinh đẹp', 8, 1, NULL, '2018-04-05 19:22:52'),
+(3, 2, 'Chán lắm', 'Khóa học chả hay gì cả , giáo viên còn xấu nữa', 11, 3, NULL, '2018-04-05 19:23:11');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `course`
+--
+
+CREATE TABLE `course` (
+  `cou_id` int(10) UNSIGNED NOT NULL,
+  `cou_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cou_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cou_img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cou_price` int(11) NOT NULL,
+  `cou_level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cou_video` int(10) NOT NULL,
+  `cou_star` float NOT NULL DEFAULT '0',
+  `cou_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cou_student` int(10) NOT NULL DEFAULT '0',
+  `cou_tag` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cou_sale` int(5) NOT NULL DEFAULT '0',
+  `cou_gr_id` int(10) UNSIGNED NOT NULL,
+  `cou_tea_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `course`
+--
+
+INSERT INTO `course` (`cou_id`, `cou_name`, `cou_slug`, `cou_img`, `cou_price`, `cou_level`, `cou_video`, `cou_star`, `cou_content`, `cou_student`, `cou_tag`, `cou_sale`, `cou_gr_id`, `cou_tea_id`, `created_at`, `updated_at`) VALUES
+(1, 'Thai giáo - Phát triển trí tuệ và cảm xúc cho con từ trong bụng mẹ', 'thai-giao-phat-trien-tri-tue-va-cam-xuc-cho-con-tu-trong-bung-me', 'hieunhk05.png', 599000, 'all', 0, 2.5, '<p>Thai gi&aacute;o l&agrave; một lĩnh vực mới sử dụng những kết quả nghi&ecirc;n cứu y học mới để gi&uacute;p cho sự ph&aacute;t triển của con trẻ ngay từ trong bụng mẹ</p>\r\n\r\n<p>Gi&aacute;o tr&igrave;nh về thai gi&aacute;o được tổng hợp v&agrave; &aacute;p dụng với tất cả c&aacute;c gi&aacute;c quan của trẻ từ l&uacute;c c&ograve;n l&agrave; ph&ocirc;i thai cho tới khi sắp tới ng&agrave;y ch&agrave;o đời</p>\r\n\r\n<p>Kh&oacute;a học cũng tổng hợp những phương ph&aacute;p nu&ocirc;i dạy con từ trong bụng mẹ từ c&aacute;c chuy&ecirc;n gia trong v&agrave; ngo&agrave;i nước để đem tới c&aacute;i nh&igrave;n r&otilde; hơn về c&aacute;c phương ph&aacute;p mang lại sự ph&aacute;t triển to&agrave;n diện cho con trẻ trong gia đ&igrave;nh</p>\r\n\r\n<p>C&aacute;c b&agrave;i tập thực h&agrave;nh gi&uacute;p cho c&aacute;c b&agrave; mẹ c&oacute; thể chuẩn bị cho sự ch&agrave;o đời của con m&igrave;nh từ những thời điểm đầu ti&ecirc;n trong thai kỳ cho tới khi gần đủ 9 th&aacute;ng 10 ng&agrave;y</p>\r\n\r\n<p>Y&ecirc;u cầu của kh&oacute;a học</p>', 0, '', 0, 1, 11, '2018-04-04 03:25:32', '2018-05-14 19:15:21'),
+(3, 'Guitar dem hat trong 30 ngay ahihi', 'guitar-dem-hat-trong-30-ngay-ahihi', 'hiennt01.png', 699000, 'all', 0, 5, '<p>Tổng qu&aacute;t</p>\r\n\r\n<p>Thực tế cho thấy những người c&oacute; khả năng chơi một loại nhạc cụ n&agrave;o đ&oacute; th&igrave; lu&ocirc;n biết c&aacute;ch l&agrave;m m&igrave;nh nổi bật giữa đ&aacute;m đ&ocirc;ng v&agrave; v&ocirc; c&ugrave;ng tự tin. Vậy tại sao bạn kh&ocirc;ng chọn một loại nhạc cụ v&agrave; bắt đầu luyện tập ngay từ b&acirc;y giờ? H&atilde;y đến với kho&aacute; học &quot;Guitar đệm h&aacute;t trong 30 ng&agrave;y&quot; của t&ocirc;i, bạn sẽ l&agrave;m chủ được c&acirc;y đ&agrave;n guitar trong tay v&agrave; ngh&ecirc;u ngao h&aacute;t c&ugrave;ng bạn b&egrave;.</p>\r\n\r\n<p>Tại sao bạn n&ecirc;n chọn kho&aacute; học n&agrave;y?</p>\r\n\r\n<p>1. T&ocirc;i lu&ocirc;n lắng nghe v&agrave; đọc tất cả c&aacute;c &yacute; kiến phản hồi, trả lời c&aacute;c thắc mắc của tất cả c&aacute;c học vi&ecirc;n v&agrave; những bạn đam m&ecirc; guitar th&ocirc;ng qua Facebook Page &quot;Hiển r&acirc;u guitar&quot; của t&ocirc;i. V&igrave; thế, t&ocirc;i sẽ hỗ trợ c&aacute;c bạn tr&ecirc;n con đường học nhạc một c&aacute;ch tốt nhất.</p>\r\n\r\n<p>2. T&ocirc;i lu&ocirc;n thường xuy&ecirc;n cập nhật v&agrave; thay đổi, th&ecirc;m c&aacute;c b&agrave;i tập mới v&agrave;o gi&aacute;o tr&igrave;nh.</p>\r\n\r\n<p>3. Lộ tr&igrave;nh của kho&aacute; học online được sắp xếp y hệt như giảng dạy ở ngo&agrave;i.</p>\r\n\r\n<p>4. Bạn thấy video n&agrave;y hướng dẫn chưa kỹ? T&ocirc;i sẽ l&agrave;m lại video đ&oacute; thật chi tiết hơn! Bạn thấy gi&aacute;o tr&igrave;nh c&ograve;n thiếu g&igrave;, nếu hợp l&yacute;, t&ocirc;i sẽ bổ sung v&agrave;o ngay!</p>\r\n\r\n<p>5. T&ocirc;i đ&atilde; chắt lọc những b&agrave;i học cơ bản nhất, cần thiết nhất d&agrave;nh cho guitar đệm h&aacute;t, để bất k&igrave; ai cũng c&oacute; thể học được.</p>\r\n\r\n<p>6. Chất lượng video cao, n&eacute;t, g&oacute;c m&aacute;y dễ nh&igrave;n, thu &acirc;m sạch, được quay từ m&aacute;y quay tốt v&agrave; setup ph&ograve;ng thu tốt, kh&ocirc;ng phải quay vu vơ bằng điện thoại v&agrave; m&aacute;y chất lượng k&eacute;m.</p>\r\n\r\n<p>7. Kh&oacute;a học l&agrave; nền tảng tốt nhất cho những ai muốn tiếp tục với những kiến thức cao hơn về Guitar!</p>\r\n\r\n<p>8. T&ocirc;i sẽ sớm c&oacute; kho&aacute; học về Guitar ở cấp độ cao hơn d&agrave;nh cho c&aacute;c bạn c&oacute; nhu cầu học v&agrave; n&acirc;ng cao tr&igrave;nh độ của bản th&acirc;n.</p>\r\n\r\n<p>Y&ecirc;u cầu của kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>Một c&acirc;y guitar v&agrave; một t&acirc;m hồn y&ecirc;u th&iacute;ch &acirc;m nhạc</li>\r\n	<li>Kh&ocirc;ng cần phải c&oacute; bất k&igrave; một kiến thức n&agrave;o về guitar</li>\r\n</ul>\r\n\r\n<p>Lợi &iacute;ch từ kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>Được học những kiến thức b&agrave;i bản nhất v&agrave; đầy đủ nhất m&agrave; kh&ocirc;ng phải l&agrave; những l&yacute; thuyết cao si&ecirc;u kh&ocirc;ng cần thiết cho đệm h&aacute;t</li>\r\n	<li>Được hỗ trợ giải đ&aacute;p trong qu&aacute; tr&igrave;nh học tập</li>\r\n	<li>Được giảm gi&aacute; khi mua đ&agrave;n v&agrave; phụ kiện ở một số cửa h&agrave;ng nhạc cụ</li>\r\n	<li>Được tiếp cận một kho h&agrave;ng trăm b&agrave;i giảng đệm c&aacute;c b&agrave;i b&agrave;i h&aacute;t miễn ph&iacute;</li>\r\n</ul>\r\n\r\n<p>Đối tượng mục ti&ecirc;u</p>\r\n\r\n<ul>\r\n	<li>Tất cả mọi người, gi&agrave; trẻ lớn b&eacute;, muốn học đệm h&aacute;t hoặc muốn trau dồi cơ bản</li>\r\n	<li>Gi&aacute;o tr&igrave;nh n&agrave;y d&agrave;nh cho</li>\r\n	<li>C&aacute;c bạn kh&ocirc;ng c&oacute; thời gian đi học c&aacute;c lớp dạy đ&agrave;n offline</li>\r\n	<li>C&aacute;c bạn kh&ocirc;ng muốn học qu&aacute; nhiều kiến thức m&agrave; m&igrave;nh kh&ocirc;ng d&ugrave;ng hết</li>\r\n	<li>C&aacute;c bạn chưa từng chơi guitar</li>\r\n	<li>C&aacute;c bạn muốn trau dồi kiến thức nền cơ bản, vững v&agrave;ng về guitar</li>\r\n	<li>Gi&aacute;o tr&igrave;nh n&agrave;y kh&ocirc;ng d&agrave;nh cho</li>\r\n	<li>C&aacute;c bạn đ&atilde; c&oacute; kiến thức cao, thấy b&agrave;i g&igrave; l&agrave; đ&aacute;nh được ngay b&agrave;i đấy</li>\r\n	<li>C&aacute;c bạn lười v&agrave; kh&ocirc;ng c&oacute; sự chăm chỉ tập luyện</li>\r\n	<li>C&aacute;c bạn qu&aacute; k&eacute;n chọn nhạc v&agrave; tập qua loa, kh&ocirc;ng đặt hết t&acirc;m sức v&agrave;o mỗi b&agrave;i tập</li>\r\n	<li>C&aacute;c bạn chỉ th&iacute;ch kiến thức cao m&agrave; kh&ocirc;ng chịu bắt đầu từ những g&igrave; cơ bản</li>\r\n</ul>', 0, '', 0, 6, 11, '2018-04-04 19:37:33', '2018-04-18 21:31:21'),
+(4, 'Tìm hiểu mã nguồn mở', 'tim-hieu-ma-nguon-mo', 'uni01.png', 399000, 'all', 0, 4.5, '<p>Tổng qu&aacute;t</p>\r\n\r\n<p>Nhằm đ&aacute;p ứng nhu cầu hiện tại v&agrave; xu hướng c&ocirc;ng nghệ to&agrave;n cầu, nắm bắt t&igrave;nh h&igrave;nh với mục ti&ecirc;u đ&agrave;o tạo những g&igrave; doanh nghiệp cần, Edumall đ&atilde; đưa kh&oacute;a học &quot;Dự &aacute;n m&atilde; nguồn mở&quot; v&agrave;o chương tr&igrave;nh đ&agrave;o tạo. Kh&oacute;a học &quot;Dự &aacute;n m&atilde; nguồn mở&quot; n&agrave;y sẽ cung cấp cho học vi&ecirc;n những kiến thức cơ bản nhất về m&atilde; nguồn mở, x&acirc;y dựng phần mềm m&atilde; nguồn mở, lập tr&igrave;nh web với PHP v&agrave; l&agrave;m việc với hệ quản trị cơ sở dữ liệu MySQL, c&aacute;ch khai th&aacute;c v&agrave; ứng dụng phần mềm m&atilde; nguồn mở trong x&acirc;y dựng hệ thống cơ sở dữ liệu cho doanh nghiệp..</p>\r\n\r\n<p>&ldquo;M&atilde; nguồn mở&rdquo; - cụm từ kh&ocirc;ng c&ograve;n xa lạ với c&aacute;c bạn trẻ y&ecirc;u th&iacute;ch lập tr&igrave;nh cũng như c&aacute;c lập tr&igrave;nh vi&ecirc;n (LTV) đang ng&agrave;y đ&ecirc;m ph&aacute;t triển c&aacute;c hệ thống, ứng dụng mới. Với ưu điểm cho ph&eacute;p người d&ugrave;ng t&ugrave;y chỉnh, cải tiến, n&acirc;ng cấp phần mềm theo nhu cầu ri&ecirc;ng, &quot;m&atilde; nguồn mở&quot; đang cực kỳ phổ biến v&agrave; được rất nhiều tổ chức, doanh nghiệp ng&agrave;y nay sử dụng trong x&acirc;y dựng hệ thống cơ sở dữ liệu.</p>\r\n\r\n<p>Y&ecirc;u cầu của kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>M&ocirc;i trường học y&ecirc;n tĩnh</li>\r\n	<li>C&oacute; khả năng truy cập Internet</li>\r\n	<li>N&ecirc;n sử dụng tai nghe trong qu&aacute; tr&igrave;nh học</li>\r\n</ul>\r\n\r\n<p>Lợi &iacute;ch từ kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>Nắm được những kiến thức cơ bản nhất về hệ điều h&agrave;nh nguồn mở,</li>\r\n	<li>C&oacute; khả năng sử dụng ng&ocirc;n ngữ shell để lập tr&igrave;nh.</li>\r\n	<li>Sử dụng c&aacute;c c&ocirc;ng cụ tr&ecirc;n Linux để bi&ecirc;n dịch v&agrave; c&agrave;i đặt c&aacute;c tr&igrave;nh C ( C++) trong kernel.</li>\r\n	<li>C&oacute; thể sử dụng c&ocirc;ng cụ nguồn mở PHP&amp;MySQL để ph&aacute;t triển c&aacute;c ứng dụng web.</li>\r\n</ul>\r\n\r\n<p>Đối tượng mục ti&ecirc;u</p>\r\n\r\n<ul>\r\n	<li>Lập tr&igrave;nh vi&ecirc;n ph&aacute;t triển hệ thống, ứng dụng</li>\r\n	<li>Nh&agrave; quản trị hệ thống cơ sở dữ liệu doanh nghiệp</li>\r\n	<li>Tất cả những ai c&oacute; nhu cầu t&igrave;m hiểu về &quot;M&atilde; nguồn mở&quot;</li>\r\n</ul>', 0, '', 0, 5, 11, '2018-04-04 20:22:41', '2018-05-20 18:44:58'),
+(5, 'Phân tích hệ thống', 'phan-tich-he-thong', 'uni03.png', 549000, 'basic', 0, 0, '<p>Tổng qu&aacute;t</p>\r\n\r\n<p>Hệ thống th&ocirc;ng tin tin học ho&aacute; l&agrave; một trong những ứng dụng đầy đủ v&agrave; to&agrave;n diện nhất c&aacute;c th&agrave;nh tựu của c&ocirc;ng nghệ th&ocirc;ng tin v&agrave;o một tổ chức, doanh nghiệp. Việc sở hữu một hệ thống th&ocirc;ng tin quản l&yacute; to&agrave;n diện gi&uacute;p bộ m&aacute;y c&ocirc;ng ty hoạt động tốt hơn, g&oacute;p một phần kh&ocirc;ng nhỏ trong sự th&agrave;nh c&ocirc;ng của một doanh nghiệp. Nắm được những nhu cầu về thiết kế hệ thống th&ocirc;ng tin của c&aacute;c tổ chức, doanh nghiệp đang rất cấp thiết hiện nay, Edumall cung cấp kh&oacute;a học &quot;Ph&acirc;n t&iacute;ch thiết kế hệ thống&quot; nhằm gi&uacute;p c&aacute;c lập tr&igrave;nh vi&ecirc;n n&acirc;ng cao chuy&ecirc;n m&ocirc;n để t&igrave;m được những cơ hội nghề nghiệp tốt hơn, đồng thời hỗ trợ c&aacute;c tổ chức, doanh nghiệp n&acirc;ng cao năng lực cho nh&acirc;n sự mảng th&ocirc;ng tin.</p>\r\n\r\n<p>Kho&aacute; học &quot;Ph&acirc;n t&iacute;ch thiết kế hệ thống&quot; được thiết kế dựa tr&ecirc;n c&aacute;c gi&aacute;o tr&igrave;nh đ&agrave;o tạo chuẩn của c&aacute;c trường Đại học khối ng&agrave;nh C&ocirc;ng Nghệ Th&ocirc;ng Tin, dưới sự dẫn dắt của giảng vi&ecirc;n ĐH B&aacute;ch Khoa H&agrave; Nội Thạch B&igrave;nh Cường. Kh&oacute;a học n&agrave;y gi&uacute;p học vi&ecirc;n hiểu được hệ thống th&ocirc;ng tin quản l&yacute;, phương ph&aacute;p luận v&agrave; c&ocirc;ng nghệ ph&acirc;n t&iacute;ch v&agrave; thiết kế một hệ thống th&ocirc;ng tin kinh tế theo 2 hướng cơ bản l&agrave; hướng cấu tr&uacute;c v&agrave; hướng đối tượng, c&oacute; hiểu biết căn bản về hệ thống th&ocirc;ng tin trong doanh nghiệp.</p>\r\n\r\n<p>Kho&aacute; học cũng hướng dẫn cho học vi&ecirc;n c&aacute;c quy tr&igrave;nh để ph&aacute;t triển hệ thống cũng như c&aacute;c phương ph&aacute;p x&aacute;c định, ph&acirc;n t&iacute;ch để ph&aacute;t triển hệ thống th&ocirc;ng tin.</p>\r\n\r\n<p>Y&ecirc;u cầu của kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>M&ocirc;i trường học y&ecirc;n tĩnh</li>\r\n	<li>C&oacute; khả năng truy cập Internet</li>\r\n	<li>N&ecirc;n sử dụng tai nghe trong qu&aacute; tr&igrave;nh học</li>\r\n</ul>\r\n\r\n<p>Lợi &iacute;ch từ kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>Được trang bị những kỹ năng thực h&agrave;nh về ph&acirc;n t&iacute;ch &ndash; thiết kế một hệ thống th&ocirc;ng tin quản l&yacute; đ&aacute;p ứng y&ecirc;u cầu quản l&yacute; của một tổ chức theo phương ph&aacute;p c&oacute; cấu tr&uacute;c</li>\r\n	<li>Nắm được c&aacute;ch l&agrave;m thế n&agrave;o để x&aacute;c định y&ecirc;u cầu, ph&acirc;n t&iacute;ch v&agrave; c&aacute;ch ph&aacute;t triển hệ thống th&ocirc;ng tin.</li>\r\n	<li>Thực h&agrave;nh ph&acirc;n t&iacute;ch thiết kế 1 hệ thống th&ocirc;ng tin cụ thể</li>\r\n</ul>\r\n\r\n<p>Đối tượng mục ti&ecirc;u</p>\r\n\r\n<ul>\r\n	<li>Lập tr&igrave;nh vi&ecirc;n ph&aacute;t triển hệ thống th&ocirc;ng tin</li>\r\n	<li>Nh&agrave; quản trị hệ thống cơ sở dữ liệu doanh nghiệp</li>\r\n	<li>Tất cả những ai c&oacute; nhu cầu t&igrave;m hiểu về &quot;Ph&acirc;n t&iacute;ch thiết kế hệ thống th&ocirc;ng tin&quot;</li>\r\n</ul>', 0, '#it #lập trình # hệ thống', 0, 5, 11, '2018-04-04 20:43:14', '2018-05-09 18:24:01'),
+(6, 'Đột phá thu nhập qua 6 kênh maketing online', 'dot-pha-thu-nhap-qua-6-kenh-maketing-online', 'khoa-01-1.png', 699000, 'all', 0, 3.4, '<p>Tổng qu&aacute;t</p>\r\n\r\n<p>- Bạn đang mong muốn x&acirc;y dựng một Hệ thống Kinh doanh Online B&agrave;i Bản cho ri&ecirc;ng m&igrave;nh m&agrave; vẫn chưa t&igrave;m được hướng đi r&otilde; r&agrave;ng từ việc x&aacute;c định sản phẩm kinh doanh - m&ocirc; h&igrave;nh kinh doanh ph&ugrave; hợp, c&aacute;ch để li&ecirc;n hệ nh&agrave; cung cấp để đ&agrave;m ph&aacute;n nhập h&agrave;ng, c&aacute;ch nghi&ecirc;n cứu kh&aacute;ch h&agrave;ng, đối thủ, quảng c&aacute;o v&agrave; tối ưu...... ?<br />\r\n- Bạn đ&atilde; c&oacute; kinh nghiệm Kinh doanh online, v&agrave; đang mong muốn mở rộng Hệ Thống Online Đa K&ecirc;nh ngo&agrave;i k&ecirc;nh truyền thống sang Facebook, Instagram, Zalo, Youtube, Email Marketing, Website, SMS...?<br />\r\n- Bạn mong muốn ph&aacute;t triển to&agrave;n diện nội dung fanpage, group,.... B&agrave;i bản hơn bắt đầu từ việc ph&acirc;n t&iacute;ch thị hiếu kh&aacute;ch h&agrave;ng - cũng như ph&acirc;n t&iacute;ch to&agrave;n diện đối thủ cạnh tranh của m&igrave;nh ?<br />\r\n- Bạn đam m&ecirc; Marketing v&agrave; muốn l&ecirc;n một quy tr&igrave;nh Quảng c&aacute;o sản phẩm online b&agrave;i bản, hay mong muốn tối ưu quảng c&aacute;o hiệu quả ?</p>\r\n\r\n<p>- Bạn đang mong muốn x&acirc;y dựng một Hệ thống Kinh doanh Online B&agrave;i Bản cho ri&ecirc;ng m&igrave;nh m&agrave; vẫn chưa t&igrave;m được hướng đi r&otilde; r&agrave;ng từ việc x&aacute;c định sản phẩm kinh doanh - m&ocirc; h&igrave;nh kinh doanh ph&ugrave; hợp, c&aacute;ch để li&ecirc;n hệ nh&agrave; cung cấp để đ&agrave;m ph&aacute;n nhập h&agrave;ng, c&aacute;ch nghi&ecirc;n cứu kh&aacute;ch h&agrave;ng, đối thủ, quảng c&aacute;o v&agrave; tối ưu...... ?<br />\r\n- Bạn đ&atilde; c&oacute; kinh nghiệm Kinh doanh online, v&agrave; đang mong muốn mở rộng Hệ Thống Online Đa K&ecirc;nh ngo&agrave;i k&ecirc;nh truyền thống sang Facebook, Instagram, Zalo, Youtube, Email Marketing, Website, SMS...?<br />\r\n- Bạn mong muốn ph&aacute;t triển to&agrave;n diện nội dung fanpage, group,.... B&agrave;i bản hơn bắt đầu từ việc ph&acirc;n t&iacute;ch thị hiếu kh&aacute;ch h&agrave;ng - cũng như ph&acirc;n t&iacute;ch to&agrave;n diện đối thủ cạnh tranh của m&igrave;nh ?<br />\r\n- Bạn đam m&ecirc; Marketing v&agrave; muốn l&ecirc;n một quy tr&igrave;nh Quảng c&aacute;o sản phẩm online b&agrave;i bản, hay mong muốn tối ưu quảng c&aacute;o hiệu quả ?<br />\r\nCho d&ugrave; bạn l&agrave; người mới Khởi nghiệp Kinh Doanh Online, hay l&agrave; một nh&acirc;n vi&ecirc;n kinh doanh hoặc bạn đ&atilde; c&oacute; kinh nghiệm kinh doanh Online; c&oacute; sản phẩm dịch vụ v&agrave; muốn mở rộng c&ocirc;ng việc kinh doanh của m&igrave;nh hay đơn giản bạn muốn kinh doanh để c&oacute; th&ecirc;m nguồn thu nhập cho bản th&acirc;n th&igrave; đ&acirc;y l&agrave; kh&oacute;a chia sẻ d&agrave;nh cho bạn ! Tất cả những vấn đề tr&ecirc;n sẽ được mổ sẻ trong &quot;Khởi nghiệp Kinh Doanh Online Bền Vững&quot; - Kh&oacute;a học n&agrave;y cung cấp cho bạn một Quy tr&igrave;nh x&acirc;y dựng Hệ thống Marketing online thực tế, b&agrave;i bản, to&agrave;n diện với những v&iacute; dụ thực tế.</p>\r\n\r\n<p>Đừng chần chừ nữa, h&atilde;y đăng k&yacute; tham gia ngay c&ugrave;ng t&ocirc;i. V&agrave; chuẩn bị đ&oacute;n nhận những m&oacute;n qu&agrave; đầy bất ngờ.</p>\r\n\r\n<p>Y&ecirc;u cầu của kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>- Kh&ocirc;ng y&ecirc;u cầu đầu v&agrave;o</li>\r\n</ul>\r\n\r\n<p>Lợi &iacute;ch từ kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>Bạn sẽ biết, học được c&aacute;c c&aacute;ch:</li>\r\n	<li>- X&aacute;c định Sản phẩm kinh doanh ph&ugrave; hợp, M&ocirc; h&igrave;nh bạn sẽ Kinh doanh</li>\r\n	<li>- C&oacute; được Nguồn h&agrave;ng kinh doanh khi li&ecirc;n hệ trực tiếp với người b&aacute;n, nh&agrave; cung cấp</li>\r\n	<li>- Nhận diện ch&acirc;n dung kh&aacute;ch h&agrave;ng Tiềm năng của m&igrave;nh, c&aacute;ch x&acirc;y dựng ch&iacute;nh s&aacute;ch chăm s&oacute;c kh&aacute;ch h&agrave;n</li>\r\n	<li>- C&aacute;ch nghi&ecirc;n cứu, theo d&otilde;i v&agrave; học hỏi từ ch&iacute;nh Đối thủ cạnh tranh của bạn qua c&aacute;c c&ocirc;ng cụ Miễn ph&iacute;</li>\r\n	<li>Tự tin x&acirc;y dựng đồng bộ c&aacute;c k&ecirc;nh Marketing (Facebook, Instagram, Zalo, Youtube, Email Marketing,...) qua từng bước chia sẻ chi tiết</li>\r\n</ul>\r\n\r\n<p>Đối tượng mục ti&ecirc;u</p>\r\n\r\n<ul>\r\n	<li>- Tất cả những ai muốn khởi nghiệp Kinh doanh Online b&agrave;i bản, bắt đầu từ những c&ocirc;ng việc cốt l&otilde;i nhất: x&aacute;c định sản phẩm kinh doanh, t&igrave;m kiếm nguồn h&agrave;ng kinh doanh, li&ecirc;n hệ nh&agrave; cung cấp, nghi&ecirc;n cứu kh&aacute;ch h&agrave;ng, đối thủ, x&acirc;y dựng nội dung b&aacute;n h&agrave;ng...</li>\r\n	<li>- Những ai mong muốn t&igrave;m hiểu, ph&aacute;t triển đồng bộ c&aacute;c k&ecirc;nh Marketing Online (Instagram, Zalo, Youtube, Email Marketing, Facebook, SMS) b&ecirc;n cạnh k&ecirc;nh truyền thống</li>\r\n	<li>- Những ai đang t&igrave;m kiếm c&aacute;c cơ hội kinh doanh Online, v&agrave; ph&aacute;t triển c&ocirc;ng việc Kinh Doanh Offline bền vững cho ri&ecirc;ng m&igrave;nh</li>\r\n</ul>\r\n\r\n<p>Thu gọn</p>', 9, '#marketing #đột phá thu nhập', 20, 3, 13, '2018-04-05 20:57:58', '2018-05-14 19:15:46'),
+(7, 'Học photoshop một cách bài bản để trở thành nhà thiết kế chuyên nghiệp', 'hoc-photoshop-mot-cach-bai-ban-de-tro-thanh-nha-thiet-ke-chuyen-nghiep', 'loild03.png', 990000, 'master', 274, 4.25, '<p>N&oacute;i về phần mềm chỉnh sửa ảnh, chắc ch&uacute;ng ta phải n&oacute;i về Adobe Photoshop đầu ti&ecirc;n.&nbsp;Adobe Photoshop nổi tiếng v&igrave; gi&uacute;p designers v&agrave; editors tối ưu c&ocirc;ng việc của họ. N&oacute; chuyển h&igrave;nh ảnh th&agrave;nh kiệt t&aacute;c. T&iacute;nh linh hoạt của n&oacute; đ&atilde; l&agrave;m cho nhu cầu trong thế giới s&aacute;ng tạo cho n&oacute; l&agrave; phần mềm chỉnh sửa ảnh tốt nhất. Chương tr&igrave;nh cung cấp cho bạn c&aacute;c t&iacute;nh năng tuyệt vời cho một thiết kế ho&agrave;n to&agrave;n tuyệt vời. Hơn thế nữa, Adobe Photoshop th&acirc;n thiện với người d&ugrave;ng v&agrave; n&oacute; cung cấp c&ocirc;ng cụ sẽ gi&uacute;p bạn trong việc chỉnh sửa ảnh.</p>\r\n\r\n<p>N&oacute;i về phần mềm chỉnh sửa ảnh, chắc ch&uacute;ng ta phải n&oacute;i về Adobe Photoshop đầu ti&ecirc;n.&nbsp;Adobe Photoshop nổi tiếng v&igrave; gi&uacute;p designers v&agrave; editors tối ưu c&ocirc;ng việc của họ. N&oacute; chuyển h&igrave;nh ảnh th&agrave;nh kiệt t&aacute;c. T&iacute;nh linh hoạt của n&oacute; đ&atilde; l&agrave;m cho nhu cầu trong thế giới s&aacute;ng tạo cho n&oacute; l&agrave; phần mềm chỉnh sửa ảnh tốt nhất. Chương tr&igrave;nh cung cấp cho bạn c&aacute;c t&iacute;nh năng tuyệt vời cho một thiết kế ho&agrave;n to&agrave;n tuyệt vời. Hơn thế nữa, Adobe Photoshop th&acirc;n thiện với người d&ugrave;ng v&agrave; n&oacute; cung cấp c&ocirc;ng cụ sẽ gi&uacute;p bạn trong việc chỉnh sửa ảnh.</p>\r\n\r\n<p>- Bạn l&agrave; người c&oacute; niềm đam m&ecirc; về ảnh v&agrave; muốn tạo ra những tấm ảnh ấn tượng?</p>\r\n\r\n<p>- Bạn l&agrave; designer, markerter, freelancer&nbsp;hay đang l&agrave;m c&ocirc;ng việc m&agrave; kĩ năng chỉnh sửa ảnh l&agrave; y&ecirc;u cầu bắt buộc?</p>\r\n\r\n<p>- Bạn&nbsp;cần một phần mềm chỉnh sửa ảnh chuy&ecirc;n nghiệp để tạo ra những poster, banner hay thậm ch&iacute; l&agrave; thiết kế giao diện web?</p>', 99, '#photoshop #thiết kế', 10, 4, 13, '2018-04-06 01:43:23', '2018-05-18 19:57:52'),
+(8, 'Tiếng Hàn sơ cấp cho người mới bắt đầu', 'tieng-han-so-cap-cho-nguoi-moi-bat-dau', '1525918302.png', 899000, 'basic', 0, 0, '<p>Tổng qu&aacute;t</p>\r\n\r\n<p>Bạn l&agrave; học sinh, sinh vi&ecirc;n muốn đi du học H&agrave;n Quốc? Bạn l&agrave; người muốn l&agrave;m việc tại c&aacute;c c&ocirc;ng ty H&agrave;n Quốc? Hay bạn l&agrave; người y&ecirc;u th&iacute;ch tiếng H&agrave;n, muốn t&igrave;m hiểu về văn h&oacute;a v&agrave; ng&ocirc;n ngữ H&agrave;n Quốc? H&atilde;y đến với kh&oacute;a học &quot;Tiếng H&agrave;n sơ cấp cho người mới bắt đầu&quot; để c&oacute; thể đọc th&ocirc;ng, viết thạo v&agrave; hiện thực h&oacute;a ước muốn của c&aacute;c bạn.<br />\r\nKh&oacute;a học của ch&uacute;ng t&ocirc;i sẽ mang đến:<br />\r\n- Những b&agrave;i học ngắn gọn, dễ hiểu ph&ugrave; hợp cho mọi đối tượng<br />\r\n- C&aacute;c b&agrave;i giảng được soạn một c&aacute;ch khoa học, ch&uacute; trọng tối đa tới khả năng &aacute;p dụng của người học<br />\r\n- 500 từ mới ứng dụng cho cuộc sống&nbsp;<br />\r\n- Gi&uacute;p học vi&ecirc;n giao tiếp cơ bản th&agrave;nh thạo với người bản ngữ&nbsp;<br />\r\n- Mẹo học nhanh v&agrave; hiệu quả<br />\r\nVậy bạn c&ograve;n chần chừ g&igrave; nữa? H&atilde;y đăng k&yacute; kh&oacute;a học ngay h&ocirc;m nay!</p>\r\n\r\n<p>Y&ecirc;u cầu của kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>- Mạng Internet ổn định</li>\r\n	<li>- Kh&ocirc;ng gian học y&ecirc;n tĩnh v&agrave; tho&aacute;ng đ&atilde;ng</li>\r\n</ul>\r\n\r\n<p>Lợi &iacute;ch từ kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>Sau kh&oacute;a học, học vi&ecirc;n sẽ:</li>\r\n	<li>- Biết c&aacute;ch ph&aacute;t &acirc;m chuẩn, nắm vững bảng chữ c&aacute;i tiếng H&agrave;n</li>\r\n	<li>- Học được 500 từ mới theo c&aacute;c chủ đề ứng dụng cho cuộc sống</li>\r\n	<li>- Giao tiếp cơ bản th&agrave;nh thạo với người bản ngữ</li>\r\n</ul>\r\n\r\n<p>Đối tượng mục ti&ecirc;u</p>\r\n\r\n<ul>\r\n	<li>- Sinh vi&ecirc;n sau khi tốt nghiệp c&oacute; mong muốn l&agrave;m việc trong c&aacute;c doanh nghiệp của H&agrave;n</li>\r\n	<li>- Người đang l&agrave;m việc tại c&ocirc;ng ty của H&agrave;n Quốc hay c&oacute; đối t&aacute;c H&agrave;n Quốc</li>\r\n	<li>- Người c&oacute; nhu cầu đi lao động tại H&agrave;n Quốc</li>\r\n	<li>- Học sinh, sinh vi&ecirc;n muốn đi du học H&agrave;n Quốc</li>\r\n</ul>', 10, '#Ngoại ngữ #Tiếng Hàn', 20, 1, 11, '2018-05-09 19:11:42', '2018-05-09 19:13:25'),
+(9, 'Chứng khoán cho người mới bắt đầu', 'chung-khoan-cho-nguoi-moi-bat-dau', '1525919059.jpg', 699000, 'all', 643, 5, '<p>&nbsp;</p>\r\n\r\n<p>Tổng qu&aacute;t</p>\r\n\r\n<p><br />\r\nY&ecirc;u cầu của kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>- C&oacute; m&aacute;y t&iacute;nh kết nối Internet.</li>\r\n	<li>- C&oacute; một khoản tiền nh&agrave;n rỗi (tối thiểu 10 triệu đồng để đầu tư).</li>\r\n</ul>\r\n\r\n<p>Lợi &iacute;ch từ kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>- Người học nắm được c&aacute;c quy định giao dịch v&agrave; c&aacute;ch lựa chọn được c&aacute;c cổ phiếu tốt.</li>\r\n	<li>- Hiểu được c&aacute;ch thức vận h&agrave;nh của thị trường chứng kho&aacute;n Việt Nam.</li>\r\n	<li>- Nắm được c&aacute;ch tư duy để lựa chọn cổ phiếu tốt để kiếm lợi nhuận tr&ecirc;n thị trường chứng kho&aacute;n.</li>\r\n	<li>- Cải thiện kết quả đầu tư (với những người đ&atilde; đầu tư nhưng kết quả chưa tốt).</li>\r\n</ul>\r\n\r\n<p>Đối tượng mục ti&ecirc;u</p>\r\n\r\n<ul>\r\n	<li>- Những ai muốn l&agrave;m gi&agrave;u từ thị trường chứng kho&aacute;n.</li>\r\n</ul>', 100, '#chứng khoán #làm giàu #kinh doanh', 10, 8, 12, '2018-05-09 19:24:19', '2018-05-22 23:39:38'),
+(10, 'YOGA trẻ hóa - Làm đẹp cho khuôn mặt', 'yoga-tre-hoa-lam-dep-cho-khuon-mat', '1525919884.png', 99000, 'all', 0, 0, '<p>Tổng qu&aacute;t</p>\r\n\r\n<p>- Cung cấp những th&ocirc;ng tin cơ bản nhất về nội dung, thời lượng học, c&aacute;ch thức &aacute;p dụng trong thực tế,...<br />\r\n- Chia sẻ của bản th&acirc;n giảng vi&ecirc;n về những trải nghiệm đ&uacute;c r&uacute;t được từ thực tế cuộc sống.<br />\r\n- &Yacute; nghĩa v&agrave; tầm quan trọng của việc học &amp; &aacute;p dụng những kỹ năng / kiến thức trong kh&oacute;a học đối với mục ti&ecirc;u c&aacute; nh&acirc;n của học vi&ecirc;n.</p>\r\n\r\n<p>Y&ecirc;u cầu của kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>- C&oacute; m&aacute;y t&iacute;nh, laptop, tablet ... kết nối Internet ổn định.</li>\r\n	<li>- C&oacute; kh&ocirc;ng gian tập luyện y&ecirc;n tĩnh v&agrave; ph&ugrave; hợp.</li>\r\n</ul>\r\n\r\n<p>Lợi &iacute;ch từ kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>- Chương tr&igrave;nh Yoga trực tuyến L&agrave;m đẹp cho khu&ocirc;n mặt gồm c&aacute;c b&agrave;i tập t&aacute;c động trực tiếp l&ecirc;n khu&ocirc;n mặt gi&uacute;p l&agrave;m đẹp cho l&agrave;n da, loại trừ nếp nhăn, k&eacute;o d&agrave;i sự trẻ trung cho l&agrave;n da của bạn.</li>\r\n</ul>\r\n\r\n<p>Đối tượng mục ti&ecirc;u</p>\r\n\r\n<ul>\r\n	<li>- Tất cả những ai c&oacute; nhu cầu luyện tập yoga r&egrave;n luyện sức khỏe.</li>\r\n	<li>- C&aacute;c bạn c&oacute; nhu cầu giữ d&aacute;ng, giảm c&acirc;n l&agrave;m đẹp cơ thể.</li>\r\n	<li>- D&acirc;n văn ph&ograve;ng, bận rộn, sức khỏe kh&ocirc;ng tốt.</li>\r\n	<li>- Những ai y&ecirc;u th&iacute;ch tập yoga nhưng kh&ocirc;ng c&oacute; thời gian đến trung t&acirc;m luyện tập.</li>\r\n</ul>', 0, '#yoga #làm đẹp', 0, 6, 12, '2018-05-09 19:38:04', '2018-05-09 19:38:04'),
+(12, 'QUẢN TRỊ MARKETING (BỘ BÀI GIẢNG 10 MODULES)', 'quan-tri-marketing-bo-bai-giang-10-modules', '1526475888.png', 449000, 'all', 0, 5, '<p>Tổng qu&aacute;t</p>\r\n\r\n<p>Marketing đang trở th&agrave;nh xu thế của thời đại. Bất kể bạn l&agrave; sinh vi&ecirc;n hay người đi l&agrave;m, học tập v&agrave; l&agrave;m việc trong lĩnh vực Marketing hay kh&ocirc;ng, hiểu biết về Marketing chắc chắn l&agrave; c&ocirc;ng cụ hỗ trợ đắc lực cho bạn kh&ocirc;ng chỉ trong c&ocirc;ng việc m&agrave; c&ograve;n trong giải quyết c&aacute;c vấn đề của cuộc sống.</p>\r\n\r\n<p>Tuy nhi&ecirc;n, ở đ&acirc;u đ&oacute;, khi t&igrave;m hiểu về Marketing, bạn sẽ &iacute;t nhiều gặp phải những kh&uacute;c mắc sau:</p>\r\n\r\n<p>Kh&ocirc;ng giỏi s&aacute;ng tạo c&oacute; học Marketing được kh&ocirc;ng?</p>\r\n\r\n<p>Người hướng nội c&oacute; n&ecirc;n học Marketing?</p>\r\n\r\n<p>Sinh vi&ecirc;n ngoại đạo, học tr&aacute;i tr&agrave;nh n&ecirc;n bắt đầu học Marketing từ đ&acirc;u?</p>\r\n\r\n<p>L&agrave;m Marketing lương c&oacute; cao kh&ocirc;ng?</p>\r\n\r\n<p>Chưa biết t&yacute; g&igrave; về Marketing, l&agrave;m thế n&agrave;o để lựa chọn cho m&igrave;nh chuy&ecirc;n m&ocirc;n y&ecirc;u th&iacute;ch?</p>\r\n\r\n<p>Marketer n&ecirc;n ph&aacute;t triển nghề nghiệp ở c&ocirc;ng ty nhỏ hay tập đo&agrave;n lớn?</p>\r\n\r\n<p>Tất tần tật c&acirc;u hỏi ph&iacute;a tr&ecirc;n sẽ được giải đ&aacute;p một c&aacute;nh tinh gọn nhất từ giảng vi&ecirc;n Mr Thuỳ Nguy&ecirc;n, MBA Markteting Management, Founder of TNI Group, bao gồm việc ph&aacute; bỏ ho&agrave;n to&agrave;n tư duy Marketing l&agrave; s&aacute;ng tạo, tới việc vẽ 1 lộ tr&igrave;nh ph&aacute;t triển nghề nghiệp r&otilde; r&agrave;ng cho bất cứ học vi&ecirc;n n&agrave;o tham gia,..</p>\r\n\r\n<p>Ngo&agrave;i ra, b&agrave;i bản, thực tiễn v&agrave; hệ thống, l&agrave; 3 ti&ecirc;u ch&iacute; h&agrave;ng đầu của kho&aacute; học n&agrave;y. V&agrave; để đạt được mục ti&ecirc;u tr&ecirc;n, kho&aacute; học sẽ tập trung v&agrave;o 4 trọng t&acirc;m ch&iacute;nh:</p>\r\n\r\n<p>1. Đầu ti&ecirc;n, học vi&ecirc;n sẽ được tiếp cận với hệ thống l&yacute; thuyết Quản trị Marketing b&agrave;i bản nhất bao gồm Tổng quan về Marketing,&nbsp;Nghi&ecirc;n cứu thị trường &amp; ph&acirc;n t&iacute;ch 3C, Định vị thương hiệu, Chiến lược gi&aacute; &amp; sản phẩm, Chiến lược k&ecirc;nh ph&acirc;n phối &amp; Truyền th&ocirc;ng</p>\r\n\r\n<p>2. Tiếp theo, học vi&ecirc;n sẽ được hướng dẫn để ho&agrave;n thiện một bản kế hoạch Marketing tổng thể m&agrave; bất cứ c&ocirc;ng ty chuy&ecirc;n nghiệp n&agrave;o cũng cần tới.</p>\r\n\r\n<p>3. Sau đ&oacute;, khi bạn c&oacute; được lượng kiến thức m&agrave; th&ocirc;ng thường một người sẽ mất 3 năm để c&oacute; thể ho&agrave;n th&agrave;nh trong kh&oacute;a học n&agrave;y, người học c&oacute; thể tự tin ph&aacute;t triển bản th&acirc;n ở c&aacute;c chuy&ecirc;n m&ocirc;n s&acirc;u hơn về Marketing, hay thậm ch&iacute; ứng dụng những l&yacute; thuyết n&agrave;y để tự m&igrave;nh khởi nghiệp kinh doanh.</p>\r\n\r\n<p>4. Cuối c&ugrave;ng, bạn sẽ được TNI Business School hỗ trợ hết m&igrave;nh: Giới thiệu việc l&agrave;m, kết nối bạn với doanh nghiệp tại N-Hub v&agrave; hỗ trợ, ươm mầm triển khai &yacute; tưởng khởi nghiệp v&agrave;o thực tế tại I-StartLab.<br />\r\nĐặc biệt nhất, khi c&aacute;c bạn l&agrave;m thực tế doanh nghiệp hoặc x&acirc;y dựng dự &aacute;n thật v&agrave; triển khai v&agrave;o thực tiễn sẽ c&ograve;n được hỗ trợ tham gia những hội thảo chia sẻ ho&agrave;n to&agrave;n Free v&agrave; nhiều kho&aacute; học ngắn hạn định hướng chuy&ecirc;n m&ocirc;n thực h&agrave;nh của &nbsp;TNI Business School do Mr. Thuỳ Nguy&ecirc;n s&aacute;ng lập.</p>\r\n\r\n<p>V&agrave; c&ograve;n nhiều hơn thế nữa, t&agrave;i liệu hấp dẫn tặng k&egrave;m kho&aacute; học:</p>\r\n\r\n<p>- Slide b&agrave;i giảng v&agrave; 1 cuốn s&aacute;ch ebook Quản trị Marketing do giảng vi&ecirc;n tự bi&ecirc;n soạn.</p>\r\n\r\n<p>- 1 template mẫu hướng dẫn chi tiết từng bước x&acirc;y dựng Marketing Master Plan bằng file exel.</p>\r\n\r\n<p>- 100 ebooks về Marketing để bạn nắm vững kiến thức nền tảng, chuẩn bị sẵn s&agrave;ng thực thi những chiến lược Marketing v&agrave;o thực tế</p>\r\n\r\n<p>Tỷ ph&uacute; Jack Ma khuy&ecirc;n c&aacute;c bạn trẻ thời nay rằng: &ldquo;Trước 30 tuổi, quan trọng kh&ocirc;ng phải l&agrave; theo c&ocirc;ng ty n&agrave;o m&agrave; theo người sếp n&agrave;o. Người sếp giỏi dạy ch&uacute;ng ta rất kh&aacute;c&rdquo;</p>\r\n\r\n<p><br />\r\nH&atilde;y đăng k&yacute; ngay kho&aacute; học n&agrave;y, để c&oacute; cơ hội được 1 người thầy, người anh, người &ldquo;sếp&rdquo; t&acirc;m huyến l&agrave; Mr Thuỳ Nguy&ecirc;n dẫn đường chỉ lối cho bạn vượt qua giai đoạn m&ocirc;ng lung nhất của đời người.</p>\r\n\r\n<p>Hẹn gặp c&aacute;c bạn trong kho&aacute; học v&agrave; c&ugrave;ng nhau thay đổi cuộc đời nh&eacute;!&nbsp;</p>\r\n\r\n<p>Kho&aacute; học nằm trong chương tr&igrave;nh MBA Marketing Management của trường TNI Business School. Chương tr&igrave;nh bao gồm tổng cộng 13 modules học tập hướng đến gi&uacute;p c&aacute;c bạn học vi&ecirc;n tự tin l&agrave;m việc ở bất cứ nơi đ&acirc;u v&agrave; khởi nghiệp kinh doanh ở bất cứ ng&agrave;nh nghề n&agrave;o th&ocirc;ng qua việc gi&uacute;p c&aacute;c bạn nắm vững kiến thức b&agrave;i bản, thực tiễn nhất về kinh doanh v&agrave; Marketing.</p>\r\n\r\n<p>Kho&aacute; học ng&agrave;y h&ocirc;m nay của ch&uacute;ng ta l&agrave;: Quản trị Marketing: Từ chiến lược cho tới thực thi kế hoạch Marketing. Chần chờ g&igrave; nữa m&agrave; kh&ocirc;ng đăng k&yacute; đi th&ocirc;i!</p>\r\n\r\n<p>Học th&ecirc;m kho&aacute; kho&aacute; Quảng c&aacute;o: https://edumall.vn/course/basic-advertising---sang-tao-1-cach-tao-bao---thu-lua-trong-nganh-quang-cao-sang-tao</p>\r\n\r\n<p>V&agrave; kho&aacute; Facebook Marketing: https://edumall.vn/course/facebook-marketing-co-ban--nang-cao</p>\r\n\r\n<p>Để bắt đầu kiếm lợi nhuận từ dự &aacute;n kinh doanh của bạn ngay h&ocirc;m nay!</p>\r\n\r\n<p>Y&ecirc;u cầu của kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>- Follow ngay giảng vi&ecirc;n tr&ecirc;n FB để được hỗ trợ to&agrave;n diện về chuy&ecirc;n m&ocirc;n v&agrave; việc l&agrave;m. Link: fb.com/thuynguyentni</li>\r\n	<li>- Học vi&ecirc;n cần một tư duy mở để tiếp nhận những kiến thức mới.</li>\r\n	<li>- Chuẩn bị thời gian v&agrave; sự tập trung do kh&oacute;a học c&oacute; h&agrave;m lượng kiến thức chất x&aacute;m cao.</li>\r\n</ul>\r\n\r\n<p>Lợi &iacute;ch từ kh&oacute;a học</p>\r\n\r\n<ul>\r\n	<li>Khi c&oacute; được những kiến thức nền tảng trong kh&oacute;a học n&agrave;y, người học c&oacute; thể:</li>\r\n	<li>- Tự tin ph&aacute;t triển bản th&acirc;n ở c&aacute;c chuy&ecirc;n m&ocirc;n s&acirc;u hơn về Marketing</li>\r\n	<li>- Hiểu v&agrave; ph&aacute;t huy được mối quan hệ giữa c&aacute;c yếu tố, c&aacute;c c&ocirc;ng cụ trong Marketing</li>\r\n	<li>- Ứng dụng những l&yacute; thuyết n&agrave;y để tự m&igrave;nh khởi nghiệp kinh doanh</li>\r\n	<li>- Với những chủ doanh nghiệp, kh&oacute;a học sẽ cung cấp c&aacute;i nh&igrave;n tổng quan để quản trị được hệ thống Marketing cho doanh nghiệp m&igrave;nh</li>\r\n	<li>- Được hỗ trợ ĐỊNH HƯỚNG theo sau: khi ho&agrave;n th&agrave;nh kho&aacute; học bạn sẽ được giới thiệu việc l&agrave;m tại N-Hub, v&agrave; tham gia v&agrave;o những dự &aacute;n khởi nghiệp tại I-start lab. 2 tổ chức trực thuộc TNI Group.</li>\r\n</ul>\r\n\r\n<p>Đối tượng mục ti&ecirc;u</p>\r\n\r\n<ul>\r\n	<li>Đối tượng ch&iacute;nh kh&oacute;a học l&agrave;:</li>\r\n	<li>- Sinh vi&ecirc;n muốn theo học ng&agrave;nh Marketing v&agrave; Kinh doanh</li>\r\n	<li>- C&aacute;c nh&acirc;n sự đang l&agrave;m việc tại c&aacute;c lĩnh vực li&ecirc;n quan đến Marketing v&agrave; Kinh Doanh muốn hệ thống h&oacute;a kiến thức Marketing</li>\r\n	<li>- C&aacute;c chủ doanh nghiệp muốn ứng dụng Marketing trong c&ocirc;ng việc kinh doanh của m&igrave;nh</li>\r\n	<li>H&atilde;y tham gia kho&aacute; học n&agrave;y! Kho&aacute; học được thiết kế d&agrave;nh ri&ecirc;ng cho bạn!</li>\r\n</ul>', 0, '#marketing #quản trị', 36, 2, 4, '2018-05-16 06:04:48', '2018-05-21 18:18:00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `doc`
+--
+
+CREATE TABLE `doc` (
+  `doc_id` int(10) UNSIGNED NOT NULL,
+  `doc_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `doc_link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `doc_grdoc_id` int(10) UNSIGNED NOT NULL,
+  `doc_acc_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `doc`
+--
+
+INSERT INTO `doc` (`doc_id`, `doc_name`, `doc_link`, `doc_grdoc_id`, `doc_acc_id`, `created_at`, `updated_at`) VALUES
+(1, 'Cách thuyết phục khách hàng', '1525745187.doc', 2, 1, '2018-05-07 19:06:27', '2018-05-07 19:06:27'),
+(2, 'Cách hiểu được tâm lý khách hàng', '1525745300.txt', 2, 1, '2018-05-07 19:08:20', '2018-05-07 19:08:20'),
+(3, 'Các kênh sale hiệu quả nhất', '1525745341.ini', 3, 1, '2018-05-07 19:09:01', '2018-05-07 19:09:01');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `groupdoc`
+--
+
+CREATE TABLE `groupdoc` (
+  `grdoc_id` int(10) UNSIGNED NOT NULL,
+  `grdoc_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `grdoc_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `grdoc_gr_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `groupdoc`
+--
+
+INSERT INTO `groupdoc` (`grdoc_id`, `grdoc_name`, `grdoc_slug`, `grdoc_gr_id`, `created_at`, `updated_at`) VALUES
+(1, 'Tiếng Anh', 'tieng-anh', 1, '2018-05-04 06:43:05', '2018-05-04 18:39:18'),
+(2, 'Telesale', 'telesale', 2, '2018-05-07 19:05:00', '2018-05-07 19:05:00'),
+(3, 'Digital Marketting', 'digital-marketting', 2, '2018-05-07 19:08:43', '2018-05-07 19:08:43');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `groups`
+--
+
+CREATE TABLE `groups` (
+  `gr_id` int(10) UNSIGNED NOT NULL,
+  `gr_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gr_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gr_img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `groups`
+--
+
+INSERT INTO `groups` (`gr_id`, `gr_name`, `gr_slug`, `gr_img`, `created_at`, `updated_at`) VALUES
+(1, 'Ngoại ngữ', 'ngoai-ngu', 'ic_speaking.png', '2018-04-04 02:43:14', '2018-04-18 19:01:58'),
+(2, 'Maketing', 'maketing', 'ic_marketing.png', '2018-04-04 02:43:58', '2018-04-18 19:03:14'),
+(3, 'Tin học văn phòng', 'tin-hoc-van-phong', 'tinhocvanphong.png', '2018-04-04 02:44:10', '2018-04-18 19:03:27'),
+(4, 'Thiết kế', 'thiet-ke', 'ic_tke.png', '2018-04-04 18:40:43', '2018-04-18 19:03:38'),
+(5, 'Công nghệ thông tin', 'cong-nghe-thong-tin', 'ic_coding.png', '2018-04-04 18:44:21', '2018-04-18 19:03:48'),
+(6, 'Phát triển bản thân', 'phat-trien-ban-than', 'ic_skill.png', '2018-04-04 19:39:34', '2018-04-18 19:03:58'),
+(7, 'Luyện thi THPT Quốc Gia', 'luyen-thi-thpt-quoc-gia', 'ic_book.png', '2018-04-18 19:05:32', '2018-04-18 19:05:32'),
+(8, 'Khởi nghiệp kinh doanh', 'khoi-nghiep-kinh-doanh', 'ic_kdkn.png', '2018-04-18 19:06:35', '2018-04-18 19:06:35');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lesson`
+--
+
+CREATE TABLE `lesson` (
+  `les_id` int(10) UNSIGNED NOT NULL,
+  `les_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `les_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `les_link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `les_video_duration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `les_part_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `lesson`
+--
+
+INSERT INTO `lesson` (`les_id`, `les_name`, `les_slug`, `les_link`, `les_video_duration`, `les_part_id`, `created_at`, `updated_at`) VALUES
+(1, 'oke', 'oke', '1526351675.ini', '00:00', 8, '2018-05-14 19:34:35', '2018-05-14 19:34:35'),
+(2, 'Giới thiệu', 'gioi-thieu', '1526647592.mp4', '06:09', 13, '2018-05-18 05:46:32', '2018-05-18 05:46:32'),
+(3, 'Tiếng Anh', 'tieng-anh', '1526647653.mp4', '04:33', 13, '2018-05-18 05:47:33', '2018-05-18 05:47:33'),
+(4, 'Layer là gì', 'layer-la-gi', '1526698672.mp4', '04:33', 11, '2018-05-18 19:57:52', '2018-05-18 19:57:52');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(3, '2018_04_04_010904_accounts', 1),
+(8, '2018_04_04_084547_groups', 2),
+(10, '2018_04_04_084242_course', 3),
+(15, '2018_04_05_091431_comment', 6),
+(16, '2018_04_06_023537_news', 7),
+(17, '2018_04_06_043155_part', 8),
+(19, '2018_04_06_080504_rating', 10),
+(22, '2018_04_06_064659_lesson', 11),
+(23, '2018_05_01_041112_create_social_accounts_table', 12),
+(25, '2018_05_02_031745_code', 13),
+(28, '2018_05_04_103933_groupdoc', 14),
+(29, '2018_05_05_020540_doc', 15),
+(30, '2018_05_09_042020_teacher', 16),
+(32, '2018_05_09_044019_story', 17),
+(33, '2018_05_09_084303_teacher_rating', 18),
+(34, '2018_05_10_025634_banner', 19),
+(37, '2018_04_05_041234_order', 20),
+(38, '2018_04_05_042247_orderdetail', 20),
+(39, '2018_05_17_070359_aff', 20),
+(40, '2018_05_18_091921_about', 21),
+(41, '2018_05_21_082211_alter2_users_table', 22);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `news`
+--
+
+CREATE TABLE `news` (
+  `news_id` int(10) UNSIGNED NOT NULL,
+  `news_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `news_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `news_img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `news_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `news_type` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `news`
+--
+
+INSERT INTO `news` (`news_id`, `news_title`, `news_slug`, `news_img`, `news_content`, `news_type`, `created_at`, `updated_at`) VALUES
+(1, 'Làm ‘sáng’ website của bạn với 12 cách ‘phù phép’ màu sắc (tất cả các ngành hàng)', 'lam-sang-website-cua-ban-voi-12-cach-phu-phep-mau-sac-tat-ca-cac-nganh-hang', '1269591949_1600x1200_colour-pencil-wallpaper-696x522.jpg', '<p>Muốn đạt được th&agrave;nh c&ocirc;ng trong kinh doanh, bạn cần lưu t&acirc;m tới rất nhiều thứ. Kh&ocirc;ng chỉ am hiểu về x&acirc;y dựng thương hiệu, c&aacute;ch thức ph&aacute;t triển chiến lược marketing &amp; quảng c&aacute;o hiệu quả, m&agrave; bạn c&ograve;n cần biết c&aacute;ch tạo ấn tượng thực sự với kh&aacute;ch h&agrave;ng. Website ch&iacute;nh l&agrave; c&ocirc;ng cụ tốt nhất để thực hiện mục ti&ecirc;u đ&oacute;.</p>\r\n\r\n<p>M&agrave;u sắc c&oacute; tầm ảnh hưởng đặc biệt đến h&agrave;nh vi, phản ứng, cảm x&uacute;c của kh&aacute;ch h&agrave;ng. Bằng c&aacute;ch sử dụng m&agrave;u sắc cho website một c&aacute;c hơp l&yacute;, bạn c&oacute; thể khiến cho kh&aacute;ch h&agrave;ng suy nghĩ, cảm nhận v&agrave; tương t&aacute;c với thương hiệu của bạn theo c&aacute;ch m&agrave; bạn muốn.</p>\r\n\r\n<p>H&atilde;y c&ugrave;ng t&igrave;m hiểu s&acirc;u hơn về kh&aacute;i niệm t&acirc;m l&yacute; m&agrave;u sắc v&agrave; c&aacute;ch ứng dụng n&oacute;. Đầu ti&ecirc;n, ch&uacute;ng ta h&atilde;y c&ugrave;ng xem một số c&aacute;ch phối m&agrave;u ảnh hưởng trực tiếp tới t&acirc;m l&yacute; kh&aacute;ch h&agrave;ng.</p>\r\n\r\n<h3>T&acirc;m l&iacute; m&agrave;u sắc l&agrave; g&igrave;?</h3>\r\n\r\n<p>H&atilde;y vắn tắt lại định nghĩa. T&acirc;m l&yacute; m&agrave;u sắc l&agrave; &ldquo;nghi&ecirc;n cứu sự ảnh hưởng của m&agrave;u sắc đến quyết định của con người&rdquo;. N&oacute;i c&aacute;ch kh&aacute;c, đ&oacute; l&agrave; c&aacute;ch m&agrave; m&agrave;u sắc ảnh hưởng đến c&aacute;ch h&agrave;nh xử của mỗi người.<br />\r\nTheo như t&acirc;m l&yacute; m&agrave;u sắc, những m&agrave;u sắc kh&aacute;c nhau đem đến những cảm x&uacute;c , cảm gi&aacute;c v&agrave; h&agrave;nh vi kh&aacute;c nhau. Dưới đ&acirc;y l&agrave; một c&aacute;i nh&igrave;n to&agrave;n thể về đặc t&iacute;nh t&acirc;m l&yacute; của những m&agrave;u sắc trong cầu vồng.</p>\r\n\r\n<h3>&Yacute; nghĩa của những sắc m&agrave;u</h3>\r\n\r\n<p><em><strong>Đỏ:</strong>&nbsp;</em>Năng lượng, hứng khởi, nhiệt huyết v&agrave; nguy hiểm. Đỏ l&agrave; m&agrave;u sắc tuyệt vời để th&uacute;c giục con người ta h&agrave;nh động.</p>\r\n\r\n<p><em><strong>Cam:</strong></em>&nbsp;Hạnh ph&uacute;c v&agrave; vui vẻ. M&agrave;u cam được biết đến rộng r&atilde;i như l&agrave; m&agrave;u của niềm vui v&agrave; sử dụng m&agrave;u cam trong nh&atilde;n hiệu l&agrave; một c&aacute;ch ho&agrave;n hảo để thể hiện t&iacute;nh h&agrave;i hước.</p>\r\n\r\n<p><em><strong>V&agrave;ng:</strong>&nbsp;</em>M&agrave;u của &aacute;nh nắng. V&agrave;ng gợi li&ecirc;n tưởng đến niềm h&acirc;n hoan, phấn khởi v&agrave; cởi mở.</p>\r\n\r\n<p><em><strong>Xanh l&aacute; c&acirc;y:</strong>&nbsp;</em>Khi nh&igrave;n thấy m&agrave;u xanh l&aacute;, mọi người sẽ nhớ ngay đến 2 thứ: thi&ecirc;n nhi&ecirc;n v&agrave; những tờ tiền giấy. M&agrave;u xanh l&aacute; cũng được chứng minh l&agrave; c&oacute; t&aacute;c dụng tĩnh t&acirc;m, do đ&oacute;, nếu bạn muốn b&igrave;nh ổn cảm x&uacute;c, xanh l&aacute; l&agrave; một sự lựa chọn tuyệt vời.</p>\r\n\r\n<p><em><strong>Xanh nước biển:</strong></em>&nbsp;Đ&acirc;y l&agrave; m&agrave;u sắc nhận được nhiều sự ưa th&iacute;ch nhất. Xanh nước biển tạo n&ecirc;n cảm gi&aacute;c tin tưởng, do đ&oacute; n&oacute; được rất nhiều nh&atilde;n h&agrave;ng ưa chuộng. Tr&ecirc;n thực thế, tr&ecirc;n một nửa c&aacute;c logo hiện nay đều c&oacute; m&agrave;u xanh nước biển.</p>\r\n\r\n<p><em><strong>T&iacute;m:</strong>&nbsp;</em>M&agrave;u của sự trung th&agrave;nh. T&iacute;m mang lại cảm gi&aacute;c vương giả, uy quyền, sắc sảo.</p>\r\n\r\n<p><em><strong>Hồng:</strong>&nbsp;</em>M&agrave;u hồng thường được d&ugrave;ng trong c&aacute;c nh&atilde;n hiệu d&agrave;nh ri&ecirc;ng cho ph&aacute;i đẹp, c&aacute;c sắc độ kh&aacute;c nhau của m&agrave;u hồng c&oacute; thể tạo ra rung cảm trẻ trung l&ocirc;i cuốn hơn đối với đ&agrave;n &ocirc;ng (#realmenwearpink). Hồng cũng l&agrave; m&agrave;u của Tổ chức n&acirc;ng cao nhận thức về ung thư v&uacute;, do đ&oacute;, m&agrave;u sắc n&agrave;y mang một sự gắn kết mạnh mẽ</p>\r\n\r\n<p><em><strong>Đen:</strong></em>&nbsp;Cổ điển, b&oacute;ng bẩy v&agrave; hiện đại, đen l&agrave; biểu tượng của sự xa xỉ rất th&iacute;ch hợp với c&aacute;c nh&atilde;n hiệu cao cấp.</p>\r\n\r\n<p><em><strong>Trắng:</strong>&nbsp;</em>Đ&ocirc;i khi, m&agrave;u sắc đẹp nhất l&agrave; &ldquo;kh&ocirc;ng c&oacute; m&agrave;u g&igrave; cả&rdquo;. Trắng l&agrave; m&agrave;u sắc hấp dẫn đối với c&aacute;c thương hiệu v&agrave; thường được coi l&agrave; biểu tượng của sự thuần khiết.</p>\r\n\r\n<p><em><strong>X&aacute;m:</strong></em>&nbsp;Nếu như bạn sở hữu một thương hiệu nghi&ecirc;m trang hơn, m&agrave;u x&aacute;m ch&iacute;nh l&agrave; lựa chọn d&agrave;nh cho bạn. N&oacute; mang đến cảm gi&aacute;c trưởng th&agrave;nh, uy quyền, v&agrave; cho mọi người thấy được bạn nghi&ecirc;m t&uacute;c với c&ocirc;ng việc kinh doanh của m&igrave;nh.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac1_1519959610.png\" /></p>\r\n\r\n<p>Vậy n&ecirc;n, h&atilde;y chọn đ&uacute;ng c&aacute;ch phối m&agrave;u để nắm bắt cảm x&uacute;c.</p>\r\n\r\n<p>Mỗi m&agrave;u sắc lại sở hữu một &yacute; nghĩa ri&ecirc;ng biệt. Nhưng website lu&ocirc;n l&agrave; sự kết hợp của đa dạng sắc m&agrave;u chứ kh&ocirc;ng chỉ ri&ecirc;ng một m&agrave;u đơn điệu. V&igrave; vậy, cần phối hợp theo c&aacute;ch n&agrave;o đ&oacute; để t&aacute;c động &ldquo;k&eacute;p&rdquo; tới t&acirc;m l&yacute; kh&aacute;ch h&agrave;ng.</p>\r\n\r\n<h3>C&aacute;ch phối m&agrave;u tạo cho kh&aacute;ch h&agrave;ng niềm hứng th&uacute;</h3>\r\n\r\n<p>Mục ti&ecirc;u m&agrave; mọi doanh nghiệp đều mong muốn khi kh&aacute;ch h&agrave;ng gh&eacute; thăm website của họ ch&iacute;nh l&agrave; l&agrave;m kh&aacute;ch h&agrave;ng cảm thấy hứng khởi. Một người ti&ecirc;u d&ugrave;ng với t&acirc;m trạng hưng phấn sẽ c&oacute; khả năng h&agrave;nh động theo hướng t&iacute;ch cực, một trong số đ&oacute;, tất nhi&ecirc;n rồi, l&agrave; đặt mua sản phẩm!</p>\r\n\r\n<p>Một v&iacute; dụ tuyệt vời về phối m&agrave;u website đem tới cảm x&uacute;c t&iacute;ch cực cho kh&aacute;ch h&agrave;ng đ&oacute; l&agrave; c&aacute;c nh&atilde;n h&agrave;ng trẻ em. C&aacute;c thương hiệu n&agrave;y muốn khiến cho những đứa trẻ trở n&ecirc;n vui vẻ. V&agrave; những đứa trẻ ấy sẽ năn nỉ bố mẹ mua bằng được đồ chơi, quần &aacute;o&hellip; hoặc nh&agrave; hơi m&agrave; thương hiệu đ&oacute; đang b&aacute;n. Niềm hứng khởi của kh&aacute;ch h&agrave;ng ch&iacute;nh l&agrave; b&iacute; quyết kinh doanh th&agrave;nh c&ocirc;ng.</p>\r\n\r\n<p>Vậy l&agrave;m thế n&agrave;o để khiến cho kh&aacute;ch h&agrave;ng đạt được mức hứng khởi ấy? C&acirc;u trả lời ch&iacute;nh l&agrave; sử dụng những gam m&agrave;u s&aacute;ng, s&ocirc;i nổi. Trẻ em thường bị thu h&uacute;t bởi những m&agrave;u sắc s&aacute;ng, sặc sỡ. H&atilde;y nhớ rằng, rất &iacute;t trẻ th&iacute;ch m&agrave;u nude hay m&agrave;u lục nhạt.</p>\r\n\r\n<p>Đối với hiệu d&agrave;nh cho trẻ em hay bất k&igrave; nh&atilde;n hiệu n&agrave;o, sử dụng m&agrave;u nổi bật sẽ khiến kh&aacute;ch h&agrave;ng sẵn r&uacute;t v&iacute;.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac2_1519959642.png\" /></p>\r\n\r\n<h3>Phối m&agrave;u website n&acirc;ng cao cảm t&igrave;nh thương hiệu</h3>\r\n\r\n<p>Như ch&uacute;ng ta đ&atilde; đề cập đến trước đ&oacute;, những m&agrave;u sắc kh&aacute;c nhau tạo n&ecirc;n những phản ứng kh&aacute;c nhau t&ugrave;y theo từng nh&oacute;m người. Nhưng c&oacute; một số m&agrave;u chắc chắn đc ưa th&iacute;ch rộng r&atilde;i to&agrave;n diện tr&ecirc;n mọi lĩnh vực. Điều n&agrave;y rất cần thiết cho việc x&acirc;y l&ograve;ng trung th&agrave;nh đối với thương hiệu cũng như cảm x&uacute;c t&iacute;ch cực &ndash; thứ gi&uacute;p cho c&ocirc;ng việc kinh doanh của bạn ph&aacute;t triển trong tương lai gần.</p>\r\n\r\n<p>Vậy th&igrave;, bạn n&ecirc;n sử dụng m&agrave;u n&agrave;o để tạo được sự l&ocirc;i cuốn rộng r&atilde;i? C&acirc;u trả lời ch&iacute;nh l&agrave; xanh biển v&agrave; xanh l&aacute;.</p>\r\n\r\n<p>Theo như một nghi&ecirc;n cứu gần đ&acirc;y, cả phụ nữ v&agrave; nam giới đều chọn xanh nước biển v&agrave; xanh l&aacute; c&acirc;y l&agrave; 2 trong số những m&agrave;u sắc y&ecirc;u th&iacute;ch của họ, 25% phụ nữ v&agrave; hơn 57% đ&agrave;n &ocirc;ng khẳng định rằng xanh biển l&agrave; m&agrave;u m&agrave; họ th&iacute;ch nhất. 14% người được hỏi (cả nam v&agrave; nữ) chọn xanh l&aacute; c&acirc;y.</p>\r\n\r\n<p>Bằng c&aacute;ch bổ sung xanh nước biển v&agrave; xanh l&aacute; c&acirc;y v&agrave;o bảng phối m&agrave;u website, bạn sẽ n&iacute;u giữ được kh&aacute;ch h&agrave;ng ở lại website l&acirc;u hơn v&agrave; tạo ra thiện cảm ngay từ c&aacute;i nh&igrave;n đầu ti&ecirc;n.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac3_1519959666.png\" /></p>\r\n\r\n<h3>C&aacute;ch phối m&agrave;u website tăng sự t&iacute;n nhiệm</h3>\r\n\r\n<p>Mặt kh&aacute;c, nếu bạn đang muốn trở n&ecirc;n nghi&ecirc;m t&uacute;c hơn, điều m&agrave; bạn đang t&igrave;m kiếm kh&ocirc;ng phải l&agrave; sự h&agrave;o hứng, m&agrave; phải l&agrave; sự t&iacute;n nhiệm, bạn c&oacute; thể sử dụng những m&agrave;u trung t&iacute;nh hơn, m&agrave;u lặng (muted palette) với 1 hoặc 2 m&agrave;u được nhấn mạnh. Sử dụng bảng m&agrave;u s&aacute;ng sẽ dẫn đến cảm gi&aacute;c hơi ph&ocirc; trương v&agrave; c&oacute; thể l&agrave;m mất đi ấn tượng nghi&ecirc;m t&uacute;c m&agrave; bạn đang d&agrave;y c&ocirc;ng x&acirc;y dựng cho c&ocirc;ng việc kinh doanh của m&igrave;nh.</p>\r\n\r\n<p>C&aacute;c m&agrave;u trung t&iacute;nh như đen, n&acirc;u thường gợi li&ecirc;n tưởng những vấn đề mang t&iacute;nh chất nghi&ecirc;m trọng. Nếu mục ti&ecirc;u của bạn l&agrave; khiến cho website của m&igrave;nh được nh&igrave;n nhận một c&aacute;ch nghi&ecirc;m t&uacute;c, h&atilde;y sử dụng những t&ocirc;ng m&agrave;u n&agrave;y.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac4_1519959693.png\" /></p>\r\n\r\n<h3>Kết hợp m&agrave;u website tăng sự tin tưởng</h3>\r\n\r\n<p>Muốn được nh&igrave;n nhận như một thương hiệu vững chắc v&agrave; đ&aacute;ng tin? H&atilde;y sử dụng m&agrave;u xanh nước biển. Xanh nước biển đ&atilde; được chứng minh l&agrave; c&oacute; thể l&agrave;m gia tăng cảm gi&aacute;c tin tưởng. Chắc chắn đ&acirc;y sẽ l&agrave; một lựa chọn tốt để định h&igrave;nh thương hiệu của bạn như một nơi m&agrave; người ti&ecirc;u d&ugrave;ng c&oacute; thể đặt niềm tin. Đ&oacute; l&agrave; l&yacute; do tại sao xanh nước biển l&agrave; m&agrave;u được ưa chuộng nhất ở Mỹ, c&oacute; mặt trong hơn 50% logo của c&aacute;c h&atilde;ng nh&atilde;n.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac5_1519959720.png\" /></p>\r\n\r\n<p><em>Sử dụng m&agrave;u sắc để kh&aacute;ch h&agrave;ng đồng &yacute; sử dụng sản phẩm v&agrave; dịch vụ.</em></p>\r\n\r\n<p>Giống như việc d&ugrave;ng m&agrave;u sắc để khơi n&ecirc;n những cảm gi&aacute;c đặc biệt, bạn cũng c&oacute; thể sử dụng n&oacute; để tạo n&ecirc;n những h&agrave;nh động đặc biệt nhờ chiến lược cụ thể. Phối hợp m&agrave;u sắc sẽ khiến cho kh&aacute;ch h&agrave;ng l&agrave;m theo ch&iacute;nh x&aacute;c những g&igrave; bạn muốn, hay n&oacute;i c&aacute;ch kh&aacute;c, c&oacute; th&ecirc;m những kh&aacute;ch h&agrave;ng đồng &yacute; chi tiền.</p>\r\n\r\n<p>Tất nhi&ecirc;n, c&aacute;ch phối m&agrave;u website c&oacute; thể gi&uacute;p bạn thực hiện điều đ&oacute;. Chiến lược sử dụng m&agrave;u sắc đ&uacute;ng chỗ, đ&uacute;ng thời điểm sẽ tạo n&ecirc;n được những hiệu quả đặc bi&ecirc;t.</p>\r\n\r\n<p>Bạn c&oacute; thể sử dụng m&agrave;u đỏ. M&agrave;u đỏ l&agrave; m&agrave;u sắc duy nhất được chứng minh l&agrave; c&oacute; khả năng tăng lượng kh&aacute;ch đồng &yacute; mua h&agrave;ng l&ecirc;n 34%.</p>\r\n\r\n<p>Nếu bạn muốn kh&aacute;ch h&agrave;ng cảm thấy t&ograve; m&ograve;, h&atilde;y thử d&ugrave;ng m&agrave;u xanh l&aacute; c&acirc;y &ndash; m&agrave;u c&oacute; khả năng khơi m&agrave;o s&aacute;ng tạo.</p>\r\n\r\n<p>Sử dụng những m&agrave;u đặc biệt sẽ khiến cho b&agrave;i viết tr&ecirc;n website của bạn th&uacute; vị tới nỗi, ch&uacute;ng như thể đang nhảy ra ngo&agrave;i m&agrave;n h&igrave;nh m&aacute;y t&iacute;nh v&agrave; n&oacute;i với kh&aacute;ch h&agrave;ng &ldquo;Hey! Nh&igrave;n n&agrave;y&rdquo;.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac6_1519959803.png\" /></p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac7_1519959811.png\" /></p>\r\n\r\n<p><em>Sử dụng đ&uacute;ng m&agrave;u sắc cho từng ng&agrave;nh nghề.</em></p>\r\n\r\n<p>Cũng giống như việc kh&ocirc;ng c&oacute; c&aacute;ch chắc chắn n&agrave;o để 100% kh&aacute;ch h&agrave;ng tiềm năng sẽ trở th&agrave;nh kh&aacute;ch h&agrave;ng đồng &yacute; sử dụng sản phẩm, kh&ocirc;ng c&oacute; luật n&agrave;o quy định việc d&ugrave;ng m&agrave;u g&igrave; cho ng&agrave;nh kinh doanh n&agrave;o. Tuy nhi&ecirc;n, c&oacute; một số m&agrave;u sắc lại th&agrave;nh c&ocirc;ng trong việc gợi sự li&ecirc;n tưởng.</p>\r\n\r\n<h3>Xanh l&aacute; cho những thương hiệu th&acirc;n thiện với m&ocirc;i trường</h3>\r\n\r\n<p>Bởi m&agrave;u xanh l&aacute; gợi li&ecirc;n tưởng đến thi&ecirc;n nhi&ecirc;n n&ecirc;n thường được chọn l&agrave;m ưu ti&ecirc;n h&agrave;ng đầu cho c&aacute;c thương hiệu th&acirc;n thiện với m&ocirc;i trường.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac8_1519959826.png\" /></p>\r\n\r\n<h3>M&agrave;u xanh nước biển cho nước</h3>\r\n\r\n<p>Thường gợi nhớ đến biển (hoặc như trong phim Đi t&igrave;m Nemo đ&atilde; gọi,đ&oacute; l&agrave; &rdquo;Đại dương xanh&rdquo;) tuy nhi&ecirc;n, khi mọi người nghĩ tới nước, họ cũng nghĩ tới cả m&agrave;u xanh nước biển. Nếu ng&agrave;nh kinh doanh của bạn l&agrave; nước uống, hay c&oacute; li&ecirc;n quan đến nước, bạn sẽ tạo được ấn tượng cho thương hiệu của m&igrave;nh</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac9_1519959839.png\" /></p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac10_1519959848.png\" /></p>\r\n\r\n<h3>Xanh nước biển cho t&agrave;i ch&iacute;nh, kinh tế</h3>\r\n\r\n<p>Nếu c&ocirc;ng ty bạn l&agrave;m về c&oacute; nền tảng l&agrave; t&agrave;i ch&iacute;nh, cảm gi&aacute;c đầu ti&ecirc;n m&agrave; bạn phải mang lại cho kh&aacute;ch h&agrave;ng đ&oacute; l&agrave; sự tin tưởng. Đ&oacute; l&agrave; l&yacute; do tại sao m&agrave; xanh da trời &ndash; biểu tượng của niềm tin-l&agrave; một sự lựa chọn tuyệt vời.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac11_1519959861.png\" /></p>\r\n\r\n<h3>Đỏ cho ng&agrave;nh b&aacute;n lẻ</h3>\r\n\r\n<p>Nếu bạn l&agrave; một nh&agrave; kinh doanh b&aacute;n lẻ sản phẩm (c&ocirc;ng ty hoạt động trong một cửa tiệm thực sự,thường thấy tại c&aacute;c trung t&acirc;m thương mại, nơi kh&aacute;ch h&agrave;ng c&oacute; thể đến xem h&agrave;ng h&oacute;a v&agrave; tiếp x&uacute;c với nh&acirc;n vi&ecirc;n b&aacute;n h&agrave;ng, hoặc thương mại điện tử), m&agrave;u đỏ l&agrave; một sự lựa chọn th&iacute;ch hợp. M&agrave;u đỏ thổi bừng l&ecirc;n sức sống v&agrave; khiến cho kh&aacute;ch h&agrave;ng hứng th&uacute; với việc mua sản phẩm của bạn. Nếu bạn kh&ocirc;ng tin, h&atilde;y nh&igrave;n v&agrave;o con số n&agrave;y: hơn 59% logo v&agrave; nh&atilde;n hiệu của c&aacute;c nh&agrave; b&aacute;n lẻ đều c&oacute; chứa m&agrave;u đỏ.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/Mausac12_1519959875.png\" /></p>\r\n\r\n<p>Như một nh&agrave; s&aacute;ng lập v&agrave; <a href=\"http://blog.edumall.vn/ebook-emyth-de-tro-thanh-nha-quan-ly-hieu-qua/\">quản l&yacute;</a>, bạn phải sẵn s&agrave;ng l&agrave;m tất cả mọi việc trong khả năng của m&igrave;nh để nhận được sự ủng hộ của kh&aacute;ch h&agrave;ng, kể cả l&agrave; phải thử hết tất cả c&aacute;c m&agrave;u để t&igrave;m ra m&agrave;u ph&ugrave; hợp nhất cho website của m&igrave;nh.</p>\r\n\r\n<p>Bạn đ&atilde; t&igrave;m ra c&aacute;ch phối m&agrave;u m&agrave;u bạn muốn cho website của m&igrave;nh chưa? Với vai tr&ograve; l&agrave; Agency thiết kế thương hiệu h&agrave;ng đầu, LogoArt lu&ocirc;n nỗ lực để tư vấn cho kh&aacute;ch h&agrave;ng những phương &aacute;n website hiệu quả nhất, để n&iacute;u giữ kh&aacute;ch h&agrave;ng ngay từ lần đầu ti&ecirc;n truy cập, v&agrave; gia tăng tỷ lệ mua h&agrave;ng mỗi ng&agrave;y.</p>', 1, '2018-04-05 19:57:23', '2018-05-21 04:52:35'),
+(2, '4 thủ thuật tâm lý trong marketing giúp tăng doanh số', '4-thu-thuat-tam-ly-trong-marketing-giup-tang-doanh-so', '14838OnlineShopping_1520235951.jpg', '<p>Nếu bạn nắm bắt được yếu tố ảnh hưởng lớn nhất đến người mua, thời điểm họ muốn chi tiền, bạn c&oacute; thể d&ugrave;ng c&aacute;c kiến thức đ&oacute; để thu h&uacute;t kh&aacute;ch h&agrave;ng tiềm năng.</p>\r\n\r\n<p>Giữ được sự ch&uacute; &yacute; của một người trong v&agrave;i ph&uacute;t l&agrave; điều rất kh&oacute;. Đặc biệt ng&agrave;y nay, mạng x&atilde; hội tạo ra sự xao nh&atilde;ng lớn nơi con người bởi c&aacute;c th&ocirc;ng b&aacute;o li&ecirc;n tục về cập nhật mới. Để đạt được mục ti&ecirc;u kinh doanh, c&aacute;c doanh nghiệp cần t&igrave;m ra những c&aacute;ch đặc biệt để kết nối với kh&aacute;ch h&agrave;ng v&agrave; khuyến kh&iacute;ch họ mua sắm th&ocirc;ng qua c&aacute;c chiến lược marketing.</p>\r\n\r\n<p>&ldquo;Động lực th&uacute;c đẩy kh&aacute;ch h&agrave;ng h&agrave;nh động đều tương đồng tr&ecirc;n cả k&ecirc;nh trực tuyến lẫn trực tiếp. Những c&acirc;u chuyện hay sẽ l&agrave;m con người cảm động. Những thương hiệu c&oacute; th&ocirc;ng điệp r&otilde; r&agrave;ng, thiết kế bắt mắt v&agrave; &aacute;p dụng c&ocirc;ng nghệ dễ sử dụng sẽ th&uacute;c đẩy kh&aacute;ch h&agrave;ng h&agrave;nh động, bất kể l&agrave; tr&ecirc;n website, TV hay gặp trực tiếp tại sự kiện kh&aacute;ch h&agrave;ng&rdquo;, Rachel Clemens &ndash; CMO của Mighty Citizen cho biết.</p>\r\n\r\n<p>Sử dụng c&aacute;c thủ thuật t&acirc;m l&yacute; trong marketing l&agrave; c&aacute;ch tuyệt vời để thu h&uacute;t sự ch&uacute; &yacute; cho thương hiệu của bạn. Nếu bạn nắm bắt được điều ảnh hưởng lớn nhất đến người mua, thời điểm họ muốn chi tiền, bạn c&oacute; thể d&ugrave;ng c&aacute;c kiến thức đ&oacute; để thu h&uacute;t kh&aacute;ch h&agrave;ng tiềm năng. Trong b&agrave;i viết tr&ecirc;n trang Business News Daily, Rachel Clemens chia sẻ 4 thủ thuật t&acirc;m l&yacute; sẽ gi&uacute;p bạn cải thiện chiến lược marketing v&agrave; gia tăng doanh số. Đ&oacute; l&agrave;:</p>\r\n\r\n<h3>1. Cung cấp th&ocirc;ng tin nền</h3>\r\n\r\n<p>Khi kh&aacute;ch h&agrave;ng mua sắm trực tuyến, bạn cần tạo ra trải nghiệm tương đồng như khi họ mua sắm tại cửa h&agrave;ng. Thay v&igrave; chỉ đơn giản giới thiệu một sản phẩm, dịch vụ hiện c&oacute;, h&atilde;y cung cấp th&ecirc;m c&aacute;c th&ocirc;ng tin tham khảo được c&aacute; nh&acirc;n h&oacute;a theo trải nghiệm của kh&aacute;ch h&agrave;ng đang mua sắm.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/14838OnlineShopping_1520235951.jpg\" /></p>\r\n\r\n<p>&ldquo;Khi ra quyết định mua h&agrave;ng, con người thường th&iacute;ch c&oacute; th&ecirc;m nhiều th&ocirc;ng tin tham khảo. Họ muốn biết người kh&aacute;c đang chọn mua những mặt h&agrave;ng g&igrave;, v&agrave; họ sẽ c&oacute; xu hướng lựa chọn tương tự như vậy&rdquo;, Clemens n&oacute;i.</p>\r\n\r\n<p>V&igrave; vậy, h&atilde;y sắp xếp c&aacute;c sản phẩm của bạn theo gi&aacute; cả v&agrave; mức độ li&ecirc;n quan, hoặc dựa tr&ecirc;n lịch sử mua sắm của kh&aacute;ch h&agrave;ng đang truy cập. H&atilde;y cho kh&aacute;ch h&agrave;ng biết đ&acirc;u l&agrave; những sản phẩm đang được ưa chuộng để họ c&oacute; thể tự tin lựa chọn.</p>\r\n\r\n<h3>2. Sử dụng lựa chọn mặc định</h3>\r\n\r\n<p>Hiện nay, nhiều c&ocirc;ng ty đ&atilde; bắt đầu &aacute;p dụng thủ thuật tự động đ&aacute;nh dấu lựa chọn v&agrave;o những th&ocirc;ng tin bổ sung trong qu&aacute; tr&igrave;nh kh&aacute;ch h&agrave;ng thanh to&aacute;n. V&iacute; dụ như hệ thống sẽ tự chọn t&iacute;nh năng &ldquo;Giao h&agrave;ng nhanh&rdquo; hoặc &ldquo;Đăng k&yacute; nhận th&ocirc;ng tin từ c&ocirc;ng ty&rdquo; cho kh&aacute;ch h&agrave;ng.</p>\r\n\r\n<p>&ldquo;Khi một lựa chọn được tự động đ&aacute;nh dấu trước, kh&aacute;ch h&agrave;ng sẽ c&oacute; xu hướng dễ chấp nhận lựa chọn n&agrave;y hơn&rdquo;, Clemens chia sẻ với tờ Business News Daily, &ldquo;Điều n&agrave;y sẽ gi&uacute;p c&ocirc;ng ty c&oacute; th&ecirc;m được doanh thu lẫn lượng người đăng k&yacute; nhận th&ocirc;ng tin qua email&rdquo;.</p>\r\n\r\n<p>Tuy nhi&ecirc;n, Clemens cũng lưu &yacute; bạn cần c&acirc;n nhắc thủ thuật n&agrave;y dựa tr&ecirc;n thực tế kh&aacute;ch h&agrave;ng của bạn. Nếu bạn để hệ thống tự chọn những sản phẩm c&oacute; t&iacute;nh ph&iacute;, kh&aacute;ch h&agrave;ng sẽ để &yacute; v&agrave; c&oacute; thể giảm sự tin tưởng đối với c&ocirc;ng ty của bạn.</p>\r\n\r\n<h3>3. Gợi &yacute; th&ecirc;m c&aacute;c sản phẩm, dịch vụ kh&aacute;c sau khi kh&aacute;ch h&agrave;ng thanh to&aacute;n xong</h3>\r\n\r\n<p>Khi một kh&aacute;ch h&agrave;ng đang tiến h&agrave;nh thanh to&aacute;n, họ sẽ thoải m&aacute;i hơn với &yacute; định mua th&ecirc;m sản phẩm kh&aacute;c, so với l&uacute;c đang lướt xem c&aacute;c sản phẩm tr&ecirc;n website. H&atilde;y nắm lấy cơ hội n&agrave;y để đưa ra những gợi &yacute; về c&aacute;c sản phẩm c&oacute; li&ecirc;n quan, hoặc c&aacute;c chương tr&igrave;nh khuyến m&atilde;i hiện c&oacute;. V&igrave; dụ, nếu họ vừa mua một chiếc quần jean, v&agrave; bạn đang c&oacute; khuyến m&atilde;i giảm gi&aacute; 50% với loại quần jean kh&aacute;c, h&atilde;y hiện pop-up th&ocirc;ng b&aacute;o đến kh&aacute;ch h&agrave;ng về khuyến m&atilde;i n&agrave;y trước khi họ ho&agrave;n tất thanh to&aacute;n.</p>\r\n\r\n<p><img alt=\"\" src=\"http://www.brandsvietnam.com/upload/forum2/2018/03/14838OnlineShopping_1520236076.jpg\" /></p>\r\n\r\n<p>&ldquo;Một khi kh&aacute;ch h&agrave;ng đ&atilde; quyết định mua h&agrave;ng, họ sẽ c&oacute; xu hướng cởi mở trong việc mua th&ecirc;m một sản phẩm nho nhỏ kh&aacute;c. V&igrave; vậy, bạn c&oacute; thể sử dụng yếu tố t&acirc;m l&yacute; n&agrave;y để đưa ra những gợi &yacute; về c&aacute;c sản phẩm phụ c&oacute; li&ecirc;n quan đến sản phẩm kh&aacute;ch h&agrave;ng vừa đặt mua trong thư cảm ơn sau đ&oacute;&rdquo;, Clemens chia sẻ.</p>\r\n\r\n<h3>4. Dẫn dắt kh&aacute;ch h&agrave;ng bằng t&acirc;m l&yacute; đ&aacute;m đ&ocirc;ng</h3>\r\n\r\n<p>Nếu c&aacute;c kh&aacute;ch h&agrave;ng của bạn nh&igrave;n thấy nhiều người đang c&ugrave;ng mua một sản phẩm đặc biệt n&agrave;o đ&oacute;, họ sẽ c&oacute; xu hướng c&ugrave;ng đặt mua sản phẩm đ&oacute;. Đ&acirc;y l&agrave; xu hướng bị đ&aacute;m đ&ocirc;ng dẫn dắt trong t&acirc;m l&yacute;, theo Clemens.</p>\r\n\r\n<p>Cụ thể, Clemens cho biết, website b&aacute;n h&agrave;ng thời trang Aeire đ&atilde; sử dụng chiến dịch #AerieREAL để truyền đi th&ocirc;ng điệp động vi&ecirc;n phụ nữ ở mọi v&oacute;c d&aacute;ng cảm thấy thoải m&aacute;i với ngoại h&igrave;nh của m&igrave;nh. Chiến dịch n&agrave;y đ&atilde; gi&uacute;p Aeire kh&ocirc;ng chỉ tăng lợi nhuận m&agrave; c&ograve;n tạo dựng được thương hiệu nơi kh&aacute;ch h&agrave;ng sau đ&oacute;.</p>\r\n\r\n<p>&ldquo;T&acirc;m l&yacute; bầy đ&agrave;n l&agrave; một trong những bản chất t&acirc;m l&yacute; của con người. V&igrave; vậy, ch&uacute;ng ta c&oacute; xu hướng đi theo đ&aacute;m đ&ocirc;ng, hoặc bị đ&aacute;m đ&ocirc;ng chi phối. Nếu ch&uacute;ng ta nh&igrave;n thấy số đ&ocirc;ng đang l&agrave;m một h&agrave;nh vi nhất định, ch&uacute;ng ta sẽ c&oacute; xu hướng muốn c&ugrave;ng tham gia v&agrave;o hoạt động đ&oacute;&rdquo;, Clemens chia sẻ.</p>\r\n\r\n<p>Nguồn: Brandsvietnam</p>', 1, '2018-04-19 02:38:54', '2018-04-19 20:47:27'),
+(3, 'Mất an toàn thông tin: thiệt hại 12.300 tỷ đồng', 'mat-an-toan-thong-tin-thiet-hai-12300-ty-dong', 'anninhmangdoanhnhansaigon-1517473885_750x450-696x418.jpg', '<p>Tuần qua, Trung t&acirc;m Ứng cứu khẩn cấp m&aacute;y t&iacute;nh Việt Nam (VNCERT) đ&atilde; ph&aacute;t lệnh cảnh b&aacute;o đến người d&ugrave;ng sau khi h&agrave;ng trăm ng&agrave;n password v&agrave; email đu&ocirc;i gov.vn bị lộ mật khẩu, đe dọa th&ocirc;ng tin của c&aacute;c cơ quan Ch&iacute;nh phủ c&oacute; thể bị lọt ra ngo&agrave;i.</p>\r\n\r\n<p>Một cơ sở dữ liệu dark web lớn nhất từ trước đến nay (41GB) được ph&aacute;t hiện trong Diễn đ&agrave;n Underground chứa gần 1,4 tỷ password dạng clear text, c&aacute;c hacker đ&atilde; tạo ta một dữ liệu đồ sộ về mật khẩu, email đăng nhập, đặc biệt những mật khẩu kh&ocirc;ng được m&atilde; h&oacute;a với hơn 80% được tổng hợp từ c&aacute;c vụ r&ograve; rỉ dữ liệu trước đ&oacute;.</p>\r\n\r\n<p>Đặc biệt nguy hiểm l&agrave; xu hướng người d&ugrave;ng đặt password theo sắp xếp alphabet hoặc d&ugrave;ng chung password cho nhiều dịch vụ trở th&agrave;nh miếng mồi cho c&aacute;c vụ tấn c&ocirc;ng.</p>\r\n\r\n<p>&Yacute; thức tu&acirc;n thủ c&aacute;c ch&iacute;nh s&aacute;ch bảo mật trong người d&ugrave;ng c&ocirc;ng sở tại Việt Nam c&ograve;n yếu, khiến việc dữ liệu dễ bị r&ograve; rỉ cao. C&aacute;c chuy&ecirc;n gia khuyến nghị người d&ugrave;ng thay đổi password c&aacute;c email c&ocirc;ng việc, t&agrave;i khoản ng&acirc;n h&agrave;ng theo x&aacute;c thực 2 bước, đặc biệt kh&ocirc;ng sử dụng email đơn vị đăng k&yacute; t&agrave;i khoản tr&ecirc;n mạng x&atilde; hội, dịch vụ trực tuyến.</p>\r\n\r\n<p><strong>M&atilde; độc đ&agrave;o tiền ảo sẽ ho&agrave;nh h&agrave;nh</strong></p>\r\n\r\n<p>Theo thống k&ecirc; từ hệ thống gi&aacute;m s&aacute;t của Bkav, kể từ khi m&atilde; độc đ&agrave;o tiền ảo b&ugrave;ng ph&aacute;t qua Facebook Messenger s&aacute;ng 19.12.2017, đến nay hơn 41.000 m&aacute;y t&iacute;nh tại Việt Nam bị nhiễm. Chuy&ecirc;n gia Bkav cảnh b&aacute;o, c&aacute;c hacker c&oacute; thể lập tr&igrave;nh để sinh tự động c&aacute;c biến thể mới với tần suất khoảng 10 ph&uacute;t/lần nhằm qua mặt c&aacute;c phần mềm an ninh.</p>\r\n\r\n<p>C&aacute;c biến thể m&atilde; độc đ&agrave;o tiền ảo c&ograve;n được c&agrave;i sẵn chức năng lấy cắp mật khẩu Facebook, chiếm quyền điều khiển m&aacute;y t&iacute;nh v&agrave; lợi dụng m&aacute;y nạn nh&acirc;n để đ&agrave;o tiền ảo. Dự b&aacute;o thời gian tới h&igrave;nh thức đ&agrave;o tiền ảo bằng c&aacute;ch ph&aacute;t t&aacute;n virus sẽ tiếp tục b&ugrave;ng nổ qua Facebook, email, c&aacute; lỗ hổng hệ điều h&agrave;nh hay USB&hellip; C&aacute;c chuy&ecirc;n gia khuyến nghị cần cập nhật c&aacute;c phần mềm chống m&atilde; độc, virus để ph&aacute;t hiện v&agrave; ngăn chặn, loại bỏ m&atilde; độc, đổi mật khẩu Facebook.</p>\r\n\r\n<p><strong>Cẩn trọng với m&atilde; độc v&agrave; tin tức giả mạo</strong></p>\r\n\r\n<p>Theo &ocirc;ng Ng&ocirc; Tuấn Anh, Ph&oacute; chủ tịch phụ tr&aacute;ch An ninh mạng Bkav, xu hướng 2018 sẽ tiếp tục b&ugrave;ng nổ c&aacute;c cuộc tấn c&ocirc;ng ph&aacute;t t&aacute;n m&atilde; độc nhằm thu lợi bất ch&iacute;nh như m&atilde; độc m&atilde; h&oacute;a tống tiền ransomware, m&atilde; độc đ&agrave;o tiền ảo&hellip; B&ecirc;n cạnh việc tạo ra mạng lưới botnet đ&agrave;o tiền ảo, hacker cũng nhắm tấn c&ocirc;ng trực tiếp v&agrave;o c&aacute;c s&agrave;n giao dịch tiền điện tử. Hiện nhiều nơi kh&ocirc;ng c&oacute; sự đảm bảo của ch&iacute;nh phủ n&ecirc;n nếu xảy ra tấn c&ocirc;ng, người d&ugrave;ng sẽ chịu mọi rủi ro.</p>\r\n\r\n<p>Mặt kh&aacute;c l&agrave; nạn b&ugrave;ng nổ tin tức giả mạo v&agrave; c&aacute;c h&agrave;nh vi lừa đảo tận dụng Facebook, Google, Twitter&hellip; Hiện 40% người d&ugrave;ng trở th&agrave;nh nạn nh&acirc;n hằng ng&agrave;y của c&aacute;c dạng tin tức giả mạo.</p>\r\n\r\n<p>Việc tấn c&ocirc;ng v&agrave;o thiết bị IoT sẽ c&oacute; xu hướng c&agrave;i đặt phần mềm gi&aacute;n điệp, thực hiện tấn c&ocirc;ng c&oacute; chủ đ&iacute;ch APT mang m&agrave;u sắc ch&iacute;nh trị. &ldquo;Cần x&acirc;y dựng khả năng đề kh&aacute;ng trước c&aacute;c th&ocirc;ng tin giả mạo, bằng c&aacute;ch biết đặt ra nghi vấn, chủ động kiểm chứng nguồn để trở th&agrave;nh người d&ugrave;ng mạng x&atilde; hội th&ocirc;ng th&aacute;i&rdquo;, &ocirc;ng Ng&ocirc; Tuấn Anh khuyến c&aacute;o.</p>', 1, '2018-04-19 02:40:21', '2018-05-04 02:30:54'),
+(4, 'Đừng nghĩ phải có ý tưởng ‘điên rồ’ mới khởi nghiệp được', 'dung-nghi-phai-co-y-tuong-dien-ro-moi-khoi-nghiep-duoc', '174990_1515_5-696x392.jpg', 'Bài học rút ra không phải để khoe ai giàu, mà vấn đề là không phải công ty thành công nào cũng bắt đầu bằng một ý tưởng nghìn tỷ. Không phải các nhà đầu tư nói không nghĩa là việc đó không đáng làm. Không phải chỉ lên truyền hình, đi thi Shark Tank, gọi vốn vài tỷ thì mới là khởi nghiệp đúng “chuẩn”.\r\n\r\nMở một công ty kiếm được hai mươi triệu mỗi tháng cũng đáng giá từng đồng như việc bình định sao Hỏa của đại gia Elon Musk.\r\n\r\nBắt đầu nhỏ và cho những tham vọng của bạn không gian và thời gian để lớn dần.', 1, '2018-04-19 02:41:03', '2018-04-19 20:51:42'),
+(5, '6 yếu tố giúp bạn thu hút khách hàng cho quán Cà phê', '6-yeu-to-giup-ban-thu-hut-khach-hang-cho-quan-ca-phe', 'CoffeeBike_1519794286.jpg', '<p>Bạn có nhiều lựa chọn để định vị qu&aacute;n c&agrave; ph&ecirc; của m&igrave;nh, v&iacute; dụ qu&aacute;n c&agrave; ph&ecirc; với m&oacute;n chủ đạo l&agrave; c&agrave; ph&ecirc; trứng, hay qu&aacute;n c&agrave; ph&ecirc; chỉ b&aacute;n 100% hạt c&agrave; ph&ecirc; Arabica thượng hạng, hoặc qu&aacute;n C&agrave; ph&ecirc; Vợt, hay qu&aacute;n #CoffeeBike với m&oacute;n chủ đạo l&agrave; Espresso Sữa đ&aacute; với hạt Robusta chất lượng cao kết hợp c&ugrave;ng m&aacute;y chiết xuất nhập khẩu từ &Yacute;. Ngo&agrave;i định vị bằng thức uống C&agrave; ph&ecirc;, bạn cũng thể định vị m&igrave;nh bằng kh&ocirc;ng gian, hoặc 1 thức uống đặc biệt n&agrave;o đ&oacute; tạo sự ghi nhớ cho kh&aacute;ch h&agrave;ng. Nếu định vị của bạn chung chung, hoặc kh&ocirc;ng t&igrave;m được định vị bạn h&atilde;y b&igrave;nh tĩnh trước việc mở qu&aacute;n hoặc ph&aacute;t triển m&ocirc; h&igrave;nh kinh doanh c&agrave; ph&ecirc; của bạn </p>', 1, '2018-04-19 02:58:51', '2018-04-19 20:58:47'),
+(6, 'Top những xu hướng sáng tạo của năm 2018', 'top-nhung-xu-huong-sang-tao-cua-nam-2018', 'screenshot-designs.vn-2018-02-03-10-35-05-611.png', '<p>Ta sắp c&oacute; những kiểu s&aacute;ng tạo n&agrave;o trong năm 2018 ? Ch&uacute;ng ta đ&atilde; nh&igrave;n thấy những xu hướng thiết kế logo v&agrave; typography c&oacute; thể trở n&ecirc;n thịnh h&agrave;nh trong 12 th&aacute;ng tới, nhưng Shutterstock&nbsp;đang nh&igrave;n xa hơn nữa với Bản b&aacute;o c&aacute;o Xu hướng S&aacute;ng Tạo 2018.</p>', 1, '2018-04-19 02:59:48', '2018-04-19 20:59:22');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `order`
+--
+
+CREATE TABLE `order` (
+  `ord_id` int(10) UNSIGNED NOT NULL,
+  `ord_payment` tinyint(4) NOT NULL,
+  `ord_total_price` int(11) NOT NULL,
+  `ord_acc_id` int(10) UNSIGNED NOT NULL,
+  `ord_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ord_adress` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ord_note` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ord_status` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `order`
+--
+
+INSERT INTO `order` (`ord_id`, `ord_payment`, `ord_total_price`, `ord_acc_id`, `ord_phone`, `ord_adress`, `ord_note`, `ord_status`, `created_at`, `updated_at`) VALUES
+(8, 1, 699000, 3, '1688044009', 'Hà Nội | Tây hồ | 175 Xuân thủy | 175 Xuân thủy', 'Nhanh nhé', 2, '2018-05-17 02:03:45', '2018-05-17 02:06:20'),
+(9, 1, 699000, 3, '1788033008', 'Hà Nội | OKe | hanoi | hanoi', 'Nhanh nhé', 0, '2018-05-18 05:58:51', '2018-05-18 06:01:15'),
+(10, 1, 449000, 3, '1688044009', 'Hà Nội | OKe | 175 Xuân thủy | 175 Xuân thủy', 'Nhanh', 1, '2018-05-18 06:18:08', '2018-05-18 06:18:08'),
+(11, 1, 449000, 3, '1688044009', 'Hà Nội | OKe | 175 Xuân thủy | 175 Xuân thủy', 'Nhanh', 1, '2018-05-18 06:20:19', '2018-05-18 06:20:19'),
+(12, 1, 449000, 3, '1688044009', 'Hà Nội | OKe | 175 Xuân thủy | 175 Xuân thủy', 'Nhanh', 0, '2018-05-18 06:21:11', '2018-05-18 06:22:18'),
+(13, 1, 699000, 26, '1788033008', 'Hà Nội | Tây hồ | số 3 Hai bà trưng | số 3 Hai bà trưng', 'Nhanh nhé', 1, '2018-05-29 18:22:01', '2018-05-29 18:22:01'),
+(14, 1, 899000, 3, '1788033008', 'Hà Nội | Tây hồ | số 3 Hai bà trưng | số 3 Hai bà trưng', 'Nhanh nhé', 1, '2018-05-30 05:38:20', '2018-05-30 05:38:20'),
+(15, 1, 899000, 3, '1788033008', 'Hà Nội | Tây hồ | số 3 Hai bà trưng | số 3 Hai bà trưng', 'Nhanh nhé', 1, '2018-05-30 05:38:25', '2018-05-30 05:38:25'),
+(16, 1, 899000, 29, '1788033008', 'Hà Nội | OKe | hanoi | hanoi', 'Nhanh nhé', 1, '2018-05-30 05:39:37', '2018-05-30 05:39:37');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `orderdetail`
+--
+
+CREATE TABLE `orderdetail` (
+  `orderDe_id` int(10) UNSIGNED NOT NULL,
+  `orderDe_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `orderDe_price` int(11) NOT NULL,
+  `orderDe_qty` int(11) NOT NULL,
+  `orderDe_ord_id` int(10) UNSIGNED NOT NULL,
+  `orderDe_cou_id` int(10) UNSIGNED NOT NULL,
+  `orderDe_aff_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `orderdetail`
+--
+
+INSERT INTO `orderdetail` (`orderDe_id`, `orderDe_name`, `orderDe_price`, `orderDe_qty`, `orderDe_ord_id`, `orderDe_cou_id`, `orderDe_aff_id`, `created_at`, `updated_at`) VALUES
+(1, 'Guitar dem hat trong 30 ngay ahihi', 699000, 1, 8, 3, 21, '2018-05-17 02:03:47', '2018-05-17 02:03:47'),
+(2, 'Chứng khoán cho người mới bắt đầu', 699000, 1, 9, 9, 21, '2018-05-18 05:58:54', '2018-05-18 05:58:54'),
+(3, 'QUẢN TRỊ MARKETING (BỘ BÀI GIẢNG 10 MODULES)', 449000, 1, 12, 12, NULL, '2018-05-18 06:21:13', '2018-05-18 06:21:13'),
+(4, 'Guitar dem hat trong 30 ngay ahihi', 699000, 1, 13, 3, NULL, '2018-05-29 18:22:04', '2018-05-29 18:22:04'),
+(5, 'Tiếng Hàn sơ cấp cho người mới bắt đầu', 899000, 1, 14, 8, 21, '2018-05-30 05:38:22', '2018-05-30 05:38:22'),
+(6, 'Tiếng Hàn sơ cấp cho người mới bắt đầu', 899000, 1, 15, 8, 21, '2018-05-30 05:38:27', '2018-05-30 05:38:27'),
+(7, 'Tiếng Hàn sơ cấp cho người mới bắt đầu', 899000, 1, 16, 8, 21, '2018-05-30 05:39:39', '2018-05-30 05:39:39');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `part`
+--
+
+CREATE TABLE `part` (
+  `part_id` int(10) UNSIGNED NOT NULL,
+  `part_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `part_cou_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `part`
+--
+
+INSERT INTO `part` (`part_id`, `part_name`, `part_cou_id`, `created_at`, `updated_at`) VALUES
+(1, 'Phần 1: Giới thiệu khóa học', 6, '2018-04-05 23:21:59', '2018-04-05 23:21:59'),
+(2, 'Phần 2: Nhập môn Adobe Illustrator', 6, '2018-04-05 23:22:15', '2018-04-05 23:22:15'),
+(3, 'Phần 3: Làm chủ một tài liệu làm việc trên Illustrator', 6, '2018-04-05 23:22:31', '2018-04-05 23:22:31'),
+(4, 'Phần 4: Tạo mới và quản lý Artboard (OKE)', 6, '2018-04-05 23:22:41', '2018-04-05 23:41:04'),
+(5, 'Phần 5: Làm việc hiệu quả hơn với Layer', 6, '2018-04-05 23:22:53', '2018-04-05 23:22:53'),
+(6, 'Phần 6: Làm chủ các công cụ vẽ cơ bản trên Illustrator', 6, '2018-04-05 23:23:04', '2018-04-05 23:23:04'),
+(7, 'Phần 7: Các thao tác biến đổi (Transforming) đối tượng', 6, '2018-04-05 23:23:45', '2018-04-05 23:23:45'),
+(8, 'Phần 8: Làm việc với màu tô và đường viền của đối tượng (OK)', 6, '2018-04-05 23:24:03', '2018-04-05 23:32:17'),
+(9, 'Phần 1: Giới thiệu khóa học', 7, '2018-04-06 02:12:24', '2018-04-06 02:12:24'),
+(10, 'Phần 2: Làm quen với Photoshop', 7, '2018-04-06 02:12:38', '2018-04-06 02:12:38'),
+(11, 'Phần 3 : Hiểu về hình ảnh kỹ thuật số', 7, '2018-04-06 02:12:52', '2018-04-06 02:12:52'),
+(12, 'Phần 1: Tổng quan marketing', 12, '2018-05-16 06:09:05', '2018-05-16 06:09:05'),
+(13, 'Phần 1: Giới thiệu khóa học', 9, '2018-05-18 05:46:10', '2018-05-18 05:46:10');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `rating`
+--
+
+CREATE TABLE `rating` (
+  `rat_id` int(10) UNSIGNED NOT NULL,
+  `rat_star` tinyint(4) NOT NULL,
+  `rat_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rat_content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rat_acc_id` int(10) UNSIGNED NOT NULL,
+  `rat_cou_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `rating`
+--
+
+INSERT INTO `rating` (`rat_id`, `rat_star`, `rat_title`, `rat_content`, `rat_acc_id`, `rat_cou_id`, `created_at`, `updated_at`) VALUES
+(1, 4, 'Hay lắm', 'Khóa học khá là hữu ích và mình học đưuọc rất nhiều', 11, 6, NULL, NULL),
+(2, 3, 'Đưuọc đó', 'Khóa học này cực kì hay .. và giáo viên rât xinh đẹp', 8, 6, NULL, '2018-04-06 02:06:37'),
+(3, 1, 'Chán lắm', 'Khóa học chả hay gì cả , giáo viên còn xấu nữa', 11, 6, NULL, '2018-04-06 02:11:12'),
+(4, 4, 'Hay lắm', 'Khóa học khá là hữu ích và mình học đưuọc rất nhiều', 11, 6, NULL, NULL),
+(5, 5, 'Đưuọc đó', 'Khóa học này cực kì hay .. và giáo viên rât xinh đẹp', 8, 7, NULL, NULL),
+(6, 1, 'Chán lắm', 'Khóa học chả hay gì cả , giáo viên còn xấu nữa', 11, 1, NULL, NULL),
+(7, 4, 'Hay lắm', 'Khóa học khá là hữu ích và mình học đưuọc rất nhiều', 11, 1, NULL, NULL),
+(8, 5, 'Đưuọc đó', 'Khóa học này cực kì hay .. và giáo viên rât xinh đẹp', 8, 3, NULL, NULL),
+(9, 4, 'OKe lắm', 'Khóa học chả hay gì cả , giáo viên còn xấu nữa', 11, 4, NULL, '2018-05-01 19:28:49'),
+(10, 5, 'Tuyệt vời', 'OKe', 3, 6, '2018-05-02 11:01:44', '2018-05-02 11:02:37'),
+(11, 5, 'Chán lắm', 'ok', 3, 4, '2018-05-02 23:51:27', '2018-05-20 18:44:58'),
+(12, 5, 'Hay quá', 'Hay quá nha', 3, 9, '2018-05-18 06:06:21', '2018-05-21 04:58:08'),
+(13, 5, 'Giáo viên Xấu quá', 'Chán lắm', 3, 12, '2018-05-18 06:26:34', '2018-05-21 18:18:00'),
+(14, 5, 'hay này', 'ok', 3, 7, '2018-05-18 06:36:02', '2018-05-18 06:39:30'),
+(15, 4, 'hay này', 'ok', 3, 7, '2018-05-18 06:37:39', '2018-05-18 06:37:39'),
+(16, 4, 'hay này', 'ok', 3, 7, '2018-05-18 06:37:56', '2018-05-18 06:37:56');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `story`
+--
+
+CREATE TABLE `story` (
+  `sto_id` int(10) UNSIGNED NOT NULL,
+  `sto_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sto_img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sto_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sto_tea_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `story`
+--
+
+INSERT INTO `story` (`sto_id`, `sto_title`, `sto_img`, `sto_content`, `sto_tea_id`, `created_at`, `updated_at`) VALUES
+(6, 'ĐIỂM THÚ VỊ Ở THẦY', '', '<ul>\r\n	<li>Sở trường: H&aacute;t, MC</li>\r\n	<li>Sở đoản: Nhảy, thể thao</li>\r\n	<li>Lĩnh vực y&ecirc;u th&iacute;ch: MC</li>\r\n	<li>M&agrave;u sắc y&ecirc;u th&iacute;ch: Xanh l&aacute; - Đỏ</li>\r\n	<li>Th&iacute;ch l&agrave;m g&igrave; l&uacute;c rảnh rỗi: Đọc s&aacute;ch</li>\r\n	<li>Thể loại nhạc y&ecirc;u th&iacute;ch: Rock, Ballad, Bolero</li>\r\n	<li>Thể loại phim y&ecirc;u th&iacute;ch: H&agrave;nh động, viễn tưởng</li>\r\n	<li>Thể loại s&aacute;ch y&ecirc;u th&iacute;ch: Kiến thức, tiểu thuyết, kiếm hiệp...</li>\r\n	<li>M&ocirc;n thể thao y&ecirc;u th&iacute;ch: B&oacute;ng b&agrave;n</li>\r\n	<li>Một v&agrave;i d&ograve;ng mi&ecirc;u tả về bản th&acirc;n: Đơn giản, y&ecirc;u c&ocirc;ng việc, th&iacute;ch vui vẻ</li>\r\n</ul>', 11, '2018-05-09 06:56:10', '2018-05-09 06:56:10'),
+(7, 'Chi tiết', '', '<p><strong>Qu&aacute; tr&igrave;nh c&ocirc;ng t&aacute;c</strong></p>\r\n\r\n<p>- Gi&aacute;o vi&ecirc;n bộ m&ocirc;n Tiếng Anh tại Hocmai.vn&nbsp;</p>\r\n\r\n<p><strong>Th&agrave;nh t&iacute;ch&nbsp;</strong></p>\r\n\r\n<p>- Gi&uacute;p h&agrave;ng trăm học sinh đạt kết quả học tập tốt m&ocirc;n Tiếng Anh THCS&nbsp;</p>\r\n\r\n<p><strong>Phong c&aacute;ch giảng dạy:</strong></p>\r\n\r\n<p>- Tiếp cận c&aacute;c b&agrave;i học từ những v&iacute; dụ dể hiểu nhất&nbsp;</p>\r\n\r\n<p>- Giảng kỹ, chi tiết c&aacute;c cấu tr&uacute;c ngữ ph&aacute;p theo từng chủ điểm&nbsp;</p>\r\n\r\n<p><strong>Cam kết</strong></p>\r\n\r\n<p>- Học sinh nắm chắc c&aacute;c kiến thức ngữ ph&aacute;p theo chương tr&igrave;nh s&aacute;ch gi&aacute;o khoa&nbsp;</p>\r\n\r\n<p>- Học sinh kh&ocirc;ng c&ograve;n sợ khi học Tiếng Anh&nbsp;</p>\r\n\r\n<p>- N&acirc;ng cao tr&igrave;nh độ tiếng Anh mỗi ng&agrave;y th&ocirc;ng qua hệ thống b&agrave;i tập phong ph&uacute; v&agrave; đa dạng</p>', 9, '2018-05-11 00:33:49', '2018-05-11 00:33:49'),
+(8, 'ĐÔI NÉT VỀ THẦY', '', '<p>Từ l&uacute;c quen với bục giảng ở trường THPT Chuy&ecirc;n Đại học Sư phạm H&agrave; Nội đến khi trở th&agrave;nh thầy gi&aacute;o online của HOCMAI, thầy Nguyễn Th&agrave;nh C&ocirc;ng đều cảm thấy biết ơn v&igrave; m&igrave;nh đ&atilde; chọn nghề v&agrave; nghề đ&atilde; chọn m&igrave;nh. Dạy ở THPT Chuy&ecirc;n, thầy được tiếp x&uacute;c nhiều với học sinh, sống trong cuộc sống của học sinh, coi học sinh như một người bạn nhỏ, t&acirc;m t&igrave;nh đủ mọi thứ chuyện. Đến khi giảng dạy online, thầy lại c&oacute; học sinh tr&ecirc;n khắp đất nước. Những c&acirc;u chuyện th&uacute; vị từ đ&oacute; m&agrave; x&acirc;y đắp nhiều đến kh&ocirc;ng kể xiết.&nbsp;</p>\r\n\r\n<p>Sự gần gũi v&agrave; giản dị trong cuộc sống đời thường cũng như trong c&ocirc;ng t&aacute;c giảng dạy, thầy lu&ocirc;n kh&eacute;o l&eacute;o truyền cảm hứng với t&igrave;nh y&ecirc;u Sinh học. Như một mệnh đề đ&oacute;ng mở, Sinh học tưởng chừng như rất m&aacute;y m&oacute;c v&agrave; phức tạp ấy, được thầy biến h&oacute;a th&agrave;nh những nội dung b&agrave;i giảng đơn giản, dễ hiều v&agrave; k&iacute;ch th&iacute;ch sự t&igrave;m t&ograve;i của học&nbsp;sinh.</p>', 8, '2018-05-11 05:48:53', '2018-05-11 05:48:53'),
+(9, 'THÀNH TÍCH:', '', '<p>- C&oacute; nhiều học sinh đạt Huy chương trong c&aacute;c kỳ thi Olympic Quốc tế.<br />\r\n- C&oacute; nhiều học sinh đạt giải Nhất, Nh&igrave;, Ba trong kỳ thi chọn HSG Quốc gia m&ocirc;n Sinh học, số học tr&ograve; đỗ c&aacute;c trường top như Y H&agrave; Nội hay Y Dược TP HCM nhiều kh&ocirc;ng kể xiết.<br />\r\n- Được nhận giấy khen của Hiệu trưởng trường ĐHSP H&agrave; Nội về c&aacute;c th&agrave;nh t&iacute;ch bồi dưỡng Học sinh giỏi.&nbsp;<br />\r\n- Tham gia tập huấn cho c&aacute;c gi&aacute;o vi&ecirc;n Chuy&ecirc;n to&agrave;n quốc giảng dạy c&aacute;c m&ocirc;n Khoa học bằng tiếng Anh.</p>\r\n\r\n<p>- S&aacute;ch đ&atilde; xuất bản: T&agrave;i liệu bồi dưỡng gi&aacute;o vi&ecirc;n chuy&ecirc;n giảng dạy Sinh học bằng tiếng Anh, ABC đa dạng sinh học.</p>', 8, '2018-05-11 06:41:10', '2018-05-11 06:41:10'),
+(10, 'Kinh Nghiệm', '', '<p><strong>* Kinh nghiệm giảng dạy</strong></p>\r\n\r\n<p>06 năm giảng dạy tiếng Anh ở mọi lứa tuổi, vị tr&iacute; v&agrave; mảng ng&agrave;nh (Mới bắt đầu, giao tiếp, TOEIC...)</p>\r\n\r\n<p><strong>* Phong c&aacute;ch giảng dạy</strong></p>\r\n\r\n<p>M&igrave;nh giảng b&agrave;i thường đi theo nhiều c&aacute;ch, l&agrave;m sao để c&aacute;c bạn ấy dễ hiểu nhất. C&oacute; l&uacute;c m&igrave;nh đi từ l&yacute; thuyết đến v&iacute; dụ, nhưng nhiều khi lại từ v&iacute; dụ đến thực tế, t&ugrave;y thuộc v&agrave;o nội dung, đối tượng...Khi đứng lớp m&igrave;nh n&oacute;i chuyện rất thoải m&aacute;i, th&acirc;n thiện. &quot;Kh&ocirc;ng học b&agrave;i đừng k&ecirc;u c&ocirc; &aacute;c&quot; c&oacute; lẽ l&agrave; mi&ecirc;u tả r&otilde; nhất phong c&aacute;ch giảng dạy của m&igrave;nh.=))<br />\r\nM&igrave;nh cũng rất hay thưởng v&agrave; động vi&ecirc;n c&aacute;c bạn học, c&oacute; thưởng c&oacute; phạt, mọi thứ r&otilde; r&agrave;ng.</p>\r\n\r\n<p><strong>* Quan điểm giảng dạy</strong></p>\r\n\r\n<p>Practice makes perfect! Nothing is impossible.</p>', 9, '2018-05-11 21:39:30', '2018-05-11 21:39:30'),
+(11, 'Tiểu sử', '', '<p><strong>Qu&aacute; tr&igrave;nh c&ocirc;ng t&aacute;c:</strong></p>\r\n\r\n<p>- Gi&aacute;o vi&ecirc;n phụ tr&aacute;ch bộ m&ocirc;n ngữ văn cấp THCS của Hocmai.vn&nbsp;</p>\r\n\r\n<p>- Gi&aacute;o vi&ecirc;n Ngữ văn trường THPT Anhxtanh (H&agrave; Nội)</p>\r\n\r\n<p><strong>Th&agrave;nh t&iacute;ch:&nbsp;</strong>&nbsp;</p>\r\n\r\n<p>- 7 năm giảng dạy v&agrave; &ocirc;n luyện m&ocirc;n Ngữ văn từ Tiểu học đến THPT.&nbsp;</p>\r\n\r\n<p>- C&oacute; nhiều học sinh đạt điểm cao trong kỳ thi tuyển sinh v&agrave;o 10 m&ocirc;n Ngữ Văn&nbsp;</p>\r\n\r\n<p>- Tốt nghiệp loại Giỏi khoa Sư phạm Ngữ Văn, Trường ĐH Quốc gia H&agrave; Nội</p>\r\n\r\n<p>- &nbsp;Thường đưa ra c&aacute;c nhận định tương đối ch&iacute;nh x&aacute;c đề thi tuyển sinh v&agrave;o lớp 10</p>', 10, '2018-05-16 18:20:25', '2018-05-16 18:20:25'),
+(12, 'Phong cách', '', '<p><strong>Phong c&aacute;ch giảng dạy:&nbsp;</strong></p>\r\n\r\n<p>- Giọng văn ấm &aacute;p, nhẹ nh&agrave;ng, truyền cảm hứng học Văn tới học sinh&nbsp;</p>\r\n\r\n<p>- Giảng chi tiết, hướng dẫn tỉ mỉ c&aacute;c nội dung trong c&aacute;c t&aacute;c phẩm văn học&nbsp;</p>\r\n\r\n<p>- Quan niệm về dạy học: &quot;Học kh&ocirc;ng phải để t&igrave;m kiếm hạnh ph&uacute;c. Học ch&iacute;nh l&agrave; hạnh ph&uacute;c&quot;&nbsp;</p>\r\n\r\n<p><strong>Cam kết của gi&aacute;o vi&ecirc;n:</strong></p>\r\n\r\n<p>- N&acirc;ng cao năng lực cảm thụ v&agrave; khả năng diễn đạt&nbsp;</p>\r\n\r\n<p>- Học sinh hiểu s&acirc;u sắc c&aacute;c vấn đề trong c&aacute;c t&aacute;c phẩm văn học</p>\r\n\r\n<p>- Học sinh nắm chắc c&aacute;c phương ph&aacute;p l&agrave;m c&aacute;c thể loại văn học kh&aacute;c nhau&nbsp;</p>', 10, '2018-05-16 18:20:47', '2018-05-16 18:20:47');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `teacher`
+--
+
+CREATE TABLE `teacher` (
+  `tea_id` int(10) UNSIGNED NOT NULL,
+  `tea_templace` int(1) NOT NULL DEFAULT '1',
+  `tea_img_head` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tea_img_foot` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tea_gender` int(11) NOT NULL,
+  `tea_specialize` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tea_degree` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tea_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tea_fb` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tea_rating` double(1,1) NOT NULL DEFAULT '0.0',
+  `tea_follow` int(11) NOT NULL,
+  `tea_lesson` int(11) NOT NULL,
+  `tea_exp` int(11) NOT NULL,
+  `tea_work_place` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tea_featured` tinyint(4) NOT NULL DEFAULT '0',
+  `tea_acc_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `teacher`
+--
+
+INSERT INTO `teacher` (`tea_id`, `tea_templace`, `tea_img_head`, `tea_img_foot`, `tea_gender`, `tea_specialize`, `tea_degree`, `tea_email`, `tea_fb`, `tea_rating`, `tea_follow`, `tea_lesson`, `tea_exp`, `tea_work_place`, `tea_featured`, `tea_acc_id`, `created_at`, `updated_at`) VALUES
+(8, 3, '', '', 1, 'Dạy Đời', 'Cử nhân', 'tuanson.site3@cphonevn.com', 'https://www.facebook.com/choco.chjp.9', 0.0, 20000, 50, 9, 'CGroup', 0, 12, '2018-05-09 05:04:03', '2018-05-11 02:41:05'),
+(9, 3, '', '', 2, 'Thiết kế đồ họa', 'Cử nhân', 'duyenmy@gmail.com', 'https://www.facebook.com/lynk.tieu.7', 0.0, 3000, 30, 5, 'Cphonevn', 0, 11, '2018-05-09 05:04:09', '2018-05-11 21:38:07'),
+(10, 2, '', '', 1, 'Nhà kinh doanh học', 'Cử nhân', 'xuanhung2401@gmail.com', 'null', 0.0, 9900, 69, 10, 'Viện khoa học phát triển công nghệ CTech', 0, 4, '2018-05-09 05:04:14', '2018-05-16 06:38:18'),
+(11, 1, '', '', 1, 'Lập trình', 'Giáo sư', 'quyendo.site3@cphonevn.com', 'null', 0.0, 1000000, 100, 10, 'Cphonevn', 5, 13, '2018-05-09 06:48:15', '2018-05-21 02:47:05'),
+(12, 1, '', '', 1, '', 'Cử nhân', 'caolinh@gmail.com', ' ', 0.0, 10, 10, 10, ' ', 0, 24, '2018-05-18 05:03:10', '2018-05-18 05:03:10'),
+(13, 2, '', '', 2, 'Thiết kế đồ họa', 'Tiến sĩ', 'thuuyen@gmail.com', '0', 0.0, 9009, 29, 9, 'CGroup', 4, 25, '2018-05-21 03:15:58', '2018-05-21 03:17:02');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `teacher_rating`
+--
+
+CREATE TABLE `teacher_rating` (
+  `tr_id` int(10) UNSIGNED NOT NULL,
+  `tr_rate` int(11) NOT NULL,
+  `tr_tea_id` int(10) UNSIGNED NOT NULL,
+  `tr_acc_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `teacher_rating`
+--
+
+INSERT INTO `teacher_rating` (`tr_id`, `tr_rate`, `tr_tea_id`, `tr_acc_id`, `created_at`, `updated_at`) VALUES
+(1, 5, 9, 3, '2018-05-09 06:45:02', '2018-05-13 21:20:15'),
+(2, 5, 11, 3, '2018-05-09 06:49:19', '2018-05-13 21:18:09'),
+(3, 1, 10, 3, '2018-05-18 06:26:51', '2018-05-18 06:26:51');
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`about_id`);
+
+--
+-- Chỉ mục cho bảng `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `aff`
+--
+ALTER TABLE `aff`
+  ADD PRIMARY KEY (`aff_id`),
+  ADD KEY `aff_aff_acc_id_foreign` (`aff_acc_id`);
+
+--
+-- Chỉ mục cho bảng `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`ban_id`);
+
+--
+-- Chỉ mục cho bảng `code`
+--
+ALTER TABLE `code`
+  ADD PRIMARY KEY (`code_id`),
+  ADD KEY `code_code_acc_id_foreign` (`code_acc_id`),
+  ADD KEY `code_code_cou_id_foreign` (`code_cou_id`);
+
+--
+-- Chỉ mục cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`com_id`),
+  ADD KEY `comment_com_acc_id_foreign` (`com_acc_id`),
+  ADD KEY `comment_com_cou_id_foreign` (`com_cou_id`);
+
+--
+-- Chỉ mục cho bảng `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`cou_id`),
+  ADD KEY `course_cou_gr_id_foreign` (`cou_gr_id`),
+  ADD KEY `course_cou_tea_id_foreign` (`cou_tea_id`);
+
+--
+-- Chỉ mục cho bảng `doc`
+--
+ALTER TABLE `doc`
+  ADD PRIMARY KEY (`doc_id`),
+  ADD KEY `doc_doc_grdoc_id_foreign` (`doc_grdoc_id`),
+  ADD KEY `doc_doc_acc_id_foreign` (`doc_acc_id`);
+
+--
+-- Chỉ mục cho bảng `groupdoc`
+--
+ALTER TABLE `groupdoc`
+  ADD PRIMARY KEY (`grdoc_id`),
+  ADD KEY `groupdoc_grdoc_gr_id_foreign` (`grdoc_gr_id`);
+
+--
+-- Chỉ mục cho bảng `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`gr_id`);
+
+--
+-- Chỉ mục cho bảng `lesson`
+--
+ALTER TABLE `lesson`
+  ADD PRIMARY KEY (`les_id`),
+  ADD KEY `lesson_les_part_id_foreign` (`les_part_id`);
+
+--
+-- Chỉ mục cho bảng `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`news_id`);
+
+--
+-- Chỉ mục cho bảng `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`ord_id`),
+  ADD KEY `order_ord_acc_id_foreign` (`ord_acc_id`);
+
+--
+-- Chỉ mục cho bảng `orderdetail`
+--
+ALTER TABLE `orderdetail`
+  ADD PRIMARY KEY (`orderDe_id`),
+  ADD KEY `orderdetail_orderde_ord_id_foreign` (`orderDe_ord_id`),
+  ADD KEY `orderdetail_orderde_cou_id_foreign` (`orderDe_cou_id`),
+  ADD KEY `orderdetail_orderde_aff_id_foreign` (`orderDe_aff_id`);
+
+--
+-- Chỉ mục cho bảng `part`
+--
+ALTER TABLE `part`
+  ADD PRIMARY KEY (`part_id`),
+  ADD KEY `part_part_cou_id_foreign` (`part_cou_id`);
+
+--
+-- Chỉ mục cho bảng `rating`
+--
+ALTER TABLE `rating`
+  ADD PRIMARY KEY (`rat_id`),
+  ADD KEY `rating_rat_acc_id_foreign` (`rat_acc_id`),
+  ADD KEY `rating_rat_cou_id_foreign` (`rat_cou_id`);
+
+--
+-- Chỉ mục cho bảng `story`
+--
+ALTER TABLE `story`
+  ADD PRIMARY KEY (`sto_id`),
+  ADD KEY `story_sto_tea_id_foreign` (`sto_tea_id`);
+
+--
+-- Chỉ mục cho bảng `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`tea_id`),
+  ADD KEY `teacher_tea_acc_id_foreign` (`tea_acc_id`);
+
+--
+-- Chỉ mục cho bảng `teacher_rating`
+--
+ALTER TABLE `teacher_rating`
+  ADD PRIMARY KEY (`tr_id`),
+  ADD KEY `teacher_rating_tr_tea_id_foreign` (`tr_tea_id`),
+  ADD KEY `teacher_rating_tr_acc_id_foreign` (`tr_acc_id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `about`
+--
+ALTER TABLE `about`
+  MODIFY `about_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT cho bảng `aff`
+--
+ALTER TABLE `aff`
+  MODIFY `aff_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `ban_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT cho bảng `code`
+--
+ALTER TABLE `code`
+  MODIFY `code_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT cho bảng `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `com_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `course`
+--
+ALTER TABLE `course`
+  MODIFY `cou_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `doc`
+--
+ALTER TABLE `doc`
+  MODIFY `doc_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `groupdoc`
+--
+ALTER TABLE `groupdoc`
+  MODIFY `grdoc_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `gr_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `lesson`
+--
+ALTER TABLE `lesson`
+  MODIFY `les_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT cho bảng `news`
+--
+ALTER TABLE `news`
+  MODIFY `news_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `order`
+--
+ALTER TABLE `order`
+  MODIFY `ord_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT cho bảng `orderdetail`
+--
+ALTER TABLE `orderdetail`
+  MODIFY `orderDe_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT cho bảng `part`
+--
+ALTER TABLE `part`
+  MODIFY `part_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT cho bảng `rating`
+--
+ALTER TABLE `rating`
+  MODIFY `rat_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT cho bảng `story`
+--
+ALTER TABLE `story`
+  MODIFY `sto_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `teacher`
+--
+ALTER TABLE `teacher`
+  MODIFY `tea_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT cho bảng `teacher_rating`
+--
+ALTER TABLE `teacher_rating`
+  MODIFY `tr_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `aff`
+--
+ALTER TABLE `aff`
+  ADD CONSTRAINT `aff_aff_acc_id_foreign` FOREIGN KEY (`aff_acc_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `code`
+--
+ALTER TABLE `code`
+  ADD CONSTRAINT `code_code_acc_id_foreign` FOREIGN KEY (`code_acc_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `code_code_cou_id_foreign` FOREIGN KEY (`code_cou_id`) REFERENCES `course` (`cou_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_com_acc_id_foreign` FOREIGN KEY (`com_acc_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `comment_com_cou_id_foreign` FOREIGN KEY (`com_cou_id`) REFERENCES `course` (`cou_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `course`
+--
+ALTER TABLE `course`
+  ADD CONSTRAINT `course_cou_gr_id_foreign` FOREIGN KEY (`cou_gr_id`) REFERENCES `groups` (`gr_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `course_cou_tea_id_foreign` FOREIGN KEY (`cou_tea_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `doc`
+--
+ALTER TABLE `doc`
+  ADD CONSTRAINT `doc_doc_acc_id_foreign` FOREIGN KEY (`doc_acc_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `doc_doc_grdoc_id_foreign` FOREIGN KEY (`doc_grdoc_id`) REFERENCES `groupdoc` (`grdoc_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `groupdoc`
+--
+ALTER TABLE `groupdoc`
+  ADD CONSTRAINT `groupdoc_grdoc_gr_id_foreign` FOREIGN KEY (`grdoc_gr_id`) REFERENCES `groups` (`gr_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `lesson`
+--
+ALTER TABLE `lesson`
+  ADD CONSTRAINT `lesson_les_part_id_foreign` FOREIGN KEY (`les_part_id`) REFERENCES `part` (`part_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ord_acc_id_foreign` FOREIGN KEY (`ord_acc_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `orderdetail`
+--
+ALTER TABLE `orderdetail`
+  ADD CONSTRAINT `orderdetail_orderde_aff_id_foreign` FOREIGN KEY (`orderDe_aff_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orderdetail_orderde_cou_id_foreign` FOREIGN KEY (`orderDe_cou_id`) REFERENCES `course` (`cou_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orderdetail_orderde_ord_id_foreign` FOREIGN KEY (`orderDe_ord_id`) REFERENCES `order` (`ord_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `part`
+--
+ALTER TABLE `part`
+  ADD CONSTRAINT `part_part_cou_id_foreign` FOREIGN KEY (`part_cou_id`) REFERENCES `course` (`cou_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `rating`
+--
+ALTER TABLE `rating`
+  ADD CONSTRAINT `rating_rat_acc_id_foreign` FOREIGN KEY (`rat_acc_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `rating_rat_cou_id_foreign` FOREIGN KEY (`rat_cou_id`) REFERENCES `course` (`cou_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `story`
+--
+ALTER TABLE `story`
+  ADD CONSTRAINT `story_sto_tea_id_foreign` FOREIGN KEY (`sto_tea_id`) REFERENCES `teacher` (`tea_id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `teacher`
+--
+ALTER TABLE `teacher`
+  ADD CONSTRAINT `teacher_tea_acc_id_foreign` FOREIGN KEY (`tea_acc_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `teacher_rating`
+--
+ALTER TABLE `teacher_rating`
+  ADD CONSTRAINT `teacher_rating_tr_acc_id_foreign` FOREIGN KEY (`tr_acc_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `teacher_rating_tr_tea_id_foreign` FOREIGN KEY (`tr_tea_id`) REFERENCES `teacher` (`tea_id`) ON DELETE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

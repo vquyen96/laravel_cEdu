@@ -1,0 +1,282 @@
+a{
+	text-decoration: none;
+}
+body{
+	background: #eee;
+}
+.masterError{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 199;
+}
+.masterErrorContent{
+	margin: 15px auto;
+	width: 500px;
+	box-shadow: 11px 8px 20px 0px #a7a7a73b;
+}
+header{
+	height: 80px;
+	background: #fff;
+	position: fixed;
+	width: 100%;
+	top: 0; 
+	box-shadow: -3px 6px 20px 0px #a7a7a7;
+	z-index: 99;
+}
+.headerLogo{
+	margin: 5px 30px;
+}
+.headerLogo img{
+	height: 70px;
+}
+
+.headerAccount{
+	float: right;
+	
+}
+.headerAccount a{
+	text-decoration: none;
+}
+.headerAccount a:hover{
+	background: #fcb040;
+	color: #fff;
+	font-weight: bold;
+}
+.headerAccountName{
+	padding: 30px 20px;
+	display: inline-block;
+	color: #000;	
+}
+
+.headerAccountLogout{
+	padding: 30px 20px;
+	display: inline-block;
+	color: #000;
+	
+}
+
+
+nav{
+	position: fixed;
+	top: 90px;
+	left: 0;
+	width: 200px;
+	height: 100%;
+	;
+}
+nav ul{
+	padding: 0;
+}
+nav ul li{
+	float: left;
+	list-style: none;
+	width: 100%;
+}
+nav ul li a{
+	background: #32569c;
+    margin: 1px 0;
+    border-radius: 0 10px 10px 0;
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    padding: 0px 15px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: width 0.5s, padding 0.5s;
+    box-shadow: 2px 5px 12px 0px #777777;
+}
+nav ul li a:hover{
+	background: #fcb040;
+	padding: 0 30px;
+	width: 110%;
+	color: #fff;
+	text-decoration: none;
+}
+.navUser img{
+	background: #fff;
+	border-radius: 50%;
+	height: 40px;
+	margin: 0 10px;
+}
+
+main{
+	display: block;
+	margin: 95px 10px 20px 230px ;
+	background: #fff;
+	min-height: 590px;
+	border-radius: 20px;
+	padding: 20px;
+}
+.bodyHeader{
+	margin:20px 0; 
+}
+.bodyHeader .title{
+	font-size: 24px;
+	font-weight: bold;
+	margin-right: 20px;
+}
+.accountBtnAdd{
+	margin: 15px 0 10px;
+}
+.tableOption{
+	width: 130px;
+}
+.tableImgAvatar{
+	width: 50%;	
+}
+/*img.tableImgAvatar:hover{
+	filter: grayscale(100%);
+}*/
+.tableAcountImg img{
+	width: 50px;
+	border-radius: 50%;
+}
+
+.tableCourseImg img{ 
+	height: 50px;
+	/*border: 2px solid #000;*/
+	box-shadow: 4px 8px 12px 0px #0000003b;
+	border-radius: 5px;
+}
+.tableIcon {
+	font-size: 24px;
+}
+
+
+.orderDetailInfo{
+	margin: 10px 0;
+	display: block;
+}
+
+/*comment*/
+
+.starActive{
+	color: #ffca00;
+}
+
+.editComImg img{
+	box-shadow: 4px 8px 12px 0px #0000003b;
+	width: 80%;
+}
+.editComStar{
+	font-size: 40px;
+}
+.editComStar i:hover{
+	cursor: pointer;
+}
+
+/*news*/
+
+.tableNewsImg img{
+	width: 150px;
+	height: 120px;
+	border-radius: 10px;
+	box-shadow: 4px 8px 12px 0px #0000003b;
+}
+.tableTD a{
+	display: block;
+	padding: 15px 0;
+	width: 100%;
+	color: #333;
+	text-decoration: none;
+}
+.btnChangePass{
+	
+}
+a.docGroupItem{
+	width: 100%;
+	box-shadow: 6px 7px 20px 2px #e0dfdf;
+	display: block;
+	padding: 20px;
+	margin-bottom: 20px;
+	text-decoration: none;
+	border-radius: 20px;
+	transition: 0.3s;
+
+}
+a.docGroupItem:hover{
+	transform: translate(0px, -5px);
+	box-shadow: 6px 7px 20px 2px #999;
+}
+.docGroupItem img{
+	width: 90px;
+	margin:auto;
+	display: block;
+}
+.docGroupItem p{
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+	padding: 20px 0 0;
+}
+.tableBannerImg{
+	height: 100px;
+	
+}
+.tableBannerImg img{
+	height: 100%;
+	border-radius: 10px;
+	box-shadow: 4px 8px 12px 0px #0000003b;
+}
+.btnRemove{
+	padding: 6px 15px;
+	color: #000;
+	border: 1px solid #333;
+	border-radius: 5px;
+	font-size: 20px;
+	margin: 0 50px;
+}
+
+.dashboard{
+	display: flex;
+}
+.dashboard .item{
+	height: 100px;
+	flex: 1;
+	box-shadow: 5px 5px 10px #999;
+	margin-right: 20px;
+}
+.dashboard .item .icon{
+	height: 100%;
+	line-height: 100px;
+	font-size: 40px;
+	display: inline-block;
+	width: 100px;
+	text-align: center; 
+	background: #33c;
+	color: #fff;
+	transition: 0.5s;
+}
+.dashboard .item .icon i{
+	transition: 0.5s;
+}
+.dashboard .item .icon:hover i{
+	transform: scale(1.2);
+}
+.dashboard .item .content{
+	font-size: 25px;
+	font-weight: bold;
+	display: inline-block;
+	background: #fff;
+	padding-left: 5px;
+}
+.dashboard .item .content p{
+	font-size: 20px;
+	font-weight: bold;
+    color: #999;
+}
+.dashboard .item .icon.red{
+	background: #d43939;
+}
+.dashboard .item .icon.yell{
+	background: #ffbe00;
+}
+.dashboard .item .icon.blue{
+	background: #32569c;
+}
+.dashboard .item .icon.green{
+	background: #51b76c;
+}
