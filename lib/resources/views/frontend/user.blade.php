@@ -92,14 +92,26 @@ var chart = new CanvasJS.Chart("chartCỉcle", {
 		indexLabelFontSize: 16,
 		indexLabel: "{label} - {y}%",
 		dataPoints: [
-
-			{ y: 51.08, label: "Chrome" },
-			{ y: 27.34, label: "Internet Explorer" },
-			{ y: 10.62, label: "Firefox" },
-			{ y: 5.02, label: "Microsoft Edge" },
-			{ y: 4.07, label: "Safari" },
-			{ y: 1.22, label: "Opera" },
-			{ y: 0.44, label: "Others" }
+			<?php $total = $orderDe->count();?>
+		 	@for ($i = 0; $i < $group->count(); $i++)
+		 		<?php $count = 0;?>
+	 			@foreach ($orderDe as $item)
+	 				@if ($item->course->group->gr_id == $group[$i]->gr_id )
+	 					<?php $count++ ?>
+	 				@endif
+	 			@endforeach
+	 			@if ($count != 0)
+	 				{ y: {{($count/$total)*100}}, label: "{{$group[$i]->gr_name}}" },
+	 			@endif
+	 			
+	 		@endfor	
+			// { y: 51.08, label: "Chrome" },
+			// { y: 27.34, label: "Internet Explorer" },
+			// { y: 10.62, label: "Firefox" },
+			// { y: 5.02, label: "Microsoft Edge" },
+			// { y: 4.07, label: "Safari" },
+			// { y: 1.22, label: "Opera" },
+			// { y: 0.44, label: "Others" }
 		]
 	}]
 });
@@ -150,23 +162,11 @@ function toogleDataSeries(e){
 		<div class="col-md-12">
 			<div class="userTable">
 				<h3>Danh sách khóa học đã bán được</h3>
-				<?php $total = $orderDe->count(); $count = 1?>
-					<?php $group_name = "oke"; $i =0?>
-				 	@foreach ($orderDe as $item)
+					
+			 		
 				 		
 				 		
-				 		@if ($item->course->group->gr_name == $group_name)
-				 			<?php $count++ ?>
-				 		@else
-				 			
-				 			@if ($orderDe[$i - 1] != null)
-				 				{{$count . " - " .$orderDe[$i - 1]->course->group->gr_name}}
-				 			@endif
-				 			<?php $group_name = $item->course->group->gr_name; $count = 0;?>
-				 			
-				 		@endif
-				 		<?php $i++?>
-				 	@endforeach
+				 	
 				<table class="table table-hover">
 					<tr>
 						<th>Tên học sinh</th>
