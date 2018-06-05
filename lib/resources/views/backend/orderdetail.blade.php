@@ -98,7 +98,7 @@
 			<tr>
 				<th>#</th>
 				<th>Tên khóa học</th>
-				<th>Số lượng</th>
+				<th>Code</th>
 				<th>Giá</th>
 				
 				
@@ -107,13 +107,18 @@
 			<tr>
 				<td>{{$item->orderDe_id}}</td>	
 				<td>{{$item->orderDe_name}}</td>
-				<td>{{$item->orderDe_qty}}</td>
+				@if ($item->code != null )
+					<td>{{$item->code->code_value}}</td>
+				@else
+					<td>null</td>
+				@endif
+				
 				<td>{{number_format($item->orderDe_price,0,',','.')}} VND</td>
 				
 			</tr>
 			@endforeach
 		</table>
-		{{$items->links()}}
+		
 	</div>
 </div>
 

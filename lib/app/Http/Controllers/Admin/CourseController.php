@@ -31,6 +31,7 @@ class CourseController extends Controller
 		$cou->cou_slug = str_slug($request->cou_name);
         $image = $request->file('img');
         if ($request->hasFile('img')) {
+            
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $cou->cou_img = $filename;
             $request->img->storeAs('course',$filename);

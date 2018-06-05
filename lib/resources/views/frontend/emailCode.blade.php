@@ -7,9 +7,9 @@
 		
 		<h3 style="text-align: center">Khóa học của bạn đã thanh toán</h3>
 		<h4>Thông tin khách hàng</h4>
-		<p>Tên: {{$code->acc->name}}</p>
-		<p>Email: {{$code->acc->email}}</p>
-		<h2>Khóa học: {{$code->cou->cou_name}}</h2>
+		<p>Tên: {{$code->orderDe->order->acc->name}}</p>
+		<p>Email: {{$code->orderDe->order->acc->email}}</p>
+		<h2>Khóa học: {{$code->orderDe->course->cou_name}}</h2>
 		<h1 style="color: #f44; font-weight: bold; text-align: center;">{{$code->code_value}}</h1>
 		<h4 style="color: #f44">Mã kích hoạt khóa học chỉ tồn tại 7 ngày.</h4>
 		<div id="xac-nhan">

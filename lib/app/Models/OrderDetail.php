@@ -19,4 +19,7 @@ class OrderDetail extends Model
     public function aff(){
     	return $this->belongsTo('App\Models\Account','orderDe_aff_id');
     }
+    public function code(){
+        return $this->hasOne('App\Models\Code', 'code_orderDe_id', 'orderDe_id');
+    }
 }

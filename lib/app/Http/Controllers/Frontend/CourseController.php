@@ -65,8 +65,17 @@ class CourseController extends Controller
         // dd($acc->aff);
         if(Auth::check()){
             $data['acc'] = Account::where('id', Auth::user()->id)->where('level', 5)->first();
-            $code = Code::where('code_cou_id',$data['course']->cou_id)
-                            ->where('code_acc_id',Auth::user()->id)->first();
+            $orderDe_id = 0;
+            $code = 0;
+            foreach ($data['course']->orderDe as $item) {
+                if ($item->order != null && $item->order->ord_acc_id == Auth::user()->id) {
+                    $orderDe_id = $item->orderDe_id;
+                }
+            }
+            if ($orderDe_id != null) {
+                $code = Code::where('code_orderDe_id',$orderDe_id)->first();
+            }
+            
     	    if($code != null){
                 if($code->code_status == 1){
                     return redirect('courses/detail/'.$slug.'.html/active');
@@ -99,8 +108,12 @@ class CourseController extends Controller
     public function getVideo($slug, $id){
         $data['course'] = Course::where('cou_slug',$slug)->first();
         if(Auth::check()){
-            $code = Code::where('code_cou_id',$data['course']->cou_id)
-                            ->where('code_acc_id',Auth::user()->id)->first();
+            foreach ($data['course']->orderDe as $item) {
+                if ($item->order->ord_acc_id == Auth::user()->id) {
+                    $orderDe_id = $item->orderDe_id;
+                }
+            }
+            $code = Code::where('code_orderDe_id',$orderDe_id)->first();
             if($code != null){
                 if($code->code_status == 1){
                     $data['course'] = Course::where('cou_slug',$slug)->first();
@@ -141,8 +154,12 @@ class CourseController extends Controller
     public function getActive($slug){
         if(Auth::check()){
             $cou = Course::where('cou_slug',$slug)->first();
-            $code = Code::where('code_cou_id',$cou->cou_id)
-                        ->where('code_acc_id',Auth::user()->id)->first();
+            foreach ($cou->orderDe as $item) {
+                if ($item->order->ord_acc_id == Auth::user()->id) {
+                    $orderDe_id = $item->orderDe_id;
+                }
+            }
+            $code = Code::where('code_orderDe_id',$orderDe_id)->first();
             if($code != null){
                 if($code->code_status == 1){
                     $data['course'] = $cou;

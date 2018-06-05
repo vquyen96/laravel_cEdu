@@ -5,6 +5,84 @@
 <script>
 window.onload = function () {
 
+var chartSpLine_month = new CanvasJS.Chart("chartSpLine_month", {
+	animationEnabled: true,  
+	title:{
+		text: "Doanh thu theo Tháng"
+	},
+	axisY: {
+		title: "Doanh thu theo VNĐ",
+		valueFormatString: "",
+		suffix: "",
+		prefix: ""
+	},
+	axisX: {
+		title: "",
+		valueFormatString: "DD/MM",
+		suffix: "",
+		prefix: ""
+	},
+	data: [{
+		type: "splineArea",
+		color: "rgba(40, 77, 169, 0.7)",
+		markerSize: 5,
+		xValueFormatString: "DD/MM/YYYY",
+		yValueFormatString: "",
+		dataPoints: [
+			<?php $date= new DateTime(); ?>
+			@for ($i = 0; $i < 30; $i++)
+				<?php $count = 0 ?>
+				@foreach ($orderDe as $item)
+					@if (date_format($item->order->created_at,"Y-m-d") == date_format($date,"Y-m-d") && $item->order->ord_status == 0)
+						<?php $count += $item->orderDe_price?>
+					@endif
+				@endforeach
+				{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
+				<?php date_add($date,date_interval_create_from_date_string(" -1 days"));?>
+			@endfor
+		]
+	}]
+	});
+chartSpLine_month.render();
+var chartSpLine_year = new CanvasJS.Chart("chartSpLine_year", {
+	animationEnabled: true,  
+	title:{
+		text: "Doanh thu theo Năm"
+	},
+	axisY: {
+		title: "Doanh thu theo VNĐ",
+		valueFormatString: "",
+		suffix: "",
+		prefix: ""
+	},
+	axisX: {
+		title: "",
+		valueFormatString: "MM/YYYY",
+		suffix: "",
+		prefix: ""
+	},
+	data: [{
+		type: "splineArea",
+		color: "rgba(40, 77, 169, 0.7)",
+		markerSize: 5,
+		xValueFormatString: "MM/YYYY",
+		yValueFormatString: "",
+		dataPoints: [
+			<?php $date= new DateTime(); ?>
+			@for ($i = 0; $i < 12; $i++)
+				<?php $count = 0 ?>
+				@foreach ($orderDe as $item)
+					@if (date_format($item->order->created_at,"Y-m") == date_format($date,"Y-m") && $item->order->ord_status == 0)
+						<?php $count += $item->orderDe_price?>
+					@endif
+				@endforeach
+				{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
+				<?php date_add($date,date_interval_create_from_date_string(" -1 months"));?>
+			@endfor
+		]
+	}]
+	});
+chartSpLine_year.render();
 var chartLine = new CanvasJS.Chart("chartline", {
 	animationEnabled: true,
 	theme: "light2",
@@ -103,19 +181,15 @@ var chart = new CanvasJS.Chart("chartCỉcle", {
 	 			@if ($count != 0)
 	 				{ y: {{($count/$total)*100}}, label: "{{$group[$i]->gr_name}}" },
 	 			@endif
-	 			
 	 		@endfor	
-			// { y: 51.08, label: "Chrome" },
-			// { y: 27.34, label: "Internet Explorer" },
-			// { y: 10.62, label: "Firefox" },
-			// { y: 5.02, label: "Microsoft Edge" },
-			// { y: 4.07, label: "Safari" },
-			// { y: 1.22, label: "Opera" },
-			// { y: 0.44, label: "Others" }
 		]
 	}]
 });
 chart.render();
+
+
+
+
 
 function toogleDataSeries(e){
 	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
@@ -147,14 +221,26 @@ function toogleDataSeries(e){
 		 		@endif
 		 	@endforeach
 	@if(Auth::user()->level == 5)
-	<div class="row">
+	<div class="row ">
 		<div class="col-md-12">
-			<div class="chart">
-				<div id="chartline" style="height: 370px; width: auto; margin: 0px auto;"></div>
-				<div id="chartCỉcle" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+			<div class="chart chartSpLine">
+				<div>
+					<div class="btnChangeChart">
+						1 năm >>>
+					</div>
+					<div id="chartSpLine_month"></div>
+					<div id="chartSpLine_year"></div>
+				</div>
+					
 			</div>
 		</div>
 		<div class="col-md-6">
+			<div class="chart"><div id="chartCỉcle" style="height: 370px; width: 100%; margin: 0px auto;"></div></div>
+		</div>
+		<div class="col-md-6">
+			<div class="chart">
+				<div id="chartline" style="height: 370px; width: auto; margin: 0px auto;"></div>
+			</div>
 			
 		</div>
 	</div>
@@ -204,28 +290,36 @@ function toogleDataSeries(e){
 	</div>
 	@endif
 	<div class="row userCourse">
-		@foreach($code as $item)
-			<div class="col-md-3 col-sm-4 col-xs-6">
-				<a href="{{asset('courses/detail/'.$item->cou->cou_slug.'.html')}}" class="courseItem">
-					<div class="courseImg">
-						<img src="{{asset('lib/storage/app/course/'.$item->cou->cou_img)}}">
-						@if($item->code_status == 0)
-							<div class="courseWait">
-								<div class="courseWaitContent">
-									Đang chờ kích hoạt
+		@foreach($user->order as $order)
+			@foreach ($order->orderDe as $item)
+				@if ($item->code != null)
+					<div class="col-md-3 col-sm-4 col-xs-6">
+						<a href="{{asset('courses/detail/'.$item->course->cou_slug.'.html')}}" class="courseItem">
+							<div class="courseImg">
+								<img src="{{asset('lib/storage/app/course/'.$item->course->cou_img)}}">
+
+									@if($item->code->code_status == 0)
+										<div class="courseWait">
+											<div class="courseWaitContent">
+												Đang chờ kích hoạt
+											</div>
+										</div>
+									@endif
+								
+									
+							</div>
+							<div class="courseContent">
+								<h4>{{cut_string($item->course->cou_name,60)}}</h4>
+								<div class="courseTeacher">
+									<img src="{{asset('lib/storage/app/avatar/'.$item->course->tea->img)}}">
+									<span>{{$item->course->tea->name}}</span>
 								</div>
 							</div>
-						@endif
+						</a>
 					</div>
-					<div class="courseContent">
-						<h4>{{cut_string($item->cou->cou_name,60)}}</h4>
-						<div class="courseTeacher">
-							<img src="{{asset('lib/storage/app/avatar/'.$item->cou->tea->img)}}">
-							<span>{{$item->cou->tea->name}}</span>
-						</div>
-					</div>
-				</a>
-			</div>
+				@endif
+			@endforeach
+				
 		@endforeach
 	</div>
 	<div class="row userDetail">

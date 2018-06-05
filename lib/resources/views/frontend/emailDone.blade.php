@@ -6,7 +6,7 @@
 		</div>
 		
 		
-		<h2>Khóa học: {{$code->cou->cou_name}}</h2>
+		<h2>Khóa học: {{$code->orderDe->course->cou_name}}</h2>
 		<h3 style="text-align: center">Khóa học kích hoạt thành công</h3>s
 		<div id="xac-nhan">
 			<br>

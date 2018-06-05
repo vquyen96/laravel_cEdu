@@ -27,7 +27,7 @@
 			<tr>	
 				<td>{{$item->news_id}}</td>
 				<td class="tableNewsImg">
-					<img class="" src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
+					<img class="" src="{{asset('lib/storage/app/news/resized-'.$item->news_img)}}">
 				</td>
 				<td>{{cut_string($item->news_title, 50)}}</td>
 				<td>{!!cut_string($item->news_content, 200)!!}</td>

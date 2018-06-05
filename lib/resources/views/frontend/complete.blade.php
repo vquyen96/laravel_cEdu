@@ -31,7 +31,7 @@
 						<p>Vui lòng kiểm tra mail của mình</p>
 					</div>
 					<div class="completeBodyCount">
-						5 giây
+						10 giây
 					</div>
 					<div class="completeBodyback">
 						<a href="{{asset('')}}">

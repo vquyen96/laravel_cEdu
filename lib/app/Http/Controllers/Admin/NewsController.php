@@ -22,9 +22,7 @@ class NewsController extends Controller
 		$news->news_slug = str_slug($request->title);
         $image = $request->file('img');
         if ($request->hasFile('img')) {
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $news->news_img = $filename;
-            $request->img->storeAs('news',$filename);
+            $news->news_img = saveImage([$image], 200, 'news');
         }
         $news->news_content = $request->content;
         $news->news_type = 1;
@@ -42,9 +40,7 @@ class NewsController extends Controller
 		$news->news_slug = str_slug($request->title);
         $image = $request->file('img');
         if ($request->hasFile('img')) {
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $news->news_img = $filename;
-            $request->img->storeAs('news',$filename);
+            $news->news_img = saveImage([$image], 200, 'news');
         }
         $news->news_content = $request->content;
         $news->news_type = 1;
@@ -52,7 +48,11 @@ class NewsController extends Controller
         return redirect('admin/news')->with('success','Sửa tin tức thành công');
     }
     public function getDelete($id){
-        News::destroy($id);
+        $news = News::find($id);
+        $namefile = $news->img;
+        File::delete('libs/storage/app/news/'.$namefile);
+        File::delete('libs/storage/app/news/resized-'.$namefile);
+        $news->delete();
         return back();
     }
 }

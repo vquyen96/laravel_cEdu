@@ -395,17 +395,17 @@
 								
 							</div>
 							<div class="connect">
-								<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+								{{-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 								<a href="{{asset('redirect/facebook')}}" onlogin="checkLoginState();">
 									<img src="img/Facebook-Icon-300x300.png">
-								</a>
+								</a> --}}
 								<a href="{{asset('redirect/google')}}">
-									<img src="img/tải xuống.png">
+									Login with Google
 								</a>
-								
+								{{-- 
 								<a href="">
 									<img src="img/brasol.vn-logo-zalo-vector-logo-zalo-vector.png">
-								</a>
+								</a> --}}
 							</div>
 							{{csrf_field()}}
 						</form>
@@ -437,15 +437,16 @@
 								
 							</div>
 							<div class="connect">
-								<a href="{{asset('redirect/facebook')}}">
+								{{-- <a href="{{asset('redirect/facebook')}}">
 									<img src="img/Facebook-Icon-300x300.png">
+								</a> --}}
+								<a href="{{asset('redirect/google')}}">
+									Login with Google
+									
 								</a>
-								<a href="{{ URL::to('auth/google') }}">
-									<img src="img/tải xuống.png">
-								</a>
-								<a href="">
+								{{-- <a href="">
 									<img src="img/brasol.vn-logo-zalo-vector-logo-zalo-vector.png">
-								</a>	
+								</a>	 --}}
 							</div>
 							{{csrf_field()}}
 						</form>

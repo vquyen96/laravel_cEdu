@@ -18,8 +18,7 @@ class OrderController extends Controller
     }
     public function getDetail($id){
     	$data['order'] = Order::find($id);
-    	$data['items'] = OrderDetail::where('orderDe_ord_id', $id)->paginate(5);
-
+    	$data['items'] = OrderDetail::where('orderDe_ord_id', $id)->get();
     	return view('backend.orderdetail',$data);
     }
     public function getShip($id){
@@ -45,8 +44,9 @@ class OrderController extends Controller
                     if($codeExit == null){
                         $code = new Code;
                         $code->code_value = $code_value;
-                        $code->code_acc_id = $order->acc->id;
-                        $code->code_cou_id = $orderDe->course->cou_id;
+                        // $code->code_acc_id = $order->acc->id;
+                        // $code->code_cou_id = $orderDe->course->cou_id;
+                        $code->code_orderDe_id = $orderDe->orderDe_id;
                         $code->code_status = 0;
                         $code->save();
                         $email = $order->acc->email;

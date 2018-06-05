@@ -16,15 +16,10 @@ class Code extends Migration
         Schema::create('code', function (Blueprint $table) {
             $table->increments('code_id');
             $table->integer('code_value');
-            $table->integer('code_acc_id')->unsigned();
-            $table->foreign('code_acc_id')
-                ->references('id')
-                ->on('accounts')
-                ->onDelete('cascade');
-            $table->integer('code_cou_id')->unsigned();
-            $table->foreign('code_cou_id')
-                ->references('cou_id')
-                ->on('course')
+            $table->integer('code_orderDe_id')->unsigned();
+            $table->foreign('code_orderDe_id')
+                ->references('orderDe_id')
+                ->on('orderdetail')
                 ->onDelete('cascade');
             $table->integer('code_status');    
             $table->timestamps();
