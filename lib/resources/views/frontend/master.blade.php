@@ -20,6 +20,10 @@
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
 
+    {{-- <meta property="og:url" content="https://developers.zalo.me/" />
+	<meta property="og:title" content="Zalo For Developers" />
+	<meta property="og:image" content="https://developers.zalo.me/web/static/prodution/zalo.png" />
+	<meta property="og:description" content="Trang thông tin về Zalo dành cho cộng đồng lập trình viên" />  --}}
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -27,7 +31,7 @@
 	<link rel="stylesheet" type="text/css" href="css/master.css">
 </head>
 <body>
-	<script>
+	{{-- <script>
 	  // This is called with the results from from FB.getLoginStatus().
 	  function statusChangeCallback(response) {
 	    console.log('statusChangeCallback');
@@ -101,27 +105,13 @@
 	        'Thanks for logging in, ' + response.name + '!';
 	    });
 	  }
-	</script>
+	</script> --}}
 
-	<!--
-	  Below we include the Login Button social plugin. This button uses
-	  the JavaScript SDK to present a graphical Login button that triggers
-	  the FB.login() function when clicked.
-	-->
-
-	{{-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-	</fb:login-button> --}}
+	
 
 	<div id="status">
 	</div>
-	{{-- <div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=1577563652342523&autoLogAppEvents=1';
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script> --}}
+	
 	<div class="masterError">
 		<div class="masterErrorContent">
 			@include('errors.note')
@@ -381,7 +371,7 @@
 								</div>
 							</div>
 							<div class="forgotPassword">
-								<a href="">
+								<a href="{{ asset('forgot_pass') }}">
 									Bạn quên mật khẩu ?
 								</a>
 								

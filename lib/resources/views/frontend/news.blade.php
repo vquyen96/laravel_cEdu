@@ -63,16 +63,13 @@
 					<div class="newsHeadSmailDetail">
 						<div class="newsHeadSmailTime">
 							<img src="img/ic_time1.png">
-							<span>1 tháng trước</span>
+							<span>{{time_format($item->created_at)}}</span>
 						</div>
 						<div class="newsHeadSmailCom">
-							<img src="img/ic_cmt.png">
-							<span>20</span>
+							<i class="fa fa-eye" aria-hidden="true"></i>
+							<span>{{number_format($item->news_view,0,',','.')}}</span> lượt xem
 						</div>
-						<div class="newsHeadSmailLike">
-							<img src="img/ic_facebook1.png">
-							<span>88</span>
-						</div>
+						
 						
 					</div>
 					<div class="newsHeadSmailFoot">
@@ -110,16 +107,13 @@
 						<div class="newsWeekDetail">
 							<div class="newsWeekTime">
 								<img src="img/ic_time1.png">
-								<span>1 tháng trước</span>
+								<span>{{time_format($item->created_at)}}</span>
 							</div>
 							<div class="newsWeekCom">
-								<img src="img/ic_cmt.png">
-								<span>20</span>
+								<i class="fa fa-eye" aria-hidden="true"></i>
+								<span>{{number_format($item->news_view,0,',','.')}} lượt xem</span>
 							</div>
-							<div class="newsWeekLike">
-								<img src="img/ic_facebook1.png">
-								<span>88</span>
-							</div>
+							
 						</div>
 						<div class="newsWeekFoot">
 							<a href="{{ asset('news/detail/'.$item->news_slug) }}" class="newsWeekItemTitle">
@@ -144,16 +138,13 @@
 						<div class="newsWeekDetail">
 							<div class="newsWeekTime">
 								<img src="img/ic_time1.png">
-								<span>1 tháng trước</span>
+								<span>{{time_format($item->created_at)}}</span>
 							</div>
 							<div class="newsWeekCom">
-								<img src="img/ic_cmt.png">
-								<span>20</span>
+								<i class="fa fa-eye" aria-hidden="true"></i>
+								<span>{{number_format($item->news_view,0,',','.')}} lượt xem</span>
 							</div>
-							<div class="newsWeekLike">
-								<img src="img/ic_facebook1.png">
-								<span>88</span>
-							</div>
+							
 						</div>
 						<div class="newsWeekFoot">
 							<div class="newsWeekItemTitle">
@@ -178,16 +169,13 @@
 						<div class="newsWeekDetail">
 							<div class="newsWeekTime">
 								<img src="img/ic_time1.png">
-								<span>1 tháng trước</span>
+								<span>{{time_format($item->created_at)}}</span>
 							</div>
 							<div class="newsWeekCom">
-								<img src="img/ic_cmt.png">
-								<span>20</span>
+								<i class="fa fa-eye" aria-hidden="true"></i>
+								<span>{{number_format($item->news_view,0,',','.')}} lượt xem</span>
 							</div>
-							<div class="newsWeekLike">
-								<img src="img/ic_facebook1.png">
-								<span>88</span>
-							</div>
+							
 						</div>
 						<div class="newsWeekFoot">
 							<div class="newsWeekItemTitle">
@@ -223,14 +211,14 @@
 								<div class="newsWeekDetail">
 									<div class="newsWeekTime">
 										<img src="img/ic_time1.png">
-										<span>1 tháng trước</span>
+										<span>{{time_format($item->created_at)}}</span>
 									</div>
 									<div class="newsWeekCom">
-										<img src="img/ic_cmt.png">
-										<span>20</span>
+										<i class="fa fa-eye" aria-hidden="true"></i>
+										<span>{{number_format($item->news_view,0,', lượt xem','.')}} lượt xem</span>
 									</div>
 									<div class="newsWeekLike">
-										<img src="img/ic_facebook1.png">
+										<i class="fa fa-eye" aria-hidden="true"></i>
 										<span>88</span>
 									</div>
 								</div>
@@ -265,7 +253,7 @@
 							</div>
 							<div class="newsItemSmailTime">
 								<img src="img/ic_time1.png">
-								<span>1 tháng trước</span>
+								<span>{{time_format($item->created_at)}}</span>
 							</div>
 							<div class="newsItemSmailContent">
 								{!!cut_string($item->news_content,120)!!}
@@ -289,16 +277,13 @@
 					<div class="newsWeekDetail">
 						<div class="newsWeekTime">
 							<img src="img/ic_time1.png">
-							<span>1 tháng trước</span>
+							<span>{{time_format($item->created_at)}}</span>
 						</div>
 						<div class="newsWeekCom">
-							<img src="img/ic_cmt.png">
-							<span>20</span>
+							<i class="fa fa-eye" aria-hidden="true"></i>
+							<span>{{number_format($item->news_view,0,',','.')}}</span> lượt xem
 						</div>
-						<div class="newsWeekLike">
-							<img src="img/ic_facebook1.png">
-							<span>88</span>
-						</div>
+						
 					</div>
 					<div class="newsWeekFoot">
 						<div class="newsWeekItemTitle">

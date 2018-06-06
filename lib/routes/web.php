@@ -25,6 +25,10 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'CheckAdmin'],function(){
 	
 	Route::group(['prefix'=>'admin','middleware'=>'CheckLogedOut'],function(){
 		Route::get('/','HomeController@getHome');
+		Route::get('home_teacher','HomeController@getHomeTeacher');
+
+		Route::get('user','HomeController@getUser');
+		Route::post('user','HomeController@postUser');
 		Route::group(['prefix'=>'account'],function(){
 			Route::get('/','AccountController@getList');
 			Route::get('search/','AccountController@getSearch');
@@ -193,7 +197,13 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 	Route::get('teacher/{email}','UserController@getTeacher');
 	Route::get('teacher/{email}/{rate}', 'UserController@getTeacherRating');
 
-	
+	Route::group(['prefix'=>'forgot_pass'], function(){
+		Route::get('/','ForgotPass@getPage');
+		Route::post('/','ForgotPass@postPage');
+		Route::get('email/{email}','ForgotPass@sendEmail');
+		Route::post('email/{email}','ForgotPass@resetPass');
+		
+	});
 	Route::group(['prefix'=>'rating'],function(){
 		Route::post('add/{slug}','RatingController@postAdd');
 		Route::post('edit/{id}/{slug}','RatingController@postEdit');

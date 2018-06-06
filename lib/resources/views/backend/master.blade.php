@@ -46,81 +46,81 @@
 	<nav>
 		<ul>
 			<li>
-				<a href="{{asset('admin/account/edit/'.Auth::user()->id)}}" class="navUser">
+				<a href="{{asset('admin/user')}}" class="navUser navAccount @if (Request::segment(2) == 'user')  active @endif">
 					<img src="{{asset('lib/storage/app/avatar/'.Auth::user()->img)}}">
 					{{Auth::user()->name}}
 				</a>
 			</li>
 			<li>
-				<a href="{{asset('admin/')}}" class="navAccount">
+				<a href="{{asset('admin/')}}" class="navAccount @if (Request::segment(2) == '')  active @endif">
 					Thống kê
 				</a>
 			</li>
 			@if(Auth::user()->level != 3)
 			<li>
-				<a href="{{asset('admin/account')}}" class="navAccount">
+				<a href="{{asset('admin/account')}}" class="navAccount @if (Request::segment(2) == 'account')  active @endif">
 					Tài khoản
 				</a>
 			</li>
 			@endif
 			@if(Auth::user()->level != 3)
 			<li>
-				<a href="{{asset('admin/affiliate')}}" class="navAccount">
+				<a href="{{asset('admin/affiliate')}}" class="navAccount @if (Request::segment(2) == 'affiliate')  active @endif">
 					Cộng tác viên
 				</a>
 			</li>
 			<li>
-				<a href="{{asset('admin/teacher')}}" class="navAccount">
+				<a href="{{asset('admin/teacher')}}" class="navAccount @if (Request::segment(2) == 'teacher')  active @endif">
 					Giáo viên
 				</a>
 			</li>
 			@endif
 			@if(Auth::user()->level != 3)
 			<li>
-				<a href="{{asset('admin/group')}}" class="navAccount">
+				<a href="{{asset('admin/group')}}" class="navAccount @if (Request::segment(2) == 'group')  active @endif">
 					Lĩnh vực
 				</a>
 			</li>
 			@endif
 			<li>
-				<a href="{{asset('admin/course')}}" class="navAccount">
+				<a href="{{asset('admin/course')}}" class="navAccount @if (Request::segment(2) == 'course')  active @endif">
 					Khóa học
 				</a>
 			</li>
 			
 			@if(Auth::user()->level == 3)
 			<li>
-				<a href="{{asset('admin/teacher/detail/'.Auth::user()->id)}}" class="navAccount">
+				<a href="{{asset('admin/teacher/detail/'.Auth::user()->id)}}" class="navAccount @if (Request::segment(2) == 'teacher')  active @endif">
 					Hồ xơ
 				</a>
 			</li>
 			@endif
 			@if(Auth::user()->level != 3)
 			<li>
-				<a href="{{asset('admin/order')}}" class="navAccount">
+				<a href="{{asset('admin/order')}}" class="navAccount @if (Request::segment(2) == 'order')  active @endif">
 					Đơn hàng
 				</a>
 			</li>
 			
 			<li>
-				<a href="{{asset('admin/banner')}}" class="navAccount">
+				<a href="{{asset('admin/banner')}}" class="navAccount @if (Request::segment(2) == 'banner')  active @endif">
 					Banner
 				</a>
 			</li>
 			
 			<li>
-				<a href="{{asset('admin/news')}}" class="navAccount">
+				<a href="{{asset('admin/news')}}" class="navAccount @if (Request::segment(2) == 'news')  active @endif">
 					Tin tức
 				</a>
 			</li>
 			
 			<li>
-				<a href="{{asset('admin/doc')}}" class="navAccount">
+				<a href="{{asset('admin/doc')}}" class="navAccount @if (Request::segment(2) == 'doc')  active @endif">
 					Tài liệu
 				</a>
 			</li>
 			<li>
-				<a href="{{asset('admin/about')}}" class="navAccount">
+				<a href="{{asset('admin/about')}}" class="navAccount @if (Request::segment(2) == 'about')  active @endif">
 					Giới thiệu
 				</a>
 			</li>

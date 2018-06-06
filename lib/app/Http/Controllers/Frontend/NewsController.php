@@ -15,13 +15,14 @@ class NewsController extends Controller
     	$data['newInWeekR'] = News::where('news_id','>','3')->paginate(3);
 
     	$data['newMostFollowL'] = News::orderBy('news_id','desc')->paginate(4);
-    	$data['newMostFollowR'] = News::orderBy('news_id','asc')->paginate(7);
+    	$data['newMostFollowR'] = News::orderBy('news_id','asc')->paginate(6);
     	return view('frontend.news',$data);
     }
     public function getDetail($slug){
         $data['news'] = News::where('news_slug',$slug)->first();
         $data['newsList'] = News::paginate(8);
-
+        $data['news']->news_view += 1;
+        $data['news']->save();
     	return view('frontend.detailNews',$data);
     }
 }

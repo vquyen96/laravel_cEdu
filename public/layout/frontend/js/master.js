@@ -19,7 +19,7 @@ $(document).ready(function () {
 
     setTimeout(function(){
         $('.masterError').fadeOut();
-    },3000);
+    },2000);
     $(document).on('click', ".btnSearchHead a", function(){
     	$(".headerSearch").css({"display": "block", "width": "340px", "margin-top": "15px"});
         $('.headerMenuNav ul').fadeOut(100);

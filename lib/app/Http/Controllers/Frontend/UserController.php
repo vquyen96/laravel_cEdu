@@ -28,14 +28,16 @@ class UserController extends Controller
     public function postUser(Request $request){
     	$acc = Account::find(Auth::user()->id);
         $acc->name = $request->name;
-
         $image = $request->file('img');
         if ($request->hasFile('img')) {
-            $filename = $image->getClientOriginalName();
+            $filename = time() . '.' . $image->getClientOriginalExtension();
             $acc->img = $filename;
             $request->img->storeAs('avatar',$filename);
         }
-        $acc->job = $request->job;
+        
+        if ($acc->password != null) {
+            $acc->password = bcrypt($request->password);
+        }
         $acc->content = $request->content;
         $acc->save();
         return back()->with('success','Sửa tài khoản thành công');

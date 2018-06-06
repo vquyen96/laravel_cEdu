@@ -666,18 +666,7 @@
 	height: 800px;
 	position: relative;
 }
-.teacherContentItem{
-	top: 0;
-	margin: 13% auto;
-	width: 360px;
-	height: 360px;
-	background: #284da9;
-	padding: 0 40px 50px;
-	text-align: center;
-	color: #fff;
-	position: relative;
-	z-index: 19;
-}
+
 .teacherContentCircle{
 	width: 700px;
 	height: 700px;
@@ -762,7 +751,7 @@
 	display: none;
 }
 .teacherContentItem{
-	top: -690px;
+	top: -710px;
 	margin: 11% auto;
 	width: 360px;
 	height: 360px;

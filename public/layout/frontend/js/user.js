@@ -31,5 +31,9 @@ $(document).ready(function() {
         }
         
     });
+    $('.btnChangePass').click(function(){
+        $(this).hide();
+        $('input[name=password]').show();
+    });
     
 });

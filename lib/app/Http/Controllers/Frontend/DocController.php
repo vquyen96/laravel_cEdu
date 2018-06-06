@@ -16,10 +16,14 @@ class DocController extends Controller
     	return view('frontend.doc',$data);
     }
     public function getGroup($gr_slug){
-    	$group = Group::where('gr_slug',$gr_slug)->first();
-    	$grdoc_slug = GroupDoc::where('grdoc_gr_id',$group->gr_id)->first()->grdoc_slug;
-    	
-    	return redirect('doc/detail/'.$gr_slug.'/'.$grdoc_slug);
+        $group = Group::where('gr_slug',$gr_slug)->first();
+        $grdoc_slug = GroupDoc::where('grdoc_gr_id',$group->gr_id)->first();
+        if ($grdoc_slug != null) {
+            return redirect('doc/detail/'.$gr_slug->grdoc_slug.'/'.$grdoc_slug->grdoc_slug);
+        }
+        else{
+            return view('index404');
+        }
     }
     public function getDoc($gr_slug, $grdoc_slug){
     	$group = Group::where('gr_slug',$gr_slug)->first();

@@ -7,42 +7,42 @@
 
 <div>
 	<div class="dashboard">
-		<div class="item student">
-			<a href="{{ asset('admin/course/student/'.$item->cou_id)}}" class="icon red">
+		<a href="{{ asset('admin/course/student/'.$item->cou_id)}}" class="item student">
+			<div class="icon red">
 				<i class="fa fa-users" aria-hidden="true"></i>
-			</a>
+			</div>
 			<div class="content">
 				<p>Số học viên</p>
 				{{$item->orderDe->count()}}
 			</div>
-		</div>
-		<div class="item rating">
-			<a href="{{ asset('admin/rating/detail/'.$item->cou_id) }}" class="icon yell">
+		</a>
+		<a href="{{ asset('admin/rating/detail/'.$item->cou_id) }}" class="item rating">
+			<div class="icon yell">
 				<i class="fa fa-star" aria-hidden="true"></i>
-			</a>
+			</div>
 			<div class="content">
 				<p>Đánh giá</p>
 				{{$item->cou_star}}
 			</div>
-		</div>
-		<div class="item lesson">
-			<a href="{{ asset('admin/course/detail/'.$item->cou_id) }}" class="icon blue">
+		</a>
+		<a href="{{ asset('admin/course/detail/'.$item->cou_id) }}" class="item course">
+			<div class="icon blue">
 				<i class="fa fa-book" aria-hidden="true"></i>
-			</a>
+			</div>
 			<div class="content">
 				<p>Số bài học</p>
 				{{$lesson}}
 			</div>
-		</div>
-		<div class="item earnings">
-			<a href="{{ asset('admin') }}" class="icon green">
+		</a>
+		<a href="{{ asset('admin') }}" class="item earnings">
+			<div class="icon green">
 				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-			</a>
+			</div>
 			<div class="content">
 				<p>Thu Nhập</p>
 				{{number_format($item->orderDe->count()*$item->cou_price,0,',','.')}}
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="bodyHeader">
 		<span class="title">Chỉnh sửa khóa học</span>
@@ -143,6 +143,37 @@
 		  	</div>
 		  	{{csrf_field()}}
 		</form>
+	</div>
+	<div class="videoContentTitle">
+		Chi tiết bài học
+	</div>
+	<div class="videoContent">
+		<?php $video = 0 ?>
+		@foreach($item->part as $part)
+			<h4>
+				{{$part->part_name}}
+				<a href="{{ asset('admin/course/part/edit/'.$item->cou_id.'/'.$part->part_id) }}" class="btnEditPart">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				</a>
+			</h4>
+			{{-- {{$item->lesson->count()}} --}}
+			@foreach($part->lesson as $lesson)	
+			<a href="{{asset('admin/course/part/lesson/edit/'.$item->cou_id.'/'.$part->part_id.'/'.$lesson->les_id)}}">
+				<div class="videoItem">
+					<div class="videoItemBtnPlay">
+						<img src="img/ic_Play-button_b1.png">
+					</div>
+					<div class="videoItemTitle">
+						{{$lesson->les_name}}
+					</div>
+					<div class="videoItemTime">
+						{{$lesson->les_video_duration}}
+					</div>
+				</div>
+			</a>
+			<?php $video++ ?>
+			@endforeach
+		@endforeach
 	</div>
 </div>
 

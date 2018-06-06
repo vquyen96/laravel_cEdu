@@ -350,13 +350,13 @@ function toogleDataSeries(e){
 					    	<input type="text" class="form-control" name="job" value="{{Auth::user()->job}}" placeholder="Nghề nghiệp" required>
 					    </div>
 					</div>
-				  	{{-- <div class="form-group row">
-				    	<label class="formName  col-md-3 col-xs-5">Mật khẩu</label>
-				    	<div class="inputGr col-md-9 col-xs-7">
-
-				    		<input type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
-				    	</div>
-				  	</div> --}}
+				  	<div class="form-group row">
+					    <label class="formName  col-md-3 col-xs-5">Nghề nghiệp</label>
+					    <div class="inputGr col-md-9 col-xs-7">
+					    	<a class="btn btn-primary btnChangePass">Thay đổi mật khẩu</a>
+				    		<input type="password" class="form-control" name="password" placeholder="Mật khẩu của bạn">
+					    </div>
+					</div>
 		  			<input id="img" type="file" name="img" class="cssInput " onchange="changeImg(this)" style="display: none!important;">
 					<div class="form-group row">
 						<label  class="formName col-md-3 col-xs-5">Giới thiệu bản thân</label>

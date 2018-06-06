@@ -1,5 +1,5 @@
 @extends('frontend.master')
-@section('title','Thành công')
+@section('title','Kích hoạt mã code')
 @section('main')
 <link rel="stylesheet" type="text/css" href="css/code.css">
 <div class="container">

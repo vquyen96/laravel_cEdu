@@ -653,7 +653,7 @@
 						<i class="fa fa-arrow-right" aria-hidden="true"></i>
 					</div>
 					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						CEDU tự hào là một trong mô hình giáo dục 4.0 mang lại cho khách hàng những trải nghiệm thú vị ,kiến thức phong phú nhât
 					</p>
 				</div>
 			</div>
@@ -665,7 +665,7 @@
 						<i class="fa fa-arrow-down" aria-hidden="true"></i>
 					</div>
 					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						Tại CEDU thời gian học của bạn sẽ được linh động mọi lúc mọi nơi. Bạn chỉ cần đăng nhập và click vào khóa học bạn muốn 
 					</p>
 				</div>
 			</div>
@@ -677,7 +677,7 @@
 						<i class="fa fa-arrow-up" aria-hidden="true"></i>
 					</div>
 					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						CEDU sẽ cùng đội ngũ giảng viên hỗ trợ những thắc mắc mà bạn gặp phải trong các khóa học 
 					</p>
 				</div>
 			</div>
@@ -689,7 +689,7 @@
 						<i class="fa fa-arrow-left" aria-hidden="true"></i>
 					</div>
 					<p>
-						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						Luôn đặt chất lượng khóa học lên hàng đầu chính vì thế giảng viên của CEDU đều là những chuyên gia nổi tiếng trong các lĩnh vực : luyện thi,kĩ năng mềm, marketing, kĩ thuật, ….. 
 					</p>
 				</div>
 			</div>

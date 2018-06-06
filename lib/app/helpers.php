@@ -76,3 +76,23 @@
 	    }
 	    return implode(',',$imgArr);
 	}
+
+	function time_format($time){
+		$date = new DateTime();
+		$date = strtotime(date_format($date,"Y-m-d"));
+		$time = strtotime(date_format($time,"Y-m-d"));
+		$year = 31526000;
+		$month = 2592000;
+		$day = 86400;
+		// strtotime(date_format($time,"Y-m-d")) == strtotime(date_format($date,"Y-m-d"))
+		if ($time < $date-$year) {
+			return round(($date-$time)/$year).' năm';
+		}
+		else if($time < $date-$month){
+			return round(($date-$time)/$month).' tháng';
+		}
+		else{
+			return round(($date-$time)/$day).' ngày';
+		}
+
+	}

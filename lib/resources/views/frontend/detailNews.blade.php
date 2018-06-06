@@ -22,12 +22,16 @@
 				<div class="newsHeader">
 					<h3>{{$news->news_title}}</h3>
 				</div>
+
 				<div
 				  class="fb-like"
 				  data-share="true"
 				  data-width="450"
 				  data-show-faces="true">
 				</div>
+				
+				<div class="zalo-share-button" data-href="{{asset('')}}{{Request::path()}}" data-oaid="1002971025686324636" data-layout="1" data-color="blue" data-customize=false></div>
+				<span class="news_view">{{number_format($news->news_view,0,',','.')}} Lượt xem</span>
 				<img src="{{ asset('lib/storage/app/news/'.$news->news_img) }}">
 
 				<p>
@@ -58,4 +62,5 @@
 @stop
 @section('script')
 <script type="text/javascript" src="js/detailNew.js"></script>
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
 @stop

@@ -108,15 +108,8 @@
 									
 								</div>
 								<div class="connect">
-									<a href="{{asset('auth/facebook')}}">
-										<img src="img/Facebook-Icon-300x300.png">
-									</a>
-									<a href="">
-										<img src="img/tải xuống.png">
-									</a>
-									
-									<a href="">
-										<img src="img/brasol.vn-logo-zalo-vector-logo-zalo-vector.png">
+									<a href="{{asset('redirect/google')}}">
+										Login with Google
 									</a>
 								</div>
 								{{csrf_field()}}

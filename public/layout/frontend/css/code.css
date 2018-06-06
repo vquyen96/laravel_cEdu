@@ -17,7 +17,18 @@
 	border:none;
 	outline: none;
 }
-
+.code input[type=password]{
+	display: block;
+	width: 600px;
+	margin: 20px auto;
+	height: 70px;
+	border-radius: 50px;
+	text-align: center;
+	font-size: 30px;
+	background: #ccc;
+	border:none;
+	outline: none;
+}
 .code input[type=submit]{
 	margin-top: 30px;
 	margin-bottom: 30px;
@@ -27,4 +38,22 @@
 	background: #284da9;
 	border-radius: 50px;
 	border:none;
+}
+
+.btnCode {
+    margin: 30px auto;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background: #284da9;
+    border-radius: 50px;
+    border: none;
+    font-size: 22px;
+}
+.formPass{
+	display: none;
+}
+.formCode{
+	
 }

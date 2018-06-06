@@ -3,7 +3,7 @@
 @section('main')
 
 
-<div>
+<div class="row">
 	<div>
 		<a href="{{asset('admin/course')}}">
 			Khóa học

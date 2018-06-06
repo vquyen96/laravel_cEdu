@@ -20,6 +20,7 @@ class NewsController extends Controller
     	$news = new News;
         $news->news_title = $request->title;
 		$news->news_slug = str_slug($request->title);
+        $news->news_view = $request->view;
         $image = $request->file('img');
         if ($request->hasFile('img')) {
             $news->news_img = saveImage([$image], 200, 'news');
@@ -38,6 +39,7 @@ class NewsController extends Controller
     	$news = News::find($id);
     	$news->news_title = $request->title;
 		$news->news_slug = str_slug($request->title);
+        $news->news_view = $request->view;
         $image = $request->file('img');
         if ($request->hasFile('img')) {
             $news->news_img = saveImage([$image], 200, 'news');

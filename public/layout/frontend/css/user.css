@@ -173,3 +173,6 @@ a.courseItem:hover{
 	box-shadow: 4px 8px 12px 0px #0000003b;
 	border-radius: 5px;
 }
+input[name=password]{
+	display: none;
+}

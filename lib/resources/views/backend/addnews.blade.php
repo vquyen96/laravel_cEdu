@@ -15,7 +15,10 @@
 			    <label>Tiêu đề bài viết</label>
 			    <input type="text" class="form-control" name="title" placeholder="Tên của bạn" required>
 			</div>
-			
+			<div class="form-group">
+			    <label>Lượt xem</label>
+			    <input type="text" class="form-control" name="view" required>
+			</div>
 			<div class="form-group">
 				<label>Ảnh</label>
 				<input id="img" type="file" name="img" class="cssInput " onchange="changeImg(this)" style="display: none!important;">

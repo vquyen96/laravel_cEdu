@@ -15,10 +15,10 @@
 			( 
 			@switch($order->ord_status)
 				@case(-1)
-					<span style="color: #f00;">Từ chối</span>
+					<span style="color: #d43939;">Từ chối</span>
 					@break
 				@case(0)
-					<span style="color: #0f0;">Đã hoàn thành</span>
+					<span style="color: #008400;">Đã hoàn thành</span>
 					
 					@break
 				@case(1)

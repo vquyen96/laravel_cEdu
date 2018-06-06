@@ -20,7 +20,7 @@
 				<th>#</th>
 				<th>Hình ảnh</th>
 				<th>Tiêu đề</th>
-				<th>Nội dung</th>
+				<th>Lượt xem</th>
 				<th class="tableOption">Tùy Chọn</th>
 			</tr>
 			@foreach($items as $item)
@@ -30,7 +30,7 @@
 					<img class="" src="{{asset('lib/storage/app/news/resized-'.$item->news_img)}}">
 				</td>
 				<td>{{cut_string($item->news_title, 50)}}</td>
-				<td>{!!cut_string($item->news_content, 200)!!}</td>
+				<td>{{number_format($item->news_view)}}</td>
 				<td>
 					<a href="{{asset('admin/news/edit/'.$item->news_id)}}" class="btn btn-primary">Sửa</a>
 				

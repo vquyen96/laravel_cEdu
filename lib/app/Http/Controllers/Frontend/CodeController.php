@@ -41,11 +41,8 @@ class CodeController extends Controller
                         $data['code'] = $code;
                         Mail::send('frontend.emailDone', $data, function($message) use ($email){
                             $message->from('vquyenaaa@gmail.com', 'Ceduvn');
-                            $message->to($email, $email)->subject('Thank You!');
-                            // $message->cc('thongminh.depzai@gmail.com', 'boss');
-                            $message->subject('Hóa đơn khóa học');
+                            $message->to($email, $email)->subject('Kích hoạt khóa học thành công');
                         });
-
                         return redirect('')->with('success','Thành Công ! Khóa học của bạn đã được kích hoạt thành công');
                     }
              

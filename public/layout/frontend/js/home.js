@@ -208,8 +208,8 @@ $(document).ready(function(){
 
 
 
-    $('.teacherContentCircle').height($(window).width()/2.3);
-    $('.teacherContentCircle').width($(window).width()/2.3);
+    // $('.teacherContentCircle').height($(window).width()/2.3);
+    // $('.teacherContentCircle').width($(window).width()/2.3);
     var revRotaL = 0;
     var rotateL = 0;
     $('.circleItemTea').eq(3).attr('class','teacherContentAvaLeft styleLeft');
