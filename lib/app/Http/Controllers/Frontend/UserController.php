@@ -17,8 +17,9 @@ class UserController extends Controller
         if (Auth::check()) {
             $data['user'] = Account::find(Auth::user()->id);
             // $data['code'] = Code::where('code_acc_id',Auth::user()->id)->get();
-            $data['orderDe'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(8);
-            // dd($data['orderDe']);
+            $data['orderDe'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+            $data['orderDeTable'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(8);
+            $data['course'] = Course::orderBy('cou_student','desc')->get();
             return view('frontend.user',$data);
         }
     	else{

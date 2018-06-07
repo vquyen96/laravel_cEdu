@@ -171,9 +171,7 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'CheckAdmin'],function(){
 			Route::get('edit/{id}', 'BannerController@getEdit');
 			Route::post('edit/{id}', 'BannerController@postEdit');
 			
-			Route::get('delete', 'BannerController@getDelete');
-			
-			
+			Route::get('delete/{id}', 'BannerController@getDelete');
 		});
 	});
 });

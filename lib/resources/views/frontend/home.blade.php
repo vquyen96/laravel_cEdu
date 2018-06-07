@@ -381,7 +381,7 @@
 		<div class="hotHead">
 			<h1 class="">TOP KHÓA HỌC ĐƯỢC MUA NHIỀU NHẤT</h1>
 		</div>
-		<div id="slideCourseHot" class="carousel slide" data-ride="carousel">
+		{{-- <div id="slideCourseHot" class="carousel slide" data-ride="carousel">
 		  <!-- Indicators -->
 		  	
 		  <ol class="carousel-indicators">
@@ -542,7 +542,63 @@
 				<i class="fa fa-angle-right" aria-hidden="true"></i>
 			</div>
 			
-		</div>			
+		</div>			 --}}
+		<div class="slideCourseHot">
+			<div class="slideCourseMain">
+				@foreach ($hotcourse as $item)
+					<div class="hotContentItem">
+						<div class="hotContentItemAva">
+							<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
+								<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
+							</a>
+						</div>
+						<div class="hotContentItemCart">
+							<a href="{{asset('cart/buy/'.$item->cou_slug)}}">
+								<img src="img/ic_cart.png">
+							</a>
+							
+						</div>
+						<div class="hotContentItemHead">
+							<span>{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
+						</div>
+						<div class="hotContentItemMain">
+							<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
+						</div>
+						<div class="hotContentItemDetail">
+							<div class="hotContentItemDetailUser">
+								<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
+								<span>{{$item->tea->name}}</span>
+							</div>
+							<div class="hotContentItemDetailStar">
+								@for($i=0;$i<5;$i++)
+									@if($item->cou_star > $i)
+										<i class="fa fa-star starActive" aria-hidden="true"></i>
+									@else
+										<i class="fa fa-star" aria-hidden="true"></i>
+									@endif
+								@endfor
+							</div>
+							<div class="hotContentItemDetailTitle">
+								Khóa học PHP cơ bản đến nâng cao
+							</div>
+						</div>
+					</div>
+				@endforeach
+			</div>
+				
+			<div class="slideCourseHotItem">
+				
+			</div>
+			<div class="btnSlideHot">
+				<div class="btnSlideHotItem hotLeft" href="#slideCourseHot" role="button" data-slide="prev">
+					<i class="fa fa-angle-left" aria-hidden="true"></i>
+				</div>
+				<div class="btnSlideHotItem hotRight" href="#slideCourseHot" role="button" data-slide="next">
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</div>
+				
+			</div>
+		</div>
 	</div>
 
 	<div class="teacher">

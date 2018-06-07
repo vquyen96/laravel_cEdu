@@ -59,16 +59,23 @@ h3{
 .newsHeadSmailTime{
 	float: left;
 	padding: 0 5px;
+	color: #666;
 }
 
 .newsHeadSmailCom{
 	float: right;
 	padding: 0 10px;
+	color: #666;
 }
-.newsHeadSmailLike{
+.newsHeadSmailView{
 	float: right;
 	padding: 0 10px;
+	color: #666;
 }
+/*.newsHeadSmailLike{
+	float: right;
+	padding: 0 10px;
+}*/
 .newsHeadSmailFoot{
 	clear: both;
 }
@@ -119,15 +126,22 @@ h3{
 }
 .newsItem{
 	transition: 0.3s;
+	display: block;
 }
 .newsItem:hover{
 	box-shadow: 2px 5px 20px #333;
  	transform: translate(0px , -5px);
 }
+
 .newsItemShort{
 	margin-bottom: 20px;
 	height: 425px;
 	overflow: hidden;
+	transition: 0.3s;
+}
+.newsItemShort:hover{
+	box-shadow: 2px 5px 20px #333;
+ 	transform: translate(0px , -5px);
 }
 .newsItemLong{
 	margin-bottom: 20px;
@@ -182,6 +196,7 @@ h3{
 }
 .newsWeekContent{
 	text-align: center;
+	color: #666;
 }
 
 

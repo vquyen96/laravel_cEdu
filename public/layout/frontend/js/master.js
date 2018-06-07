@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    setTimeout(function(){
+        $('.loadingPage').fadeOut();
+    },100);
+    
 	window.onscroll = function(){
         
 		if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -85,7 +89,23 @@ $(document).ready(function () {
         $('#register').fadeOut();
         $('.formFooterRegister').fadeOut();
     });
-    $.get("https://oauth.zaloapp.com/v3/auth?app_id=437472528420236617&redirect_uri=http://ceduvn.com/&state=login", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-    });
+    // $.get("https://oauth.zaloapp.com/v3/auth?app_id=437472528420236617&redirect_uri=http://ceduvn.com/&state=login", function(data, status){
+    //     alert("Data: " + data + "\nStatus: " + status);
+    // });
+
+
+
+    var arr1 = ['Nho Đỏ', 'Táo Xanh', 'Cà Tím'];
+    var arr2 = ['1kg', '10kg', '100kg'];
+    var arr3 = ['Đỏ', 'Xanh', 'Vàng'];
+
+    // foreach(arr1 as arr1){
+    //     foreach(arr2 as arr2){
+    //         foreach(arr3 as arr3){
+    //             var arr = new Array(arr1, arr2, arr3);
+    //             console.log(arr);
+    //         }
+    //     }
+    // }
+    
 });

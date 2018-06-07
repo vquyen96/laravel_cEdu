@@ -35,5 +35,13 @@ $(document).ready(function() {
         $(this).hide();
         $('input[name=password]').show();
     });
+    $('.btnHideChart,.showChart').click(function(){
+        $('.userChart').slideToggle();
+        $('.showChart').slideToggle();
+    });
+    $('.btnHideTable,.showTable').click(function(){
+        $('.userTableChart').slideToggle();
+        $('.showTable').slideToggle();
+    });
     
 });

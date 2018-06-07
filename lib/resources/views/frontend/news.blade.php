@@ -34,10 +34,8 @@
 				    	<a href="{{ asset('news/detail/'.$item->news_slug) }}">
 				    		<img src="{{ asset('lib/storage/app/news/'.$item->news_img) }}" alt="...">
 				    	</a>
-				      
 				    </div>
 				    @endforeach
-				    
 				  </div>
 
 				  <!-- Controls -->
@@ -65,12 +63,10 @@
 							<img src="img/ic_time1.png">
 							<span>{{time_format($item->created_at)}}</span>
 						</div>
-						<div class="newsHeadSmailCom">
+						<div class="newsHeadSmailView">
 							<i class="fa fa-eye" aria-hidden="true"></i>
 							<span>{{number_format($item->news_view,0,',','.')}}</span> lượt xem
 						</div>
-						
-						
 					</div>
 					<div class="newsHeadSmailFoot">
 						<div class="newsHeadSmailTitle">
@@ -97,50 +93,48 @@
 			<div class="newsWeekBody">
 				<div class="col-md-4 col-sm-4 newInWeekL">
 					@foreach($newInWeekL as $item)
-					<div class="newsItem">
+					<a href="{{ asset('news/detail/'.$item->news_slug) }}" class="newsItem">
 						<div class="newsItemImg">
-							<a href="{{ asset('news/detail/'.$item->news_slug) }}">
+							<div>
 								<img src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
-							</a>
+							</div>
 							
 						</div>
 						<div class="newsWeekDetail">
-							<div class="newsWeekTime">
+							<div class="newsHeadSmailTime">
 								<img src="img/ic_time1.png">
 								<span>{{time_format($item->created_at)}}</span>
 							</div>
-							<div class="newsWeekCom">
+							<div class="newsHeadSmailView">
 								<i class="fa fa-eye" aria-hidden="true"></i>
 								<span>{{number_format($item->news_view,0,',','.')}} lượt xem</span>
 							</div>
 							
 						</div>
 						<div class="newsWeekFoot">
-							<a href="{{ asset('news/detail/'.$item->news_slug) }}" class="newsWeekItemTitle">
+							<div class="newsWeekItemTitle">
 								{{cut_string($item->news_title,40)}}
-							</a>
+							</div>
 							
 							<div class="newsWeekContent">
 								{!!cut_string($item->news_content,150)!!}
 							</div>
 						</div>
-					</div>
+					</a>
 					@endforeach
 				</div>
 				<div class="col-md-4 col-sm-4 newInWeekM">
 					@foreach($newInWeekM as $item)
-					<div class="newsItem">
+					<a href="{{ asset('news/detail/'.$item->news_slug) }}" class="newsItem">
 						<div class="newsItemImg">
-							<a href="{{ asset('news/detail/'.$item->news_slug) }}">
-								<img src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
-							</a>
+							<img src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
 						</div>
 						<div class="newsWeekDetail">
-							<div class="newsWeekTime">
+							<div class="newsHeadSmailTime">
 								<img src="img/ic_time1.png">
 								<span>{{time_format($item->created_at)}}</span>
 							</div>
-							<div class="newsWeekCom">
+							<div class="newsHeadSmailView">
 								<i class="fa fa-eye" aria-hidden="true"></i>
 								<span>{{number_format($item->news_view,0,',','.')}} lượt xem</span>
 							</div>
@@ -155,23 +149,21 @@
 								{!!cut_string($item->news_content,150)!!}
 							</div>
 						</div>
-					</div>
+					</a>
 					@endforeach
 				</div>
 				<div class="col-md-4 col-sm-4 newInWeekR">
 					@foreach($newInWeekR as $item)
-					<div class="newsItem">
+					<a href="{{ asset('news/detail/'.$item->news_slug) }}" class="newsItem">
 						<div class="newsItemImg">
-							<a href="{{ asset('news/detail/'.$item->news_slug) }}">
-								<img src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
-							</a>
+							<img src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
 						</div>
 						<div class="newsWeekDetail">
-							<div class="newsWeekTime">
+							<div class="newsHeadSmailTime">
 								<img src="img/ic_time1.png">
 								<span>{{time_format($item->created_at)}}</span>
 							</div>
-							<div class="newsWeekCom">
+							<div class="newsHeadSmailView">
 								<i class="fa fa-eye" aria-hidden="true"></i>
 								<span>{{number_format($item->news_view,0,',','.')}} lượt xem</span>
 							</div>
@@ -185,7 +177,7 @@
 								{!!cut_string($item->news_content,150)!!}
 							</div>
 						</div>
-					</div>
+					</a>
 					@endforeach
 				</div>
 			</div>
@@ -202,25 +194,22 @@
 					<div class="row">
 						@foreach($newMostFollowL as $item)
 						<div class="col-md-6 col-sm-6">
-							<div class="newsItemShort">
+							<a href="{{ asset('news/detail/'.$item->news_slug) }}" class=" newsItemShort">
 								<div class="newsItemImg">
-									<a href="{{ asset('news/detail/'.$item->news_slug) }}">
+									<div >
 										<img src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
-									</a>
+									</div>
 								</div>
 								<div class="newsWeekDetail">
-									<div class="newsWeekTime">
+									<div class="newsHeadSmailTime">
 										<img src="img/ic_time1.png">
 										<span>{{time_format($item->created_at)}}</span>
 									</div>
-									<div class="newsWeekCom">
+									<div class="newsHeadSmailView">
 										<i class="fa fa-eye" aria-hidden="true"></i>
 										<span>{{number_format($item->news_view,0,', lượt xem','.')}} lượt xem</span>
 									</div>
-									<div class="newsWeekLike">
-										<i class="fa fa-eye" aria-hidden="true"></i>
-										<span>88</span>
-									</div>
+									
 								</div>
 								<div class="newsWeekFoot">
 									<div class="newsWeekItemTitle">
@@ -230,7 +219,7 @@
 										{!!cut_string($item->news_content,150)!!}
 									</div>
 								</div>
-							</div>
+							</a>
 						</div>
 						@endforeach
 						
@@ -275,11 +264,11 @@
 						</a>
 					</div>
 					<div class="newsWeekDetail">
-						<div class="newsWeekTime">
+						<div class="newsHeadSmailTime">
 							<img src="img/ic_time1.png">
 							<span>{{time_format($item->created_at)}}</span>
 						</div>
-						<div class="newsWeekCom">
+						<div class="newsHeadSmailView">
 							<i class="fa fa-eye" aria-hidden="true"></i>
 							<span>{{number_format($item->news_view,0,',','.')}}</span> lượt xem
 						</div>

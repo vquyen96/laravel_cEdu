@@ -19,7 +19,7 @@ class HomeController extends Controller
 		$data['coursefollow'] = Course::orderBy('cou_price','desc')->paginate(4);
 		$data['coursenew'] = Course::orderBy('created_at','desc')->paginate(4);
 		$data['courserate'] = Course::orderBy('cou_star','desc')->paginate(4);
-		$data['hotcourse'] = Course::orderBy('cou_price','asc')->paginate(3);
+		$data['hotcourse'] = Course::orderBy('cou_price','asc')->paginate(8);
 		$data['courseHot'] = Course::orderBy('cou_price','asc')->paginate(7);
 		$data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(4);
         // dd($data['teacher']);
@@ -58,7 +58,7 @@ class HomeController extends Controller
                 return back()->with('success','Đăng nhập thành công');
             }
             else{
-                return redirect('admin/account');
+                return redirect('admin');
             }
         }
         else{

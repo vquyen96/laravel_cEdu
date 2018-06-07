@@ -17,28 +17,49 @@ class CartController extends Controller
     public function getAddCart(Request $request, $slug){
 
     	$course = Course::where('cou_slug',$slug)->first();
-        if($request->aff == null){
-            Cart::add(['id'=>$course->cou_id, 'name'=>$course->cou_name, 'qty'=>1, 'price'=>$course->cou_price , 'options'=>['img'=>$course->cou_img,'tea'=>$course->tea->name]]);
+        $courseExit = 0;
+        foreach (Cart::content() as $cart) {
+            if ($cart->id == $course->cou_id) {
+                $courseExit = 1;
+            }
+        }
+        if ($courseExit == 0) {
+            if($request->aff == null){
+                Cart::add(['id'=>$course->cou_id, 'name'=>$course->cou_name, 'qty'=>1, 'price'=>$course->cou_price , 'options'=>['img'=>$course->cou_img,'tea'=>$course->tea->name]]);
+            }
+            else{
+                Cart::add(['id'=>$course->cou_id, 'name'=>$course->cou_name, 'qty'=>1, 'price'=>$course->cou_price , 'options'=>['img'=>$course->cou_img,'tea'=>$course->tea->name, 'aff'=>$request->aff]]);
+            }
+            return back()->with('success','Khoá học đã được thêm vào giỏ hàng');
         }
         else{
-            Cart::add(['id'=>$course->cou_id, 'name'=>$course->cou_name, 'qty'=>1, 'price'=>$course->cou_price , 'options'=>['img'=>$course->cou_img,'tea'=>$course->tea->name, 'aff'=>$request->aff]]);
+            return back()->with('error','Khoá học đã được thêm trước đó');
         }
-        return back();
+           
     	
     }
     public function getBuyNow(Request $request, $slug){
-        $course = Course::where('cou_slug',$slug)->first();
-        
-        if($request->aff == null){
-            Cart::add(['id'=>$course->cou_id, 'name'=>$course->cou_name, 'qty'=>1, 'price'=>$course->cou_price , 'options'=>['img'=>$course->cou_img,'tea'=>$course->tea->name]]);
+       $course = Course::where('cou_slug',$slug)->first();
+        $courseExit = 0;
+        foreach (Cart::content() as $cart) {
+            if ($cart->id == $course->cou_id) {
+                $courseExit = 1;
+            }
+        }
+        if ($courseExit == 0) {
+            if($request->aff == null){
+                Cart::add(['id'=>$course->cou_id, 'name'=>$course->cou_name, 'qty'=>1, 'price'=>$course->cou_price , 'options'=>['img'=>$course->cou_img,'tea'=>$course->tea->name]]);
+            }
+            else{
+                Cart::add(['id'=>$course->cou_id, 'name'=>$course->cou_name, 'qty'=>1, 'price'=>$course->cou_price , 'options'=>['img'=>$course->cou_img,'tea'=>$course->tea->name, 'aff'=>$request->aff]]);
+            }
+            return redirect('cart/show');
         }
         else{
-            Cart::add(['id'=>$course->cou_id, 'name'=>$course->cou_name, 'qty'=>1, 'price'=>$course->cou_price , 'options'=>['img'=>$course->cou_img,'tea'=>$course->tea->name, 'aff'=>$request->aff]]);
+            return redirect('cart/show')->with('error','Khoá học đã được thêm trước đó');
         }
-        return redirect('cart/show');
     }
     public function getShowCart(){
-    	// dd(Cart::content());
     	$data['total'] = str_replace(".00","",Cart::total());
     	$data['items'] = Cart::content();
         

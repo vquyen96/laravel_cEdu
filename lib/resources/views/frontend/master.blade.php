@@ -116,7 +116,16 @@
 		<div class="masterErrorContent">
 			@include('errors.note')
 		</div>
-		
+	</div>
+	<div class="loadingPage">
+		<div class="loadingPageIcon">
+			<div class="mainFormHeadCircle">
+				<img src="img/vongtron.png">
+			</div>
+			<div class="mainFormHeadLogo">
+				<img src="img/logo.png">
+			</div>
+		</div>
 	</div>
 	<input type="hidden" name="url" value="{{ asset('')}}">
         

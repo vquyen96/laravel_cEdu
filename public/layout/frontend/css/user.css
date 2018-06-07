@@ -39,11 +39,44 @@
 	height: 370px;
 	
 }
+.btnShow{
+	padding: 10px 20px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+    margin-bottom: 15px;
+	background: #fff;
+	box-shadow: 3px 4px 20px #a7a7a7;
+	display: none;
+
+}
+.btnHideChart{
+	position: absolute;
+    top: 10px;
+    right: 120px;
+    padding: 5px 12px;
+    cursor: pointer;
+    box-shadow: 2px 2px 20px 0px #00000029;
+    z-index: 1;
+    border-radius: 0px;
+    background: #fff;
+}
 .btnChangeChart{
 	position: absolute;
     top: 10px;
     right: 20px;
     padding: 5px 15px;
+    cursor: pointer;
+    box-shadow: 2px 2px 20px 0px #00000029;
+    z-index: 1;
+    border-radius: 0px;
+    background: #fff;
+}
+.btnHideTable{
+	position: absolute;
+    top: 25px;
+    right: 45px;
+    padding: 5px 12px;
     cursor: pointer;
     box-shadow: 2px 2px 20px 0px #00000029;
     z-index: 1;
@@ -109,7 +142,7 @@ a.courseItem:hover{
 	margin-right: 10px;
 }
 .userDetail{
-	margin: 30px 0;
+	margin: 0 0 30px;
 	background: #fff;
 	padding: 20px 0;
 	color: #666;

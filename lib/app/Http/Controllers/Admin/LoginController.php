@@ -19,7 +19,7 @@ class LoginController extends Controller
     			return redirect('/');
     		}
     		else{
-    			return redirect('admin/account');
+    			return redirect('admin');
     		}
     	}
     	else{
