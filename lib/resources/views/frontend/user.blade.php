@@ -324,13 +324,16 @@ window.onload = function () {
 		@endforeach
 	</div>
 	<div class="row">
-		<div class="col-12">
+		<div class="col-md-12">
 			<div class="btnShow showDetail">
 				Hồ sơ
 			</div>
 		</div>
 	</div>
 	<div class="row userDetail">
+		<div class="btnHideDetail">
+			<i class="fa fa-caret-up" aria-hidden="true"></i>
+		</div>
 		<div class="col-md-4 userAva">
 			<div class="userAvaImg">
 				<img style="cursor: pointer;" id="avatarImg" class="cssInput thumbnail tableImgAvatar" width="s%" src="{{asset('lib/storage/app/avatar/'.Auth::user()->img)}}">
@@ -383,17 +386,17 @@ window.onload = function () {
 	
 	<div class="row">
 		<div class="col-md-12">
-			<div class="btnShow showTable">
-				Danh sách khóa học đã bán được
+			<div class="btnShow showTableLink">
+				Lấy link chia sẻ khóa học
 			</div>
 		</div>
 	</div>
-	<div class="row userTableChart">
+	<div class="row userTableLink">
 		<div class="col-md-12">
-			<div class="btnHideTable">
+			<div class="btnHideTableLink">
 				<i class="fa fa-caret-up" aria-hidden="true"></i>
 			</div>
-			<div class="userTable">
+			<div class="userTable link">
 				<h3>Lấy link chia sẻ</h3>
 				<table class="table table-hover">
 					<tr>

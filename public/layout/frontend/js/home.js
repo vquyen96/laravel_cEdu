@@ -1,4 +1,19 @@
 $(document).ready(function(){
+	var url_string = window.location.href;
+	var url = new URL(url_string);
+	var aff = url.searchParams.get("aff");
+	if (aff != null) {
+		localStorage.setItem("aff", aff);
+		localStorage.setItem("aff_created_at", $.now());
+		// if (localStorage.getItem("aff_created_at") <  $.now()-604800000) {
+		// 	localStorage.removeItem("aff");
+		// 	localStorage.removeItem("aff_created_at");
+		// }
+		// else{
+			
+		// }
+	}
+	
 	$('#slide_banner_head .item:first').attr('class','item active');
 	$('#slide_banner_head ol li:first').attr('class','active');
 

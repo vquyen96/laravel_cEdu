@@ -112,7 +112,7 @@ class UserController extends Controller
     }
     public function getShare($slug){
         $data['course'] = Course::where('cou_slug',$slug)->first();
-        
+        $data['acc'] = Account::where('id', Auth::user()->id)->first();
         return view('frontend.share',$data);
     }
 }

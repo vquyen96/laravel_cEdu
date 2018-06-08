@@ -26,7 +26,7 @@
 			
 		  	<div class="form-group">
 		    	
-		    	<input type="submit" class="btn btn-success" value="Thêm mới">
+		    	<input type="submit" class="btn btn-success" value="Sửa lại">
 		    	<a href="{{asset('admin/banner')}}" class="btn btn-warning"> Quay lại</a>
 		  	</div>
 		  	{{csrf_field()}}

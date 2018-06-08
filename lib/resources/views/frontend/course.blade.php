@@ -126,7 +126,6 @@
 											<i class="fa fa-star" aria-hidden="true"></i>
 										@endif
 									@endfor
-									
 								</div>
 								<div class="courseItemTeacherInfo">
 									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">

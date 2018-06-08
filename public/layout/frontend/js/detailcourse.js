@@ -51,7 +51,17 @@ $(document).ready(function() {
 
 	var aff = url.searchParams.get("aff");
 	if (aff != null) {
+		localStorage.setItem("aff", aff);
+		localStorage.setItem("aff_created_at", $.now());
 		
+	}else{
+		if (localStorage.getItem("aff_created_at") != null && localStorage.getItem("aff_created_at") <  $.now()-604800000) {
+			localStorage.removeItem("aff");
+			localStorage.removeItem("aff_created_at");
+		}
+		else{
+			
+		}
 	}
 	$(document).on('click', "#courseHeader", function() {
 		$('.headMenu .active').removeClass("active");

@@ -31,7 +31,7 @@ class AffController extends Controller
     	// }
     	// return back();
 
-    	$data['orderDe'] = OrderDetail::where('orderDe_aff_id', $id)->paginate(8);
+    	$data['orderDe'] = OrderDetail::where('orderDe_aff_id', $id)->orderBy('created_at','desc')->get();
 	    return view('backend.affiliate_detail', $data);
     }
 }

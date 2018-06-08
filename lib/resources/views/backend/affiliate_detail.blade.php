@@ -19,26 +19,28 @@
 				<th>Thời gian</th>
 			</tr>
 			@foreach($orderDe as $item)
-			<tr>
-				<td>
-					{{$item->order->acc->name}}
-				</td>	
-				<td class="tableCourseImg">
-					<img class="" src="{{asset('lib/storage/app/course/'.$item->course->cou_img)}}">
-				</td>
-				<td class="tableTD">
-					{{$item->course->cou_name}}
-				</td>
-				<td class="tableTD">
-					{{number_format($item->course->cou_price,0,',','.')}} VND
-				</td>
-				<td> 
-					{{$item->created_at}}
-				</td>
-			</tr>
+			@if ($item->order->ord_status == 0)
+				<tr>
+					<td>
+						{{$item->order->acc->name}}
+					</td>	
+					<td class="tableCourseImg">
+						<img class="" src="{{asset('lib/storage/app/course/'.$item->course->cou_img)}}">
+					</td>
+					<td class="tableTD">
+						{{$item->course->cou_name}}
+					</td>
+					<td class="tableTD">
+						{{number_format($item->course->cou_price,0,',','.')}} VND
+					</td>
+					<td> 
+						{{$item->created_at}}
+					</td>
+				</tr>
+			@endif
 			@endforeach
 		</table>
-		{{$orderDe->links()}}
+		
 	</div>
 </div>
 

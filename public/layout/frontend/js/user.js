@@ -43,5 +43,13 @@ $(document).ready(function() {
         $('.userTableChart').slideToggle();
         $('.showTable').slideToggle();
     });
+    $('.btnHideTableLink,.showTableLink').click(function(){
+        $('.userTableLink').slideToggle();
+        $('.showTableLink').slideToggle();
+    });
+    $('.btnHideDetail,.showDetail').click(function(){
+        $('.userDetail').slideToggle();
+        $('.showDetail').slideToggle();
+    });
     
 });
