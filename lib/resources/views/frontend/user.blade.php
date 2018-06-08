@@ -412,14 +412,17 @@ window.onload = function () {
 						</td>
 						<td class="tableTD">
 							{{number_format($item->cou_price,0,',','.')}} VND
-							@if($course->cou_sale != 0)
-							
+							@if($item->cou_sale != 0)
+							<br>
+							<div class="courseSale">
+								{{$item->cou_sale}} %
+							</div>
 							@endif
 						</td>
 						<td> 
-							<div class="btn btn-danger">
+							<a href="{{ asset('share/'.$item->cou_slug) }}" class="btn btn-danger">
 								Lấy link
-							</div>
+							</a>
 						</td>
 					</tr>
 					@endforeach

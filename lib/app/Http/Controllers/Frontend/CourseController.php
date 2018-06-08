@@ -107,12 +107,16 @@ class CourseController extends Controller
     }
     public function getVideo($slug, $id){
         $data['course'] = Course::where('cou_slug',$slug)->first();
+
         if(Auth::check()){
+            $acc = Account::where('id',Auth::user()->id)->first();
+            $orderDe_id = null;
             foreach ($data['course']->orderDe as $item) {
                 if ($item->order->ord_acc_id == Auth::user()->id) {
                     $orderDe_id = $item->orderDe_id;
                 }
             }
+            
             $code = Code::where('code_orderDe_id',$orderDe_id)->first();
             if($code != null){
                 if($code->code_status == 1){
@@ -127,6 +131,7 @@ class CourseController extends Controller
                         }
                     }
                     $data['video'] = $data['listVideo'][$id];
+                   /* dd($data['video']);*/
                     // dd($data['video']);
                     return view('frontend.video',$data);
                 }
@@ -159,6 +164,7 @@ class CourseController extends Controller
                     $orderDe_id = $item->orderDe_id;
                 }
             }
+
             $code = Code::where('code_orderDe_id',$orderDe_id)->first();
             if($code != null){
                 if($code->code_status == 1){

@@ -19,7 +19,9 @@ class UserController extends Controller
             // $data['code'] = Code::where('code_acc_id',Auth::user()->id)->get();
             $data['orderDe'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
             $data['orderDeTable'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(8);
-            $data['course'] = Course::orderBy('cou_student','desc')->get();
+            $data['course'] = Course::orderBy('cou_sale','desc')->get();
+            
+            
             return view('frontend.user',$data);
         }
     	else{
@@ -108,5 +110,9 @@ class UserController extends Controller
             return back()->with("error","Bạn Phải đăng nhập để đánh giá giáo viên");
         }
     }
-
+    public function getShare($slug){
+        $data['course'] = Course::where('cou_slug',$slug)->first();
+        
+        return view('frontend.share',$data);
+    }
 }

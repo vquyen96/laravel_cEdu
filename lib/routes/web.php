@@ -183,6 +183,8 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 	Route::get('/','HomeController@getHome');
 	Route::get('user','UserController@getUser');
 	Route::post('user','UserController@postUser');
+	Route::get('share/{slug}','UserController@getShare');
+	
 	
 	Route::get('/slide_home_head', 'BannerController@HomeHead');
 
