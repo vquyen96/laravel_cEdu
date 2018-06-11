@@ -254,7 +254,7 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 		Route::get('complete', 'CartController@getComplete');
 
 	});
-	Route::group(['prefix'=>'payment'],function(){
+	Route::group(['prefix'=>'cart_payment'],function(){
 		Route::get('/','CartController@getPayment');
 		Route::post('/','CartController@postPayment');
 		Route::get('/login','CartController@getPaymentLogin');
@@ -274,3 +274,5 @@ Route::get('/callback/{social}', 'SocialAuthController@callback');
 
 Route::get('/auth/{provider}', 'SocialAuthController@redirectToProvider');
 Route::get('/auth/{provide}/callback', 'SocialAuthController@handleProviderCallback');
+
+Route::resource('payment','PaymentController');

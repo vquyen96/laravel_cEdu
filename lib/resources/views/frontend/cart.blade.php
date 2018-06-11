@@ -60,7 +60,7 @@
 				</div>
 			</div>
 			<div class="btnPayment">
-				<a href="{{asset('payment/login')}}">
+				<a href="{{asset('cart_payment/login')}}">
 					Thanh toán
 				</a>
 			</div>

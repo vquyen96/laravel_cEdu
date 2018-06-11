@@ -208,27 +208,22 @@
 						  						<div class="chooseItem">
 						  							<img src="img/MASTERCAD.png">	
 						  						</div>
-						  						
 						  					</div>
 						  					<div class="col-md-3 col-sm-3">
 						  						<div class="chooseItem">
 						  							<img src="img/PAYPAL.png">	
 						  						</div>
-						  						
 						  					</div>
 						  					<div class="col-md-3 col-sm-3">
 						  						<div class="chooseItem">
 						  							<img src="img/jcb.png">	
 						  						</div>
-						  						
 						  					</div>
-						  					
-						  					
 						  				</div>
 						  				<div class="row">
 						  					<div class="col-md-12 col-sm-12">
 						  						<div class="formOnline">
-						  							<div class="row formOnlineItem">
+						  							{{-- <div class="row formOnlineItem">
 							  							<div class="col-md-5">Tên in trên thẻ</div>
 							  							<div class="col-md-7 inputBank" >
 							  								<input type="text" name="">
@@ -253,9 +248,12 @@
 							  								/
 							  								<input type="number" name="" value="2018">
 							  							</div>
-							  						</div>
+							  						</div> --}}
+							  						<form method="post" action="{{ url('payment') }}">
+							  							{{csrf_field()}}
+							  							<input type="submit" name="btnSbm" value="Xác nhận" class="btn btn-primary">
+							  						</form>
 						  						</div>
-							  						
 						  					</div>
 						  				</div>
 						  			</div>

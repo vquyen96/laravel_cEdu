@@ -408,8 +408,8 @@
 							</div>
 							{{csrf_field()}}
 						</form>
-						<form method="post" class="formModal" id="register" action="{{asset('register')}}">
-							<div class="">
+						<form method="post" class="formModal" id="register" action="{{ url('payment_paypal') }}">
+							{{-- <div class="">
 								<div class="form-group">
 									<input type="text" class="form-control" name="name" required placeholder="Tên của bạn">
 									<i class="fa fa-user" aria-hidden="true"></i>
@@ -426,7 +426,7 @@
 									<input type="password" class="form-control" name="password" required placeholder="Mật khẩu">
 									<i class="fa fa-lock" aria-hidden="true"></i>
 								</div>
-							</div>
+							</div> --}}
 							<div class="form-group">
 								<input type="submit" name="" class="btn-Modal" value="Đăng kí">
 							</div>

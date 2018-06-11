@@ -129,7 +129,7 @@ class CartController extends Controller
     }
     public function getPaymentLogin(){
         if(Auth::check()){
-            return redirect('payment/');
+            return redirect('cart_payment/');
         }
         $data['total'] = Cart::total();
         $data['items'] = Cart::content();
@@ -184,7 +184,7 @@ class CartController extends Controller
         
         Cart::destroy();
         
-        return redirect('payment/complete');
+        return redirect('cart_payment/complete');
         
     }
 }
