@@ -27,13 +27,9 @@
 					<img class="" src="{{asset('lib/storage/app/banner/'.$item->ban_img)}}">
 				</td>
 				<td>{{cut_string($item->ban_name, 50)}}</td>
-				
 				<td>
 					<a href="{{asset('admin/banner/edit/'.$item->ban_id)}}" class="btn btn-primary">Sửa</a>
-				
 					<a href="{{asset('admin/banner/delete/'.$item->ban_id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa ?')" class="btn btn-danger">Xóa</a>
-					
-					
 				</td>
 			</tr>
 			@endforeach

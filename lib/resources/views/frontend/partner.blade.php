@@ -170,22 +170,19 @@
 						<div class="teacherMain">
 							@foreach($teacher as $item)
 							<div class="teacherItem">
-								<img src="{{asset('lib/storage/app/avatar/'.$item->img)}}">
+								<img src="{{asset('lib/storage/app/avatar/resized-'.$item->acc->img)}}">
 								<div class="teacherName">
-									{{$item->name}}
+									{{$item->acc->name}}
+								</div>
+								<div class="teacherImg">
+									{{ asset('lib/storage/app/teacher/'.$item->tea_img_foot) }}
 								</div>
 								<div class="teacherContent">
-									{!!cut_string($item->content,300)!!}
+									{!!cut_string($item->acc->content,300)!!}
 								</div>
 							</div>
 							@endforeach
-							{{-- <div class="teacherItem">
-								<img src="img/Layer 602.png">
-							</div>
-							<div class="teacherItem">
-								<img src="img/Layer 602.png">
-							</div> --}}
-
+							
 						</div>
 					</div>
 					<div class="col-md-6 teacherDetail">
@@ -207,16 +204,21 @@
 							<h4>CTV tiêu biểu</h4>
 						</div>
 						<div class="teacherMain">
+							@foreach($teacher as $item)
 							<div class="teacherItem">
-								<img src="img/Layer 602.png">
+								<img src="{{asset('lib/storage/app/avatar/resized-'.$item->acc->img)}}">
+								<div class="teacherName">
+									{{$item->acc->name}}
+								</div>
+								<div class="teacherImg">
+									{{ asset('lib/storage/app/teacher/'.$item->tea_img_head) }}
+								</div>
+								<div class="teacherContent">
+									{!!cut_string($item->acc->content,300)!!}
+								</div>
 							</div>
-							<div class="teacherItem">
-								<img src="img/Layer 602.png">
-							</div>
-							<div class="teacherItem">
-								<img src="img/Layer 602.png">
-							</div>
-
+							@endforeach
+							
 						</div>
 					</div>
 				</div>

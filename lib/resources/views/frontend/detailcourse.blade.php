@@ -334,6 +334,16 @@
 						</span>
 					</li>
 				</ul>
+				@if(app('request')->input('aff') == null)
+				<div class="btnCourse">
+					<div class="btnBuyNow">
+						<a href="{{asset('cart/buy/'.$course->cou_slug)}}">Mua khóa học</a>
+					</div>
+					<div class="btnAddToCart">
+						<a href="{{asset('cart/add/'.$course->cou_slug)}}">Thêm vào giỏ hàng</a>
+					</div>
+				</div>
+				@else
 				<div class="btnCourse">
 					<div class="btnBuyNow">
 						<a href="{{asset('cart/buy/'.$course->cou_slug.'?aff='.app('request')->input('aff'))}}">Mua khóa học</a>
@@ -342,6 +352,8 @@
 						<a href="{{asset('cart/add/'.$course->cou_slug.'?aff='.app('request')->input('aff'))}}">Thêm vào giỏ hàng</a>
 					</div>
 				</div>
+				@endif
+				
 			</div>
 				
 		</div>

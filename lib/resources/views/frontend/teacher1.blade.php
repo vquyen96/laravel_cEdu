@@ -3,7 +3,7 @@
 <head>
 	<title>{{$teacher->name}}</title>
 	<base href="{{asset('public/layout/frontend')}}/">
-	<link rel="shortcut icon" href="img/logoHead.jpg">
+	<link rel="shortcut icon" href="{{ asset('public/layout/frontend/img/BUT.png') }}">
 	<meta charset="utf-8">
 	<meta property="og:url" 		content="http://ceduvn.com/" />
 	<meta property="fb:app_id" 		content="1577563652342523" />
@@ -42,7 +42,7 @@
 					<div class="border2"></div>
 					<div class="content">
 						<div class="IntroImg">
-							<img src="img/Layer 1.png">
+							<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_head) }}">
 						</div>
 						<div class="IntroContent">
 							<h1>
@@ -171,7 +171,7 @@
 					<div class="border1"></div>
 					<div class="border2"></div>
 					<div class="img">
-						<img src="img/Layer 2.png">
+						<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_foot) }}">
 					</div>
 				</div>
 			</div>
@@ -308,7 +308,7 @@
 					<div class="border1"></div>
 					<div class="border2"></div>
 					<div class="img">
-						<img src="img/Layer 2.png">
+						<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_foot) }}">
 					</div>
 				</div>
 			</div>

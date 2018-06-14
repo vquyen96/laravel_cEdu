@@ -46,7 +46,7 @@
 				<div class="newsListMain">
 					@foreach($newsList as $item)
 					<a href="{{ asset('news/detail/'.$item->news_slug) }}" class="newsListItem">
-						<img src="{{ asset('lib/storage/app/news/'.$item->news_img) }}">
+						<img src="{{ asset('lib/storage/app/news/resized-'.$item->news_img) }}">
 						<h4>{{$item->news_title}}</h4>
 						
 					</a>

@@ -63,9 +63,9 @@ class PaymentController extends Controller
         try{
             $result = $payment->execute($execution, $this->apiContext);
             if ($result->getState() == 'approved') {
-                return redirect('cart_payment/complete');
+                return redirect('cart/complete/paypal');
             }
-            return 'Failed';   
+            return 'Failed';
         }
         catch( Exception $e){
             return "Failed";
@@ -101,8 +101,6 @@ class PaymentController extends Controller
             array_push($data, $item);
             $total += $cart->price/22000;
         }
-
-
         // $item1 = new Item();
         // $item1->setName('Ground Coffee 40 oz')
         //     ->setCurrency('USD')
@@ -123,8 +121,8 @@ class PaymentController extends Controller
         // payment information such as tax, shipping
         // charges etc.
         $details = new Details();
-        $details->setShipping(1)
-            ->setTax(1)
+        $details->setShipping(0)
+            ->setTax(0)
             ->setSubtotal($total);
         // ### Amount
         // Lets you specify a payment amount.
@@ -132,7 +130,7 @@ class PaymentController extends Controller
         // such as shipping, tax.
         $amount = new Amount();
         $amount->setCurrency("USD")
-            ->setTotal($total+2)
+            ->setTotal($total)
             ->setDetails($details);
         // ### Transaction
         // A transaction defines the contract of a

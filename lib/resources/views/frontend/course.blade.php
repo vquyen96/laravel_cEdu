@@ -114,7 +114,7 @@
 								
 							<div class="courseItemImg" >
 								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}" class="img-fluid">
+									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
 								</a>
 							</div>
 							<div class="courseItemTeacher">
@@ -173,7 +173,7 @@
 								
 							<div class="courseItemImg" >
 								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}" class="img-fluid">
+									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
 								</a>
 							</div>
 							<div class="courseItemTeacher">
@@ -228,7 +228,7 @@
 							</div>
 							<div class="courseItemImg" >
 								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}" class="img-fluid">
+									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
 								</a>
 								
 							</div>
@@ -284,7 +284,7 @@
 							</div>
 							<div class="courseItemImg" >
 								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}" class="img-fluid">
+									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
 								</a>
 								
 							</div>
@@ -340,7 +340,7 @@
 							</div>
 							<div class="courseItemImg" >
 								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}" class="img-fluid">
+									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
 								</a>
 								
 							</div>
@@ -393,23 +393,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-dm-12 rightItem tag">
-						<h4>Tag</h4>
-						<div class="tagItem @if(Request::get('tag') == 'Thiết kế') active @endif" onclick="btnTag('Thiết kế')">
-							Thiết kế
-						</div>
-						<div class="tagItem">
-							Guitar
-						</div>
-						<div class="tagItem">
-							PHP
-						</div>
-						<div class="tagItem">
-							Facebook
-						</div>
-					</div>
-				</div>
+				
 				<div class="row">
 					<div class="col-dm-12 rightItem topTeacher">
 						<h4>Top giảng viên</h4>
@@ -420,7 +404,7 @@
 										Tất cả
 									</div>
 									<div class="rightNumCourse">
-										{{$teacher->count()}}
+										{{$teacher_total}}
 									</div>
 								</a>
 							</li>

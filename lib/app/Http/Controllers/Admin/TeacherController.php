@@ -130,15 +130,18 @@ class TeacherController extends Controller
         if ($request->hasFile('tea_img_head')) {
             $filename = time() . '.' . $imageHead->getClientOriginalExtension();
             $teacher->tea_img_head = $filename;
-            $request->img->storeAs('teacher',$filename);
+
+            $request->file('tea_img_head')->storeAs('teacher',$filename);
         }
         $imageFoot = $request->file('tea_img_foot');
         if ($request->hasFile('tea_img_foot')) {
-            $filename = time() . '.' . $imageHead->getClientOriginalExtension();
+            $filename = time() . '.' . $imageFoot->getClientOriginalExtension();
             $teacher->tea_img_foot = $filename;
-            $request->img->storeAs('teacher',$filename);
+
+            $request->file('tea_img_foot')->storeAs('teacher',$filename);
+
         }
-        $teacher->tea_img_foot = "";
+        
 
         $teacher->tea_gender = $request->tea_gender;
         $teacher->tea_specialize = $request->tea_specialize;
@@ -154,6 +157,8 @@ class TeacherController extends Controller
        
         $teacher->tea_work_place = $request->tea_work_place;
         $teacher->tea_acc_id = $id;
+
+        
         $teacher->save();
         return back()->with('success','Sửa thành công');
     }

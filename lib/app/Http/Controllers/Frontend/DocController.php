@@ -18,11 +18,11 @@ class DocController extends Controller
     public function getGroup($gr_slug){
         $group = Group::where('gr_slug',$gr_slug)->first();
         $grdoc_slug = GroupDoc::where('grdoc_gr_id',$group->gr_id)->first();
-        if ($grdoc_slug != null) {
-            return redirect('doc/detail/'.$gr_slug->grdoc_slug.'/'.$grdoc_slug->grdoc_slug);
+        if ($grdoc_slug != null && $grdoc_slug != "") {
+            return redirect('doc/detail/'.$gr_slug.'/'.$grdoc_slug->grdoc_slug);
         }
         else{
-            return view('index404');
+            return redirect('errors');
         }
     }
     public function getDoc($gr_slug, $grdoc_slug){

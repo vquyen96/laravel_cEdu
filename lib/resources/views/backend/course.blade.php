@@ -26,7 +26,7 @@
 			<tr>	
 				<td class="tableCourseImg">
 					<a href="{{asset('admin/course/edit/'.$item->cou_id)}}">
-						<img class="" src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
+						<img class="" src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}">
 					</a>
 				</td>
 				<td class="tableTD">

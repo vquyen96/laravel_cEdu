@@ -25,8 +25,6 @@
 	function saveImage($input,$resized_size,$path){
 	    $imgArr = [];
 	    $max_size = $resized_size;
-	    
-	   	
 	    foreach ($input as $image) {
 
 	        $filename = 'hs_'.date("Y-m-d").'_'.round(microtime(true)).'.'.$image->extension();
@@ -96,3 +94,12 @@
 		}
 
 	}
+
+
+
+	function getUrl() {
+	    $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
+	    $url .= ( $_SERVER["SERVER_PORT"] !== 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
+	    $url .= $_SERVER["REQUEST_URI"];
+	    return $url;
+    }

@@ -33,9 +33,10 @@ class UserController extends Controller
         $acc->name = $request->name;
         $image = $request->file('img');
         if ($request->hasFile('img')) {
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $acc->img = $filename;
-            $request->img->storeAs('avatar',$filename);
+            $acc->img = saveImage([$image], 200, 'avatar');
+            // $filename = time() . '.' . $image->getClientOriginalExtension();
+            // $acc->img = $filename;
+            // $request->img->storeAs('avatar',$filename);
         }
         
         if ($acc->password != null) {

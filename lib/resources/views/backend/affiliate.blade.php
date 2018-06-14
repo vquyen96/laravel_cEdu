@@ -43,7 +43,7 @@
 			>	
 				
 				<td class="tableAcountImg">
-					<img src="{{asset('lib/storage/app/avatar/'.$item->img)}}">
+					<img src="{{asset('lib/storage/app/avatar/resized-'.$item->img)}}">
 				</td>
 				<td>{{$item->name}}</td>
 				<td>{{$item->email}}</td>

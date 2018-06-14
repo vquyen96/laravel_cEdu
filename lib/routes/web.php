@@ -241,26 +241,40 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 		
 		Route::get('/','SearchController@getList');
 	});
+	// Route::group(['prefix'=>'cart'],function(){
+	// 	Route::get('add/{slug}','CartController@getAddCart');
+	// 	Route::get('buy/{slug}','CartController@getBuyNow');
+
+	// 	Route::get('show', 'CartController@getShowCart');
+	// 	Route::post('show', 'CartController@postComplete');
+
+	// 	Route::get('delete/{id}', 'CartController@getDeleteCart');
+	// 	Route::get('update', 'CartController@getUpdateCart');
+		
+	// 	Route::get('complete/{type}', 'CartController@getComplete');
+
+	// });
 	Route::group(['prefix'=>'cart'],function(){
+		Route::get('/','CartController@getPayment');
+		Route::post('/','CartController@postPayment');
+
+		Route::get('get_ngan_luong','CartController@getNganLuong');
+
 		Route::get('add/{slug}','CartController@getAddCart');
 		Route::get('buy/{slug}','CartController@getBuyNow');
 
 		Route::get('show', 'CartController@getShowCart');
 		Route::post('show', 'CartController@postComplete');
 
+		Route::get('show', 'CartController@getShowCart');
+		Route::post('show', 'CartController@postComplete');
+
 		Route::get('delete/{id}', 'CartController@getDeleteCart');
-		Route::get('update', 'CartController@getUpdateCart');
-		
-		Route::get('complete', 'CartController@getComplete');
 
-	});
-	Route::group(['prefix'=>'cart_payment'],function(){
-		Route::get('/','CartController@getPayment');
-		Route::post('/','CartController@postPayment');
-		Route::get('/login','CartController@getPaymentLogin');
-		Route::post('/login','CartController@postPaymentLogin');
+		Route::get('login','CartController@getPaymentLogin');
+		Route::post('login','CartController@postPaymentLogin');
 
-		Route::get('/complete','CartController@getComplete');
+		Route::get('complete/{type}','CartController@getComplete');
 	});
 
 
@@ -276,3 +290,4 @@ Route::get('/auth/{provider}', 'SocialAuthController@redirectToProvider');
 Route::get('/auth/{provide}/callback', 'SocialAuthController@handleProviderCallback');
 
 Route::resource('payment','PaymentController');
+Route::get('errors', 'ErrorsController@getError');

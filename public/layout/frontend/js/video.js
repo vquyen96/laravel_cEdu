@@ -39,3 +39,6 @@
 	        console.log(video.duration);
 	    }
 	}
+
+	$('#my-video').height($('#my-video').width()*0.6);
+	

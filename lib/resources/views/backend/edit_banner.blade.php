@@ -17,6 +17,10 @@
 					    <input type="text" class="form-control" name="ban_name" placeholder="Tiêu đề" required value="{{$banner->ban_name}}">
 					</div>
 					<div class="form-group">
+					    <label>Link ({{asset('/')}})</label>
+					    <input type="text" class="form-control" name="ban_link" placeholder="VD: courses/detail/dot-pha-thu-nhap-qua-6-kenh-maketing-online.html" value="{{$banner->ban_link}}" required>
+					</div>
+					<div class="form-group">
 						<label>Ảnh</label>
 						<input id="img" type="file" name="img" class="cssInput " onchange="changeImg(this)" style="display: none!important;">
 		                <img style="cursor: pointer;" id="avatar" class="cssInput thumbnail" width="100%" src="{{ asset('lib/storage/app/banner/'.$banner->ban_img) }}">

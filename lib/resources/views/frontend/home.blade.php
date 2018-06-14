@@ -22,21 +22,24 @@
 		    @foreach($bannerHead as $item)
 		    <div class="item">
 		      	<div class="slide_item">
-		    		<img src="{{ asset('lib/storage/app/banner/'.$item->ban_img) }}">
+		      		<a href="{{ asset($item->ban_link) }}">
+		      			<img src="{{ asset('lib/storage/app/banner/'.$item->ban_img) }}">
+		      		</a>
 		    	</div>
 		    </div>
 		    @endforeach
 		    
 		  </div>
-		  <div class="btnControl">
+		  <div class="btnControl left">
 		  	<a href="#slide_banner_head" role="button" data-slide="prev" class="left">
 		  		<i class="fa fa-angle-left" aria-hidden="true"></i>
 		  	</a>
+		  </div>
+		  <div class="btnControl right">
 		  	<a href="#slide_banner_head" role="button" data-slide="next" class="right">
 		  		<i class="fa fa-angle-right" aria-hidden="true"></i>
 		  	</a>
 		  </div>
-		  
 		</div>
 	</div>
 	<div class="menuGroup">
@@ -132,11 +135,11 @@
 										</a>
 									</div>
 									<div class="khoahocContentItemMain">
-										<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
+										<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}">
 									</div>
 									<div class="khoahocContentItemDetail">
 										<div class="khoahocContentItemDetailUser">
-											<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
+											<img src="{{asset('lib/storage/app/avatar/resized-'.$item->tea->img)}}">
 											<span>{{$item->tea->name}}</span>
 										</div>
 										<div class="khoahocContentItemDetailStar">
@@ -198,11 +201,11 @@
 										</a>
 									</div>
 									<div class="khoahocContentItemMain">
-										<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
+										<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}">
 									</div>
 									<div class="khoahocContentItemDetail">
 										<div class="khoahocContentItemDetailUser">
-											<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
+											<img src="{{asset('lib/storage/app/avatar/resized-'.$item->tea->img)}}">
 											<span>{{$item->tea->name}}</span>
 										</div>
 										<div class="khoahocContentItemDetailStar">
@@ -262,11 +265,11 @@
 										</a>
 									</div>
 									<div class="khoahocContentItemMain">
-										<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
+										<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}">
 									</div>
 									<div class="khoahocContentItemDetail">
 										<div class="khoahocContentItemDetailUser">
-											<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
+											<img src="{{asset('lib/storage/app/avatar/resized-'.$item->tea->img)}}">
 											<span>{{$item->tea->name}}</span>
 										</div>
 										<div class="khoahocContentItemDetailStar">
@@ -341,7 +344,7 @@
 							</div>
 							<div class="featuredMainItemBG">
 								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
+									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}">
 								</a>
 								
 							</div>
@@ -353,7 +356,7 @@
 								<h4>{{$item->cou_name}}</h4>
 								<p>{!!cut_string($item->cou_content,200)!!}</p>
 								<div class="featuredMainItemHoverUser">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
+									<img src="{{asset('lib/storage/app/avatar/resized-'.$item->tea->img)}}">
 									<span class="teaName">
 										{{$item->tea->name}}
 									</span>
@@ -381,175 +384,14 @@
 		<div class="hotHead">
 			<h1 class="">TOP KHÓA HỌC ĐƯỢC MUA NHIỀU NHẤT</h1>
 		</div>
-		{{-- <div id="slideCourseHot" class="carousel slide" data-ride="carousel">
-		  <!-- Indicators -->
-		  	
-		  <ol class="carousel-indicators">
-		    <li data-target="#slideCourseHot" data-slide-to="0" class="active"></li>
-		    <li data-target="#slideCourseHot" data-slide-to="1"></li>
-		    <li data-target="#slideCourseHot" data-slide-to="2"></li>
-		  </ol>
-
-		  <!-- Wrapper for slides -->
-		  <div class="carousel-inner" role="listbox">
-		    <div class="item active">
-		    	<div class="carousel-caption">
-		    		<div class="hotContent">
-		    			@foreach($hotcourse as $item)
-						<div class="hotContentItem">
-							<div class="hotContentItemAva">
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-								</a>
-							</div>
-							<div class="hotContentItemCart">
-								<a href="{{asset('cart/add/'.$item->cou_slug)}}">
-									<img src="img/ic_cart.png">
-								</a>
-							</div>
-							<div class="hotContentItemHead">
-								<span>{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
-							</div>
-							<div class="hotContentItemMain">
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
-								</a>
-							</div>
-							<div class="hotContentItemDetail">
-								<div class="hotContentItemDetailUser">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-									<span>{{$item->tea->name}}</span>
-								</div>
-								<div class="hotContentItemDetailStar">
-									@for($i=0;$i<5;$i++)
-										@if($item->cou_star > $i)
-											<i class="fa fa-star starActive" aria-hidden="true"></i>
-										@else
-											<i class="fa fa-star" aria-hidden="true"></i>
-										@endif
-									@endfor
-								</div>
-								<div class="hotContentItemDetailTitle">
-									{{cut_string($item->cou_name,30)}}
-								</div>
-							</div>
-						</div>
-						@endforeach
-					</div>
-		    	</div>
-		    </div>
-		    <div class="item">
-		      	<div class="carousel-caption">
-		    		<div class="hotContent">
-		    			@foreach($hotcourse as $item)
-						<div class="hotContentItem">
-							<div class="hotContentItemAva">
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-								</a>
-							</div>
-							<div class="hotContentItemCart">
-								<a href="{{asset('cart/add/'.$item->cou_slug)}}">
-									<img src="img/ic_cart.png">
-								</a>
-							</div>
-							<div class="hotContentItemHead">
-								<span>{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
-							</div>
-							<div class="hotContentItemMain">
-								<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
-							</div>
-							<div class="hotContentItemDetail">
-								<div class="hotContentItemDetailUser">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-									<span>{{$item->tea->name}}</span>
-								</div>
-								<div class="hotContentItemDetailStar">
-									@for($i=0;$i<5;$i++)
-										@if($item->cou_star > $i)
-											<i class="fa fa-star starActive" aria-hidden="true"></i>
-										@else
-											<i class="fa fa-star" aria-hidden="true"></i>
-										@endif
-									@endfor
-								</div>
-								<div class="hotContentItemDetailTitle">
-									Khóa học PHP cơ bản đến nâng cao
-								</div>
-							</div>
-						</div>
-						@endforeach
-					</div>
-		    	</div>
-		    </div>
-		    <div class="item">
-		      	<div class="carousel-caption">
-		    		<div class="carousel-caption">
-		    		<div class="hotContent">
-		    			@foreach($hotcourse as $item)
-						<div class="hotContentItem">
-							<div class="hotContentItemAva">
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-								</a>
-							</div>
-							<div class="hotContentItemCart">
-								<a href="{{asset('cart/add/'.$item->cou_slug)}}">
-									<img src="img/ic_cart.png">
-								</a>
-								
-							</div>
-							<div class="hotContentItemHead">
-								<span>{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
-							</div>
-							<div class="hotContentItemMain">
-								<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
-							</div>
-							<div class="hotContentItemDetail">
-								<div class="hotContentItemDetailUser">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-									<span>{{$item->tea->name}}</span>
-								</div>
-								<div class="hotContentItemDetailStar">
-									@for($i=0;$i<5;$i++)
-										@if($item->cou_star > $i)
-											<i class="fa fa-star starActive" aria-hidden="true"></i>
-										@else
-											<i class="fa fa-star" aria-hidden="true"></i>
-										@endif
-									@endfor
-								</div>
-								<div class="hotContentItemDetailTitle">
-									Khóa học PHP cơ bản đến nâng cao
-								</div>
-							</div>
-						</div>
-						@endforeach
-					</div>
-		    	</div>
-		    	</div>
-		    </div>
-		  </div>
-
-		  
-		</div>
 		
-		<div class="btnSlideHot">
-			<div class="btnSlideHotItem hotLeft" href="#slideCourseHot" role="button" data-slide="prev">
-				<i class="fa fa-angle-left" aria-hidden="true"></i>
-			</div>
-			<div class="btnSlideHotItem hotRight" href="#slideCourseHot" role="button" data-slide="next">
-				<i class="fa fa-angle-right" aria-hidden="true"></i>
-			</div>
-			
-		</div>			 --}}
 		<div class="slideCourseHot">
 			<div class="slideCourseMain">
 				@foreach ($hotcourse as $item)
 					<div class="hotContentItem">
 						<div class="hotContentItemAva">
 							<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-								<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
+								<img src="{{asset('lib/storage/app/avatar/resized-'.$item->tea->img)}}">
 							</a>
 						</div>
 						<div class="hotContentItemCart">
@@ -562,11 +404,14 @@
 							<span>{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
 						</div>
 						<div class="hotContentItemMain">
-							<img src="{{asset('lib/storage/app/course/'.$item->cou_img)}}">
+							<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
+								<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}">
+							</a>
+							
 						</div>
 						<div class="hotContentItemDetail">
 							<div class="hotContentItemDetailUser">
-								<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
+								<img src="{{asset('lib/storage/app/avatar/resized-'.$item->tea->img)}}">
 								<span>{{$item->tea->name}}</span>
 							</div>
 							<div class="hotContentItemDetailStar">
@@ -610,7 +455,7 @@
 			<div class="teacherContentCircle">
 				@foreach($teacher as $item)
 					<div class="circleItemTea">
-						<img src="{{asset('lib/storage/app/avatar/'.$item->acc->img)}}">
+						<img src="{{asset('lib/storage/app/avatar/resized-'.$item->acc->img)}}">
 						<div class="circleItemNameHide">
 							{{$item->acc->name}}
 						</div>
@@ -658,7 +503,10 @@
 				    @foreach($bannerLeftTop as $item)
 				    <div class="item">
 				      	<div class="slide_item">
-				    		<img src="{{ asset('lib/storage/app/banner/'.$item->ban_img) }}">
+				      		<a href="{{ asset($item->ban_link) }}">
+				      			<img src="{{ asset('lib/storage/app/banner/'.$item->ban_img) }}">
+				      		</a>
+				    		
 				    	</div>
 				    </div>
 				    @endforeach
@@ -669,7 +517,9 @@
 				     @foreach($bannerLeftBot as $item)
 				    <div class="item">
 				      	<div class="slide_item">
-				    		<img src="{{ asset('lib/storage/app/banner/'.$item->ban_img) }}">
+				      		<a href="{{ asset($item->ban_link) }}">
+				    			<img src="{{ asset('lib/storage/app/banner/'.$item->ban_img) }}">
+				    		</a>
 				    	</div>
 				    </div>
 				    @endforeach
@@ -685,7 +535,9 @@
 				    @foreach($bannerRight as $item)
 				    <div class="item">
 				      	<div class="slide_item">
-				    		<img src="{{ asset('lib/storage/app/banner/'.$item->ban_img) }}">
+				      		<a href="{{ asset($item->ban_link) }}">
+				    			<img src="{{ asset('lib/storage/app/banner/'.$item->ban_img) }}">
+				    		</a>
 				    	</div>
 				    </div>
 				    @endforeach

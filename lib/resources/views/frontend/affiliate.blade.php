@@ -3,7 +3,7 @@
 <head>
 	<title>Affiliate</title>
 	<base href="{{asset('public/layout/frontend')}}/">
-	<link rel="shortcut icon" href="">
+	<link rel="shortcut icon" href="{{ asset('public/layout/frontend/img/BUT.png') }}">
 	<meta charset="utf-8">
 	<meta property="og:url" 		content="http://ceduvn.com/" />
 	<meta property="fb:app_id" 		content="1577563652342523" />

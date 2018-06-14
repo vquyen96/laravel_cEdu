@@ -17,9 +17,7 @@ class CourseController extends Controller
 
         if (($request->price != null && $request->price != "null") || ($request->level != null && $request->level != "null") || ($request->tag != null && $request->tag != "null")) {
             if($request->price != null && $request->price != "null"){
-
                 $price = (int)$request->price;
-
             }
             else{
                 $price = 10000000;
@@ -45,7 +43,9 @@ class CourseController extends Controller
             $data['courseSaleMost'] = Course::where('cou_price','<', $price)->where('cou_tag', 'like', '%'.$tag.'%')->where('cou_level', $level)->orderBy('cou_sale','desc')->paginate(6);
 
             $data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(7);
-            dd($data['teacher']);
+            $data['teacher_total'] = Teacher::count();
+            
+            // dd($data['teacher']);
             return view('frontend/course',$data);
         }
         $data['course'] = Course::all();
@@ -55,6 +55,8 @@ class CourseController extends Controller
         $data['courseSaleMost'] = Course::orderBy('cou_sale','desc')->paginate(6);
 
     	$data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(7);
+        $data['teacher_total'] = Teacher::count();
+        
     	return view('frontend/course',$data);
     }
     public function getDetail($slug){
@@ -132,6 +134,7 @@ class CourseController extends Controller
                     }
                     $data['video'] = $data['listVideo'][$id];
                    /* dd($data['video']);*/
+                    // dd($data['video']);
                     // dd($data['video']);
                     return view('frontend.video',$data);
                 }

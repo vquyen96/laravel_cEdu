@@ -157,7 +157,7 @@
 						</li>
 						<li>
 							<a href="{{asset('user')}}" class="headerTinyUser">
-								<img src="{{asset('lib/storage/app/avatar/'.Auth::user()->img)}}">
+								<img src="{{asset('lib/storage/app/avatar/resized-'.Auth::user()->img)}}">
 								<span>{{cut_string_name(Auth::user()->name, 5)}}</span>
 							</a>
 						</li>
@@ -297,7 +297,7 @@
 				</li>
 				<li>
 					<a  href="{{asset('user')}}" class="headerTinyUser">
-						<img src="{{asset('lib/storage/app/avatar/'.Auth::user()->img)}}">
+						<img src="{{asset('lib/storage/app/avatar/resized-'.Auth::user()->img)}}">
 						<span>{{Auth::user()->name}}</span>
 					</a>
 				</li>

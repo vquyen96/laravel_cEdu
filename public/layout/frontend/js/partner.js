@@ -58,12 +58,10 @@ $(document).ready(function(){
     $(document).on('click', ".teacherItem", function(){
         var content = $(this).find(".teacherContent").html();
         var name = $(this).find(".teacherName").text();
-        var img = $(this).find("img").attr('src');
+        var img = $(this).find(".teacherImg").text();
         $('.teacherDetailRight').html(content);
         $('.teacherDetailImg img').attr('src',img);
-        $('.teacherDetailName h4').text(name);
-        console.log(content);
-        console.log(img);
+        $('.teacherDetailName h4').html(name);
     });
 });
 	

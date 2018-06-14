@@ -18,6 +18,8 @@ class BannerController extends Controller
     public function postAdd(Request $request){
     	$banner = new Banner;
     	$banner->ban_name = $request->ban_name;
+        $banner->ban_link = $request->ban_link;
+
     	$image = $request->file('img');
         if ($request->hasFile('img')) {
             
@@ -41,6 +43,8 @@ class BannerController extends Controller
     public function postEdit(Request $request, $id){
         $banner = Banner::find($id);
         $banner->ban_name = $request->ban_name;
+        $banner->ban_link = $request->ban_link;
+        
         $image = $request->file('img');
         if ($request->hasFile('img')) {
             

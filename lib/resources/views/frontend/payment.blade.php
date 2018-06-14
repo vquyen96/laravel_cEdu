@@ -44,13 +44,6 @@
 					  		<p>Sau khi thanh toán thành công tại văn phòng của Cedu bạn sẽ nhận được mã code để kích hoạt khóa học.</p>
 					  	</div>
 					</div> 	
-					{{-- <div class="paymentBodyLeftItem">
-					  	<input type="radio" name="payment" id="card" value="phonecard">
-					  	<div class="paymentBodyContent">
-					  		<h4>Thanh toán qua thẻ cào điện thoại</h4>
-					  		<p>Thanh toán bằng mã thẻ cào Viettel, Mobiphone, Vinaphone. Sau khi thanh toán thnahf công bạn sẽ nhận đưuọc một mã code để kích hoạt khóa học của mình.</p>
-					  	</div>
-					</div> 	 --}}
 				</div>
 				<div class="col-md-6 col-sm-6 paymentBodyRight">
 					<h3>Thông tin thanh toán</h3>
@@ -64,6 +57,43 @@
 							</div>
 						</div>
 						<div class="paymentBodyRightItem">
+						  	<input type="radio" name="paymentOnline" class="choose" id="paymentATM">
+						  	<div class="paymentBodyRightContent">
+						  		<p>Thanh toán thẻ ATM nội địa/Internet Banking</p>
+						  		<div class="tableChoose atm">
+						  			
+						  		</div>
+						  	</div>
+						  	
+						</div>
+						<div class="paymentBodyRightItem">
+							<input type="radio" name="paymentOnline" class="choose" id="paymentVISA">
+							<div class="paymentBodyRightContent">
+						  		<p>Thanh toán qua Paypal</p>
+						  		<div class="tableChoose visa">
+						  			<form method="post" action="{{ url('payment') }}">
+			  							{{csrf_field()}}
+			  							<input type="submit" name="btnSbm" value="Thanh toán qua paypal" class="btn btn-primary">
+
+			  						</form>
+						  		</div>
+						  	</div>
+						</div>
+						<div class="paymentBodyRightItem">
+							<input type="radio" name="paymentOnline" class="choose" id="paymentBAOKIM">
+							<div class="paymentBodyRightContent baokim">
+						  		<p>Thanh toán qua Bảo Kim, Ngân Lượng</p>
+						  		<div class="tableChoose baokim">
+						  			<a target="_blank" href="{{ asset('cart/get_ngan_luong') }}"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-lg.png"border="0" /></a>
+						  			<div class="btn btn-primary btnCheckOrder" >
+						  				check order
+						  			</div>
+						  		</div>
+						  	</div>
+						  	
+						</div>
+
+						{{-- <div class="paymentBodyRightItem">
 						  	<input type="radio" name="paymentOnline" class="choose" id="paymentATM">
 						  	<div class="paymentBodyRightContent">
 						  		<p>Thanh toán thẻ ATM nội địa/Internet Banking</p>
@@ -220,42 +250,7 @@
 						  						</div>
 						  					</div>
 						  				</div>
-						  				<div class="row">
-						  					<div class="col-md-12 col-sm-12">
-						  						<div class="formOnline">
-						  							{{-- <div class="row formOnlineItem">
-							  							<div class="col-md-5">Tên in trên thẻ</div>
-							  							<div class="col-md-7 inputBank" >
-							  								<input type="text" name="">
-							  								<div class="inputLogoBank">
-							  									<img src="img/Techcombank_logo.png">
-							  								</div>
-							  							</div>
-							  						</div>
-							  						<div class="row formOnlineItem">
-							  							<div class="col-md-5">Số thẻ</div>
-							  							<div class="col-md-7 inputBank">
-							  								<input type="text" name="">
-							  								<div class="inputLogoBank">
-							  									<img src="img/Techcombank_logo.png">
-							  								</div>
-							  							</div>
-							  						</div>
-							  						<div class="row formOnlineItem">
-							  							<div class="col-md-5">Ngày phát hành</div>
-							  							<div class="col-md-7">
-							  								<input type="number" name="" value="1">
-							  								/
-							  								<input type="number" name="" value="2018">
-							  							</div>
-							  						</div> --}}
-							  						<form method="post" action="{{ url('payment') }}">
-							  							{{csrf_field()}}
-							  							<input type="submit" name="btnSbm" value="Xác nhận" class="btn btn-primary">
-							  						</form>
-						  						</div>
-						  					</div>
-						  				</div>
+						  				
 						  			</div>
 						  		</div>
 						  	</div>
@@ -316,7 +311,8 @@
 						  			</div>
 						  		</div>
 						  	</div>
-						</div>
+						  	<a target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=info@ceduvn.com&product_name=365987&price=10000&return_url={{ asset('cart/complete') }}&comments=test"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-lg.png"border="0" /></a>
+						</div> --}}
 					</div>
 					<div class="paymentRight ship">
 						<div class="paymentRightHeader">

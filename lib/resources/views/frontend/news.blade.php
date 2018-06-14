@@ -19,7 +19,7 @@
 				  <ol class="carousel-indicators">
 				  	<?php $i = 0 ?>
 
-				  	@foreach($newInWeekL as $item)
+				  	@foreach($newsHead as $item)
 				  	
 				    <li data-target="#carousel-example-generic" data-slide-to="{{$i}}"></li>
 				    <?php $i++ ?>
@@ -29,7 +29,7 @@
 
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner" role="listbox">
-				  	@foreach($newInWeekL as $item)
+				  	@foreach($newsHead as $item)
 				    <div class="item">
 				    	<a href="{{ asset('news/detail/'.$item->news_slug) }}">
 				    		<img src="{{ asset('lib/storage/app/news/'.$item->news_img) }}" alt="...">
@@ -196,9 +196,7 @@
 						<div class="col-md-6 col-sm-6">
 							<a href="{{ asset('news/detail/'.$item->news_slug) }}" class=" newsItemShort">
 								<div class="newsItemImg">
-									<div >
-										<img src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
-									</div>
+									<img src="{{asset('lib/storage/app/news/'.$item->news_img)}}">
 								</div>
 								<div class="newsWeekDetail">
 									<div class="newsHeadSmailTime">

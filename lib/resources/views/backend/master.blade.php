@@ -47,7 +47,7 @@
 		<ul>
 			<li>
 				<a href="{{asset('admin/user')}}" class="navUser navAccount @if (Request::segment(2) == 'user')  active @endif">
-					<img src="{{asset('lib/storage/app/avatar/'.Auth::user()->img)}}">
+					<img src="{{asset('lib/storage/app/avatar/resized-'.Auth::user()->img)}}">
 					{{Auth::user()->name}}
 				</a>
 			</li>

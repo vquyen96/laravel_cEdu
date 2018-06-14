@@ -3,7 +3,7 @@
 <head>
 	<title>{{$teacher->name}}</title>
 	<base href="{{asset('public/layout/frontend')}}/">
-	<link rel="shortcut icon" href="img/logoHead.jpg">
+	<link rel="shortcut icon" href="{{ asset('public/layout/frontend/img/BUT.png') }}">
 	<meta charset="utf-8">
 	<meta property="og:url" 		content="http://ceduvn.com/" />
 	<meta property="fb:app_id" 		content="1577563652342523" />
@@ -80,7 +80,7 @@
 						{{$teacher->name}}
 					</h1>
 					<div class="infoMainAvaMainImg">
-						<img src="img/LayerGr 2.png">
+						<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_head) }}">
 					</div>
 					<div class="infoMainAvaMainCard">
 						<h3>Giảng viên</h3>
@@ -162,7 +162,7 @@
 					<div class="infoSlideImgCard">
 						Thông tin của tôi
 					</div>
-					<img src="img/Layer 4.png">
+					<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_foot) }}">
 				</div>
 			</div>
 		</div>
@@ -253,7 +253,7 @@
 		<div class="course">
 			<h3>Khóa học của tôi</h3>
 			<div class="courseImg">
-				<img src="img/Layer 7.png">
+				<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_foot) }}">
 			</div>
 			<div class="courseLeft">
 				<div class="number">

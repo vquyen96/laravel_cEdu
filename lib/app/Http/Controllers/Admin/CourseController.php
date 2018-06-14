@@ -31,10 +31,7 @@ class CourseController extends Controller
 		$cou->cou_slug = str_slug($request->cou_name);
         $image = $request->file('img');
         if ($request->hasFile('img')) {
-            
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $cou->cou_img = $filename;
-            $request->img->storeAs('course',$filename);
+            $cou->cou_img = saveImage([$image], 260, 'course');
         }
         $cou->cou_price = $request->cou_price;
         $cou->cou_level = $request->cou_level;
@@ -91,9 +88,7 @@ class CourseController extends Controller
         $cou->cou_slug = str_slug($request->cou_name);
         $image = $request->file('img');
         if ($request->hasFile('img')) {
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $cou->cou_img = $filename;
-            $request->img->storeAs('course',$filename);
+            $cou->cou_img = saveImage([$image], 260, 'course');
         }
         $cou->cou_price = $request->cou_price;
         $cou->cou_level = $request->cou_level;

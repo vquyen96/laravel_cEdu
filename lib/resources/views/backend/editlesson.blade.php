@@ -82,21 +82,21 @@
 	var URL = window.URL || window.webkitURL;
 	var video = document.getElementsByTagName('video')[0];
 	var vid = document.getElementsByTagName('textarea');
-	$('#video').attr('style','display: none');
-	var url = '{{asset('lib/public/uploads/'.$lesson->les_link)}}';
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', url, true);
-	xhr.responseType = 'blob';
-	xhr.onload = function(e) {
-	  	if (this.status == 200) {
-	  	  	var myObject = this.response;
-	  	  	var url = URL.createObjectURL(myObject);
-	  	  	console.log(url);
-	  	  	video.src = url;
-	  	}
-	};
-	xhr.send();
-	console.log(xhr);
+	// $('#video').attr('style','display: none');
+	// var url = '{{asset('lib/public/uploads/'.$lesson->les_link)}}';
+	// var xhr = new XMLHttpRequest();
+	// xhr.open('GET', url, true);
+	// xhr.responseType = 'blob';
+	// xhr.onload = function(e) {
+	//   	if (this.status == 200) {
+	//   	  	var myObject = this.response;
+	//   	  	var url = URL.createObjectURL(myObject);
+	//   	  	console.log(url);
+	//   	  	video.src = url;
+	//   	}
+	// };
+	// xhr.send();
+	// console.log(xhr);
 
 	function onChange() {
 	    var fileItem = document.getElementById('fileItem');

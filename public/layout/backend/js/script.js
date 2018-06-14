@@ -2,8 +2,10 @@ $(document).ready(function() {
     setTimeout(function(){
 
     	$('.masterErrorContent').fadeOut(3000);
+    	
     },1000);
     var countChartAcc = 0;
+
     $('.btnChangeChartAccountNext').click(function(){
     	switch(countChartAcc){
     		case 0:

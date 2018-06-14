@@ -54,6 +54,7 @@ $(document).ready(function() {
 		localStorage.setItem("aff", aff);
 		localStorage.setItem("aff_created_at", $.now());
 		
+		
 	}else{
 		if (localStorage.getItem("aff_created_at") != null && localStorage.getItem("aff_created_at") <  $.now()-604800000) {
 			localStorage.removeItem("aff");

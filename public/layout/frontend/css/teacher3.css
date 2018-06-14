@@ -92,6 +92,9 @@
 	top: 90px;
 	left: 850px;
 }
+.headerAva img{
+	height: 580px;
+}
 .headerBorderTiny{
 	position: absolute;
 	height: 4px;
@@ -154,6 +157,7 @@
 }
 .infoAva img{
 	margin-top: 128px;
+	height: 582px;
 }
 .infoCircleLeft{
 	position: absolute;
@@ -370,6 +374,9 @@
 	padding-top: 124px;
 	text-align: center;
 	display: inline-block;
+}
+.courseMainImg img{
+	height: 100%;
 }
 .courseMainSlide{
 	position: absolute;

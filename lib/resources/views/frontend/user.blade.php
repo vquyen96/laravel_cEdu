@@ -383,7 +383,7 @@ window.onload = function () {
 			</div>
 		</div>
 	</div>
-	
+	@if(Auth::user()->level == 5)
 	<div class="row">
 		<div class="col-md-12">
 			<div class="btnShow showTableLink">
@@ -434,6 +434,7 @@ window.onload = function () {
 			</div>
 		</div>
 	</div>
+	@endif
 </div>
 
 

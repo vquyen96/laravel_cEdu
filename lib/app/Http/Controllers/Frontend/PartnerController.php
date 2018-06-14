@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\Aff;
+use App\Models\Teacher;
+
 use App\Http\Requests\AddAccountRequest;
 use Auth;
 class PartnerController extends Controller
 {
     public function getList(){
-    	$data['teacher'] = Account::where('level',3)->paginate(3);
+    	// $data['teacher'] = Account::where('level',3)->paginate(3);
+        $data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(3);
     	return view('frontend.partner',$data);
     }
     public function getAffiliate(){

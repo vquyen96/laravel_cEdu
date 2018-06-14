@@ -118,7 +118,7 @@
 					<div class="form-group">
 						<label>Ảnh cuối trang</label>
 						<input id="imgFoot" type="file" name="tea_img_foot" class="cssInput " onchange="changeImgFoot(this)" style="display: none!important;">
-		                <img style="cursor: pointer;" id="imgFoot" class="cssInput thumbnail" width="100%" @if($teacher->tea_img_head == "") src="img/Layer 2.png" @else src="{{ asset('lib/storage/app/teacher/'.$teacher->tea_img_head) }}" @endif >
+		                <img style="cursor: pointer;" id="imgFoot" class="cssInput thumbnail" width="100%" @if($teacher->tea_img_head == "") src="img/Layer 2.png" @else src="{{ asset('lib/storage/app/teacher/'.$teacher->tea_img_foot)}}" @endif >
 					</div>	
 				</div>
 			</div>

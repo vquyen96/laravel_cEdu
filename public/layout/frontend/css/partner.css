@@ -228,6 +228,9 @@ h3{
 .teacherName{
 	display: none;
 }
+.teacherImg{
+	display: none;
+}
 .teacherContent{
 	display: none;
 }

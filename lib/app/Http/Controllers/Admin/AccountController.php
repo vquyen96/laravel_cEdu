@@ -18,36 +18,39 @@ class AccountController extends Controller
     	return view('backend.addaccount');
     }
     public function postAdd(AddAccountRequest $request){
-    	$acc = new Account;
-        $acc->name = $request->name;
+        try{
+            $acc = new Account;
+            $acc->name = $request->name;
 
-        $image = $request->file('img');
-        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            if ($request->hasFile('img')) {
+                $acc->img = saveImage([$image], 200, 'avatar');
+            }
             
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            // Image::make($image->getRealPath())->resize(200, 200)->save($path);
-            $acc->img = $filename;
-            $request->img->storeAs('avatar',$filename);
-        }
-        $acc->job = 'Tu do';
-        $acc->email = $request->email;
-        $acc->password = bcrypt($request->password);
-        
-        if($acc->content != null){
-            $acc->content = $request->content;
-        }
-        else{
-            $acc->content = "";
-        }
-        if($acc->level != null){
-            $acc->level = $request->level;
-        }
-        else{
-            $acc->level = 4;
-        }
-        $acc->save();
+            $acc->email = $request->email;
+            $acc->password = bcrypt($request->password);
+            
+            if($acc->content != null){
+                $acc->content = $request->content;
+            }
+            else{
+                $acc->content = "";
+            }
+            if($acc->level != null){
+                $acc->level = $request->level;
+            }
+            else{
+                $acc->level = 4;
+            }
+            $acc->save();
 
-    	return redirect('admin/account')->with('success','Thêm tài khoản thành công');
+            return redirect('admin/account')->with('success','Thêm tài khoản thành công');
+        } 
+        catch(\Exception $e){
+            
+            return redirect('errors');
+        }
+        	
     }
     public function getEdit($id){
         $data['item'] = Account::find($id);
@@ -59,9 +62,10 @@ class AccountController extends Controller
 
         $image = $request->file('img');
         if ($request->hasFile('img')) {
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $acc->img = $filename;
-            $request->img->storeAs('avatar',$filename);
+            $acc->img = saveImage([$image], 200, 'avatar');
+            // $filename = time() . '.' . $image->getClientOriginalExtension();
+            // $acc->img = $filename;
+            // $request->img->storeAs('avatar',$filename);
         }
         $acc->job = 'Tu do';
         $acc->email = $request->email;

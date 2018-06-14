@@ -3,7 +3,7 @@
 <head>
 	<title>{{$teacher->name}}</title>
 	<base href="{{asset('public/layout/frontend')}}/">
-	<link rel="shortcut icon" href="">
+	<link rel="shortcut icon" href="{{ asset('public/layout/frontend/img/BUT.png') }}">
 	<meta charset="utf-8">
 	<meta property="og:url" 		content="http://ceduvn.com/" />
 	<meta property="fb:app_id" 		content="1577563652342523" />
@@ -38,7 +38,7 @@
 			01
 		</div>
 		<div class="headerAva">
-			<img src="img/Layer 31.png">
+			<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_head) }}">
 		</div>
 		<div class="headerBorderTiny"></div>
 		<div  class="headerContent">
@@ -80,7 +80,7 @@
 	</div>
 	<div class="info">
 		<div class="infoAva">
-			<img src="img/Layer 1.png">
+			<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_foot) }}">
 		</div>
 		<div class="infoCircleLeft"></div>
 		<div class="infoText">02</div>
@@ -230,7 +230,7 @@
 		<div class="courseText">04</div>
 		<div class="courseMain">
 			<div class="courseMainImg">
-				<img src="img/Layer 1.png">
+				<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_foot) }}">
 			</div>
 			<div class="courseMainSlide">
 				<div id="slide_course" class="carousel slide" data-ride="carousel">
