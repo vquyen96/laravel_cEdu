@@ -85,20 +85,24 @@ $(document).ready(function(){
 	  // var checksum = $.md5('199bcaf8');
 	  // console.log(checksum);
 	//merchant_site_code: "199bcafb2d959a25cd6ab550a4c2ed88",
-	$(".btnCheckOrder").click(function(){
-	    $.get("https://www.nganluong.vn/checkOrderRequest.php",
-	    {
-	    	merchant_site_code: "199bcafb2d959a25cd6ab550a4c2ed88",
-	    	param: xml,
-	    	checksum: 'checksum'
-	        // receiver: 'info@ceduvn.com',
-	        // product_name: '346897',
-	        // price: '5000',
-	        // return_url: 'http://localhost/laravel_c_edu/',
-	        // comments: 'test'
-	    },
-	    function(data, status){
-	        alert("Data: " + data + "\nStatus: " + status);
-	    });
-	});
+
+
+	
+	// $(".btnCheckOrder").click(function(){
+	//     $.get("https://www.nganluong.vn/checkout.php",
+	//     {
+	//     	merchant_site_code: "199bcafb2d959a25cd6ab550a4c2ed88",
+	//     	return_url: 
+	//     	param: xml,
+	//     	checksum: 'checksum'
+	//         // receiver: 'info@ceduvn.com',
+	//         // product_name: '346897',
+	//         // price: '5000',
+	//         // return_url: 'http://localhost/laravel_c_edu/',
+	//         // comments: 'test'
+	//     },
+	//     function(data, status){
+	//         alert("Data: " + data + "\nStatus: " + status);
+	//     });
+	// });
 });

@@ -7,11 +7,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Code;
+use App\Models\Account;
 use Auth;
 use Mail;
 class OrderController extends Controller
 {
     public function getList(){
+        if (Auth::user()->level > 2) {
+            return redirect('admin/order_detail_teacher');
+        }
     	$data['items'] = Order::orderBy('ord_id','desc')->paginate(10);
 
     	return view('backend.order',$data);
@@ -82,6 +86,14 @@ class OrderController extends Controller
     	
     	$order->save();
     	return back();
+    }
+
+    public function getOrderDetailTeacher(){
+        $acc = Account::where('id', Auth::user()->id)->first();
+        $data['acc'] = $acc;
+        $data['teacher'] = $acc->teacher;
+        // dd($data['teacher']);
+        return view('backend.orderdetail_teacher',$data);
     }
 
 }

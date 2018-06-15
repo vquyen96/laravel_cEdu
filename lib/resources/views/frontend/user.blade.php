@@ -206,6 +206,12 @@ window.onload = function () {
 </script>
 <div class="container user">
 	
+	
+
+
+
+
+
 	@if(Auth::user()->level == 5)
 	<div class="row ">
 		<div class="col-md-12">
@@ -279,12 +285,12 @@ window.onload = function () {
 						</td>
 						<td>@if($item->order->ord_status == 0) Xong @else Chưa @endif</td>
 						<td> 
-							{{$item->created_at}}
+							{{$item->created_at->format('h:m d/m/Y')}}
 						</td>
 					</tr>
 					@endforeach
 				</table>
-				{{$orderDeTable->links()}}
+				{{-- {{$orderDeTable->links()}} --}}
 			</div>
 		</div>
 	</div>
@@ -307,7 +313,6 @@ window.onload = function () {
 										</div>
 									@endif
 								
-									
 							</div>
 							<div class="courseContent">
 								<h4>{{cut_string($item->course->cou_name,60)}}</h4>

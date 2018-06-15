@@ -13,6 +13,7 @@ use App\Models\Code;
 use Cart;
 use Auth;
 use Mail;
+// use App\Http\Controllers\Frontend\nganluong.class;
 class CartController extends Controller
 {
     public function getAddCart(Request $request, $slug){
@@ -316,13 +317,160 @@ class CartController extends Controller
 
                 }
             }
-            return redirect('https://www.nganluong.vn/button_payment.php?receiver=info@ceduvn.com&product_name='.$ord_code.'&price='.Cart::total().'&return_url='.asset('cart/done_ngan_luong/'.$ord_code).'&comments=test');
+            return redirect('https://www.nganluong.vn/button_payment.php?receiver=info@ceduvn.com&product_name='.$ord_code.'&price=2000&return_url='.asset('cart/complete_nganluong').'&comments=test');
         }
         else{
             return redirect('');
             
         }
     }
+    public function postNganLuong(Request $request){
+        // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
 
+        //$ten= $_POST["txt_test"];
+        $receiver='info@ceduvn.com';
+        //Mã đơn hàng 
+        $order_code='NL_'.time();
+        //Khai báo url trả về 
+        $return_url= 'http://localhost/laravel_c_edu/cart/complete_nganluong';
+        // Link nut hủy đơn hàng
+        $cancel_url= 'http://localhost/laravel_c_edu/cart';  
+        //Giá của cả giỏ hàng 
+        $txh_name =$request->txh_name;  
+        $txt_email =$request->txt_email;    
+        $txt_phone =$request->txt_phone;    
+        $price =(int)$request->txt_gia;     
+        //Thông tin giao dịch
+        $transaction_info="Thong tin giao dich";
+        $currency= "vnd";
+        $quantity=1;
+        $tax=0;
+        $discount=0;
+        $fee_cal=0;
+        $fee_shipping=0;
+        $order_description="Thong tin don hang: ".$order_code;
+        $buyer_info=$txh_name."*|*".$txt_email."*|*".$txt_phone;
+        $affiliate_code="";
+        //Khai báo đối tượng của lớp NL_Checkout
+        // $nl= new NL_Checkout();
+        // $nl->nganluong_url = NGANLUONG_URL;
+        // $nl->merchant_site_code = MERCHANT_ID;
+        // $nl->secure_pass = MERCHANT_PASS;
+        //Tạo link thanh toán đến nganluong.vn
+        $url= $this->buildCheckoutUrlExpand($return_url, $receiver, $transaction_info, $order_code, $price, $currency, $quantity, $tax, $discount , $fee_cal,    $fee_shipping, $order_description, $buyer_info , $affiliate_code);
+        //$url= $nl->buildCheckoutUrl($return_url, $receiver, $transaction_info, $order_code, $price);
+        
+        
+        //echo $url; die;
+        if ($order_code != "") {
+            //một số tham số lưu ý
+            //&cancel_url=http://yourdomain.com --> Link bấm nút hủy giao dịch
+            //&option_payment=bank_online --> Mặc định forcus vào phương thức Ngân Hàng
+            $url .='&cancel_url='. $cancel_url;
+            //$url .='&option_payment=bank_online';
+            
+            echo '<meta http-equiv="refresh" content="0; url='.$url.'" >';
+            //&lang=en --> Ngôn ngữ hiển thị google translate
+        }
+        
+    }
     
+    public function getCompleteNganLuong(){
+        if (isset($_GET['payment_id'])) {
+            // Lấy các tham số để chuyển sang Ngânlượng thanh toán:
+
+            $transaction_info =$_GET['transaction_info'];
+            $order_code =$_GET['order_code'];
+            $price =$_GET['price'];
+            $payment_id =$_GET['payment_id'];
+            $payment_type =$_GET['payment_type'];
+            $error_text =$_GET['error_text'];
+            $secure_code =$_GET['secure_code'];
+            //Khai báo đối tượng của lớp NL_Checkout
+            // $nl= new NL_Checkout();
+            // $nl->merchant_site_code = '199bcafb2d959a25cd6ab550a4c2ed88';
+            // $nl->secure_pass = MERCHANT_PASS;
+            //Tạo link thanh toán đến nganluong.vn
+            $checkpay= $this->verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code);
+            
+            if ($checkpay) {    
+                echo 'Payment success: <pre>'; 
+                // bạn viết code vào đây để cung cấp sản phẩm cho người mua     
+                print_r($_GET);
+            }else{
+                echo "payment failed";
+            }
+            
+        }
+    }
+    public function verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code)
+    {
+        // Tạo mã xác thực từ chủ web
+        $str = '';
+        $str .= ' ' . strval($transaction_info);
+        $str .= ' ' . strval($order_code);
+        $str .= ' ' . strval($price);
+        $str .= ' ' . strval($payment_id);
+        $str .= ' ' . strval($payment_type);
+        $str .= ' ' . strval($error_text);
+        // $str .= ' ' . strval('199bcafb2d959a25cd6ab550a4c2ed88');
+        $str .= ' ' . strval('123456');
+
+        // Mã hóa các tham số
+        $verify_secure_code = '';
+        $verify_secure_code = md5($str);
+        
+        // Xác thực mã của chủ web với mã trả về từ nganluong.vn
+        if ($verify_secure_code === $secure_code) return true;
+        else return false;
+    }
+
+    public function buildCheckoutUrlExpand($return_url, $receiver, $transaction_info, $order_code, $price, $currency = 'vnd', $quantity = 1, $tax = 0, $discount = 0, $fee_cal = 0, $fee_shipping = 0, $order_description = '', $buyer_info = '', $affiliate_code = '')
+    {   
+        if ($affiliate_code == "") $affiliate_code = '';
+        $arr_param = array(
+            // 'merchant_site_code'=>  strval('199bcafb2d959a25cd6ab550a4c2ed88'),
+            'return_url'        =>  strval(strtolower($return_url)),
+            'receiver'          =>  strval($receiver),
+            'transaction_info'  =>  strval($transaction_info),
+            'order_code'        =>  strval($order_code),
+            'price'             =>  strval($price),
+            'currency'          =>  strval($currency),
+            'quantity'          =>  strval($quantity),
+            'tax'               =>  strval($tax),
+            'discount'          =>  strval($discount),
+            'fee_cal'           =>  strval($fee_cal),
+            'fee_shipping'      =>  strval($fee_shipping),
+            'order_description' =>  strval($order_description),
+            'buyer_info'        =>  strval($buyer_info), //"Họ tên người mua *|* Địa chỉ Email *|* Điện thoại *|* Địa chỉ nhận hàng"
+            'affiliate_code'    =>  strval($affiliate_code)
+        );
+        
+        $secure_code ='';
+        $secure_code = implode(' ', $arr_param) . ' ' . '123456';
+        //var_dump($secure_code). "<br/>";
+        $arr_param['secure_code'] = md5($secure_code);      
+        //echo $arr_param['secure_code'];
+        /* */
+        $redirect_url = 'https://www.nganluong.vn/checkout.php';
+        if (strpos($redirect_url, '?') === false) {
+            $redirect_url .= '?';
+        } else if (substr($redirect_url, strlen($redirect_url)-1, 1) != '?' && strpos($redirect_url, '&') === false) {
+            $redirect_url .= '&';           
+        }
+                
+        /* */
+        $url = '';
+        foreach ($arr_param as $key=>$value) {
+            $value = urlencode($value);
+            if ($url == '') {
+                $url .= $key . '=' . $value;
+            } else {
+                $url .= '&' . $key . '=' . $value;
+            }
+        }
+        //echo $url;
+        // die;
+        return $redirect_url.$url;
+    }
 }

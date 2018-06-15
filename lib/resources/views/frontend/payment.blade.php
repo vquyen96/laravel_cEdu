@@ -84,6 +84,17 @@
 							<div class="paymentBodyRightContent baokim">
 						  		<p>Thanh toán qua Bảo Kim, Ngân Lượng</p>
 						  		<div class="tableChoose baokim">
+						  			<form name="Test"  method="post" action="{{ asset('cart/post_ngan_luong') }}" onsubmit="return check();">
+									<table>
+										<tr><th><strong>Họ Tên:</strong></th><td><input  type="text" name="txh_name" size="28" placeholder="Họ tên" /></td></tr>
+										<tr><th><strong>Email:</strong></th><td><input  type="text" name="txt_email" size="28" placeholder="địa chỉ email" /></td></tr>
+										<tr><th><strong>Số điện thoại:</strong></th><td><input  type="text" name="txt_phone" size="28" placeholder="Số điện thoại" /></td></tr>
+										<tr><th><strong>Số tền thanh toán:</strong></th><td><input name="txt_gia" type="text" size="28" placeholder="Số tiền quyên góp" /></td></tr>	
+										<tr><th></th><td><input  type="submit" name="submit" value="Thanh Toán"></td></tr>	
+									</table>
+									{{csrf_field()}}
+
+									</form>
 						  			<a target="_blank" href="{{ asset('cart/get_ngan_luong') }}"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-lg.png"border="0" /></a>
 						  			<div class="btn btn-primary btnCheckOrder" >
 						  				check order
@@ -545,4 +556,18 @@
 @stop
 @section('script')
 <script type="text/javascript" src="js/payment.js"></script>
+<script type="text/javascript">
+function check(){
+		var price = document.Test.txt_gia.value;
+		
+		if (price < 2000) {
+		
+		alert('Minimum amount is 2000 VNĐ');
+		return false;
+		}
+		
+	return true;	
+}
+</script>
+
 @stop

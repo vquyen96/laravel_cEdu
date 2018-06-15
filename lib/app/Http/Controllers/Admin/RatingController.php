@@ -4,18 +4,24 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use App\Models\Course;
 use App\Models\Rating;
+use App\Models\Teacher;
+use App\Models\Teacher_Rating;
 use Auth;
 class RatingController extends Controller
 {
     public function getListCou(){
-    	if (Auth::user()->level == 3) {
-    		$data['items'] = Course::where('cou_tea_id',Auth::user()->id)->orderBy('cou_id','desc')->paginate(7);
-    	}
-    	else{
-    		$data['items'] = Course::orderBy('cou_id','desc')->paginate(7);
-    	}
+        $acc = Account::where('id', Auth::user()->id)->first();
+    	// if (Auth::user()->level == 3) {
+    	// 	$data['items'] = Course::where('cou_tea_id',Auth::user()->id)->orderBy('cou_id','desc')->paginate(7);
+    	// }
+    	// else{
+    	// 	$data['items'] = Course::orderBy('cou_id','desc')->paginate(7);
+    	// }
+        $data['items'] = Teacher_Rating::where('tr_tea_id', $acc->teacher->tea_id)->get();
+
     	return view('backend.rating',$data);
     }
 

@@ -105,6 +105,7 @@ class CourseController extends Controller
         $data['courseVoteMost'] = Course::where('cou_gr_id',$groupId)->orderBy('cou_star','desc')->paginate(6);
         $data['courseSaleMost'] = Course::where('cou_gr_id',$groupId)->orderBy('cou_star','desc')->paginate(6);
     	$data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(7);
+        $data['teacher_total'] = Teacher::count();
     	return view('frontend/course',$data);
     }
     public function getVideo($slug, $id){

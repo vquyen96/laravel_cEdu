@@ -184,6 +184,9 @@ header .headLink a{
 	overflow: auto;
 
 }
+.slide #slide_intro .slide_item::-webkit-scrollbar { 
+    display: none; 
+}
 .slide #slide_intro .slide_item h3{
 	font-size: 25px;
 	font-family: 'IBM Plex Serif', serif;

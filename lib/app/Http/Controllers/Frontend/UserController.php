@@ -11,14 +11,19 @@ use App\Models\Teacher;
 use App\Models\Teacher_Rating;
 use App\Models\OrderDetail;
 use Auth;
+use DateTime;
 class UserController extends Controller
 {
     public function getUser(){
         if (Auth::check()) {
+            $date= new DateTime();
+            date_add($date,date_interval_create_from_date_string(" -1 months"));
+
             $data['user'] = Account::find(Auth::user()->id);
             // $data['code'] = Code::where('code_acc_id',Auth::user()->id)->get();
             $data['orderDe'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
-            $data['orderDeTable'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(8);
+            $data['orderDeTable'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
+            // dd($data['orderDeTable']);
             $data['course'] = Course::orderBy('cou_sale','desc')->get();
             
             
@@ -77,9 +82,14 @@ class UserController extends Controller
             $teacher = Teacher::where('tea_email', $email)->first();
             //check xem tài khoản có đăng ký khóa học không
             $check = 0;
-            foreach ($account->code as $item) {
-                if($item->cou->tea->email == $email){
-                    $check = 1;
+            // dd($teacher);
+            foreach ($account->order as $order) {
+                if ($order->ord_status == 0) {
+                    foreach ($order->orderDe as $orderDe) {
+                        if($orderDe->course->tea->email == $email){
+                            $check = 1;
+                        }
+                    }
                 }
             }
             if ($check == 1) {
@@ -92,14 +102,28 @@ class UserController extends Controller
                     $teacher_rating->tr_tea_id = $teacher->tea_id;
                     $teacher_rating->tr_acc_id = $account->id;
                     $teacher_rating->save();
+
+                    $total_rate = 0;
+                    foreach ($teacher->rate as $rate) {
+                        $total_rate += $rate->tr_rate;
+                    }
+                    $teacher->tea_rating = $total_rate/count($teacher->rate);
+                    $teacher->save();
                     return back();
                 }
                 else{
-                    //Tài khoản chưa đánh giá giáo viên
+                    //Tài khoản đã có đánh giá giáo viên
                     $teacher_rating->tr_rate = $rate;
                     $teacher_rating->tr_tea_id = $teacher->tea_id;
                     $teacher_rating->tr_acc_id = $account->id;
                     $teacher_rating->save();
+
+                    $total_rate = 0;
+                    foreach ($teacher->rate as $rate) {
+                        $total_rate += $rate->tr_rate;
+                    }
+                    $teacher->tea_rating = $total_rate/count($teacher->rate);
+                    $teacher->save();
                     return back();
                 }
             }
@@ -112,8 +136,14 @@ class UserController extends Controller
         }
     }
     public function getShare($slug){
-        $data['course'] = Course::where('cou_slug',$slug)->first();
-        $data['acc'] = Account::where('id', Auth::user()->id)->first();
-        return view('frontend.share',$data);
+        if (Auth::user()->level == 5) {
+            $data['course'] = Course::where('cou_slug',$slug)->first();
+            $data['acc'] = Account::where('id', Auth::user()->id)->first();
+            return view('frontend.share',$data);
+        }
+        else{
+            return redirect('');
+            
+        }
     }
 }

@@ -520,9 +520,8 @@ window.onload = function () {
 }
 </script>
 <div>
-	
 	<div class="dashboard">
-		<a href="{{ asset('admin/account') }}" class="item student">
+		<a href="{{ asset('admin/course') }}" class="item student">
 			<div class="icon red">
 				<i class="fa fa-users" aria-hidden="true"></i>
 			</div>
@@ -533,14 +532,14 @@ window.onload = function () {
 				</div>
 			</div>
 		</a>
-		<a href="{{ asset('admin/teacher') }}" class="item rating">
+		<a href="{{ asset('admin/rating') }}" class="item rating">
 			<div  class="icon yell">
-				<i class="fa fa-magic" aria-hidden="true"></i>
+				<i class="fa fa-star" aria-hidden="true"></i>
 			</div>
 			<div class="content">
-				<p>Giáo viên</p>
+				<p>Đánh giá</p>
 				<div class="contentNum">
-					{{$teacher}}
+					{{$teacher->tea_rating}}
 				</div>
 			</div>
 		</a>

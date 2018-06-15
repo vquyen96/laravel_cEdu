@@ -78,9 +78,11 @@
 								@break
 						@endswitch
 						{{$teacher->name}}
+						
 					</h1>
 					<div class="infoMainAvaMainImg">
 						<img src="{{ asset('lib/storage/app/teacher/'.$teacher->teacher->tea_img_head) }}">
+
 					</div>
 					<div class="infoMainAvaMainCard">
 						<h3>Giảng viên</h3>

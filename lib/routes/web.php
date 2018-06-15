@@ -117,7 +117,7 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'CheckAdmin'],function(){
 			Route::get('deny/{id}','OrderController@getDeny');
 			
 		});
-
+		Route::get('order_detail_teacher','OrderController@getOrderDetailTeacher');
 
 		Route::group(['prefix'=>'comment'],function(){
 			Route::get('/','CommentController@getList');
@@ -275,6 +275,8 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 		Route::post('login','CartController@postPaymentLogin');
 
 		Route::get('complete/{type}','CartController@getComplete');
+		Route::get('complete_nganluong', 'CartController@getCompleteNganLuong');
+		Route::post('post_ngan_luong','CartController@postNganLuong');
 	});
 
 

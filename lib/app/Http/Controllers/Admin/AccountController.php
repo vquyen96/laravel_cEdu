@@ -5,12 +5,17 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
+use Auth;
 use App\Http\Requests\AddAccountRequest;
 // use Image;
 class AccountController extends Controller
 {
     public function getList(){
+        if (Auth::user()->level > 2) {
+           return redirect('');
+        }
     	$data['items'] = Account::orderBy('id','desc')->paginate(7);
+
     	return view('backend.account',$data);
     }
     public function getAdd(){

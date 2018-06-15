@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Account;
 use App\Models\Code;
 use App\Models\OrderDetail;
+use App\Models\Teacher;
 use Auth;
 class HomeController extends Controller
 {
@@ -42,13 +43,14 @@ class HomeController extends Controller
             foreach ($acc->course as $course) {
                 $data['student'] += OrderDetail::where('orderDe_cou_id', $course->cou_id)->get()->count();
             }
-            $data['teacher'] = Account::where('level',3)->get()->count();
+            $data['teacher'] = Teacher::where('tea_acc_id', Auth::user()->id)->first();
             $data['course'] = $acc->course;
             $data['account'] = Account::all();
 
             $data['chartOrderDe'] = OrderDetail::where('orderDe_cou_id')->orderBy('created_at', 'desc')->get();
             $total = 0;
             foreach ($acc->course as $course) {
+                
                 foreach ($course->orderDe as $orderDe) {
                     if ($orderDe->order->ord_status == 0) {
                         $total += $orderDe->orderDe_price;
