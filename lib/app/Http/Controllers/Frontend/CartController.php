@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Aff;
 use App\Models\Code;
+use App\Models\Account;
 use Cart;
 use Auth;
 use Mail;
@@ -309,15 +310,60 @@ class CartController extends Controller
     public function getNganLuong(){
 
         if (Auth::check() && Cart::total() != "0.00") {
-            while (true) {
-                $ord_code   = mt_rand(100000, 999999);
-                $codeExit = Order::where('ord_code',$ord_code)->first();
-                if($codeExit == null){
-                    break;
-
+            $ord_exist = 0;
+            foreach (Cart::content() as $item) {
+                $ordDe_exist  = OrderDetail::where('orderDe_cou_id', $item->id)->get();
+                foreach ($ordDe_exist as $item) {
+                    if($item->order->ord_acc_id == Auth::user()->id){
+                        $ord_exist = 1;
+                    }
                 }
             }
-            return redirect('https://www.nganluong.vn/button_payment.php?receiver=info@ceduvn.com&product_name='.$ord_code.'&price=2000&return_url='.asset('cart/complete_nganluong').'&comments=test');
+            if ($ord_exist != 1) {
+                while (true) {
+                    $ord_code   = mt_rand(100000, 999999);
+                    $codeExit = Order::where('ord_code',$ord_code)->first();
+                    if($codeExit == null){
+                        break;
+                    }
+                }
+                $order = new Order;
+                $order->ord_payment = 2;// ngan luong
+                $order->ord_acc_id = Auth::user()->id;
+                // $order->ord_note = $request->note;
+                // $order->ord_adress = $request->city." | ".$request->quan." | ".$request->phuong." | ".$request->adress;
+                // dd($order->ord_adress);
+                // $order->ord_phone = $request->phone;
+                $total = str_replace(",","",Cart::total());
+                $total = (int)$total;
+                $order->ord_total_price = $total;
+                $order->ord_code = $ord_code;
+                $order->ord_status = 1 ;
+                // dd($order);
+                $order->save();
+                $data['cart'] = Cart::content();
+                
+                sleep(1);
+
+                foreach ($data['cart'] as $item) {
+                    $orderdetail = new OrderDetail;
+                    $orderdetail->orderDe_name = $item->name;
+                    $orderdetail->orderDe_price = $item->price;
+                    $orderdetail->orderDe_qty = $item->qty;
+                    $orderdetail->orderDe_ord_id = $order->ord_id;
+                    $orderdetail->orderDe_cou_id = $item->id;
+                    $aff = Aff::where('aff_code', $item->options->aff)->first();
+                    if($aff != null){
+                        $orderdetail->orderDe_aff_id = $aff->aff_acc_id;
+                    }
+                    $orderdetail->save();
+                }
+            }  
+            else{
+                
+            }    
+
+            return redirect('https://www.nganluong.vn/button_payment.php?receiver=info@ceduvn.com&transaction_info=Thongtingiaodich&product_name='.$ord_code.'&price='.$total.'&return_url='.asset('cart/complete_nganluong').'&comments=test002');
         }
         else{
             return redirect('');
@@ -386,12 +432,54 @@ class CartController extends Controller
             $payment_type =$_GET['payment_type'];
             $error_text =$_GET['error_text'];
             $secure_code =$_GET['secure_code'];
-            //Khai báo đối tượng của lớp NL_Checkout
-            // $nl= new NL_Checkout();
-            // $nl->merchant_site_code = '199bcafb2d959a25cd6ab550a4c2ed88';
-            // $nl->secure_pass = MERCHANT_PASS;
+            $token_nl =$_GET['token_nl'];
+
+            $acc = Account::find(Auth::user()->id);
+            $order = Order::where('ord_code',$order_code)->where('ord_acc_id',Auth::user()->id)->where('ord_total_price', $price)->first();
+            if ($order != null) {
+
+                if($order->ord_status == 2 || $order->ord_status == 1){
+                    foreach ($order->orderDe as $orderDe) {
+                        while (true) {
+                            $code_value   = mt_rand(100000, 999999);
+                            $codeExit = Code::where('code_value',$code_value)->first();
+                            if($codeExit == null){
+                                $code = new Code;
+                                $code->code_value = $code_value;
+                                // $code->code_acc_id = $order->acc->id;
+                                // $code->code_cou_id = $orderDe->course->cou_id;
+                                $code->code_orderDe_id = $orderDe->orderDe_id;
+                                $code->code_status = 0;
+                                $code->save();
+                                $email = $order->acc->email;
+                                $data['code'] = $code;
+                                
+                                Mail::send('frontend.emailCode', $data, function($message) use ($email){
+                                    $message->from('vquyenaaa@gmail.com', 'Ceduvn');
+                                    $message->to($email, $email)->subject('Thank You!');
+                                    // $message->cc('thongminh.depzai@gmail.com', 'boss');
+                                    $message->subject('Mã code khóa học');
+                                });
+                                break;
+                            }
+                        }
+                    }
+                    $order->ord_status = 0;
+                    $order->save();
+                    Cart::destroy();
+                    return redirect('cart/complete/all');
+                }
+                else{
+                    dd('error');
+                }
+               
+            }
+            else{
+                dd('not oke');
+            }
+
             //Tạo link thanh toán đến nganluong.vn
-            $checkpay= $this->verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code);
+            $checkpay= $this->verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code, $token_nl);
             
             if ($checkpay) {    
                 echo 'Payment success: <pre>'; 
@@ -403,9 +491,9 @@ class CartController extends Controller
             
         }
     }
-    public function verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code)
+    public function verifyPaymentUrl($transaction_info, $order_code, $price, $payment_id, $payment_type, $error_text, $secure_code, $token_nl)
     {
-        // Tạo mã xác thực từ chủ web
+        //Tạo mã xác thực từ chủ web
         $str = '';
         $str .= ' ' . strval($transaction_info);
         $str .= ' ' . strval($order_code);
@@ -413,23 +501,28 @@ class CartController extends Controller
         $str .= ' ' . strval($payment_id);
         $str .= ' ' . strval($payment_type);
         $str .= ' ' . strval($error_text);
-        // $str .= ' ' . strval('199bcafb2d959a25cd6ab550a4c2ed88');
-        $str .= ' ' . strval('123456');
+        $str .= ' ' . strval('');
+        $str .= ' ' . strval('199bcafb2d959a25cd6ab550a4c2ed88');
+        // $str .= ' ' . strval($token_nl);
 
+        // $str .= ' ' . strval('123456');
         // Mã hóa các tham số
         $verify_secure_code = '';
         $verify_secure_code = md5($str);
         
         // Xác thực mã của chủ web với mã trả về từ nganluong.vn
+        dd($str.'=='.$verify_secure_code.'==='.$secure_code);
         if ($verify_secure_code === $secure_code) return true;
         else return false;
+        //﻿https://www.nganluong.vn/checkout.php?merchant_site_code=36680&return_url=http%3A%2F%2Flocalhost%2Fcheckout20php%2Fcheckout%25202.0.php%2F%2Fsuccess.php&receiver=info%40ceduvn.com&transaction_info=Thong+tin+giao+dich&order_code=NL_1529289871&price=2000¤cy=vnd&quantity=1&tax=0&discount=0&fee_cal=0&fee_shipping=0&order_description=Thong+tin+don+hang%3A+NL_1529289871&buyer_info=Quy%E1%BA%BFn+%C4%2A%7C%2A01688044009&affiliate_code=&secure_code=c8901d93d9017a165c733331b8a879fa%90%E1%BB%97%2A%7C%2Avquyenaaa%40gmail.com
+
     }
 
     public function buildCheckoutUrlExpand($return_url, $receiver, $transaction_info, $order_code, $price, $currency = 'vnd', $quantity = 1, $tax = 0, $discount = 0, $fee_cal = 0, $fee_shipping = 0, $order_description = '', $buyer_info = '', $affiliate_code = '')
     {   
         if ($affiliate_code == "") $affiliate_code = '';
         $arr_param = array(
-            // 'merchant_site_code'=>  strval('199bcafb2d959a25cd6ab550a4c2ed88'),
+            'merchant_site_code'=>  strval('111296'),
             'return_url'        =>  strval(strtolower($return_url)),
             'receiver'          =>  strval($receiver),
             'transaction_info'  =>  strval($transaction_info),
@@ -447,7 +540,7 @@ class CartController extends Controller
         );
         
         $secure_code ='';
-        $secure_code = implode(' ', $arr_param) . ' ' . '123456';
+        $secure_code = implode(' ', $arr_param) . ' ' . '199bcafb2d959a25cd6ab550a4c2ed88';
         //var_dump($secure_code). "<br/>";
         $arr_param['secure_code'] = md5($secure_code);      
         //echo $arr_param['secure_code'];
@@ -469,7 +562,7 @@ class CartController extends Controller
                 $url .= '&' . $key . '=' . $value;
             }
         }
-        //echo $url;
+        echo $url;
         // die;
         return $redirect_url.$url;
     }

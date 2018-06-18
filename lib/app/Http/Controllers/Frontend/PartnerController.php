@@ -115,5 +115,8 @@ class PartnerController extends Controller
             }
         }
     	return back()->with('success', 'Đăng ký thành công');
+
+
+        //http://localhost/laravel_c_edu/cart/complete_nganluong?transaction_info=&order_code=803432&price=2000&payment_id=36141779&payment_type=2&error_text=&secure_code=d59124e77077ef5666887153d90128a9&token_nl=15318951-7b01812a3e3d5a07e92984b77ffde8b3
     }
 }
