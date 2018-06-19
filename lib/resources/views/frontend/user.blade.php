@@ -212,7 +212,7 @@ window.onload = function () {
 
 
 
-	@if(Auth::user()->level == 5)
+	@if(Auth::user()->level == 8)
 	<div class="row ">
 		<div class="col-md-12">
 			<div class="btnShow showChart">
@@ -388,7 +388,7 @@ window.onload = function () {
 			</div>
 		</div>
 	</div>
-	@if(Auth::user()->level == 5)
+	@if(Auth::user()->level == 8)
 	<div class="row">
 		<div class="col-md-12">
 			<div class="btnShow showTableLink">

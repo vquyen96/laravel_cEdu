@@ -11,7 +11,7 @@ use Auth;
 class CourseController extends Controller
 {
     public function getList(){
-        if(Auth::user()->level == 3){
+        if(Auth::user()->level == 7){
             $data['items'] = Course::where('cou_tea_id',Auth::user()->id)->orderBy('cou_id','desc')->paginate(7);
         }
         else{

@@ -13,12 +13,12 @@ use Auth;
 class HomeController extends Controller
 {
     public function getHome(){
-        if (Auth::user()->level > 2) {
+        if (Auth::user()->level == 7) {
             return redirect('admin/home_teacher');
         }
         else{
             $data['student'] = Code::where('code_status', 1)->get()->count();
-            $data['teacher'] = Account::where('level',3)->get()->count();
+            $data['teacher'] = Account::where('level',7)->get()->count();
             $data['course'] = Course::get();
             $data['account'] = Account::all();
 

@@ -12,13 +12,12 @@
 	<div>
 		<table class="table table-hover orderTable" >
 			<tr>
-				<th>#</th>
 				<th>Tên</th>
 				<th>Email</th>
 				<th>Điện thoại</th>
 				<th>Hóa đơn</th>
-				
-				<th class="tableOption">Tùy Chọn</th>
+				<th>Thanh toán</th>
+				<th class="tableOption">Trạng thái</th>
 			</tr>
 			@foreach($items as $item)
 			<tr 
@@ -37,13 +36,28 @@
 						@break
 				@endswitch
 			>
-				<td class="tableTD"><a href="{{asset('admin/order/detail/'.$item->ord_id)}}">{{$item->ord_id}}</a></td>	
 				<td class="tableTD"><a href="{{asset('admin/order/detail/'.$item->ord_id)}}">{{$item->acc->name}}</a></td>
 				<td class="tableTD"><a href="{{asset('admin/order/detail/'.$item->ord_id)}}">{{$item->acc->email}}</a></td>
 				
 				<td class="tableTD"><a href="{{asset('admin/order/detail/'.$item->ord_id)}}">{{$item->ord_phone}}</a></td>
 				<td class="tableTD"><a href="{{asset('admin/order/detail/'.$item->ord_id)}}">{{number_format($item->ord_total_price,0,',','.')}} VND</a></td>
-				
+				<td>
+					@switch($item->ord_payment)
+						@case(1)
+							Tại nhà
+							@break
+						@case(2)
+							Ngân Lượng
+							@break
+						@case(3)
+							Paypal
+							@break
+						@case(4)
+							Bảo kim
+							@break
+					@endswitch
+
+				</td>
 				<td>
 					@switch($item->ord_status)
 						@case(-1)

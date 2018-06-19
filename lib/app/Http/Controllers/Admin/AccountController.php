@@ -15,11 +15,9 @@ class AccountController extends Controller
            return redirect('');
         }
     	$data['items'] = Account::orderBy('id','desc')->paginate(7);
-
     	return view('backend.account',$data);
     }
     public function getAdd(){
-    	
     	return view('backend.addaccount');
     }
     public function postAdd(AddAccountRequest $request){
@@ -41,12 +39,8 @@ class AccountController extends Controller
             else{
                 $acc->content = "";
             }
-            if($acc->level != null){
-                $acc->level = $request->level;
-            }
-            else{
-                $acc->level = 4;
-            }
+            $acc->level = $request->level;
+            
             $acc->save();
 
             return redirect('admin/account')->with('success','Thêm tài khoản thành công');
@@ -72,7 +66,6 @@ class AccountController extends Controller
             // $acc->img = $filename;
             // $request->img->storeAs('avatar',$filename);
         }
-        $acc->job = 'Tu do';
         $acc->email = $request->email;
         if ($acc->password != null) {
             $acc->password = bcrypt($request->password);
@@ -97,5 +90,14 @@ class AccountController extends Controller
         $data['items'] =  Account::where('name', 'like', '%'.$result.'%')->paginate(8);
         // dd($data['items']);
         return view('backend.account',$data);
+    }
+
+    public function change_level(){
+        $acc = Account::where('level', 5)->get();
+        foreach ($acc as $item) {
+            $item->level = 8;
+            $item->save();
+        }
+        dd("oke");
     }
 }

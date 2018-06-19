@@ -28,12 +28,13 @@
 				  	<div class="form-group">
 				    	<label>Chức vụ</label>
 				    	<select class="form-control" name="level">
-							
-				    		<option value="4">Học viên</option>
-				    		<option value="5">Cộng tác viên</option>
-				    		@if(Auth::user()->level <4)
-								<option value="3">Giáo viên</option>
-				    		@endif
+				    		<option value="9">Học viên</option>
+				    		<option value="8">Cộng tác viên</option>
+				    		<option value="7">Giáo viên</option>
+				    		<option value="6">Quản trị CTV</option>
+				    		<option value="5">Quản trị giáo viên</option>
+				    		<option value="4">Biên tập viên</option>
+							<option value="3">Kế toán</option>
 				    		@if(Auth::user()->level <3)
 								<option value="2">Quản trị viên</option>
 				    		@endif

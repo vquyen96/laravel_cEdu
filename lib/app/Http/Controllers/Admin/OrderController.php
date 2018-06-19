@@ -13,7 +13,7 @@ use Mail;
 class OrderController extends Controller
 {
     public function getList(){
-        if (Auth::user()->level > 2) {
+        if (Auth::user()->level == 7) {
             return redirect('admin/order_detail_teacher');
         }
     	$data['items'] = Order::orderBy('ord_id','desc')->paginate(10);
@@ -94,6 +94,14 @@ class OrderController extends Controller
         $data['teacher'] = $acc->teacher;
         // dd($data['teacher']);
         return view('backend.orderdetail_teacher',$data);
+    }
+
+    public function delete_order_old(){
+        $ord = Order::where('ord_status', 1)->get();
+        foreach($ord as $order){
+            Order::destroy($order->ord_id);
+        }
+        dd('ok');
     }
 
 }

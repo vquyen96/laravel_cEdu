@@ -276,7 +276,7 @@ window.onload = function () {
 					<?php $count = 0?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")))
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?>
+							<?php $count++?>
 						@endif
 					@endforeach
 					
@@ -297,7 +297,7 @@ window.onload = function () {
 					<?php $count = 0 ?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")) && $item->level == 3)
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?>
+							<?php $count++?>
 						@endif
 					@endforeach
 					{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
@@ -318,7 +318,7 @@ window.onload = function () {
 					<?php $count = 0 ?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")) && $item->level == 5)
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?>
+							<?php $count++?>
 						@endif
 					@endforeach
 					{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
@@ -371,7 +371,7 @@ window.onload = function () {
 					<?php $count = 0 ?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")))
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?> 
+							<?php $count++?> 
 						@endif
 					@endforeach
 					{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
@@ -390,7 +390,7 @@ window.onload = function () {
 					<?php $count = 0 ?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")) && $item->level == 3)
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?> 
+							<?php $count++?> 
 						@endif
 					@endforeach
 					{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
@@ -410,7 +410,7 @@ window.onload = function () {
 					<?php $count = 0 ?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")) && $item->level == 5)
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?> 
+							<?php $count++?> 
 						@endif
 					@endforeach
 					{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
@@ -463,7 +463,7 @@ window.onload = function () {
 					<?php $count = 0 ?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")))
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?> 
+							<?php $count++?> 
 						@endif
 					@endforeach
 					{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
@@ -482,7 +482,7 @@ window.onload = function () {
 					<?php $count = 0 ?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")) && $item->level == 3)
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?> 
+							<?php $count++?> 
 						@endif
 					@endforeach
 					{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },
@@ -502,7 +502,7 @@ window.onload = function () {
 					<?php $count = 0 ?>
 					@foreach ($account as $item)
 						@if (strtotime(date_format($item->created_at,"Y-m-d")) < strtotime(date_format($date,"Y-m-d")) && $item->level == 5)
-							<?php Auth::user()->level != 1 ? $count += rand(99,120) : $count++?> 
+							<?php $count++?> 
 						@endif
 					@endforeach
 					{ x: new Date('{{date_format($date,"Y-m-d")}}'), y: {{$count}} },

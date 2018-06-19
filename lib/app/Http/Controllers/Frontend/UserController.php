@@ -16,8 +16,8 @@ class UserController extends Controller
 {
     public function getUser(){
         if (Auth::check()) {
-            $date= new DateTime();
-            date_add($date,date_interval_create_from_date_string(" -1 months"));
+            // $date= new DateTime();
+            // date_add($date,date_interval_create_from_date_string(" -1 months"));
 
             $data['user'] = Account::find(Auth::user()->id);
             // $data['code'] = Code::where('code_acc_id',Auth::user()->id)->get();

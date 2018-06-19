@@ -38,7 +38,10 @@ $(document).ready(function() {
     	var copyText = document.getElementById("aff");
 		copyText.select();
 		document.execCommand("copy");
-		alert("Đã copy link: " + copyText.value);
+		$('.alertCopy').show();
+		setTimeout(function(){
+			$('.alertCopy').hide();
+		}, 2000);
     });
 
 	var countBtnContent = 0;

@@ -51,11 +51,13 @@
 					{{Auth::user()->name}}
 				</a>
 			</li>
+			@if(Auth::user()->level == 3 || Auth::user()->level == 1 )
 			<li>
 				<a href="{{asset('admin/')}}" class="navAccount @if (Request::segment(2) == '')  active @endif">
 					Thống kê
 				</a>
 			</li>
+			@endif
 			@if(Auth::user()->level != 3)
 			<li>
 				<a href="{{asset('admin/account')}}" class="navAccount @if (Request::segment(2) == 'account')  active @endif">
@@ -63,45 +65,49 @@
 				</a>
 			</li>
 			@endif
-			@if(Auth::user()->level != 3)
+			@if(Auth::user()->level < 7 && Auth::user()->level != 5)
 			<li>
 				<a href="{{asset('admin/affiliate')}}" class="navAccount @if (Request::segment(2) == 'affiliate')  active @endif">
 					Cộng tác viên
 				</a>
 			</li>
+			@endif
+			@if(Auth::user()->level < 7 && Auth::user()->level != 6)
 			<li>
 				<a href="{{asset('admin/teacher')}}" class="navAccount @if (Request::segment(2) == 'teacher')  active @endif">
 					Giáo viên
 				</a>
 			</li>
 			@endif
-			@if(Auth::user()->level != 3)
+			@if(Auth::user()->level < 3)
 			<li>
 				<a href="{{asset('admin/group')}}" class="navAccount @if (Request::segment(2) == 'group')  active @endif">
 					Lĩnh vực
 				</a>
 			</li>
 			@endif
+			@if (Auth::user()->level < 4 && Auth::user()->level == 5 && Auth::user()->level == 7) 
 			<li>
 				<a href="{{asset('admin/course')}}" class="navAccount @if (Request::segment(2) == 'course')  active @endif">
 					Khóa học
 				</a>
 			</li>
-			
-			@if(Auth::user()->level == 3)
+			@endif
+			@if(Auth::user()->level == 7)
 			<li>
 				<a href="{{asset('admin/teacher/detail/'.Auth::user()->id)}}" class="navAccount @if (Request::segment(2) == 'teacher')  active @endif">
 					Hồ xơ
 				</a>
 			</li>
 			@endif
-			@if(Auth::user()->level != 3)
+			@if(Auth::user()->level ==  1 || Auth::user()->level ==  3 )
 			<li>
 				<a href="{{asset('admin/order')}}" class="navAccount @if (Request::segment(2) == 'order')  active @endif">
 					Đơn hàng
 				</a>
 			</li>
-			
+			@endif
+			@if(Auth::user()->level < 5 && Auth::user()->level !=  3 )
 			<li>
 				<a href="{{asset('admin/banner')}}" class="navAccount @if (Request::segment(2) == 'banner')  active @endif">
 					Banner
@@ -119,6 +125,8 @@
 					Tài liệu
 				</a>
 			</li>
+			@endif
+			@if(Auth::user()->level < 3 )
 			<li>
 				<a href="{{asset('admin/about')}}" class="navAccount @if (Request::segment(2) == 'about')  active @endif">
 					Giới thiệu

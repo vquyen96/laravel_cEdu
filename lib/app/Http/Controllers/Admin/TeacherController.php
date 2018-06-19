@@ -12,7 +12,7 @@ class TeacherController extends Controller
 {
     public function getList(){
         $data['wait'] = Account::where('teacher_wait', 1)->orderBy('id','desc')->get();
-    	$data['items'] = Account::where('teacher_wait', 0)->where('level',3)->orderBy('id','desc')->paginate(7);
+    	$data['items'] = Account::where('teacher_wait', 0)->where('level',7)->orderBy('id','desc')->paginate(7);
 
     	return view('backend.teacher',$data);
     }
@@ -67,7 +67,7 @@ class TeacherController extends Controller
 
     public function getNo($id){
         $account = Account::find($id);
-        $account->level = 4;
+        $account->level = 7;
         $account->teacher_wait = 0;
         $account->save();
         return back()->with('success', 'Từ chối giáo viên thành công');

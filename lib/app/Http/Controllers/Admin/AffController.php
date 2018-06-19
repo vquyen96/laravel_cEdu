@@ -10,7 +10,7 @@ use App\Models\Aff;
 class AffController extends Controller
 {
     public function getList(){
-    	$data['items'] = Account::where('level', 5)->orderBy('id','desc')->paginate(7);
+    	$data['items'] = Account::where('level', 8)->orderBy('id','desc')->paginate(7);
     	return view('backend.affiliate',$data);
     }
     public function getDetail($id){

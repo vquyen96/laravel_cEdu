@@ -71,14 +71,27 @@
 							Quản trị viên
 							@break
 						@case(3)
-							Giảng viên
+							Kế toán
 							@break
 						@case(4)
 							Học viên
 							@break
 						@case(5)
+							Quản trị giáo viên
+							@break
+						@case(6)
+							Quản trị CTV
+							@break
+						@case(7)
+							Giáo viên
+							@break
+						@case(8)
 							Cộng tác viên
 							@break
+						@case(9)
+							Học viên
+							@break
+						
 					@endswitch
 				</td>
 				<td>

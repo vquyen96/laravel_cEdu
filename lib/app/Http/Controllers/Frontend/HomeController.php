@@ -36,7 +36,7 @@ class HomeController extends Controller
         $acc->name = $request->name;
         $acc->email = $request->email;
         $acc->password = bcrypt($request->password);
-        $acc->level = 4;
+        $acc->level = 9;
         $acc->content = " ";
         $acc->save();
         sleep(1);
@@ -54,7 +54,7 @@ class HomeController extends Controller
 
         // dd($arr);
         if(Auth::attempt($arr, true)){
-            if (Auth::user()->level == 4 || Auth::user()->level == 5) {
+            if (Auth::user()->level >7) {
                 return back()->with('success','Đăng nhập thành công');
             }
             else{

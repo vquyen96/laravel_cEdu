@@ -32,7 +32,7 @@
 			</div>
 		</div>
 
-		@if(Auth::check() && Auth::user()->level == 5)
+		@if(Auth::check() && Auth::user()->level == 8)
 		<div class="col-md-3 col-sm-3">
 			<div class="affiliate">
 				<div class="content">
@@ -41,8 +41,12 @@
 				<div class="btnGetLink">
 					Lấy link 
 				</div>
+				
 				{{-- {{ app('request')->input('aff') }}
 				 --}}
+			</div>
+			<div class="alertCopy">
+				đã copy
 			</div>
 		</div>
 		@endif

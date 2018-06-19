@@ -132,6 +132,18 @@
 	transition: 1.5s;
 	
 }
+
+.alertCopy{
+	position: absolute;
+	width: 90%;
+	height: 50px;
+	line-height: 50px;
+	top: -50px;
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	display: none;
+}
 /*.affiliate .btnGetLink:hover{
 	box-shadow: 4px 4px 20px #00000073;
 	transform: translate(0px, -5px);

@@ -173,6 +173,8 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'CheckAdmin'],function(){
 			
 			Route::get('delete/{id}', 'BannerController@getDelete');
 		});
+		Route::get('delete_order_old','OrderController@delete_order_old');
+		Route::get('change_level','AccountController@change_level');
 	});
 });
 Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){

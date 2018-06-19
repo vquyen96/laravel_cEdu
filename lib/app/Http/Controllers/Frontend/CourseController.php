@@ -66,7 +66,7 @@ class CourseController extends Controller
         // $data['acc'] = Account::where('id', Auth::user()->id)->where('level', 5)->first();
         // dd($acc->aff);
         if(Auth::check()){
-            $data['acc'] = Account::where('id', Auth::user()->id)->where('level', 5)->first();
+            $data['acc'] = Account::where('id', Auth::user()->id)->where('level', 8)->first();
             $orderDe_id = 0;
             $code = 0;
             foreach ($data['course']->orderDe as $item) {

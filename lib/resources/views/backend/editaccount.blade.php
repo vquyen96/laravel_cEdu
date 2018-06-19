@@ -30,13 +30,16 @@
 				  	<div class="form-group">
 				    	<label>Chức vụ</label>
 				    	<select class="form-control" name="level">
+				    		<option value="9" @if($item->level == 9) selected @endif >Học viên</option>
+				    		<option value="8" @if($item->level == 8) selected @endif >Cộng tác viên</option>
+				    		<option value="7" @if($item->level == 7) selected @endif >Giáo viên</option>
+				    		<option value="6" @if($item->level == 6) selected @endif >Quản trị CTV</option>
+				    		<option value="5" @if($item->level == 5) selected @endif >Quản trị giáo viên</option>
 				    		@if(Auth::user()->level <5)
-
-								<option value="4" @if($item->level == 4) selected @endif>Học viên</option>
-								<option value="5" @if($item->level == 5) selected @endif>Cộng tác viên</option>
+								<option value="4" @if($item->level == 4) selected @endif>Biên tập viên</option>
 				    		@endif
 				    		@if(Auth::user()->level <4)
-				    			<option value="3" @if($item->level == 3) selected @endif>Giáo viên</option>
+				    			<option value="3" @if($item->level == 3) selected @endif>Kế toán</option>
 				    		@endif
 				    		@if(Auth::user()->level <3)
 				    			<option value="2" @if($item->level == 2) selected @endif>Quản trị viên</option>
