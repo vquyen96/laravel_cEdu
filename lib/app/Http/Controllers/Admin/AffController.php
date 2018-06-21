@@ -7,11 +7,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\OrderDetail;
 use App\Models\Aff;
+use Auth;
 class AffController extends Controller
 {
     public function getList(){
-    	$data['items'] = Account::where('level', 8)->orderBy('id','desc')->paginate(7);
-    	return view('backend.affiliate',$data);
+    	if (Auth::user()->level != 3) {
+    		$data['items'] = Account::where('level', 8)->orderBy('id','desc')->paginate(7);
+    		return view('backend.affiliate',$data);
+    	}
+    	else{
+    		// $data['items'] = OrderDetail::where('orderDe_aff_id', '!=', NULL)->paginate(7);
+    		$data['items'] = Account::where('level', 8)->orderBy('id','desc')->paginate(7);
+    		return view('backend.accountant-aff',$data);
+    	}
+    	
     }
     public function getDetail($id){
     	// $aff = Aff::where('aff_acc_id', $id)->first();

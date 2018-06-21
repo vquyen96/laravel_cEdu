@@ -19,7 +19,15 @@
 					</div>
 					<div class="form-group">
 					    <label>Địa chỉ email</label>
-					    <input type="text" class="form-control" name="email" value="{{$item->email}}"  required>
+					    @if (Request::segment(2) == 'user')
+					    	<div>
+					    		{{$item->email}}
+					    	</div>
+					    @else
+					    	<input type="text" class="form-control" name="email" value="{{$item->email}}"  required>
+					    @endif
+
+					    
 					</div>
 				  	<div class="form-group">
 				    	<label>Mật khẩu</label>

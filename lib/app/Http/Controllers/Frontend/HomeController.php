@@ -29,7 +29,7 @@ class HomeController extends Controller
         $data['bannerLeftTop'] = Banner::where('ban_name', 'like', 'Banner Thân Trang Chủ Bên Trái Phía Trên')->get();
         $data['bannerLeftBot'] = Banner::where('ban_name', 'like',  'Banner Thân Trang Chủ Bên Trái Phía Dưới')->get();
         
-    	return view('frontend.home',$data);
+    	return view('frontend.home2',$data);
     }
     public function postRegister(AddAccountRequest $request){
     	$acc = new Account;

@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\ErrorsController' => $baseDir . '/app/Http/Controllers/ErrorsController.php',
     'App\\Http\\Controllers\\Frontend\\BannerController' => $baseDir . '/app/Http/Controllers/Frontend/BannerController.php',
     'App\\Http\\Controllers\\Frontend\\CartController' => $baseDir . '/app/Http/Controllers/Frontend/CartController.php',
     'App\\Http\\Controllers\\Frontend\\CodeController' => $baseDir . '/app/Http/Controllers/Frontend/CodeController.php',

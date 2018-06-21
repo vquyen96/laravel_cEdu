@@ -18,6 +18,10 @@ class Account extends Model
     {
         return $this->hasMany('App\Models\Order','ord_acc_id','id');
     }
+     public function aff_orderDe()
+    {
+        return $this->hasMany('App\Models\OrderDetail','orderDe_aff_id','id');
+    }
 
     public function teacher()
     {

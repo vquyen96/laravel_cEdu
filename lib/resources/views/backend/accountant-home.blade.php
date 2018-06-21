@@ -588,7 +588,7 @@ window.onload = function () {
 		
 		animationEnabled: true,
 		title: {
-			text: "Tỷ lệ các loại khóa học bán được"
+			text: "Tỷ lệ các loại hình thanh toán"
 		},
 		data: [{
 			type: "pie",
@@ -599,19 +599,41 @@ window.onload = function () {
 			indexLabelFontSize: 14,
 			indexLabel: "{label} - {y}%",
 			dataPoints: [
+				<?php $home = 0; $nganluong = 0; $paypal = 0; $baokim = 0; $total = 0;?>
+				@foreach ($chartOrderDe as $orderDe)
+					@if ($orderDe->order->ord_status == 0)
+						@switch($orderDe->order->ord_payment)
+							@case(1)
+								<?php $home += $orderDe->orderDe_price?>
+								@break
+							@case(2)
+								<?php $nganluong += $orderDe->orderDe_price?>
+								@break
+							@case(3)
+								<?php $paypal += $orderDe->orderDe_price?>
+								@break
+							@case(4)
+								<?php $baokim += $orderDe->orderDe_price?>
+								@break
+						@endswitch
+						<?php $total += $orderDe->orderDe_price ?>
+					@endif
+				@endforeach
+				@if ($home != 0)
+					{ y: {{($home/$total)*100}}, label: "Tại nhà"},
+				@endif
+				@if ($nganluong != 0)
+					{ y: {{($nganluong/$total)*100}}, label: "Ngân lượng"},
+				@endif
+				@if ($paypal != 0)
+					{ y: {{($paypal/$total)*100}}, label: "Paypal"},
+				@endif
+				@if ($baokim != 0)
+					{ y: {{($baokim/$total)*100}}, label: "Bảo kim"},
+				@endif
 				
-				<?php $total = $chartOrderDe->count();?>
-			 	@for ($i = 0; $i < $group->count(); $i++)
-			 		<?php $count = 0;?>
-		 			@foreach ($chartOrderDe as $item)
-		 				@if ($item->course->group->gr_id == $group[$i]->gr_id )
-		 					<?php $count++ ?>
-		 				@endif
-		 			@endforeach
-		 			@if ($count != 0)
-		 				{ y: {{($count/$total)*100}}, label: "{{$group[$i]->gr_name}}"},
-		 			@endif
-		 		@endfor	
+
+				
 			]
 		}]
 	});
@@ -664,8 +686,33 @@ window.onload = function () {
 }
 </script>
 <div>
+
 	<div class="dashboard">
-		<a href="{{ asset('admin/account') }}" class="item student">
+		<a  href="{{ asset('admin/order') }}" class="item earnings">
+			<div  class="icon green">
+				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>Tổng Thu Nhập</p>
+				<div class="contentNum">
+					{{number_format($total_price,0,',','.')}} đ
+				</div>
+				{{-- {{number_format($item->chartOrderDe->count()*$item->cou_price,0,',','.')}} --}}
+			</div>
+		</a>
+		<a  href="{{ asset('admin/order') }}" class="item student">
+			<div  class="icon green">
+				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>Thu Nhập(tháng)</p>
+				<div class="contentNum">
+					{{number_format($total_month,0,',','.')}} đ
+				</div>
+				{{-- {{number_format($item->chartOrderDe->count()*$item->cou_price,0,',','.')}} --}}
+			</div>
+		</a>
+		{{-- <a href="{{ asset('admin/account') }}" class="item student">
 			<div class="icon red">
 				<i class="fa fa-users" aria-hidden="true"></i>
 			</div>
@@ -675,7 +722,7 @@ window.onload = function () {
 					{{$student}}
 				</div>
 			</div>
-		</a>
+		</a> --}}
 		<a href="{{ asset('admin/teacher') }}" class="item rating">
 			<div  class="icon yell">
 				<i class="fa fa-magic" aria-hidden="true"></i>
@@ -687,30 +734,7 @@ window.onload = function () {
 				</div>
 			</div>
 		</a>
-		<a href="{{ asset('admin/course') }}" class="item course">
-			<div class="icon blue">
-				<i class="fa fa-shopping-bag" aria-hidden="true"></i>
-			</div>
-			<div class="content">
-				<p>Khóa học</p>
-				<div class="contentNum">
-					{{$course->count()}}
-				</div>
-				{{-- {{$lesson}} --}}
-			</div>
-		</a>
-		<a  href="{{ asset('admin/order') }}" class="item earnings">
-			<div  class="icon green">
-				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-			</div>
-			<div class="content">
-				<p>Thu Nhập</p>
-				<div class="contentNum">
-					{{number_format($total_price,0,',','.')}} đ
-				</div>
-				{{-- {{number_format($item->chartOrderDe->count()*$item->cou_price,0,',','.')}} --}}
-			</div>
-		</a>
+		
 	</div>
 	<div class="container-fluid homeChart">
 		<div class="row">
@@ -752,6 +776,7 @@ window.onload = function () {
 				</div>
 			</div>
 			<div class="col-md-6">
+				
 				<div id="chartCircle03" class="chart"></div>
 			</div>
 		</div>

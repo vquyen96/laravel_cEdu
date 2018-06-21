@@ -103,3 +103,24 @@
 	    $url .= $_SERVER["REQUEST_URI"];
 	    return $url;
     }
+
+    function aff_profit($amount){
+    	if ($amount > 150000000) {
+    		return $amount*0.3;
+    	}
+    	if ($amount > 61000000) {
+    		return $amount*0.22;
+    	}
+    	if ($amount > 31000000) {
+    		return $amount*0.18;
+    	}
+    	if ($amount > 11000000) {
+    		return $amount*0.14;
+    	}
+    	if ($amount > 1000000) {
+    		return $amount*0.11;
+    	}
+    	else{
+    		return $amount*0.1;
+    	}
+    }

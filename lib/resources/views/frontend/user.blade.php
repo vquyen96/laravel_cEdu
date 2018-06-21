@@ -190,10 +190,6 @@ window.onload = function () {
 	});
 	chart.render();
 
-
-
-
-
 	function toogleDataSeries(e){
 		if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
 			e.dataSeries.visible = false;
@@ -206,13 +202,9 @@ window.onload = function () {
 </script>
 <div class="container user">
 	
-	
-
-
-
-
 
 	@if(Auth::user()->level == 8)
+
 	<div class="row ">
 		<div class="col-md-12">
 			<div class="btnShow showChart">
@@ -221,6 +213,7 @@ window.onload = function () {
 		</div>
 	</div>
 	<div class="row userChart">
+		<div></div>
 		<div class="col-md-12">
 			<div class="chart chartSpLine">
 				<div>

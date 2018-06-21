@@ -11,10 +11,17 @@ use Auth;
 class TeacherController extends Controller
 {
     public function getList(){
-        $data['wait'] = Account::where('teacher_wait', 1)->orderBy('id','desc')->get();
-    	$data['items'] = Account::where('teacher_wait', 0)->where('level',7)->orderBy('id','desc')->paginate(7);
+        if (Auth::user()->level == 3) {
+            $data['items'] = Teacher::orderBy('tea_rating','desc')->get();
+            return view('backend.accountant-teacher',$data);
+        }
+        else{
+            $data['wait'] = Account::where('teacher_wait', 1)->orderBy('id','desc')->get();
+            $data['items'] = Account::where('teacher_wait', 0)->where('level',7)->orderBy('id','desc')->paginate(7);
 
-    	return view('backend.teacher',$data);
+            return view('backend.teacher',$data);
+        }
+            
     }
     public function getAdd(){
     	
