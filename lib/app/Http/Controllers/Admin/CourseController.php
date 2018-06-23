@@ -21,7 +21,7 @@ class CourseController extends Controller
     	return view('backend.course',$data);
     }
     public function getAdd(){
-    	$data['tea'] = Account::where('level',3)->get();
+    	$data['tea'] = Account::where('level',7)->get();
     	$data['group'] = Group::all();
     	return view('backend.addcourse',$data);
     }
@@ -41,7 +41,7 @@ class CourseController extends Controller
         $cou->cou_gr_id = $request->cou_gr_id;
         
         $cou->cou_tag = $request->cou_tag;
-        
+        $cou->cou_featured = $request->cou_featured;
         
         if (Auth::user()->level == 3) {
             $cou->cou_sale = 0;
@@ -49,12 +49,21 @@ class CourseController extends Controller
         	$cou->cou_tea_id = Auth::user()->id;
         }
         else{
-            if ($request->cou_sale == null) {
+            if ($request->cou_sale == null && $request->cou_price_old == null) {
                 $cou->cou_sale = 0;
+                $cou->cou_price_old = null;
             }
-            else{
+            else if ($request->cou_price_old == null && $request->cou_sale != null) {
                 $cou->cou_sale = $request->cou_sale;
+                $cou->cou_price_old = ROUND(100*$cou->cou_price/ (100 - $cou->cou_sale));
+            }else if ($request->cou_price_old != null && $request->cou_sale == null) {
+                $cou->cou_price_old = $request->cou_price_old;
+                $cou->cou_sale = ROUND(100*($cou->cou_price_old-$cou->cou_price)/ $cou->cou_price_old );
+            }else{
+                $cou->cou_sale = $request->cou_sale;
+                $cou->cou_price_old = $request->cou_price_old;
             }
+
 
             if ($request->cou_student == null) {
                 $cou->cou_student = 0;
@@ -70,7 +79,7 @@ class CourseController extends Controller
     	return redirect('admin/course')->with('success','Thêm khóa học thành công');
     }
     public function getEdit($id){
-    	$data['tea'] = Account::where('level',3)->get();
+    	$data['tea'] = Account::where('level',7)->get();
     	$data['group'] = Group::all();
         $data['item'] = Course::find($id);
         $i=0;
@@ -95,12 +104,28 @@ class CourseController extends Controller
         $cou->cou_content = $request->content;
         $cou->cou_gr_id = $request->cou_gr_id;
         $cou->cou_tag = $request->cou_tag;
-
+        $cou->cou_featured = $request->cou_featured;
+        
         if (Auth::user()->level == 3) {
             $cou->cou_tea_id = Auth::user()->id;
         }
         else{
-            $cou->cou_sale = $request->cou_sale;
+            if ($request->cou_sale == null && $request->cou_price_old == null) {
+                $cou->cou_sale = 0;
+                $cou->cou_price_old = null;
+            }
+            else if ($request->cou_price_old == null && $request->cou_sale != null) {
+                $cou->cou_sale = $request->cou_sale;
+                $cou->cou_price_old = ROUND(100*$cou->cou_price/ (100 - $cou->cou_sale));
+            }else if ($request->cou_price_old != null && $request->cou_sale == null) {
+                $cou->cou_price_old = $request->cou_price_old;
+                $cou->cou_sale = ROUND(100*($cou->cou_price_old-$cou->cou_price)/ $cou->cou_price_old );
+                // dd(($cou->cou_price_old-$cou->cou_price)/ $cou->cou_price_old );
+                
+            }else{
+                $cou->cou_sale = $request->cou_sale;
+                $cou->cou_price_old = $request->cou_price_old;
+            }
             $cou->cou_student = $request->cou_student;
             $cou->cou_tea_id = $request->cou_tea_id;
         }

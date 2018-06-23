@@ -86,7 +86,7 @@
 				</a>
 			</li>
 			@endif
-			@if (Auth::user()->level < 4 && Auth::user()->level == 5 && Auth::user()->level == 7) 
+			@if (Auth::user()->level < 4 || Auth::user()->level == 5 || Auth::user()->level == 7) 
 			<li>
 				<a href="{{asset('admin/course')}}" class="navAccount @if (Request::segment(2) == 'course')  active @endif">
 					Khóa học

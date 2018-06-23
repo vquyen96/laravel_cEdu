@@ -60,12 +60,12 @@
 		<div class="headerItem headerTop">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="headerLogo">
 							<img src="img/LOGO_CEDU1.png">
 						</div>
 					</div>
-					<div class="col-md-8">
+					<div class="col-md-9">
 						<div class="headerTopMenu">
 							<div class="headerTopMenuItem">
 								<div class="headerTopMenuItemIcon">
@@ -114,24 +114,28 @@
 									<div class="headerTopMenuItemRightTitle">
 										
 									</div>
-									<div class="headerTopMenuItemRightContent">
-										Đăng nhập
+									<div class="headerTopMenuItemRightContent user">
+										Đăng nhập 
+										<i class="fa fa-angle-down" aria-hidden="true"></i>
 									</div>
 								</div>
-							</div>
-							<div class="headerTopMenuItem">
-								<div class="headerTopMenuItemIcon">
+								<div class="headerTopMenuItemIcon iconSearch">
 									<i class="fa fa-search" aria-hidden="true"></i>
 								</div>
-								<!-- <div class="headerTopMenuItemRight">
+							</div>
+							<!-- <div class="headerTopMenuItem">
+								<div class="headerTopMenuItemIconSearch">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+								<div class="headerTopMenuItemRight">
 									<div class="headerTopMenuItemRightTitle">
 										
 									</div>
 									<div class="headerTopMenuItemRightContent">
 										Đăng nhập
 									</div>
-								</div> -->
-							</div>
+								</div>
+							</div> -->
 
 						</div>
 					</div>
@@ -139,7 +143,55 @@
 			</div>
 		</div>
 		<div class="headerItem headerBot">
-			
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="headerBotMenu">
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('') }}">
+									Trang chủ
+								</a>
+							</div>
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('') }}">
+									Khóa học
+									<i class="fa fa-angle-down" aria-hidden="true"></i> 
+								</a>
+							</div>
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('') }}">
+									Tin tức
+								</a>
+							</div>
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('') }}">
+									Trở thành đối tác
+								</a>
+							</div>
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('') }}">
+									Tài liệu
+								</a>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="headerBotRight">
+							<a href="{{ asset('code') }}" class="headerBotCode">
+								<div class="headerBotCodeLeft">
+									<i class="fa fa-lock" aria-hidden="true"></i>
+								</div>
+								<div class="headerBotCodeRight">
+									Kích hoạt mã code
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+					
+			</div>
 
 		</div>
 	</header>
@@ -148,7 +200,7 @@
 		@yield('main')
 	</div>
 
-	<!-- <footer>
+	<footer>
 
 		<div class="container footerMain">
 			<div class="row">
@@ -259,7 +311,7 @@
 		<div class="footerFly">
 			<img src="img/ic_plane_dichuyen.png">
 		</div>
-	</footer> -->
+	</footer>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>

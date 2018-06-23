@@ -60,10 +60,20 @@
 					    <input type="text" class="form-control" name="cou_name" value="{{$item->cou_name}}" placeholder="Tên của bạn" required>
 					</div>
 					<div class="form-group">
-					    <label>Giá</label>
-					    <input type="text" class="form-control" name="cou_price" value="{{$item->cou_price}}" placeholder="Email" required>
+					    <label>Nổi bật</label>
+					    <input type="number" class="form-control" name="cou_featured" value="{{$item->cou_name}}" placeholder="1-9" required>
 					</div>
-					@if(Auth::user()->level != 3)
+
+					<div class="form-group">
+					    <label>Giá chính thức</label>
+					    <input type="text" class="form-control" name="cou_price" value="{{$item->cou_price}}" placeholder="300000" required>
+					</div>
+					
+					@if(Auth::user()->level < 7)
+					<div class="form-group">
+					    <label>Giá chưa sale</label>
+					    <input type="text" class="form-control" name="cou_price_old" value="{{$item->cou_price_old}}" placeholder="600000" >
+					</div>
 					<div class="form-group">
 					    <label>Sale</label>
 					    <input type="text" class="form-control" name="cou_sale" placeholder="VD: 15%" value="{{$item->cou_sale}}">
@@ -80,7 +90,7 @@
 				    	</select>
 				    	
 				  	</div>
-				  	@if(Auth::user()->level != 3)
+				  	@if(Auth::user()->level < 7)
 				  	<div class="form-group">
 				    	<label>Số học viên</label>
 				    	<input type="number" class="form-control" name="cou_student" value="{{$item->cou_student}}">
@@ -102,9 +112,9 @@
 					    </select>
 				  	</div>
 				  	
-				  	@if(Auth::user()->level != 3)
+				  	@if(Auth::user()->level < 7)
 				  	<div class="form-group">
-				    	<label>Giáo viên</label>
+				    	<label>Giáo viên</label>{{$item->tea->name}}
 				    	<select class="form-control" name="cou_tea_id">
 				    		@foreach($tea as $teacher)
 					    	<option value="{{$teacher->id}}" @if($teacher->id == $item->cou_tea_id) selected @endif>{{$teacher->name}}</option>
