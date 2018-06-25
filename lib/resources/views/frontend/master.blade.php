@@ -10,9 +10,7 @@
 
 	<meta property="og:url" 		content="{{Request::url()}}" />
 
-	
 	<meta property="fb:app_id" 		content="1577563652342523" />
-	 
 	<meta property="og:title" 		content="@yield('fb_title')" />
 	<meta property="og:description" content="@yield('fb_description')" />
     <meta property="og:image" 		content="@yield('fb_image')" />
@@ -28,13 +26,10 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:500|Roboto:400,500" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/master.css">
+	<link rel="stylesheet" type="text/css" href="css/master2.css">
 </head>
 <body>
 	
-
-	
-
 	<div id="status">
 	</div>
 	
@@ -54,342 +49,150 @@
 		</div>
 	</div>
 	<input type="hidden" name="url" value="{{ asset('')}}">
-        
-	<header>
-		<div class="headerHead">
-			<div class="headerHeadLeft">
-				{{-- <div class="headerHeadLeftItem">
-					<i class="fa fa-envelope" aria-hidden="true"></i>
-					<span>info@ceduvn.com</span>
-				</div> --}}
-				<div class="headerHeadLeftItem">
-					<i class="fa fa-phone" aria-hidden="true"></i>
-					<span>08.887.790.111 {{ Auth::check()}}</span>
-				</div>	
-				<a href="{{asset('code')}}" class="headerActiveCode">
-					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-					<span>Kích hoạt mã code</span>
-				</a>	
-			</div>
-			<div class="headerHeadRight">
-				<div class="headerHeadMenu">
-					<ul>
-						@if(Auth::check())
-						<li>
-							<a href="{{asset('logout')}}">
-								<i class="fa fa-sign-out" aria-hidden="true"></i>
-								<span>Đăng xuất</span>
-							</a>
-						</li>
-						<li>
-							<a href="{{asset('user')}}" class="headerTinyUser">
-								<img src="{{asset('lib/storage/app/avatar/resized-'.Auth::user()->img)}}">
-								<span>{{cut_string_name(Auth::user()->name, 5)}}</span>
-							</a>
-						</li>
-						@else
-						<li>
-							<a href="" data-toggle="modal" data-target=".modal-login">
-								<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-								<span>Đăng nhập</span>
-							</a>
-						</li>
-						@endif
-						
-						<li>
-							<a href="">
-								<i class="fa fa-bell" aria-hidden="true"></i>
-								<span>Thông báo</span>
-							</a>
-							
-						</li>
-						<li>
-							<a href="{{asset('cart/show')}}" class="cart">
-								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-								<span>Giỏ hàng</span>
-								@if(Cart::count() != 0)
-									<div class="numOfCart">{{Cart::count()}}</div>
-								@endif
-							</a>
-							
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="headerMenu">
-			<div class="headerMenuLogo">
-				<a href="{{asset('')}}">
-					<img src="img/logo cedu.png">
-				</a>
-				
-			</div>
-			
-			<div class="headerMenuNav">
-				<ul>
-					<li>
-						<a href="{{asset('')}}" @if(Request::segment(1) == '') class="headerMenuNavActive" @endif>
-							Trang chủ
-							@if(Request::segment(1) == '')
-								<div class="headerMenuBorderActive"></div>
-							@endif
-						</a>
-					</li>
-					<li class="headerMenuNavCourse">
-						<a href="{{asset('courses')}}" @if(Request::segment(1) == 'courses') class="headerMenuNavActive" @endif>
-							Khóa học
-							@if(Request::segment(1) == 'courses')
-								<div class="headerMenuBorderActive"></div>
-							@endif
-						</a>
-						<ul class="headerMenuNavCourseItem">
-							<div class="headerMenuNavCourseItemBorder">
-								<img src="img/ic_menuc2.png">
-							</div>
-							@foreach($group as $item)
-							<li><a href="{{asset('group/'.$item->gr_slug.'.html')}}">{{$item->gr_name}}</a></li>
-							
-							@endforeach
-						</ul>
-					</li>
-					<li>
-						<a href="{{asset('news')}}" @if(Request::segment(1) == 'news') class="headerMenuNavActive" @endif>
-							Tin tức
-							@if(Request::segment(1) == 'news')
-								<div class="headerMenuBorderActive"></div>
-							@endif
-						</a>
-					</li>
-					<li>
-						<a href="{{asset('partner')}}" @if(Request::segment(1) == 'partner') class="headerMenuNavActive" @endif>
-							Trở thành đối tác
-							@if(Request::segment(1) == 'partner')
-								<div class="headerMenuBorderActive"></div>
-							@endif
-						</a>
-					</li>
-					<li>
-						<a href="{{asset('doc')}}" @if(Request::segment(1) == 'doc') class="headerMenuNavActive" @endif>
-							Tài liệu
-							@if(Request::segment(1) == 'doc')
-								<div class="headerMenuBorderActive"></div>
-							@endif
-						</a>
-					</li>
-					<li class="btnSearchHead">
-						<a>
-							<span class="glyphicon glyphicon-search"></span>
-						</a>
-					</li>
-				</ul>
-				<div class="headerSearch">
-					<form method="get" action="{{asset('search/')}}">
-						<input type="text" name="search" class="inputSearch" placeholder="Tìm kiếm">
-						{{-- <input type="submit" name="btnSubmit" style="display: none;"> --}}
-					</form>
-						
-					<span class="glyphicon glyphicon-search iconSearch"></span>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div class="headerTiny">
-		<div class="headerTinyLeft">
-			<ul>
-				<li><a href="{{asset("/")}}">Trang chủ</a></li>
-				<li><a href="{{asset("courses")}}">Khóa học</a></li>
-				<li><a href="{{asset("news")}}">Tin tức</a></li>
-				<li><a href="{{asset("partner")}}">Trở thành đối tác</a></li>
-				<li><a href="{{asset("doc")}}">Tài liệu</a></li>
-			</ul>
-		</div>
-		<div class="headerTinyRight">
-			<ul>
-				<li>
-					<a href="{{ asset('code') }}">
-						<div class="headerActiveCodeTiny">
-							<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-							<span>Kích hoạt mã code</span>
-						</div>
-					</a>
-					
-				</li>
-				@if(Auth::check())
-				<li>
-					<a href="{{asset('logout')}}">
-						<i class="fa fa-sign-out" aria-hidden="true"></i>
-						<span>Đăng xuất</span>
-					</a>
-				</li>
-				<li>
-					<a  href="{{asset('user')}}" class="headerTinyUser">
-						<img src="{{asset('lib/storage/app/avatar/resized-'.Auth::user()->img)}}">
-						<span>{{Auth::user()->name}}</span>
-					</a>
-				</li>
-				@else
-				<li>
-					<a href="" data-toggle="modal" data-target=".modal-login">
-						<i class="fa fa-user-circle-o" aria-hidden="true"></i>
-						<span>Đăng nhập</span>
-					</a>
-				</li>
-				@endif
-				<li>
-					<a href="">
-						<i class="fa fa-bell" aria-hidden="true"></i>
-					</a>
-				</li>
-				<li>
-					<a href="{{asset('cart/show')}}" class="cart">
-						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-						@if(Cart::count() != 0)
-							<div class="numOfCartTiny">{{Cart::count()}}</div>
-						@endif
-					</a>
-				</li>
-				<li class="btnSearchHeadTiny"> 
-					<a >
-						<i class="fa fa-search" aria-hidden="true"></i>
-					</a>
-					<div class="headerSearchTiny">
-						<form method="get" action="{{asset('search/')}}">
-							<input type="text" name="search" class="inputSearchTiny" placeholder="Tìm kiếm">
-							{{-- <input type="submit" name="btnSubmit" style="display: none;"> --}}
-						</form>
-						
-					</div>
-				</li>
-
-			</ul>
-		</div>
-	</div>
+   
 	<div class="btnScrollTop">
 		<i class="fa fa-angle-double-up" aria-hidden="true"></i>
 	</div>
 
-	<!-- Large modal -->
-	
-	<div class="modal fade modal-login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-	  	<div class="modal-dialog modal-md" role="document">
-	    	<div class="modal-content">
-		      	
-			    <div class="modal-body">
-			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <div class="loginMain">
-						@include('errors.note')
-						<div class="mainFormHead">
-							<div class="mainFormHeadContent">
+	<header>
+		<div class="headerItem headerTop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="headerLogo">
+							<img src="img/LOGO_CEDU1.png">
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="headerTopMenu">
+							<div class="headerTopMenuItem">
+								<div class="headerTopMenuItemIcon">
+									<i class="fa fa-phone" aria-hidden="true"></i>
+								</div>
+								<div class="headerTopMenuItemRight">
+									<div class="headerTopMenuItemRightTitle">
+										08.887.790.111
+									</div>
+									<div class="headerTopMenuItemRightContent">
+										Hỗ trợ 24/7
+									</div>
+								</div>
+							</div>
+							<div class="headerTopMenuItem">
+								<div class="headerTopMenuItemIcon">
+									<i class="fa fa-bell" aria-hidden="true"></i>
+								</div>
+								<div class="headerTopMenuItemRight">
+									<div class="headerTopMenuItemRightTitle">
+										Thông báo 
+									</div>
+									<div class="headerTopMenuItemRightContent">
+										2 tin mới
+									</div>
+								</div>
+							</div>
+							<div class="headerTopMenuItem">
+								<div class="headerTopMenuItemIcon">
+									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+								</div>
+								<div class="headerTopMenuItemRight">
+									<div class="headerTopMenuItemRightTitle">
+										Giỏ hàng
+									</div>
+									<div class="headerTopMenuItemRightContent">
+										{{Cart::count()}} khóa học
+									</div>
+								</div>
+							</div>
+							<div class="headerTopMenuItem">
+								<div class="headerTopMenuItemIcon">
+									<i class="fa fa-user-circle" aria-hidden="true"></i>
+								</div>
+								<div class="headerTopMenuItemRight">
+									<div class="headerTopMenuItemRightTitle">
+										
+									</div>
+									<div class="headerTopMenuItemRightContent user">
+										Đăng nhập 
+										<i class="fa fa-angle-down" aria-hidden="true"></i>
+									</div>
+								</div>
+								<div class="headerTopMenuItemIcon iconSearch">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+							</div>
+							<!-- <div class="headerTopMenuItem">
+								<div class="headerTopMenuItemIconSearch">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>
+								<div class="headerTopMenuItemRight">
+									<div class="headerTopMenuItemRightTitle">
+										
+									</div>
+									<div class="headerTopMenuItemRightContent">
+										Đăng nhập
+									</div>
+								</div>
+							</div> -->
 
-								<div class="mainFormHeadCircle">
-									<img src="img/vongtron.png">
-								</div>
-								<div class="mainFormHeadLogo">
-									<img src="img/logo.png">
-								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="headerItem headerBot">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="headerBotMenu">
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('') }}">
+									Trang chủ
+								</a>
+							</div>
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('courses') }}">
+									Khóa học
+									<i class="fa fa-angle-down" aria-hidden="true"></i> 
+								</a>
+							</div>
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('news') }}">
+									Tin tức
+								</a>
+							</div>
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('partner') }}">
+									Trở thành đối tác
+								</a>
+							</div>
+							<div class="headerBotMenuItem">
+								<a href="{{ asset('doc') }}">
+									Tài liệu
+								</a>
 							</div>
 							
 						</div>
-						<h3 class="modal-title formTitleLogin">Đăng nhập</h3>
-			        	<h3 class="modal-title formTitleRegister">Đăng kí</h3>
-						<form method="post" class="formModal" id="login" action="{{asset('loginHome')}}">
-							<div class="">
-								<div class="form-group">
-									<input type="text" class="form-control" name="email" required placeholder="Email">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-								</div>
-							</div>
-							<div class="" >
-								<div class="form-group">
-									<input type="password" class="form-control" name="password" required placeholder="Mật khẩu">
-									<i class="fa fa-lock" aria-hidden="true"></i>
-								</div>
-							</div>
-							<div class="forgotPassword">
-								<a href="{{ asset('forgot_pass') }}">
-									Bạn quên mật khẩu ?
-								</a>
-								
-							</div>
-							<div class="form-group">
-								<input type="submit" name="" class="btn-Modal" value="Đăng Nhập">
-							</div>
-							<div class="formModalOr">
-								<div class="borderLine"></div>
-								<div class="content">hoặc</div>
-								
-							</div>
-							<div class="connect">
-								{{-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-								<a href="{{asset('redirect/facebook')}}" onlogin="checkLoginState();">
-									<img src="img/Facebook-Icon-300x300.png">
-								</a> --}}
-								<a href="{{asset('redirect/google')}}">
-									Login with Google
-								</a>
-								{{-- 
-								<a href="">
-									<img src="img/brasol.vn-logo-zalo-vector-logo-zalo-vector.png">
-								</a> --}}
-							</div>
-							{{csrf_field()}}
-						</form>
-						<form method="post" class="formModal" id="register" action="{{ url('payment_paypal') }}">
-							{{-- <div class="">
-								<div class="form-group">
-									<input type="text" class="form-control" name="name" required placeholder="Tên của bạn">
-									<i class="fa fa-user" aria-hidden="true"></i>
-								</div>
-							</div>
-							<div class="">
-								<div class="form-group">
-									<input type="text" class="form-control" name="email" required placeholder="Email">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-								</div>
-							</div>
-							<div class="" >
-								<div class="form-group">
-									<input type="password" class="form-control" name="password" required placeholder="Mật khẩu">
-									<i class="fa fa-lock" aria-hidden="true"></i>
-								</div>
-							</div> --}}
-							<div class="form-group">
-								<input type="submit" name="" class="btn-Modal" value="Đăng kí">
-							</div>
-							<div class="formModalOr">
-								<div class="borderLine"></div>
-								<div class="content">hoặc</div>
-								
-							</div>
-							<div class="connect">
-								{{-- <a href="{{asset('redirect/facebook')}}">
-									<img src="img/Facebook-Icon-300x300.png">
-								</a> --}}
-								<a href="{{asset('redirect/google')}}">
-									Login with Google
-									
-								</a>
-								{{-- <a href="">
-									<img src="img/brasol.vn-logo-zalo-vector-logo-zalo-vector.png">
-								</a>	 --}}
-							</div>
-							{{csrf_field()}}
-						</form>
-						<div class="formFooterLogin">
-					        <span>Bạn chưa có tài khoản?</span>
-					        <a >Đăng kí</a>
-					    </div>
-					    <div class="formFooterRegister">
-					        <span>Bạn đã có tài khoản </span>
-					        <a >Đăng nhập</a>
-					    </div>
 					</div>
+					<div class="col-md-3">
+						<div class="headerBotRight">
+							<a href="{{ asset('code') }}" class="headerBotCode">
+								<div class="headerBotCodeLeft">
+									<i class="fa fa-lock" aria-hidden="true"></i>
+								</div>
+								<div class="headerBotCodeRight">
+									Kích hoạt mã code
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				
+					
+			</div>
 
-			    </div>
-			    
-		    </div>
 		</div>
-	</div>
+	</header>
 
 	<div>
 		@yield('main')
@@ -510,8 +313,7 @@
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/home.js"></script>
-	<script type="text/javascript" src="js/master.js"></script>
+	<script type="text/javascript" src="js/master2.js"></script>
 	@yield('script')
 
 	

@@ -8,7 +8,7 @@ use Auth;
 class LoginController extends Controller
 {
     public function getLogin(){
-    	return view('backend.login');
+    	return view('backend.login2');
     }
     public function postLogin(Request $request){
     	$arr = ['email' => $request->email, 'password' => $request->password];

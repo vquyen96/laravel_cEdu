@@ -3,7 +3,9 @@
 *{
 	font-family: 'Roboto', sans-serif;
 }
-
+body{
+	background: #fff;
+}
 .loadingPage{
 	position: fixed;
 	width: 100%;
@@ -84,7 +86,7 @@
 
 
 header{
-	/*background: #ccc;*/
+	background: #fff;
 }
 .headerItem{
 	height: 90px;

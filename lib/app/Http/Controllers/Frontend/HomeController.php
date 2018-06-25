@@ -29,12 +29,16 @@ class HomeController extends Controller
         $data['bannerLeftTop'] = Banner::where('ban_name', 'like', 'Banner Thân Trang Chủ Bên Trái Phía Trên')->get();
         $data['bannerLeftBot'] = Banner::where('ban_name', 'like',  'Banner Thân Trang Chủ Bên Trái Phía Dưới')->get();
         
-    	return view('frontend.home2',$data);
+    	return view('frontend.home',$data);
     }
     public function postRegister(AddAccountRequest $request){
     	$acc = new Account;
         $acc->name = $request->name;
         $acc->email = $request->email;
+        // dd($request->password ." - - ". $request->repassword);
+        if ($request->password != $request->repassword) {
+           return back()->with('error', 'Mật khẩu bạn nhập không trùng khớp');
+        }
         $acc->password = bcrypt($request->password);
         $acc->level = 9;
         $acc->content = " ";

@@ -244,8 +244,9 @@
 }
 .rightItem{
 	background: #fff;
-	padding: 10px;
-	margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
 }
 .rightItem h4{
 

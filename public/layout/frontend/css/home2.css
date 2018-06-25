@@ -1,4 +1,7 @@
-
+body{
+	background: #fff;
+	
+}
 .txt64{
 	font-size: 64px;
 	font-family: 'IBM Plex Serif', serif;
@@ -177,13 +180,15 @@ a.menuGroupItem{
 	transition: 0.5s;
 	padding-top: 15px;
 }
-.homeCourseMainItem{
+a.homeCourseMainItem{
 	width: 272px;
     height: 343px;
     margin: 0 6px;
     display: inline-block;
     position: relative;
     transition: 0.3s;
+    color: #000;
+    text-decoration: none;
 }
 .homeCourseMainItem:hover{
 	transform: translate(0 , -10px);
@@ -219,6 +224,7 @@ a.menuGroupItem{
 	padding: 5px 2px;
 }
 .homeCourseMainItemContentTea{
+
 	font-weight: 500;
 }
 .homeCourseMainItemContentTea img{
@@ -359,7 +365,7 @@ a.menuGroupItem{
 	transition: 0.8s;
 }
 
-.featuredMainItem{
+a.featuredMainItem{
 	width: 262px;
     height: 343px;
     margin: 0 12px;
@@ -367,6 +373,8 @@ a.menuGroupItem{
     position: relative;
     transition: 0.3s;
     margin-bottom: 5px;
+    color: #000;
+    text-decoration: none;
 }
 .featuredMainItem:hover{
 	transform: translate(0 , -10px);
@@ -434,10 +442,11 @@ a.menuGroupItem{
 }
 
 .featuredMainItemContentCourse{
-	height: 50px;
-	font-size: 16px;
-	font-weight: 500;
-	margin : 8px 0;
+	height: 45px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 10px 0;
+    overflow: hidden;
 }
 
 
@@ -488,12 +497,14 @@ a.menuGroupItem{
 	transform: translate(-50%, -50%);
 
 }
-.teacherMainItem{
+a.teacherMainItem {
 	display: inline-block;
 	background: #fff;
 	width: 263px;
 	height: 456px;
 	margin-left: 26px;
+	color: #000;
+	text-decoration: none;
 }
 .teacherMainItem:first-child{
 	margin-left: 0;
@@ -506,10 +517,19 @@ a.menuGroupItem{
 	background: #000;
 }
 .teacherMainItemImg{
-
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 5px;
 }
 .teacherMainItemImg img{
+
 	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50% , -50%);
+
 }
 .teacherMainItemContent{
 	text-align: center;
@@ -519,6 +539,7 @@ a.menuGroupItem{
 .teacherMainItemContentName{
 	font-size: 16px;
 	text-transform: uppercase;
+	margin-bottom: 10px;
 
 }
 
@@ -547,4 +568,35 @@ a.menuGroupItem{
 	padding: 0 5px;
 	font-size: 24px;
 	font-family: 'IBM Plex Serif', serif;
+}
+
+.ceduMain{
+	width: 1142px;
+	margin: 0 auto 50px;
+	display: flex;
+}
+.ceduMainItem{
+	flex: 1;
+	text-align: center;
+	padding: 0 20px;
+}
+.ceduMainItemIcon{
+	width: 172px;
+	height: 172px;
+	margin: auto;
+}
+.ceduMainItemTitle{
+	font-weight: 600;
+	text-transform: uppercase;
+	margin: 10px 0;
+}
+.ceduMainItemBorder{
+	height: 6px;
+	width: 115px;
+	margin: auto;
+	background: #000;
+	margin-bottom: 10px;
+}
+.ceduMainItemContent{
+	font-weight: 500;
 }

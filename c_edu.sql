@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 23, 2018 lúc 12:01 PM
+-- Thời gian đã tạo: Th6 25, 2018 lúc 11:39 AM
 -- Phiên bản máy phục vụ: 10.1.31-MariaDB
 -- Phiên bản PHP: 7.2.4
 
@@ -75,7 +75,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `name`, `img`, `email`, `phone`, `password`, `content`, `level`, `teacher_wait`, `remember_token`, `created_at`, `updated_at`, `provider`, `provider_id`) VALUES
-(1, 'admin', 'hs_2018-06-12_1528789965.jpeg', 'admin@cphonevn.com', '0', '$2y$10$qesMSEyDH2JGnmUmJZBSJ.OULmfFopxUFyusW2mlhgZJO1oZZxaY.', '<p>Tao l&agrave; boss</p>', 1, 0, 'VFyUomBmn40swT6Ax7lCp8FrCcsLIwcpMZkmKfyN82So48k3eqe9gmBGYQlq', '2018-04-04 00:03:55', '2018-06-12 07:52:45', '', ''),
+(1, 'admin', 'hs_2018-06-12_1528789965.jpeg', 'admin@cphonevn.com', '0', '$2y$10$qesMSEyDH2JGnmUmJZBSJ.OULmfFopxUFyusW2mlhgZJO1oZZxaY.', '<p>Tao l&agrave; boss</p>', 1, 0, 'uXMmWJT5fyrFS9U2RE7xlSETovzH8jtcFy2GCS7w5TlyI8LvqrVYpOnVE7qt', '2018-04-04 00:03:55', '2018-06-12 07:52:45', '', ''),
 (3, 'Quyến Đỗ', 'hs_2018-06-12_1528790190.jpeg', 'vquyenaaa@gmail.com', '0', '$2y$10$zTZKXihF7Pt0WcdgJGWgSucY.sQaau/SblbhP25hCBW5Qu5pdjmKi', '<p>C&aacute;i g&igrave; đ&oacute;</p>', 9, 0, 'EMY9uBkznkTwFsQY35E0gLLaRxahSTiuuMg7eNnN9Be89JY9D6WsOCqGSZl5', '2018-04-04 00:03:55', '2018-06-19 03:20:31', '', ''),
 (4, 'Xuân Hùng', 'hs_2018-06-12_1528789850.jpeg', 'xuanhung2401@gmail.com', '0', '$2y$10$S97XOu6vWRg1wKVnw6wNGuWyZMpOo/7eQycL6S.SExh4qCp0K6AUy', '<p>L&agrave; một nh&acirc;n vi&ecirc;n của một tập đo&agrave;n lớn của Việt Nam nhưng chị lu&ocirc;n d&agrave;nh thời gian rảnh rỗi của m&igrave;nh cho sở th&iacute;ch nấu nướng v&agrave; l&agrave;m b&aacute;nh. Tuy bận rộn nhưng chị lu&ocirc;n c&oacute; th&oacute;i quen t&igrave;m hiểu tận gốc nguy&ecirc;n liệu để tạo ra c&ocirc;ng thức nấu ăn cũng như l&agrave;m b&aacute;nh Từ năm 2016 chị bắt đầu l&agrave;m quen với kem bơ. Bằng việc lu&ocirc;n t&igrave;m t&ograve;i, nghi&ecirc;n cứu tận gốc c&ocirc;ng thức chị c&oacute; rất nhiều kinh nghiệm tạo ra những c&ocirc;ng thức cốt b&aacute;nh v&agrave; kem bơ ngon v&agrave; dễ ăn.</p>', 7, 0, '4lPpDrwu1ZJKdc4c7Kksa3n7EhXtrUTksvkMRjxIAW01dJsMQWFgu20Low9M', '2018-04-04 00:08:16', '2018-06-19 03:19:28', '', ''),
 (5, 'Phan Huy', 'user.png', 'phanhuy@cphonevn.com', '0', '$2y$10$sdgwcuzBYJ04a76ZunNsYOOQYv2/L3K7XmAWtXmud2zbHNBnO3vCK', '<p>OK</p>', 9, 0, NULL, '2018-04-04 00:34:46', '2018-06-19 03:20:31', '', ''),
@@ -114,7 +114,8 @@ INSERT INTO `accounts` (`id`, `name`, `img`, `email`, `phone`, `password`, `cont
 (45, 'Quản trị', 'user.png', 'quantri@cphonevn.com', '0', '$2y$10$h93rvyU1yJPs1Nk7O3N9neQcrRy91sWvaS3at51MPbJnoIAhYD3eC', NULL, 2, 0, 'VWHdcs2NoBhxhZphZdcz9RE80fLohal4ai2BaPABrl9WPgY6rm4seyfISJKq', '2018-06-19 03:32:25', '2018-06-19 03:40:14', NULL, NULL),
 (46, 'Kế Toán', 'hs_2018-06-21_1529564881.jpeg', 'ketoan@cphonevn.com', '0', '$2y$10$WQb8E3oIg7vdcd9PKD3KyeXeFqq2mYi35pL/0Ap8Id8HpQ6b9Xpma', '<p>789</p>', 3, 0, 'KaLHz5LJx5zfsr5pAL6PMw11fbzwCxeEgdFBQ02BFHfiek8Gwx1scuYzy66N', '2018-06-19 03:35:23', '2018-06-22 10:28:32', NULL, NULL),
 (47, 'Quản trị giáo viên', 'user.png', 'quantri_giaovien@cphonevn.com', '0', '$2y$10$o.ynTq65L/9e6qPQAVkjVO2CoWfCN.IP37whaB9.5mvOWmSy06Ng6', '', 5, 0, NULL, '2018-06-19 03:36:37', '2018-06-19 03:36:37', NULL, NULL),
-(48, 'Quản trị CTV', 'user.png', 'quantri_ctv@cphonevn.com', '0', '$2y$10$UjV2I0rdnvkEe.TRVW3qxeYdvxrcS/koJEqEzgIJ05RYsuMx8AQjO', '', 6, 0, NULL, '2018-06-19 03:38:17', '2018-06-19 03:38:17', NULL, NULL);
+(48, 'Quản trị CTV', 'user.png', 'quantri_ctv@cphonevn.com', '0', '$2y$10$UjV2I0rdnvkEe.TRVW3qxeYdvxrcS/koJEqEzgIJ05RYsuMx8AQjO', '', 6, 0, NULL, '2018-06-19 03:38:17', '2018-06-19 03:38:17', NULL, NULL),
+(49, 'Uyên Phạm', 'user.png', 'uyenpham@gmail.com', '0', '$2y$10$E6.pTMXeTwLCYUBN90SiF.tMfHkYMaE1hOMSM8lZboggwX6iJyuUC', ' ', 9, 0, 'wd77ozklKIx8eB2icugkc4YkzSNbEY60aD5XkdgBUOT42IuhXQdmNbClfRmk', '2018-06-25 04:02:48', '2018-06-25 04:02:48', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -936,7 +937,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT cho bảng `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT cho bảng `account_request`

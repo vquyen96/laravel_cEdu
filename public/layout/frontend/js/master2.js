@@ -25,4 +25,10 @@ $(document).ready(function () {
     setTimeout(function(){
         $('.masterError').fadeOut();
     },2000);
+
+    $(document).on('click', ".btnScrollTop", function(){
+       $('html, body').animate({
+          scrollTop: 0
+        }, 500);
+    });
 });
