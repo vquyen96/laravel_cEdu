@@ -28,6 +28,7 @@
 .mainMenu {
 	width: 100%;
 	transition: top 1s;
+	box-shadow: rgb(162, 162, 162) 7px 7px 20px;
 }
 .mainMenu ul{
 	padding: 0;
@@ -87,7 +88,7 @@
     left: 0;
     height: 100%;
     
-    background: #eee;
+    background: #284ea9;
     
     z-index: -1;
 }

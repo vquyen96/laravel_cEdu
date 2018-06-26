@@ -118,7 +118,6 @@ class CartController extends Controller
     	Cart::update($request->rowId, $request->qty);
     }
     public function postComplete(Request $request, $type){
-
     	$order = new Order;
         $order->ord_payment = 1;
         $order->ord_acc_id = Auth::user()->id;
@@ -241,22 +240,31 @@ class CartController extends Controller
     	return view('frontend.complete');
     }
     public function getPaymentLogin(){
-        if(Auth::check()){
-            return redirect('cart/');
+        if (Cart::total() == "0.00") {
+            return redirect('cart/show');
         }
-        $data['total'] = Cart::total();
-        $data['items'] = Cart::content();
-        return view('frontend.payment-login', $data);
+        else{
+            if(Auth::check()){
+                return redirect('cart/');
+            }
+            $data['total'] = Cart::total();
+            $data['items'] = Cart::content();
+            return view('frontend.payment-login', $data);
+        }
+        
 
     }
     public function getPayment(){
-        if (Auth::check()) {
-            return view('frontend.payment');
+        if (Cart::total() == "0.00") {
+            return redirect('cart/show');
+        }else{
+            if (Auth::check()) {
+                return view('frontend.payment');
+            }
+            else{
+                return redirect('cart/login');
+            }
         }
-        else{
-            return redirect('cart/login');
-        }
-        
     }
     public function postPayment(Request $request){
         $order = new Order;

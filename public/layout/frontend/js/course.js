@@ -12,13 +12,13 @@ $(document).ready(function(){
 	    } else {
 	        $('.headerTiny').slideUp();
             $('.btnScrollTop').css('bottom','-120px');
-        	$('.mainMenu').css({'position':'unset','top':'0','z-index':'9','width': '100%', 'box-shadow': 'none'});
+        	$('.mainMenu').css({'position':'unset','top':'0','z-index':'9','width': '100%'});
 	    }
 	};
 	if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
     	$('.headMenu').css({'position':'fixed','top':'47px','z-index':'9','width':widthHeadMenu, 'box-shadow': 'rgb(162, 162, 162) 7px 7px 20px'});
     } else {
-    	$('.headMenu').css({'position':'unset','top':'0','z-index':'9','width': '100%', 'box-shadow': 'none'});
+    	$('.headMenu').css({'position':'unset','top':'0','z-index':'9','width': '100%'});
     }
 
 

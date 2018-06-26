@@ -6,6 +6,18 @@
 body{
 	background: #fff;
 }
+.masterError{
+	position: fixed;
+	z-index: 9;
+	width: 100%;
+	top: 10px;
+	left: 0;
+}
+.masterErrorContent{
+	width: 30%;
+	margin: auto;
+	
+}
 .loadingPage{
 	position: fixed;
 	width: 100%;
@@ -109,11 +121,21 @@ header{
 	position: relative;
 	cursor: pointer;
 }
+.headerTopMenuItem>a{
+	text-decoration: none;
+	color: #ccc;
+}
 .headerTopMenuItemIcon{
 	float: left;
 	font-size: 27px;
 	padding: 0 10px;
 	color: #1E2782;
+}
+.headerTopMenuItemIcon img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+
 }
 .headerTopMenuItemRightTitle{
 	font-weight: bold;
@@ -130,6 +152,41 @@ header{
 .headerTopMenuItemRightContent.user{
 	margin-top: 9px;
 }
+.headerTopMenuItemHover{
+	position: absolute;
+    width: 185px;
+    top: 50px;
+    left: 30px;
+    z-index: 1;
+    background: #fff;
+    border: 1px solid #1E2782;
+    border-top: none;
+    padding-top: 10px;
+    text-align: center;
+    display: none;
+}
+.headerTopMenuItemHoverHead{
+	position: absolute;
+	width: 100%;
+	top: -17px;
+	left: 0;
+}
+.headerTopMenuItemHoverHead img{
+	width: 100%;
+}
+.headerTopMenuItemHover>a{
+	display: block;
+	color: #666;
+	text-decoration: none;
+	padding: 10px 0;
+
+}
+.headerTopMenuItemHover>a:hover{
+	background: #eee;
+}
+.headerTopMenuItem:hover .headerTopMenuItemHover{
+	display: block;
+}
 
 .headerBot{
 	border-bottom: 2px solid #eee;
@@ -143,7 +200,8 @@ header{
 	text-align: center;
 	margin-right: 60px;
 }
-.headerBotMenuItem a{
+
+.headerBotMenuItem>a{
 	display: inline-block;
 	height: 90px;
 	line-height: 90px;
@@ -152,9 +210,55 @@ header{
 	font-size: 16px;
 	color: #000;
 }
-.headerBotMenuItem:hover a{
+.headerBotMenuItem:hover>a{
 	border-bottom: 3px solid #1E2782;
 }
+.headerBotMenuItem>a.active{
+	border-bottom: 3px solid #1E2782;
+}
+.headerBotMenuItem.course{
+	position: relative;
+}
+.headerBotMenuItem.course:hover .headerBotMenuItemHover{
+	display: block;
+}
+.headerBotMenuItemHover{
+	position: absolute;
+	width: 200px;
+	top: 76px;
+    left: -25px;
+	z-index: 1;
+	background: #fff;
+	border: 1px solid #1E2782;
+	border-top: none;
+	display: none;
+	padding-top: 10px;
+}
+.headerBotMenuItemHoverHead{
+	position: absolute;
+	top: -17px;
+	left: 0;
+	width: 100%;
+
+}
+.headerBotMenuItemHoverHead img{
+	width: 100%;
+}
+.headerBotMenuItemHover>a{
+	display: block;
+	color: #666;
+	padding: 10px 5px;
+	text-decoration: none;
+	
+	transition: 0.3s;
+}
+.headerBotMenuItemHover>a:hover{
+	background: #eee;
+}
+
+
+
+
 
 .headerBotRight{
 	width: 100%;
@@ -200,7 +304,7 @@ a.headerBotCode{
 
 
 
-
+/*
 footer{
 	background: url('../img/bg_footer.png') no-repeat 100%;
 	background-size: 100% 100%;
@@ -231,7 +335,7 @@ footer{
 	font-size: 14px;
 	color: #aaa;
 	margin-bottom: 10px;
-	/*white-space: inherit;*/
+	white-space: inherit;
 }
 .footerMainItemContent p img{
 	width: 32px;
@@ -295,8 +399,8 @@ footer{
 .footerFly{
 	position: absolute;
 	width: 40px;
-	-webkit-animation-name: footerFly; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
+	-webkit-animation-name: footerFly;
+    -webkit-animation-duration: 10s;
     animation-name: footerFly;
     animation-duration: 10s;
     animation-iteration-count: infinite;
@@ -308,7 +412,7 @@ footer{
 }
 
 
-/* Safari 4.0 - 8.0 */
+
 
 @-webkit-keyframes footerFly {
     0%   {
@@ -368,4 +472,195 @@ footer{
     	transform: rotate(-90deg);
 
     }
+}
+*/
+.headerTiny{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #284da9;
+	height: 50px;
+	z-index: 99;
+	display: none;
+	box-shadow: 10px 5px 20px #1f1f1f;
+	padding: 0 20px;
+}
+.headerTinyLeft ul li{
+	list-style: none;
+	float: left;
+
+}
+.headerTinyLeft ul li a{
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	padding: 5px 15px;
+	transition: .5s;
+	text-transform: uppercase;
+}
+.headerTinyRight ul li {
+	list-style: none;
+	float: right;
+}
+.headerTinyRight ul li a{
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	padding: 5px 20px;
+	border-right: 1px solid #fff;
+	transition: 0.3s;
+	
+}
+.headerTinyRight ul li a i{
+	transition: .5s;
+}
+.headerTinyRight ul li:first-child a{
+	border-right: none;
+}
+.headerTinyRight .headerActiveCode{
+	margin: 0;
+}
+.headerTinyRight ul li a:hover {
+	transform: scale(1.1);
+	
+}
+.headerTinyLeft ul li a:hover{
+	transform: scale(1.1);
+	font-weight: 500;
+
+}
+.headerTinyUser img{
+	width: 20px;
+	border-radius: 50%;
+}
+
+.btnSearchHeadTiny{
+	position: relative;
+}
+.headerSearchTiny{
+	position: absolute;
+    width: 55px;
+    right: 0;
+    top: 18px;
+    opacity: 0.5;
+    display: none;
+    transition: 0.5s;
+
+}
+.inputSearchTiny{
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	background: none;
+	border-radius: 40px;
+	border: 1px solid #fff;
+	padding: 5px 20px;
+	right: 8px;
+    top: -22px;
+    font-size: 16px;
+}
+.inputSearchTiny::placeholder{
+	color: #fff;
+}
+.inputSearchTiny{
+	position: absolute;
+	color: #fff;
+    
+
+}
+.headerActiveCodeTiny {
+    color: #fff;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #fff;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 12px;
+    border-radius: 15px;
+    transform: translate(0 , -3px);
+}
+
+
+
+
+
+footer{
+	margin-top: 140px;
+}
+.footerTop{
+	background: #f3f3f3f3;
+	display: flex;
+}
+
+.footerTopItem{
+	flex: 1;
+	position: relative;
+	height: 265px;
+	border-left: 1px dotted  #000;
+	position: relative;
+}
+.footerTopItemBtnScrollTop{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 50px;
+	width: 80px;
+	background: #F4E76D;
+	font-size: 35px;
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+}
+.footerTopItem:first-child{
+	border-left: none;
+}
+.footerTopItemMain{
+/*	width: 245px;
+*/	height: 180px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.footerTopItemMainTitle{
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+.footerMainItemContent{
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 18px;
+}
+.footerMainItemContent i{
+	float: left;
+	font-size: 24px;
+    color: #1E2782;
+    margin: 5px 10px 5px 0;
+}
+a.footerMainItemContentItem{
+	color: #000;
+	text-decoration: none;
+	margin-bottom: 5px;
+	display: block;
+}
+.oneLine{
+	display: inline-block;
+	padding: 10px 0;
+}
+
+.footerBot{
+	background: #000;
+	text-align: center;
+	height: 60px;
+	color: #fff;
+	line-height: 60px;
+	font-size: 16px;
+}
+.footerBot a{
+	color: #fff;
+	display: inline-block;
+	margin: 0 15px;
 }

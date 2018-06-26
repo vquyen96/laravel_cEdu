@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Account;
 use Auth;
 use App\Http\Requests\AddAccountRequest;
+use File;
 // use Image;
 class AccountController extends Controller
 {
@@ -79,6 +80,11 @@ class AccountController extends Controller
     }
 
     public function getDelete($id){
+        $acc = Account::find($id);
+        $namefile = $acc->img;
+        File::delete('libs/storage/app/avatar/'.$namefile);
+        File::delete('libs/storage/app/avatar/resized-'.$namefile);
+        $acc->delete();
         Account::destroy($id);
         return back();
     }

@@ -50,18 +50,18 @@
 	</div>
 	<input type="hidden" name="url" value="{{ asset('')}}">
    
-	<div class="btnScrollTop">
+	{{-- <div class="btnScrollTop">
 		<i class="fa fa-angle-double-up" aria-hidden="true"></i>
-	</div>
+	</div> --}}
 
 	<header>
 		<div class="headerItem headerTop">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<div class="headerLogo">
+						<a href="{{ asset('') }}" class="headerLogo">
 							<img src="img/LOGO_CEDU1.png">
-						</div>
+						</a>
 					</div>
 					<div class="col-md-9">
 						<div class="headerTopMenu">
@@ -91,7 +91,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="headerTopMenuItem">
+							<a href="{{ asset('cart/show') }}" class="headerTopMenuItem">
 								<div class="headerTopMenuItemIcon">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 								</div>
@@ -103,23 +103,55 @@
 										{{Cart::count()}} khóa học
 									</div>
 								</div>
-							</div>
+							</a>
 							<div class="headerTopMenuItem">
-								<div class="headerTopMenuItemIcon">
-									<i class="fa fa-user-circle" aria-hidden="true"></i>
-								</div>
-								<div class="headerTopMenuItemRight">
-									<div class="headerTopMenuItemRightTitle">
-										
+								
+								@if (Auth::check())
+
+									<div class="headerTopMenuItemIcon">
+										<img src="{{ asset('lib/storage/app/avatar/'.Auth::user()->img) }}">
 									</div>
-									<div class="headerTopMenuItemRightContent user">
-										Đăng nhập 
-										<i class="fa fa-angle-down" aria-hidden="true"></i>
+									<div class="headerTopMenuItemRight">
+										<div class="headerTopMenuItemRightContent user">
+											{{Auth::user()->name}}
+											<i class="fa fa-angle-down" aria-hidden="true"></i>
+										</div>
 									</div>
-								</div>
-								<div class="headerTopMenuItemIcon iconSearch">
-									<i class="fa fa-search" aria-hidden="true"></i>
-								</div>
+									<div class="headerTopMenuItemIcon iconSearch">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</div>
+									<div class="headerTopMenuItemHover">
+										<div class="headerTopMenuItemHoverHead">
+											<img src="img/ic_menuc2.png">
+										</div>
+										<a href="{{ asset('user') }}">
+											Quản lý hồ sơ
+										</a>
+										<a href="{{ asset('user') }}">
+											Các khóa học đang học
+										</a>
+										<a href="{{ asset('logout') }}">
+											Đăng xuất
+										</a>
+									</div>
+								@else
+									<a href="{{ asset('login') }}">
+										<div class="headerTopMenuItemIcon">
+											<i class="fa fa-user-circle" aria-hidden="true"></i>
+										</div>
+										<div class="headerTopMenuItemRight">
+											<div class="headerTopMenuItemRightContent user">
+												Đăng nhập 
+												<i class="fa fa-angle-down" aria-hidden="true"></i>
+											</div>
+										</div>
+										<div class="headerTopMenuItemIcon iconSearch">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</div>
+									</a>
+									
+								@endif
+								
 							</div>
 							<!-- <div class="headerTopMenuItem">
 								<div class="headerTopMenuItemIconSearch">
@@ -146,28 +178,39 @@
 					<div class="col-md-9">
 						<div class="headerBotMenu">
 							<div class="headerBotMenuItem">
-								<a href="{{ asset('') }}">
+								<a href="{{ asset('') }}" @if (Request::segment(1) == "") class="active" @endif >
 									Trang chủ
 								</a>
 							</div>
-							<div class="headerBotMenuItem">
-								<a href="{{ asset('courses') }}">
+							<div class="headerBotMenuItem course">
+								<a href="{{ asset('courses') }}" @if (Request::segment(1) == "courses") class="active" @endif >
 									Khóa học
 									<i class="fa fa-angle-down" aria-hidden="true"></i> 
+
 								</a>
+								<div class="headerBotMenuItemHover">
+									<div class="headerBotMenuItemHoverHead">
+										<img src="img/ic_menuc2.png">
+									</div>
+									
+									@foreach($group as $item)
+									<a href="{{asset('group/'.$item->gr_slug.'.html')}}">{{$item->gr_name}}</a>
+									@endforeach
+								</div>
+								
 							</div>
 							<div class="headerBotMenuItem">
-								<a href="{{ asset('news') }}">
+								<a href="{{ asset('news') }}" @if (Request::segment(1) == "news") class="active" @endif >
 									Tin tức
 								</a>
 							</div>
 							<div class="headerBotMenuItem">
-								<a href="{{ asset('partner') }}">
+								<a href="{{ asset('partner') }}" @if (Request::segment(1) == "partner") class="active" @endif >
 									Trở thành đối tác
 								</a>
 							</div>
 							<div class="headerBotMenuItem">
-								<a href="{{ asset('doc') }}">
+								<a href="{{ asset('doc') }}" @if (Request::segment(1) == "doc") class="active" @endif >
 									Tài liệu
 								</a>
 							</div>
@@ -193,12 +236,83 @@
 
 		</div>
 	</header>
+	<div class="headerTiny">
+		<div class="headerTinyLeft">
+			<ul>
+				<li><a href="{{asset("/")}}">Trang chủ</a></li>
+				<li><a href="{{asset("courses")}}">Khóa học</a></li>
+				<li><a href="{{asset("news")}}">Tin tức</a></li>
+				<li><a href="{{asset("partner")}}">Trở thành đối tác</a></li>
+				<li><a href="{{asset("doc")}}">Tài liệu</a></li>
+			</ul>
+		</div>
+		<div class="headerTinyRight">
+			<ul>
+				<li>
+					<a href="{{ asset('code') }}">
+						<div class="headerActiveCodeTiny">
+							<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+							<span>Kích hoạt mã code</span>
+						</div>
+					</a>
+					
+				</li>
+				@if(Auth::check())
+				<li>
+					<a href="{{asset('logout')}}">
+						<i class="fa fa-sign-out" aria-hidden="true"></i>
+						<span>Đăng xuất</span>
+					</a>
+				</li>
+				<li>
+					<a  href="{{asset('user')}}" class="headerTinyUser">
+						<img src="{{asset('lib/storage/app/avatar/resized-'.Auth::user()->img)}}">
+						<span>{{Auth::user()->name}}</span>
+					</a>
+				</li>
+				@else
+				<li>
+					<a href="" data-toggle="modal" data-target=".modal-login">
+						<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+						<span>Đăng nhập</span>
+					</a>
+				</li>
+				@endif
+				<li>
+					<a href="">
+						<i class="fa fa-bell" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li>
+					<a href="{{asset('cart/show')}}" class="cart">
+						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+						@if(Cart::count() != 0)
+							<div class="numOfCartTiny">{{Cart::count()}}</div>
+						@endif
+					</a>
+				</li>
+				<li class="btnSearchHeadTiny"> 
+					<a >
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</a>
+					<div class="headerSearchTiny">
+						<form method="get" action="{{asset('search/')}}">
+							<input type="text" name="search" class="inputSearchTiny" placeholder="Tìm kiếm">
+							{{-- <input type="submit" name="btnSubmit" style="display: none;"> --}}
+						</form>
+						
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
 
 	<div>
 		@yield('main')
 	</div>
 
-	<footer>
+	{{-- <footer>
 
 		<div class="container footerMain">
 			<div class="row">
@@ -274,10 +388,7 @@
 								@foreach($about_list as $item)
 								<li><a href="{{ asset('about/'.$item->about_slug.'.html') }}">{{$item->about_name}}</a></li>
 								@endforeach
-								{{-- <li><a href=""> Điều khoản</a></li>
-								<li><a href=""> Chính sách bảo mật</a></li>
-								<li><a href=""> Liên hệ hợp tác</a></li>
-								<li><a href=""> Câu hỏi thường gặp</a></li> --}}
+								
 							</ul>
 						</div>
 						<div class="footerItemFootInfo">
@@ -308,6 +419,91 @@
 		</div>
 		<div class="footerFly">
 			<img src="img/ic_plane_dichuyen.png">
+		</div>
+	</footer> --}}
+	<footer>
+		<div class="footerTop">
+			<div class="footerTopItem">
+				<div class="footerTopItemMain">
+					<div class="footerTopItemMainTitle">
+						Trụ sở công ty
+					</div>
+					<div class="footerMainItemContent">
+						<p>
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+							Tầng 2, 5, 6 CPHONE Tower, Số 456 Xô Viết Nghệ Tĩnh, P25, Q Bình Thạnh, HCM
+						</p>
+						<p>
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+							Tầng 5, Tòa Nhà Diamond Flower, Số 1 Hoàng Đạo Thúy, Thanh Xuân, Hà Nội
+						</p>
+						{{-- <p>
+							MST: 0314813082 do Sở kế hoạch và đầu tư TP.HCM cấp
+
+						</p>
+						<p>
+							Đại diện :Ông Đoàn Công Chung
+						</p> --}}
+					</div>
+					<div class="footerItemFootPlace">
+						<a href="{{ asset('') }}">
+							<img src="img/dadangky.png">
+						</a>
+					</div>
+				</div>
+				
+			</div>
+			<div class="footerTopItem">
+				<div class="footerTopItemMain">
+					<div class="footerTopItemMainTitle">
+						Thông tin liên hệ
+					</div>
+					<div class="footerMainItemContent">
+						<p>
+							<i class="fa fa-phone" aria-hidden="true"></i>
+							08.887.790.111<br>
+							02.473.016.366
+						</p>
+						<p>
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<span class="oneLine">info@ceduvn.com</span>
+						</p>
+					</div>
+				</div>
+				<div class="footerTopItemBtnScrollTop">
+					<i class="fa fa-angle-up" aria-hidden="true"></i>
+				</div>
+				
+			</div>
+			<div class="footerTopItem">
+				<div class="footerTopItemMain">
+					<div class="footerTopItemMainTitle">Thông tin về CEDU</div>
+					<div class="footerMainItemContent">
+						@foreach($about_list as $item)
+						<a href="{{ asset('about/'.$item->about_slug.'.html') }}" class="footerMainItemContentItem">{{$item->about_name}}</a>
+						@endforeach
+							
+					</div>
+					<div class="footerItemFootPlace">
+						<a href="{{ asset('') }}">
+							<img src="img/appios.png">
+
+						</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="footerBot">
+			<a href="{{ asset('') }}">
+				<i class="fa fa-facebook" aria-hidden="true"></i>
+			</a>
+			<a href="{{ asset('') }}">
+				<i class="fa fa-google-plus" aria-hidden="true"></i>
+			</a>
+			<a href="{{ asset('') }}">
+				<i class="fa fa-twitter" aria-hidden="true"></i>
+			</a>
 		</div>
 	</footer>
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>

@@ -312,12 +312,13 @@ a.docGroupItem{
 	transition: 0.3s;
 
 }
+
 a.docGroupItem:hover{
 	transform: translate(0px, -5px);
 	box-shadow: 6px 7px 20px 2px #999;
 }
 .docGroupItem img{
-	width: 90px;
+	height: 90px;
 	margin:auto;
 	display: block;
 }

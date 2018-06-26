@@ -21,7 +21,7 @@ class HomeController extends Controller
 		$data['courserate'] = Course::orderBy('cou_star','desc')->paginate(4);
 		$data['hotcourse'] = Course::orderBy('cou_price','asc')->paginate(8);
 		$data['courseHot'] = Course::orderBy('cou_price','asc')->paginate(7);
-		$data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(4);
+		$data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(10);
         // dd($data['teacher']);
 		$data['courseFeatured'] = Course::orderBy('cou_featured','desc')->paginate(21);
         $data['bannerHead'] = Banner::where('ban_name','like','Banner Trang Chủ_Phía Trên')->get();

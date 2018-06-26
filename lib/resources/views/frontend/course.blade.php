@@ -3,13 +3,13 @@
 @section('main')
 <link rel="stylesheet" type="text/css" href="css/course.css">
 <div>
-	<div class="title">
+	{{-- <div class="title">
 		<div class="titleLine"></div>
 		<div class="titleContent">
 			<h1>Khóa học</h1>
 		</div>
 
-	</div>
+	</div> --}}
 	<div class="container main">
 		<div class="row">
 			<div class="col-md-9 col-sm-12 mainHead">

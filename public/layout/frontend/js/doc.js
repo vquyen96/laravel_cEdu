@@ -12,4 +12,8 @@ $(document).ready(function () {
 	// 	    },
 	// 	    duration:'slow'
 	// 	});	
+
+	$('#slide_banner_head .item:first').attr('class','item active');
+	$('#slide_banner_head ol li:first').attr('class','active');
+	$('.banner #slide_banner_head .item .slide_item').height($('.banner #slide_banner_head .item .slide_item').width()*648/1440);
 });

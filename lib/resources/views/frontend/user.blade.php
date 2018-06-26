@@ -296,7 +296,7 @@ window.onload = function () {
 					<div class="col-md-3 col-sm-4 col-xs-6">
 						<a href="{{asset('courses/detail/'.$item->course->cou_slug.'.html')}}" class="courseItem">
 							<div class="courseImg">
-								<img src="{{asset('lib/storage/app/course/'.$item->course->cou_img)}}">
+								<img src="{{asset('lib/storage/app/course/resized-'.$item->course->cou_img)}}">
 
 									@if($item->code->code_status == 0)
 										<div class="courseWait">
@@ -310,7 +310,7 @@ window.onload = function () {
 							<div class="courseContent">
 								<h4>{{cut_string($item->course->cou_name,60)}}</h4>
 								<div class="courseTeacher">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->course->tea->img)}}">
+									<img src="{{asset('lib/storage/app/avatar/resized-'.$item->course->tea->img)}}">
 									<span>{{$item->course->tea->name}}</span>
 								</div>
 							</div>
@@ -353,14 +353,9 @@ window.onload = function () {
 					    </div>
 					    
 					</div>
-					<div class="form-group row">
-					    <label class="formName  col-md-3 col-xs-5">Nghề nghiệp</label>
-					    <div class="inputGr col-md-9 col-xs-7">
-					    	<input type="text" class="form-control" name="job" value="{{Auth::user()->job}}" placeholder="Nghề nghiệp" required>
-					    </div>
-					</div>
+					
 				  	<div class="form-group row">
-					    <label class="formName  col-md-3 col-xs-5">Nghề nghiệp</label>
+					    <label class="formName  col-md-3 col-xs-5">Mật khẩu</label>
 					    <div class="inputGr col-md-9 col-xs-7">
 					    	<a class="btn btn-primary btnChangePass">Thay đổi mật khẩu</a>
 				    		<input type="password" class="form-control" name="password" placeholder="Mật khẩu của bạn">

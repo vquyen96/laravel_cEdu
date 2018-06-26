@@ -16,11 +16,12 @@ class Doc extends Migration
         Schema::create('doc', function (Blueprint $table) {
             $table->increments('doc_id');
             $table->string('doc_name');
+            $table->string('doc_img');
             $table->string('doc_link');
-            $table->integer('doc_grdoc_id')->unsigned();
-            $table->foreign('doc_grdoc_id')
-                ->references('grdoc_id')
-                ->on('groupdoc')
+            $table->integer('doc_gr_id')->unsigned();
+            $table->foreign('doc_gr_id')
+                ->references('gr_id')
+                ->on('groups')
                 ->onDelete('cascade');
             $table->integer('doc_acc_id')->unsigned();
             $table->foreign('doc_acc_id')

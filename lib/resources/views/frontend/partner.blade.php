@@ -4,12 +4,12 @@
 <link rel="stylesheet" type="text/css" href="css/partner.css">
 
 <div>
-	<div class="mainHead">
+	{{-- <div class="mainHead">
 		<div class="mainHeadLine"></div>
 		<div class="mainHeadTitle">
 			<h3>Trở thành đối tác</h3>
 		</div>
-	</div>
+	</div> --}}
 	<div class="mainBody">
 		<div class="mainBodyHeadBanner">
 			<div class="mainBodyHeadBannerImg">

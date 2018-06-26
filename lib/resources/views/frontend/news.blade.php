@@ -4,12 +4,12 @@
 <link rel="stylesheet" type="text/css" href="css/news.css">
 
 <div >
-	<div class="mainHead">
+	{{-- <div class="mainHead">
 		<div class="mainHeadLine"></div>
 		<div class="mainHeadTitle">
 			<h3>Tin tức</h3>
 		</div>
-	</div>
+	</div> --}}
 	<div class="container mainBody">
 		<div class="row newsHeadBig">
 			<div class="col-md-12 col-sm-12 col-xs-12">

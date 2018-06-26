@@ -57,7 +57,7 @@ $(document).ready(function(){
 		
 
 	});
-	var maginleftCourseFeatured = -6
+	var maginleftCourseFeatured = -6;
 	$('.featuredTitleMainBtnItem.left').click(function(){
 		
 		maginleftCourseFeatured += 571;
@@ -98,8 +98,32 @@ $(document).ready(function(){
 	});
 
 
-
-
 	$('.teacherMain').height($('.teacherMain').width()*600/1440);
+
+
+	var maginleftTeacher = 0;
+	$('.teacherMainBtnItem.right').click(function(){
+		maginleftTeacher -= 293;
+		$('.teacherMainLine').css('margin-left',maginleftTeacher);
+
+		if (maginleftTeacher < -1750) {
+			setTimeout(function(){
+				maginleftTeacher += 293;
+				$('.teacherMainLine').css('margin-left',maginleftTeacher);
+			}, 200);
+		}
+	});
+
+	$('.teacherMainBtnItem.left').click(function(){
+		maginleftTeacher += 293;
+		$('.teacherMainLine').css('margin-left',maginleftTeacher);
+
+		if (maginleftTeacher > 0) {
+			setTimeout(function(){
+				maginleftTeacher -= 293;
+				$('.teacherMainLine').css('margin-left',maginleftTeacher);
+			}, 200);
+		}
+	});
 
 });

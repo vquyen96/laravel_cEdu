@@ -150,17 +150,17 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'CheckAdmin'],function(){
 		});
 		Route::group(['prefix'=>'doc'],function(){
 			Route::get('/','GroupDocController@getGroup');
-			Route::get('get_group/{group}','GroupDocController@getGroupDoc');
-			Route::post('get_group/{group}','GroupDocController@postGroupDoc');
-			Route::get('edit_group/{group}/{groupdoc}','GroupDocController@getEditGroupDoc');
-			Route::post('edit_group/{group}/{groupdoc}','GroupDocController@postEditGroupDoc');
-			Route::get('delete_group/{group}/{groupdoc}','GroupDocController@getDeleteGroupDoc');
+			// Route::get('get_group/{group}','GroupDocController@getGroupDoc');
+			// Route::post('get_group/{group}','GroupDocController@postGroupDoc');
+			// Route::get('edit_group/{group}/{groupdoc}','GroupDocController@getEditGroupDoc');
+			// Route::post('edit_group/{group}/{groupdoc}','GroupDocController@postEditGroupDoc');
+			// Route::get('delete_group/{group}/{groupdoc}','GroupDocController@getDeleteGroupDoc');
 
-			Route::get('get_doc/{group}/{groupdoc}','GroupDocController@getDoc');
-			Route::post('get_doc/{group}/{groupdoc}','GroupDocController@postDoc');
-			Route::get('edit_doc/{group}/{groupdoc}/{doc}','GroupDocController@getEditDoc');
-			Route::post('edit_doc/{group}/{groupdoc}/{doc}','GroupDocController@postEditDoc');
-			Route::get('delete_doc/{doc}','GroupDocController@getDeleteDoc');
+			Route::get('show/{group}','GroupDocController@getDoc');
+			Route::post('show/{group}','GroupDocController@postDoc');
+			Route::get('edit/{group}/{doc}','GroupDocController@getEditDoc');
+			Route::post('edit/{group}/{doc}','GroupDocController@postEditDoc');
+			Route::get('delete/{doc}','GroupDocController@getDeleteDoc');
 		});
 		Route::group(['prefix' => 'banner'],function(){
 			Route::get('/', 'BannerController@getList');
@@ -231,8 +231,8 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 	});
 	Route::group(['prefix'=>'doc'],function(){
 		Route::get('/','DocController@getList');
-		Route::get('detail/{gr_slug}','DocController@getGroup');
-		Route::get('detail/{gr_slug}/{grdoc_slug}','DocController@getDoc');
+		// Route::get('detail/{gr_slug}','DocController@getGroup');
+		Route::get('/{gr_slug}','DocController@getDoc');
 	});
 	Route::group(['prefix'=>'partner'],function(){
 		Route::get('/','PartnerController@getList');

@@ -17,6 +17,11 @@
 					    <input type="text" class="form-control" name="name" placeholder="Tên của tài liệu" value="{{ $edit_doc->doc_name }}" required>
 					</div>
 					<div class="form-group">
+						<label>Ảnh</label>
+						<input id="img" type="file" name="img" class="cssInput " onchange="changeImg(this)" style="display: none!important;">
+		                <img style="cursor: pointer;" id="avatar" class="cssInput thumbnail " height="300px"  src="{{ asset('lib/storage/app/doc/'.$edit_doc->doc_img) }}">
+					</div>
+					<div class="form-group">
 					    <label>Tải lên</label>
 					    <input type="file" class="form-control" name="file">
 					</div>
@@ -44,8 +49,8 @@
 						{{$item->doc_name}}
 					</td>
 					<td >
-						<a href="{{asset('admin/doc/edit_doc/'.Request::segment(4).'/'.$item->doc_grdoc_id.'/'.$item->doc_id)}}" class="btn btn-primary">Sửa</a>
-						<a href="{{asset('admin/doc/delete_group/'.$item->doc_id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa ?')" class="btn btn-danger">Xóa</a>
+						<a href="{{asset('admin/doc/edit_doc/'.Request::segment(4).'/'.$item->doc_id)}}" class="btn btn-primary">Sửa</a>
+						<a href="{{asset('admin/doc/delete/'.$item->doc_id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa ?')" class="btn btn-danger">Xóa</a>
 					</td>
 				</tr>
 				@endforeach

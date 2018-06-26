@@ -22,6 +22,15 @@
      *
      * @return implode(',' , 'all images with new names');
      */
+
+	function textTest($length){
+		$text = "Đây chỉ là một đoạn text vô nghĩa , không mang chức năng gì nhiều . Cảm ơn bạn đã chú ý và đọc đoạn text này của chúng tôi. Quyến đẹp troai hân hạnh tài trợ chương trình này";
+		if(strlen($text) > $length) {
+	    	$text = $text.' ';
+	        $text = substr($text, 0, strpos($text, ' ', $length)).'...';
+	    }
+	    return $text;
+	}
 	function saveImage($input,$resized_size,$path){
 	    $imgArr = [];
 	    $max_size = $resized_size;

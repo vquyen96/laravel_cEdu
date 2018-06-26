@@ -23,16 +23,6 @@
 		    @endforeach
 		    
 		  </div>
-		  {{-- <div class="btnControl left">
-		  	<a href="#slide_banner_head" role="button" data-slide="prev" class="left">
-		  		<i class="fa fa-angle-left" aria-hidden="true"></i>
-		  	</a>
-		  </div>
-		  <div class="btnControl right">
-		  	<a href="#slide_banner_head" role="button" data-slide="next" class="right">
-		  		<i class="fa fa-angle-right" aria-hidden="true"></i>
-		  	</a>
-		  </div> --}}
 		</div>
 	</div>
 	<div class="menuGroup">
@@ -327,25 +317,37 @@
 			</div>
 		</div>
 		<div class="teacherMain">
-			<div class="teacherMainContainer">
-				@foreach ($teacher as $item)
-				<a href="{{ asset('teacher/'.$item->acc->email) }}" class="teacherMainItem">
-					<div class="teacherMainItemBorder"></div>
-					<div class="teacherMainItemImg">
-						<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->acc->img) }}">
-					</div>
-					<div class="teacherMainItemContent">
-						<p>Giảng viên</p>
-						<div class="teacherMainItemContentName">
-							{{$item->acc->name}}
-						</div>
-						<div class="teacherMainItemContentText">
-							{!!cut_string($item->acc->content, 200)!!}
-						</div>
-					</div>
-				</a>
-				@endforeach
+			<div class="teacherMainBtn">
+				<div class="teacherMainBtnItem right">
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</div>
+				<div class="teacherMainBtnItem left">
+					<i class="fa fa-angle-left" aria-hidden="true"></i>
+				</div>
+				
 			</div>
+			<div class="teacherMainContainer">
+				<div class="teacherMainLine">
+					@foreach ($teacher as $item)
+					<a href="{{ asset('teacher/'.$item->acc->email) }}" class="teacherMainItem">
+						<div class="teacherMainItemBorder"></div>
+						<div class="teacherMainItemImg">
+							<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->acc->img) }}">
+						</div>
+						<div class="teacherMainItemContent">
+							<p>Giảng viên</p>
+							<div class="teacherMainItemContentName">
+								{{$item->acc->name}}
+							</div>
+							<div class="teacherMainItemContentText">
+								{!!cut_string($item->acc->content, 200)!!}
+							</div>
+						</div>
+					</a>
+					@endforeach
+				</div>
+			</div>
+			
 		</div>
 	</div>
 	<div class="cedu">
