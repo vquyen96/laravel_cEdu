@@ -83,4 +83,42 @@ $(document).ready(function() {
 		countChartRevenue = 0;
 		$('.btnChangeChartRevenueNext').text('3 tháng >>');
     });
+
+
+
+	//rateSlide 
+	var star = $('.courseRateRight .rateValue');
+	
+	var maxStar = 0;
+	for(var i = 0; i<star.length ; i++){
+		if (maxStar < Number(star.eq(i).text())) {
+			maxStar = Number(star.eq(i).text());
+		}
+	}
+	var listRate = $('.courseRateRight ul li');
+	for(var i = 0; i < listRate.length ; i++){
+		var starValue = listRate.eq(i).children('.rateValue').text();
+		listRate.eq(i).children('.rateSlide').animate({width: (starValue/maxStar)*75+'%'},2000);
+		// css('width',(starValue/maxStar)*75+'%');
+
+	}
+	//endRateSlide
+
+	//rateSlide 
+	var star = $('.courseStudent .rateValue');
+	var maxStar = 0;
+	for(var i = 0; i<star.length ; i++){
+		if (maxStar < Number(star.eq(i).text())) {
+			maxStar = Number(star.eq(i).text());
+		}
+	}
+	var listRate = $('.courseStudent ul li');
+	for(var i = 0; i < listRate.length ; i++){
+		var starValue = listRate.eq(i).children('.rateValue').text();
+		listRate.eq(i).children('.rateSlide').animate({width: (starValue/maxStar)*75+'%'},2000);
+		// css('width',(starValue/maxStar)*75+'%');
+
+	}
+	//endRateSlide
+
 });

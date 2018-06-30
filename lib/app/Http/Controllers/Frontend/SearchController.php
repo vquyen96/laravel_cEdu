@@ -13,7 +13,7 @@ class SearchController extends Controller
     public function getList(Request $request){
     	$data['searchValue'] = $request->search;
     	$data['course'] = Course::where('cou_name','like','%'.$request->search.'%')->get();
-    	
+    	$data['teacher_total'] = Teacher::count();
     	$data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(7);
     	return view('frontend.course',$data);
     }

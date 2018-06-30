@@ -61,7 +61,9 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						Lorem Ipsum is simply dummy text of the printing and typesetting.
+						<b>Trở Thành Đối Tác Của Cedu</b><br>
+  						KẾT NỐI TRI THỨC – TỰ TIN TỎA SÁNG 
+
 					</div>
 				</div>
 				<div class="mapItem mapLeftTop">

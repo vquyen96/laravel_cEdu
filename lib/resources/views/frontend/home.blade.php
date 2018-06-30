@@ -52,11 +52,18 @@
 			</div>
 		</div>
 	</div>
+	<div class="title">
+		<div class="titleMain left">
+			<div class="titleMainBody">
+				Khóa học
+			</div>
+		</div>
+	</div>
 	<div class="homeCourse">
-		<div class="homeCourseTitle">
+		{{-- <div class="homeCourseTitle">
 			<div class="homeCourseTitleLeft txt64">01.</div>
 			<div class="homeCourseTitleRight">Khóa học</div>
-		</div>
+		</div> --}}
 		<div class="homeCourseMainTitle">
 			<div class="homeCourseMainTitleItem follow">
 				Được quan tâm nhất
@@ -97,7 +104,7 @@
 						</div>
 						
 						<div class="homeCourseMainItemContentCourse">
-							{{$item->cou_name}}
+							{{cut_string($item->cou_name , 80)}}
 						</div>
 						<div class="homeCourseMainItemContentPrice">
 							<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
@@ -135,7 +142,7 @@
 						</div>
 						
 						<div class="homeCourseMainItemContentCourse">
-							{{$item->cou_name}}
+							{{cut_string($item->cou_name , 80)}}
 						</div>
 						<div class="homeCourseMainItemContentPrice">
 							<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
@@ -173,7 +180,7 @@
 						</div>
 						
 						<div class="homeCourseMainItemContentCourse">
-							{{$item->cou_name}}
+							{{cut_string($item->cou_name , 80)}}
 						</div>
 						<div class="homeCourseMainItemContentPrice">
 							<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
@@ -236,16 +243,24 @@
 			</div>
 		</div>
 	</div>
-	<div class="featured">
-		<div class="featuredTitle">
-			<div class="featuredTitleMain">
-				<div class="featuredTitleMainLeft txt64">
-					02.
-				</div>
-				<div class="featuredTitleMainRight">
-					Nổi bật trong tháng
-				</div>
+	<div class="title">
+		<div class="titleMain right">
+			<div class="titleMainBody">
+				Nổi bật trong tháng
 			</div>
+		</div>
+		<div class="featuredTitleBtn">
+			<div class="featuredTitleMainBtnItem left">
+				<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</div>
+			<div class="featuredTitleMainBtnItem right">
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</div>
+		</div>
+	</div>
+	<div class="featured">
+		{{-- <div class="featuredTitle">
+			
 			<div class="featuredTitleBtn">
 				<div class="featuredTitleMainBtnItem left">
 					<i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -254,7 +269,7 @@
 					<i class="fa fa-angle-right" aria-hidden="true"></i>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<div class="featuredMain">
 			<div class="featuredMainLine">
 				<?php $i = 0?>
@@ -305,8 +320,15 @@
 		</div>
 		
 	</div>
+	<div class="title">
+		<div class="titleMain left">
+			<div class="titleMainBody">
+				Giáo viên tiêu biểu
+			</div>
+		</div>
+	</div>
 	<div class="teacher">
-		<div class="teacherTitle">
+		{{-- <div class="teacherTitle">
 			<div class="teacherTitleMain">
 				<div class="teacherTitleMainLeft txt64">
 					03.
@@ -315,7 +337,7 @@
 					Giáo viên tiêu biểu
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<div class="teacherMain">
 			<div class="teacherMainBtn">
 				<div class="teacherMainBtnItem right">
@@ -350,8 +372,15 @@
 			
 		</div>
 	</div>
+	<div class="title">
+		<div class="titleMain right">
+			<div class="titleMainBody">
+				Điểm nổi bật của Cedu
+			</div>
+		</div>
+	</div>
 	<div class="cedu">
-		<div class="ceduTitle">
+		{{-- <div class="ceduTitle">
 			<div class="ceduTitleMain">
 				<div class="ceduTitleMainLeft txt64">
 					04.
@@ -360,11 +389,11 @@
 					Điểm nổi bật của Cedu
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<div class="ceduMain">
 			<div class="ceduMainItem">
 				<div class="ceduMainItemIcon">
-					<img src="img/Group 8 (1).png">
+					<img src="img/Group 8.png">
 				</div>
 				<div class="ceduMainItemTitle">
 					Giáo dục theo nên công nghệ 4.0
@@ -377,7 +406,7 @@
 			</div>
 			<div class="ceduMainItem">
 				<div class="ceduMainItemIcon">
-					<img src="img/ic_support (1).png">
+					<img src="img/Group 12.png">
 				</div>
 				<div class="ceduMainItemTitle">
 					Luôn có đội ngũ giảng viên hỗ trợ nhiệt tình
@@ -390,10 +419,23 @@
 			</div>
 			<div class="ceduMainItem">
 				<div class="ceduMainItemIcon">
-					<img src="img/Group 7 (1).png">
+					<img src="img/Group 13.png">
 				</div>
 				<div class="ceduMainItemTitle">
 					Luôn đặt chất lượng lên hàng đầu
+				</div>
+				<div class="ceduMainItemBorder">
+				</div>
+				<div class="ceduMainItemContent">
+					Luôn đặt chất lượng khóa học lên hàng đầu chính vì thế giảng viên của CEDU đều là những chuyên gia nổi tiếng trong các lĩnh vực : luyện thi,kĩ năng mềm, marketing, kĩ thuật, …..
+				</div>
+			</div>
+			<div class="ceduMainItem">
+				<div class="ceduMainItemIcon">
+					<img src="img/Group 14.png">
+				</div>
+				<div class="ceduMainItemTitle">
+					Thời gian học chủ động và Linh hoạt
 				</div>
 				<div class="ceduMainItemBorder">
 				</div>

@@ -119,6 +119,7 @@
 .mainHeadTagItem{
 	display: inline-block;
 	margin-right: 30px;
+	box-shadow: 2px 2px 5px #0005;
 }
 .mainHeadTagItemContent{
 	display: inline-block;
@@ -132,6 +133,7 @@
 	background: #fff;
 	font-weight: 500;
 	cursor: pointer;
+	border-left: 1px solid #ccc;
 }
 .courseItem{
 	margin: 0 0 30px;
@@ -297,10 +299,49 @@
 input[type=range]:focus::-ms-fill-lower {
   background: #f5b222;
 }
-
-
-
-
+#slider{
+	background: #fff;
+}
+#slider .noUi-connect{
+	background: #eea236;
+}
+.noUi-horizontal .noUi-handle {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    border: 2px solid #f5b222;
+    outline: none;
+}
+.noUi-horizontal {
+    height: 10px !important;
+}
+#slider .noUi-handle:after, .noUi-handle:before {
+    display: none !important;
+}
+.sliderValueItem{
+	display: inline-block;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	box-shadow: 2px 2px 5px #0005;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.customPriceBtn{
+	height: 30px;
+    line-height: 30px;
+    width: 50px;
+    float: right;
+    box-shadow: 2px 2px 5px #0005;
+    border-radius: 5px;
+    background: #fba225;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    margin-top: -10px;
+    cursor: pointer;
+}
 .customLevel{
 	padding-bottom: 20px;
 }

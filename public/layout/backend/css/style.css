@@ -40,17 +40,33 @@ header{
 }
 .headerAccount a{
 	text-decoration: none;
+	
 }
 .headerAccount a:hover{
 	background: #fcb040;
 	color: #fff;
 	font-weight: bold;
+
+}
+.navAccount{
+	cursor: pointer;
 }
 .navAccount.active{
 	background: #fcb040;
 	color: #fff;
 	font-weight: bold;
 	
+}
+
+.navAccount.req_active{
+	background: #d43939;
+	color: #fff;
+	font-weight: bold;
+}
+.navAccount.req_done{
+	background: #51b76c;
+	color: #fff;
+	font-weight: bold;
 }
 .headerAccountName{
 	padding: 30px 20px;
@@ -357,6 +373,7 @@ a.docGroupItem:hover{
 	display: block;
 	position: relative;
 	transition: 0.5s;
+	cursor: pointer;
 }
 .dashboard .student{
 	background: #d43939;
@@ -463,4 +480,85 @@ a.docGroupItem:hover{
 }
 .videoContent .videoItem .videoItemBtnPlay img{
 	width: 20px;
+}
+
+
+
+
+.courseRateRight h3{
+	text-align: center;
+	font-weight: bold;
+
+}
+.courseRateRight h3 .star{
+	color:  #fcb64e;
+}
+
+.courseRateRight ul{
+	padding-left: 0;
+}
+.courseRateRight ul li{
+	list-style: none;
+	width: 100%;
+	clear: both;
+	padding: 10px;
+}
+.courseRateRight ul li .rateName{
+	float: left;
+	margin-right: 20px;
+}
+.courseRateRight ul li .rateSlide{
+	height: 25px;
+    border-radius: 10px;
+    background: #fcb64e;
+    width: 10%;
+    display: inline-block;;
+}
+.courseRateRight ul li .rateValue{
+	float: right;
+}
+
+
+.courseStudent{
+	border-right: 2px solid #ccc;
+}
+
+.courseStudent .rateImg{
+	height: 50px ;
+	display: inline-block;
+}
+.courseStudent .rateImg img{
+	height: 100% ;
+	border-radius: 10px
+}
+.courseStudent h3{
+	text-align: center;
+	font-weight: bold;
+
+}
+.courseStudent h3 .star{
+	color:  #32569c;
+}
+.courseStudent ul{
+	padding-left: 0;
+}
+.courseStudent ul li{
+	list-style: none;
+	width: 100%;
+	clear: both;
+	padding: 5px;
+}
+.courseStudent ul li .rateName{
+	float: left;
+	margin-right: 20px;
+}
+.courseStudent ul li .rateSlide{
+	height: 25px;
+    border-radius: 10px;
+    background: #32569c;
+    width: 10%;
+    display: inline-block;;
+}
+.courseStudent ul li .rateValue{
+	float: right;
 }

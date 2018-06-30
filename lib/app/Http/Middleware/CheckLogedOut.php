@@ -19,7 +19,7 @@ class CheckLogedOut
             return redirect('login');
         }
 
-        if(Auth::user()->level == 4){
+        if(Auth::user()->level > 7){
             return redirect('/');
         }
         return $next($request);

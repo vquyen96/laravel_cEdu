@@ -85,22 +85,40 @@
 	}
 
 	function time_format($time){
-		$date = new DateTime();
-		$date = strtotime(date_format($date,"Y-m-d"));
-		$time = strtotime(date_format($time,"Y-m-d"));
-		$year = 31526000;
-		$month = 2592000;
-		$day = 86400;
-		// strtotime(date_format($time,"Y-m-d")) == strtotime(date_format($date,"Y-m-d"))
-		if ($time < $date-$year) {
-			return round(($date-$time)/$year).' năm';
-		}
-		else if($time < $date-$month){
-			return round(($date-$time)/$month).' tháng';
+		if ($time == null) {
+			return 'lỗi';
 		}
 		else{
-			return round(($date-$time)/$day).' ngày';
+			$date = new DateTime();
+			$date = strtotime(date_format($date,"Y-m-d h:m:s"));
+			$time = strtotime(date_format($time,"Y-m-d h:m:s"));
+			// return $date.' - '.$time;
+			$year = 31526000;
+			$month = 2592000;
+			$day = 86400;
+			$hour = 3600;
+			$min = 60;
+			// strtotime(date_format($time,"Y-m-d")) == strtotime(date_format($date,"Y-m-d"))
+			if ($time < $date-$year) {
+				return round(($date-$time)/$year).' năm';
+			}
+			else if($time < $date-$month){
+				return round(($date-$time)/$month).' tháng';
+			}
+			else if ($time < $date-$day) {
+				return round(($date-$time)/$day).' ngày';
+			}
+			else if ($time < $date-$hour) {
+				return round(($date-$time)/$hour).' giờ';
+			}
+			else if ($time < $date-$min) {
+				return round(($date-$time)/$min).' phút';
+			}
+			else{
+				return 'bây giờ';
+			}
 		}
+			
 
 	}
 

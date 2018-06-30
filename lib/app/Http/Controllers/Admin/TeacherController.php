@@ -11,7 +11,7 @@ use Auth;
 class TeacherController extends Controller
 {
     public function getList(){
-        if (Auth::user()->level == 3) {
+        if (Auth::user()->level == 7) {
             $data['items'] = Teacher::orderBy('tea_rating','desc')->get();
             return view('backend.accountant-teacher',$data);
         }
@@ -48,7 +48,7 @@ class TeacherController extends Controller
     }
     public function getActive($id){
         $account = Account::find($id);
-        $account->level = 3;
+        $account->level = 7;
         $account->teacher_wait = 0;
         $account->save();
 
@@ -153,7 +153,7 @@ class TeacherController extends Controller
         $teacher->tea_gender = $request->tea_gender;
         $teacher->tea_specialize = $request->tea_specialize;
         $teacher->tea_degree = $request->tea_degree;
-        if(Auth::user()->level != 3){
+        if(Auth::user()->level != 7){
             $teacher->tea_templace = $request->tea_templace;
             $teacher->tea_follow = $request->tea_follow;
             $teacher->tea_lesson = $request->tea_lesson;

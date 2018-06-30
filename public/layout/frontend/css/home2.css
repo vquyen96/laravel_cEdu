@@ -3,7 +3,7 @@ body{
 	
 }
 .txt64{
-	font-size: 64px;
+	font-size: 48px;
 	font-family: 'IBM Plex Serif', serif;
 }
 .bannerHead{
@@ -120,32 +120,32 @@ a.menuGroupItem{
 
 
 .homeCourse{
-	height: 600px;
+	
 	width: 1142px;
 	margin: auto;
 }
 
 .homeCourseTitle{
-	border: 1px solid #000;
-	height: 81px;
-	width: 293px;
-	overflow: hidden;
+    border: 1px solid #000;
+    height: 58px;
+    width: 238px;
+    overflow: hidden;
 }
 .homeCourseTitleLeft.txt64{
 	background: #F4E76D;
     text-align: center;
-    width: 110px;
+    width: 97px;
     float: left;
     margin-top: -8px;
 }
 .homeCourseTitleRight{
-	width: 180px;
-	height: 79px;
-	float: right;
-	line-height: 79px;
-	font-size: 24px;
-	font-family: 'IBM Plex Serif', serif;
-	padding: 0 5px;
+	width: 135px;
+    height: 58px;
+    float: right;
+    line-height: 58px;
+    font-size: 24px;
+    font-family: 'IBM Plex Serif', serif;
+    padding: 0 10px;
 }
 .homeCourseMainTitle{
 	height: 85px;
@@ -160,7 +160,7 @@ a.menuGroupItem{
 	width: 250px;
 	font-weight: 500;
 	cursor: pointer;
-
+	color: #999;
 }
 .homeCourseMainTitleBorder{
 	width: 150px;
@@ -207,21 +207,21 @@ a.homeCourseMainItem{
 	transform: translate(-50% ,0);
 }
 .homeCourseMainItemSale{
-	width: 35px; 
-	height: 22px;
-
-	background: #FE5252;
-	color: #fff;
-	position: absolute;
-	top: 10px; 
-	right: 10px;
-	text-align: center;
-	font-weight: 500;
-	border-radius: 5px;
+    width: 45px;
+    height: 26px;
+    line-height: 26px;
+    background: #FE5252;
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 5px;
 }
 .homeCourseMainItemContent{
 	height: 145px;
-	padding: 5px 2px;
+    padding: 5px 9px;
 }
 .homeCourseMainItemContentTea{
 
@@ -254,7 +254,7 @@ a.homeCourseMainItem{
 .banner{
 	width: 1142px;
 	height: 490px;
-	margin: 96px auto;
+	margin: 100px auto 150px;
 	position: relative;
 }
 .bannerLeftTop{
@@ -304,9 +304,8 @@ a.homeCourseMainItem{
 
 
 .featured{
-	height:  850px;
 	width: 1142px;
-	margin: 0 auto 75px;
+    margin: 0 auto 125px;
 
 }
 .featuredTitle{
@@ -314,35 +313,41 @@ a.homeCourseMainItem{
 	width: 100%;
 	position: relative;
 }
-.featuredTitleMain{
-	height: 81px;
-	width: 355px;
-	border: 1px solid #000;
-	overflow: hidden;
+.titleMain{
+	height: 38px;
+    /* width: 355px; */
+    /* border: 1px solid #000; */
+    background: #fff;
+    color: #fff;
+    border-bottom: 2px solid  #1e2782;
+    transition: 2s;
 }
-.featuredTitleMainLeft{
-	width: 110px;
-	background: #F4E76D;
-	text-align: center;
-	float: left;
-	margin-top:  -8px;
+.title{
+	height: 38px;
 }
-.featuredTitleMainRight{
+.titleMain.right{
 	float: right;
-	height: 79px; 
-	width: 240px;
-	line-height: 79px;
-	padding: 0 5px;
+}
+.titleMain.left{
+	float: left;
+}
+.titleMainBody{
+	float: right;
+	height: 38px; 
+	line-height: 38px;
+	padding: 0 30px;
 	font-size: 24px;
 	font-family: 'IBM Plex Serif', serif;
+	position: relative;
+	background: #1e2782;
+	text-transform: uppercase;
 }
 
 .featuredTitleBtn{
-	position: absolute;
 	height: 30px;
 	width: 90px;
-	bottom: 0;
-	right: 0;
+	transition: 2s;
+	
 }
 .featuredTitleMainBtnItem{
 	width: 30px;
@@ -351,24 +356,24 @@ a.homeCourseMainItem{
 	font-size: 20px;
 	text-align: center;
 	display: inline-block;
-	margin-left: 10px;
+	margin-right: 10px;
 	cursor: pointer;
 }
 .featuredMain{
-	margin: 30px 0;
+	
+	padding-top: 40px;
 	overflow: hidden;
 }
 .featuredMainLine{
-	padding-top: 20px;
+	/*padding-top: 20px;*/
 	width: 2480px;
-	margin-left: -6px;
 	transition: 0.8s;
 }
 
 a.featuredMainItem{
 	width: 262px;
     height: 343px;
-    margin: 0 12px;
+    margin-right: 29px;
     display: inline-block;
     position: relative;
     transition: 0.3s;
@@ -383,10 +388,6 @@ a.featuredMainItem{
 .featuredMainItem:first-child{
 	width: 553px;
     height: 680px;
-    margin: 0 6px;
-    display: inline-block;
-    position: relative;
-    transition: 0.3s;
     float: left;
 }
 .featuredMainItem:first-child .featuredMainItemImg{
@@ -453,7 +454,7 @@ a.featuredMainItem{
 
 
 .teacher{
-	
+	padding-top: 70px;
 	margin-bottom: 100px;
 }
 .teacherTitle{
@@ -461,13 +462,13 @@ a.featuredMainItem{
 	margin: 0 auto 65px;
 }
 .teacherTitleMain{
-	height: 81px;
+	height: 58px;
 	width: 355px;
 	border: 1px solid #000;
 	overflow: hidden;
 }
 .teacherTitleMainLeft{
-	width: 110px;
+	width: 97px;
 	background: #F4E76D;
 	text-align: center;
 	float: left;
@@ -475,9 +476,9 @@ a.featuredMainItem{
 }
 .teacherTitleMainRight{
 	float: right;
-	height: 79px; 
+	height: 58px; 
 	width: 240px;
-	line-height: 79px;
+	line-height: 58px;
 	padding: 0 5px;
 	font-size: 24px;
 	font-family: 'IBM Plex Serif', serif;
@@ -569,19 +570,23 @@ a.teacherMainItem {
 	float: right;
 	margin: 0 6px;
 	cursor: pointer;
+	background: #fff;
+}
+.cedu{
+	padding-top: 100px;
 }
 .ceduTitle{
 	width: 1142px;
 	margin: 0 auto 65px;
 }
 .ceduTitleMain{
-	height: 81px;
+	height: 58px;
 	width: 390px;
 	border: 1px solid #000;
 	overflow: hidden;
 }
 .ceduTitleMainLeft{
-	width: 110px;
+	width: 97px;
 	background: #F4E76D;
 	text-align: center;
 	float: left;
@@ -589,9 +594,9 @@ a.teacherMainItem {
 }
 .ceduTitleMainRight{
 	float: right;
-	height: 79px; 
+	height: 58px; 
 	width: 278px;
-	line-height: 79px;
+	line-height: 58px;
 	padding: 0 5px;
 	font-size: 24px;
 	font-family: 'IBM Plex Serif', serif;
@@ -608,14 +613,15 @@ a.teacherMainItem {
 	padding: 0 20px;
 }
 .ceduMainItemIcon{
-	width: 172px;
-	height: 172px;
+	width: 114px;
+	height: 114px;
 	margin: auto;
 }
 .ceduMainItemTitle{
 	font-weight: 600;
 	text-transform: uppercase;
 	margin: 20px 0;
+	height: 50px;
 }
 .ceduMainItemBorder{
 	height: 6px;

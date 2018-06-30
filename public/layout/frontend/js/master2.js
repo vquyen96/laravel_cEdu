@@ -28,21 +28,21 @@ $(document).ready(function () {
 
 
 
-    $(document).on('click', ".btnSearchHead a", function(){
-        $(".headerSearch").css({"display": "block", "width": "340px", "margin-top": "15px"});
-        $('.headerMenuNav ul').fadeOut(100);
+    $(document).on('click', ".iconSearch", function(){
+        $(".headerSearch").css({"display": "block", "width": "540px"});
+        $('.headerTopMenuItem').fadeOut(100);
+        $('.iconSearch').fadeOut();
 
     });
     $(document).on('focusout', ".inputSearch", function(){
-        
-        $(".headerSearch").css({"display": "block", "width": "52px", "margin-top": "0px"});
+        $(".headerSearch").css({"display": "block", "width": "52px"});
         $(".inputSearch").val("");
         setTimeout(function(){
             $(".headerSearch").css('display','none');
-            $('.headerMenuNav ul').fadeIn();
+            $('.headerTopMenuItem').fadeIn();
+            $('.iconSearch').fadeIn();
         }, 500)
         
-
     });
 
     $(document).on('click', ".btnScrollTop, .footerTopItemBtnScrollTop", function(){

@@ -9,6 +9,7 @@ use App\Models\Account;
 use App\Models\Code;
 use App\Models\OrderDetail;
 use App\Models\Teacher;
+use App\Models\Account_Request;
 use Auth;
 use DateTime;
 class HomeController extends Controller
@@ -69,20 +70,61 @@ class HomeController extends Controller
             }
             $data['teacher'] = Teacher::where('tea_acc_id', Auth::user()->id)->first();
             $data['course'] = $acc->course;
+            
             $data['account'] = Account::all();
 
             $data['chartOrderDe'] = OrderDetail::where('orderDe_cou_id')->orderBy('created_at', 'desc')->get();
+            $date = new DateTime(); 
+            $date_now = new DateTime();
+            date_add($date,date_interval_create_from_date_string(" -1 months"));
+
+
             $total = 0;
+            $total_month = 0;
+            $total_month_now = 0;
             foreach ($acc->course as $course) {
                 
                 foreach ($course->orderDe as $orderDe) {
                     if ($orderDe->order->ord_status == 0) {
                         $total += $orderDe->orderDe_price;
+                        if (date_format($date,"m") == date_format($orderDe->created_at,"m")) {
+                            $total_month += $orderDe->orderDe_price;
+                        }
+                        if (date_format($date_now,"m") == date_format($orderDe->created_at,"m")) {
+                            $total_month_now += $orderDe->orderDe_price;
+                        }
                     }
                 }
             }
             
             $data['total_price'] = $total;
+            $data['total_month'] = $total_month;
+            $data['total_month_now'] = $total_month_now;
+
+            $data['month'] = date_format($date,"m");
+            $data['month_now'] = date_format($date_now,"m");
+
+
+            if (Auth::check()) {
+                $acc_req = Account_Request::where('req_acc_id', Auth::user()->id)->orderBy('created_at', 'desc')->first();
+                $date = new DateTime();
+                $date = strtotime(date_format($date,"Y-m-d h:m:s"));
+                $time = 0;
+                if ($acc_req != null) {
+                    $time = strtotime(date_format($acc_req->created_at,"Y-m-d h:m:s"));
+                }
+                
+                if ($time > $date-(86400*10) || $acc_req == null) {
+                    
+                    $data['acc_req'] = $acc_req;
+                }
+                else{
+                    $data['acc_req'] = null;
+                }
+            }
+            else{
+                $data['acc_req'] = null;
+            }
             
             return view('backend.home_teacher',$data);
         

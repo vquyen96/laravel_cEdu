@@ -57,15 +57,15 @@ $(document).ready(function(){
 		
 
 	});
-	var maginleftCourseFeatured = -6;
+	var maginleftCourseFeatured = 0;
 	$('.featuredTitleMainBtnItem.left').click(function(){
 		
-		maginleftCourseFeatured += 571;
+		maginleftCourseFeatured += 581;
 		$('.featuredMainLine').css('margin-left',maginleftCourseFeatured);
 
 		if (maginleftCourseFeatured > 0) {
 			setTimeout(function(){
-				maginleftCourseFeatured -= 571;
+				maginleftCourseFeatured -= 581;
 				$('.featuredMainLine').css('margin-left',maginleftCourseFeatured);
 			}, 200);
 		}
@@ -73,17 +73,21 @@ $(document).ready(function(){
 
 	});
 	$('.featuredTitleMainBtnItem.right').click(function(){
-		maginleftCourseFeatured -= 571;
+		maginleftCourseFeatured -= 581;
 		$('.featuredMainLine').css('margin-left',maginleftCourseFeatured);
 
 		if (maginleftCourseFeatured < -1160) {
 			setTimeout(function(){
-				maginleftCourseFeatured += 571;
+				maginleftCourseFeatured += 581;
 				$('.featuredMainLine').css('margin-left',maginleftCourseFeatured);
 			}, 200);
 		}
 	});
-
+	$('.homeCourseMainTitleItem.follow').css('color', '#000');
+	$('.homeCourseMainTitleItem').click(function(){
+		$('.homeCourseMainTitleItem').css('color', '#999');
+		$(this).css('color', '#000');
+	});
 	$('.homeCourseMainTitleItem.follow').click(function(){
 		$('.homeCourseMainTitleBorder').css('left','0');
 		$('.homeCourseMainline').css('margin-left', '0');
@@ -126,4 +130,8 @@ $(document).ready(function(){
 		}
 	});
 
+
+	$('.titleMain.right').css('padding-right', ($(window).width()-1142)/2);
+	$('.titleMain.left').css('padding-left', ($(window).width()-1142)/2);
+	$('.featuredTitleBtn').css('margin-left', ($(window).width()-1142)/2);
 });

@@ -74,6 +74,7 @@ return array(
     'App\\Models\\OrderDetail' => $baseDir . '/app/Models/OrderDetail.php',
     'App\\Models\\Part' => $baseDir . '/app/Models/Part.php',
     'App\\Models\\Rating' => $baseDir . '/app/Models/Rating.php',
+    'App\\Models\\Request' => $baseDir . '/app/Models/Request.php',
     'App\\Models\\SocialAccount' => $baseDir . '/app/Models/SocialAccount.php',
     'App\\Models\\Story' => $baseDir . '/app/Models/Story.php',
     'App\\Models\\Teacher' => $baseDir . '/app/Models/Teacher.php',

@@ -175,6 +175,16 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'CheckAdmin'],function(){
 		});
 		Route::get('delete_order_old','OrderController@delete_order_old');
 		Route::get('change_level','AccountController@change_level');
+
+		Route::group(['prefix' => 'acc_req'], function(){
+			Route::get('/' , 'AccReqController@getList');
+			Route::post('/' , 'AccReqController@postReq');
+
+			Route::get('accept/{id}','AccReqController@getAccept');
+			Route::get('denied/{id}','AccReqController@getDenied');
+
+
+		});
 	});
 });
 Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){

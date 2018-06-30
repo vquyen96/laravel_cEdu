@@ -14,10 +14,13 @@ use Auth;
 class DocController extends Controller
 {
     public function getList(){
-    	$data['group'] = Group::all();
-        $data['bannerHead'] = Banner::where('ban_name','like','Banner Tài Liệu_Phía Trên')->get();
+       
+        $gr_slug = Group::first()->gr_slug;
+        return redirect('doc/'.$gr_slug);
+    	// $data['group'] = Group::all();
+     //    $data['bannerHead'] = Banner::where('ban_name','like','Banner Tài Liệu_Phía Trên')->get();
 
-    	return view('frontend.doc',$data);
+    	// return view('frontend.doc',$data);
     }
     // public function getGroup($gr_slug){
     //     $group = Group::where('gr_slug',$gr_slug)->first();

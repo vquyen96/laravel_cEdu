@@ -16,7 +16,7 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->level > 3){
+            if(Auth::user()->level > 7){
                 return redirect('');
             }
             else{

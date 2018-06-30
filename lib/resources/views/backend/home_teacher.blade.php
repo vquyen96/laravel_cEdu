@@ -521,54 +521,122 @@ window.onload = function () {
 </script>
 <div>
 	<div class="dashboard">
-		<a href="{{ asset('admin/course') }}" class="item student">
-			<div class="icon red">
-				<i class="fa fa-users" aria-hidden="true"></i>
-			</div>
-			<div class="content">
-				<p>Số học viên</p>
-				<div class="contentNum">
-					{{$student}}
-				</div>
-			</div>
-		</a>
-		<a href="{{ asset('admin/rating') }}" class="item rating">
-			<div  class="icon yell">
-				<i class="fa fa-star" aria-hidden="true"></i>
-			</div>
-			<div class="content">
-				<p>Đánh giá</p>
-				<div class="contentNum">
-					{{$teacher->tea_rating}}
-				</div>
-			</div>
-		</a>
-		<a href="{{ asset('admin/course') }}" class="item course">
-			<div class="icon blue">
-				<i class="fa fa-shopping-bag" aria-hidden="true"></i>
-			</div>
-			<div class="content">
-				<p>Khóa học</p>
-				<div class="contentNum">
-					{{$acc->course->count()}}
-				</div>
-				{{-- {{$lesson}} --}}
-			</div>
-		</a>
-		<a  href="{{ asset('admin/order') }}" class="item earnings">
+		<div  href="{{ asset('admin/order') }}" class="item earnings">
 			<div  class="icon green">
 				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 			</div>
 			<div class="content">
-				<p>Thu Nhập</p>
+				<p>Tổng thu Nhập</p>
 				<div class="contentNum">
 					{{number_format($total_price,0,',','.')}} đ
 				</div>
-				{{-- {{number_format($item->chartOrderDe->count()*$item->cou_price,0,',','.')}} --}}
 			</div>
-		</a>
+		</div>
+
+		<div href="{{ asset('admin/') }}" class="item student">
+			<div class="icon red">
+				<i class="fa fa-line-chart" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>Thu nhập tháng {{$month_now}}</p>
+				<div class="contentNum">
+					{{number_format($total_month_now,0,',','.')}} đ
+				</div>
+			</div>
+		</div>
+		<div href="{{ asset('admin/') }}" class="item rating">
+			<div  class="icon yell">
+				<i class="fa fa-pie-chart" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>Thu nhập tháng {{$month}}</p>
+				<div class="contentNum">
+					{{number_format($total_month,0,',','.')}} đ
+				</div>
+			</div>
+		</div>
+		<div class="item course">
+			<div class="icon blue">
+				<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>
+
+				@if ($acc_req != null)
+					<i class="fa fa-check-square-o" aria-hidden="true"></i>
+				@endif
+				Yêu cầu rút tiền
+				</p>
+				<div class="contentNum">
+					{{number_format($total_month,0,',','.')}} đ
+				</div>
+				
+			</div>
+		</div>
+		<form method="post" action="{{ asset('admin/acc_req') }}">
+			<input type="hidden" name="acc_id" value="{{Auth::user()->id}}">
+			<input type="hidden" name="amount" value="{{$total_month}}">
+			<input type="submit" name="sbm" value="gui" style="display: none;" id="sbm">
+			{{csrf_field()}}
+		</form>
+		
 	</div>
 	<div class="container-fluid homeChart">
+		<div class="row">
+			<div class="col-md-6 courseStudent">
+				<h3>Số lượng học viên
+					(<span class="star">
+						{{$student}} 
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</span>)
+				</h3>
+				<ul>
+					@foreach ($acc->course as $cou)
+						<li>
+							<div class="rateImg">
+								<img src="{{ asset('lib/storage/app/course/'.$cou->cou_img) }}">
+							</div>
+							<span class="rateSlide"></span>
+							<span class="rateValue">
+								<?php $student = 0;?>
+								@foreach ($cou->orderDe as $orderDe)
+									@if ($orderDe->order->ord_status == 0)
+										<?php $student++ ;?>
+									@endif
+								@endforeach
+								{{$student}} <i class="fa fa-user" aria-hidden="true"></i>
+							</span>
+						</li>
+					@endforeach
+				</ul>
+			</div>
+			<div class="col-md-6 courseRateRight">
+				<h3>Đánh giá của học sinh 
+					(<span class="star">
+						{{$teacher->tea_rating}} 
+						<i class="fa fa-star" aria-hidden="true"></i>
+					</span>)
+				</h3>
+				<ul>
+					@for ($j = 5; $j > 0 ; $j-- )
+						<li>
+							<span class="rateName">
+								{{$j}} <i class="fa fa-star" aria-hidden="true"></i>
+							</span>
+							<span class="rateSlide"></span>
+							<span class="rateValue">
+								@for($i = 0,$star = 0; $i<$teacher->rate->count(); $i++)
+									@if($teacher->rate->get($i)->tr_rate == $j)
+										<?php $star++?>
+									@endif
+								@endfor
+								{{$star}} <i class="fa fa-user" aria-hidden="true"></i>
+							</span>
+						</li>
+					@endfor
+				</ul>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="homeChartAccount">
@@ -609,4 +677,11 @@ window.onload = function () {
 @stop
 @section('script')
 <script type="text/javascript" src="js/canvasjs.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+        $('.item.course').click(function(){
+            $('#sbm').click();
+        });
+    });
+</script>
 @stop

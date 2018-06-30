@@ -2,6 +2,7 @@
 @section('title','Khóa học')
 @section('main')
 <link rel="stylesheet" type="text/css" href="css/course.css">
+<link rel="stylesheet" type="text/css" href="js/nouislider.min.css">
 <div>
 	{{-- <div class="title">
 		<div class="titleLine"></div>
@@ -21,8 +22,7 @@
 					@case("group")
 						<h3>{{$groupName}}</h3>
 						@break
-					@default
-
+					@default               
 						<h3>Tìm kiếm: "{{$searchValue}}"</h3>
 						@break
 					
@@ -61,10 +61,10 @@
 											Cơ bản
 											@break
 										@case('master')
-											Nâng cáo
+											Nâng cao
 											@break
 										@default
-											{{$item}}
+											{{number_format($item,0,',','.')}} VND
 											@break;
 									@endswitch
 									
@@ -375,11 +375,11 @@
 				<div class="row">
 					<div class="col-dm-12 customPrice rightItem">
 						<h4>Giá</h4>
-						<p>Từ: 0 - <span id="slidePrice"></span> VND</p>
+						<div>Từ: 0 - <span id="slidePrice"></span> VND <div class="customPriceBtn">Lọc</div></div>
 						<div class="slidecontainer">
-						  <input type="range" min="0" max="400" @if(Request::get('price') == 0) value="300" @else value="{{ (int)Request::get('price') / 10000 }}" @endif class="slider" id="myRange">
+						 {{--  <input type="range" min="0" max="400" @if(Request::get('price') == 0) value="300" @else value="{{ (int)Request::get('price') / 10000 }}" @endif class="slider" id="myRange"> --}}
+						  	<div id="slider"></div>
 						</div>
-						
 					</div>
 				</div>
 				<div class="row">
@@ -434,9 +434,16 @@
 		</div>
 	</div>
 </div>
-
+{{-- <div>
+	<iframe src="https://thanhnien.vn/giao-duc/tuyen-sinh/2017/tra-cuu-diem-thi-thpt-quoc-gia.html" width="900" height="600" style="overflow: hidden;"></iframe>
+</div> --}}
 @stop
 
 @section('script')
+<script type="text/javascript" src="js/nouislider.min.js"></script>
 <script type="text/javascript" src="js/course.js"></script>
+
+<script type="text/javascript">
+	
+</script>
 @stop

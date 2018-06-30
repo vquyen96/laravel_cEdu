@@ -51,14 +51,14 @@
 					{{Auth::user()->name}}
 				</a>
 			</li>
-			@if(Auth::user()->level == 3 || Auth::user()->level == 1 )
+			@if(Auth::user()->level == 3 || Auth::user()->level == 1 ||  Auth::user()->level == 7)
 			<li>
 				<a href="{{asset('admin/')}}" class="navAccount @if (Request::segment(2) == '')  active @endif">
 					Thống kê
 				</a>
 			</li>
 			@endif
-			@if(Auth::user()->level != 3)
+			@if(Auth::user()->level < 3)
 			<li>
 				<a href="{{asset('admin/account')}}" class="navAccount @if (Request::segment(2) == 'account')  active @endif">
 					Tài khoản
@@ -76,6 +76,13 @@
 			<li>
 				<a href="{{asset('admin/teacher')}}" class="navAccount @if (Request::segment(2) == 'teacher')  active @endif">
 					Giáo viên
+				</a>
+			</li>
+			@endif
+			@if(Auth::user()->level == 3) 
+			<li>
+				<a href="{{asset('admin/acc_req')}}" class="navAccount @if (Request::segment(2) == 'request')  active @endif">
+					Yêu cầu rút tiền
 				</a>
 			</li>
 			@endif
@@ -133,6 +140,8 @@
 				</a>
 			</li>
 			@endif
+			
+			
 		</ul>
 	</nav>
 	<main>
@@ -159,7 +168,9 @@
 	        $('#avatar').click(function(){
 	            $('#img').click();
 	        });
-	        
+	        $('#acc_req').click(function(){
+	            $('#sbm').click();
+	        });
 	    });
 	</script>
 	@yield('script')

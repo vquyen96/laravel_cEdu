@@ -65,7 +65,7 @@
 			<div class="col-md-12">
 				<div class="listDocNote">
 					<div class="listDocNoteItem">
-						Có 12 tài liệu
+						Có {{$doc->count()}} tài liệu
 					</div>
 				</div>
 			</div>

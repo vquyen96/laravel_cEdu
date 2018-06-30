@@ -130,12 +130,16 @@ header{
 	font-size: 27px;
 	padding: 0 10px;
 	color: #1E2782;
+	display: block;
 }
 .headerTopMenuItemIcon img{
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
 
+}
+.headerTopMenuItemRight{
+	display: block;
 }
 .headerTopMenuItemRightTitle{
 	font-weight: bold;
@@ -144,10 +148,25 @@ header{
 .headerTopMenuItemRightContent{
 	color: #999999;
 }
-.iconSearch{
+.iconSearch.show{
 	position: absolute;
     top: 0;
     right: 0;
+    padding: 6px;
+}
+.inputSearch{
+	width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #999;
+    padding: 0 15px;
+    outline: none;
+}
+.iconSearch.hide{
+	position: absolute;
+    top: -6px;
+    right: 4px;
+    padding: 6px;
 }
 .headerTopMenuItemRightContent.user{
 	margin-top: 9px;
@@ -256,6 +275,17 @@ header{
 	background: #eee;
 }
 
+
+.headerSearch{
+	position: absolute;
+    width: 55px;
+    right: 0;
+    top: 6px;
+    opacity: 0.5;
+    display: none;
+    transition: 0.5s;
+
+}
 
 
 

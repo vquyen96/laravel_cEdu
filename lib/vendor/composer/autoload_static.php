@@ -433,6 +433,7 @@ class ComposerStaticInit88e03ab03d1b834c551596bf6a69fa15
         'App\\Models\\OrderDetail' => __DIR__ . '/../..' . '/app/Models/OrderDetail.php',
         'App\\Models\\Part' => __DIR__ . '/../..' . '/app/Models/Part.php',
         'App\\Models\\Rating' => __DIR__ . '/../..' . '/app/Models/Rating.php',
+        'App\\Models\\Request' => __DIR__ . '/../..' . '/app/Models/Request.php',
         'App\\Models\\SocialAccount' => __DIR__ . '/../..' . '/app/Models/SocialAccount.php',
         'App\\Models\\Story' => __DIR__ . '/../..' . '/app/Models/Story.php',
         'App\\Models\\Teacher' => __DIR__ . '/../..' . '/app/Models/Teacher.php',

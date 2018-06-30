@@ -270,7 +270,7 @@
 							{{$item->rat_content}}
 						</div>
 						<div class="comItemTime">
-							1 tháng trước
+							{{time_format($item->created_at)}}
 						</div>
 					</div>
 					@endforeach

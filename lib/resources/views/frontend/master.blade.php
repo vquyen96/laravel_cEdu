@@ -91,19 +91,22 @@
 									</div>
 								</div>
 							</div>
-							<a href="{{ asset('cart/show') }}" class="headerTopMenuItem">
-								<div class="headerTopMenuItemIcon">
-									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-								</div>
-								<div class="headerTopMenuItemRight">
-									<div class="headerTopMenuItemRightTitle">
-										Giỏ hàng
+							<div class="headerTopMenuItem">
+								<a href="{{ asset('cart/show') }}">
+									<div class="headerTopMenuItemIcon">
+										<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									</div>
-									<div class="headerTopMenuItemRightContent">
-										{{Cart::count()}} khóa học
+									<div class="headerTopMenuItemRight">
+										<div class="headerTopMenuItemRightTitle">
+											Giỏ hàng
+										</div>
+										<div class="headerTopMenuItemRightContent">
+											{{Cart::count()}} khóa học
+										</div>
 									</div>
-								</div>
-							</a>
+								</a>
+									
+							</div>
 							<div class="headerTopMenuItem">
 								
 								@if (Auth::check())
@@ -117,9 +120,9 @@
 											<i class="fa fa-angle-down" aria-hidden="true"></i>
 										</div>
 									</div>
-									<div class="headerTopMenuItemIcon iconSearch">
+									{{-- <div class="headerTopMenuItemIcon iconSearch">
 										<i class="fa fa-search" aria-hidden="true"></i>
-									</div>
+									</div> --}}
 									<div class="headerTopMenuItemHover">
 										<div class="headerTopMenuItemHoverHead">
 											<img src="img/ic_menuc2.png">
@@ -145,13 +148,23 @@
 												<i class="fa fa-angle-down" aria-hidden="true"></i>
 											</div>
 										</div>
-										<div class="headerTopMenuItemIcon iconSearch">
-											<i class="fa fa-search" aria-hidden="true"></i>
-										</div>
+										
 									</a>
 									
 								@endif
 								
+							</div>	
+							<div class="headerTopMenuItemIcon iconSearch show">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+							<div class="headerSearch">
+								<form method="get" action="{{asset('search/')}}">
+									<input type="text" name="search" class="inputSearch" placeholder="Tìm kiếm">
+									{{-- <input type="submit" name="btnSubmit" style="display: none;"> --}}
+								</form>
+								<div class="headerTopMenuItemIcon iconSearch hide">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</div>	
 							</div>
 							<!-- <div class="headerTopMenuItem">
 								<div class="headerTopMenuItemIconSearch">
@@ -272,7 +285,7 @@
 				</li>
 				@else
 				<li>
-					<a href="" data-toggle="modal" data-target=".modal-login">
+					<a href="{{ asset('login') }}">
 						<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 						<span>Đăng nhập</span>
 					</a>
