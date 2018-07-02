@@ -10,12 +10,14 @@ use App\Models\Code;
 use App\Models\Teacher;
 use App\Models\Teacher_Rating;
 use App\Models\OrderDetail;
+use App\Models\Account_Request;
 use Auth;
 use DateTime;
 class UserController extends Controller
 {
     public function getUser(){
         if (Auth::check()) {
+             $acc = Account::where('id', Auth::user()->id)->first();
             // $date= new DateTime();
             // date_add($date,date_interval_create_from_date_string(" -1 months"));
 
@@ -26,7 +28,51 @@ class UserController extends Controller
             // dd($data['orderDeTable']);
             $data['course'] = Course::orderBy('cou_sale','desc')->get();
             
+            $date = new DateTime(); 
+            $date_now = new DateTime();
+            date_add($date,date_interval_create_from_date_string(" -1 months"));
+
+
+            $total = 0;
+            $total_month = 0;
+            $total_month_now = 0;
+            // dd($acc->aff);
+            foreach ($data['orderDe'] as $orderDe) {
+                if ($orderDe->order->ord_status == 0) {
+                    $total += $orderDe->orderDe_price;
+                    if (date_format($date,"m") == date_format($orderDe->created_at,"m")) {
+                        $total_month += $orderDe->orderDe_price;
+                    }
+                    if (date_format($date_now,"m") == date_format($orderDe->created_at,"m")) {
+                        $total_month_now += $orderDe->orderDe_price;
+                    }
+                }
+            }
             
+            $data['total_price'] = $total;
+            $data['total_month'] = $total_month;
+            $data['total_month_now'] = $total_month_now;
+
+            $data['month'] = date_format($date,"m");
+            $data['month_now'] = date_format($date_now,"m");
+
+
+            $acc_req = Account_Request::where('req_acc_id', Auth::user()->id)->orderBy('created_at', 'desc')->first();
+            $date = new DateTime();
+            $date = strtotime(date_format($date,"Y-m-d h:m:s"));
+            $time = 0;
+            if ($acc_req != null) {
+                $time = strtotime(date_format($acc_req->created_at,"Y-m-d h:m:s"));
+            }
+            
+            if ($time > $date-(86400*10) || $acc_req == null) {
+                
+                $data['acc_req'] = $acc_req;
+            }
+            else{
+                $data['acc_req'] = null;
+            }
+
             return view('frontend.user',$data);
         }
     	else{
@@ -136,7 +182,7 @@ class UserController extends Controller
         }
     }
     public function getShare($slug){
-        if (Auth::user()->level == 5) {
+        if (Auth::user()->level == 8 ) {
             $data['course'] = Course::where('cou_slug',$slug)->first();
             $data['acc'] = Account::where('id', Auth::user()->id)->first();
             return view('frontend.share',$data);
@@ -144,6 +190,30 @@ class UserController extends Controller
         else{
             return redirect('');
             
+        }
+    }
+    public function postAccReq(Request $request){
+        $acc_req = Account_Request::where('req_acc_id', $request->acc_id)->orderBy('created_at','desc')->first();
+        $date = new DateTime();
+        $date = strtotime(date_format($date,"Y-m-d h:m:s"));
+        $time = 0;
+        if ($acc_req != null) {
+            
+            $time = strtotime(date_format($acc_req->created_at,"Y-m-d h:m:s"));
+        }
+        
+        if ($time < $date-(86400*10) || $acc_req == null) {
+            $acc_req = new Account_Request;
+            $acc_req->req_status = 1;
+            $acc_req->req_acc_id = $request->acc_id;
+            $acc_req->req_amount = $request->amount;
+            $acc_req->save();
+            
+            return back()->with('success', 'Gửi yêu cầu rút tiền thành công');
+        }
+        else{
+
+            return back()->with('error', 'Bạn đã gửi yêu cầu rút tiền rồi');
         }
     }
 }

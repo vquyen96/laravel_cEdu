@@ -449,7 +449,6 @@ a:hover{
     right: 40px;
     top: 64px;
     font-size: 16px;
-
 }
 
 
@@ -459,7 +458,7 @@ a:hover{
 	width: 100%;
 	top: 0;
 	left: 0;
-	background: #284da9;
+	background: #fff;
 	height: 50px;
 	z-index: 99;
 	display: none;
@@ -472,7 +471,7 @@ a:hover{
 
 }
 .headerTinyLeft ul li a{
-	color: #fff;
+	color: #284da9;
 	text-decoration: none;
 	display: inline-block;
 	padding: 5px 15px;
@@ -484,7 +483,7 @@ a:hover{
 	float: right;
 }
 .headerTinyRight ul li a{
-	color: #fff;
+	color: #284da9;
 	text-decoration: none;
 	display: inline-block;
 	padding: 5px 20px;

@@ -13,6 +13,9 @@ class Aff extends Model
     public function acc(){
     	return $this->belongsTo('App\Models\Account','aff_acc_id');
     }
+    public function orderDe(){
+    	return $this->hasMany('App\Models\OrderDetail','orderDe_aff_id','aff_id');
+    }
     // public function acc(){
     // 	return $this->belongsTo('App\Models\Account','tea_acc_id');
     // }

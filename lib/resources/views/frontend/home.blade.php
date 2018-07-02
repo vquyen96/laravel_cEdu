@@ -401,7 +401,7 @@
 				<div class="ceduMainItemBorder">
 				</div>
 				<div class="ceduMainItemContent">
-					CEDU tự hào là một trong mô hình giáo dục 4.0 mang lại cho khách hàng những trải nghiệm thú vị ,kiến thức phong phú nhât
+					CEDU tự hào là một trong mô hình giáo dục 4.0 mang lại cho khách hàng những trải nghiệm thú vị ,kiến thức phong phú nhất. 
 				</div>
 			</div>
 			<div class="ceduMainItem">
@@ -414,7 +414,7 @@
 				<div class="ceduMainItemBorder">
 				</div>
 				<div class="ceduMainItemContent">
-					Tại CEDU thời gian học của bạn sẽ được linh động mọi lúc mọi nơi. Bạn chỉ cần đăng nhập và click vào khóa học bạn muốn.
+					CEDU sẽ cùng đội ngũ giảng viên hỗ trợ những thắc mắc mà bạn gặp phải trong các khóa học 
 				</div>
 			</div>
 			<div class="ceduMainItem">
@@ -427,7 +427,7 @@
 				<div class="ceduMainItemBorder">
 				</div>
 				<div class="ceduMainItemContent">
-					Luôn đặt chất lượng khóa học lên hàng đầu chính vì thế giảng viên của CEDU đều là những chuyên gia nổi tiếng trong các lĩnh vực : luyện thi,kĩ năng mềm, marketing, kĩ thuật, …..
+					Luôn đặt chất lượng khóa học lên hàng đầu chính vì thế giảng viên của CEDU đều là những chuyên gia nổi tiếng trong các lĩnh vực : luyện thi,kĩ năng mềm, marketing, kĩ thuật, ….. 
 				</div>
 			</div>
 			<div class="ceduMainItem">
@@ -440,7 +440,7 @@
 				<div class="ceduMainItemBorder">
 				</div>
 				<div class="ceduMainItemContent">
-					Luôn đặt chất lượng khóa học lên hàng đầu chính vì thế giảng viên của CEDU đều là những chuyên gia nổi tiếng trong các lĩnh vực : luyện thi,kĩ năng mềm, marketing, kĩ thuật, …..
+					Tại CEDU thời gian học của bạn sẽ được linh động mọi lúc mọi nơi. Bạn chỉ cần đăng nhập và click vào khóa học bạn muốn 
 				</div>
 			</div>
 		</div>

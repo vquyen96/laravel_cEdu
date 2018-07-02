@@ -509,12 +509,14 @@ footer{
 	width: 100%;
 	top: 0;
 	left: 0;
-	background: #284da9;
-	height: 50px;
+	background: #fff;
 	z-index: 99;
 	display: none;
 	box-shadow: 10px 5px 20px #1f1f1f;
 	padding: 0 20px;
+}
+.headerTiny ul{
+	margin: 0;
 }
 .headerTinyLeft ul li{
 	list-style: none;
@@ -522,42 +524,44 @@ footer{
 
 }
 .headerTinyLeft ul li a{
-	color: #fff;
-	text-decoration: none;
-	display: inline-block;
-	padding: 5px 15px;
-	transition: .5s;
-	text-transform: uppercase;
+	color: #000;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 20px;
+    transition: .5s;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
 }
 .headerTinyRight ul li {
 	list-style: none;
 	float: right;
 }
 .headerTinyRight ul li a{
-	color: #fff;
-	text-decoration: none;
-	display: inline-block;
-	padding: 5px 20px;
-	border-right: 1px solid #fff;
-	transition: 0.3s;
+	color: #000;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 20px;
+    transition: 0.3s;
+    height: 50px;
+    line-height: 50px;
 	
 }
 .headerTinyRight ul li a i{
 	transition: .5s;
 }
-.headerTinyRight ul li:first-child a{
-	border-right: none;
-}
+
 .headerTinyRight .headerActiveCode{
 	margin: 0;
 }
 .headerTinyRight ul li a:hover {
-	transform: scale(1.1);
-	
+	/*background: #284da9;
+	color: #fff;*/
 }
 .headerTinyLeft ul li a:hover{
-	transform: scale(1.1);
-	font-weight: 500;
+	background: #284da9;
+	color: #fff;
 
 }
 .headerTinyUser img{
@@ -580,25 +584,21 @@ footer{
 }
 .inputSearchTiny{
 	position: absolute;
-	width: 100%;
-	height: 40px;
-	background: none;
-	border-radius: 40px;
-	border: 1px solid #fff;
-	padding: 5px 20px;
-	right: 8px;
-    top: -22px;
-    font-size: 16px;
+    width: 100%;
+    height: 28px;
+    background: none;
+    border-radius: 40px;
+    border: 1px solid #000;
+    padding: 0px 15px;
+    right: 14px;
+    top: -6px;
+    font-size: 15px;
+        outline: none;
 }
 .inputSearchTiny::placeholder{
 	color: #fff;
 }
-.inputSearchTiny{
-	position: absolute;
-	color: #fff;
-    
 
-}
 .headerActiveCodeTiny {
     color: #fff;
     height: 25px;
@@ -610,9 +610,106 @@ footer{
     border-radius: 15px;
     transform: translate(0 , -3px);
 }
+a.headerTinyCode{
+	height: 26px !important;
+    line-height: 25px !important;
+    width: 154px;
+    border: 1px solid #000;
+    margin: 14px 150px 0 30px;
+    padding: 0 !important;
+    text-align: center;
+    overflow: hidden;
+}
+.headerTinyCodeLeft{
+	width: 41px;
+	float: left;
+	background: #FBEC5A;
+}
+.headerTinyCodeRight{
+	font-size: 11px;
+	font-weight: 500;
+}
 
+.giftShow{
+	width: 200px;
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	left: 200px;
+	z-index: 999;
+	text-align: center;
+	font-size: 12px;
+	cursor: pointer;
+}
+.giftShowTop{
+	background: #2D317F;
+	height: 36px;
+	line-height: 36px;
+	margin-bottom: 1px;
+}
+.giftShowBot{
+	height: 12px;
+	line-height: 12px;
+	background: #35375A;
 
+}
+.giftHide{
+	width: 253px;
+	height: 116px;
+	background: #2D317F;
+	position: fixed;
+	bottom: 0;
+	left: 200px;
+	z-index: 999;
+	text-align: center;
+	color: #fff;
+	display: none;
+}
+.giftHideBtn{
+	position: absolute;
+	padding: 12px;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
 
+.giftHideBtnLine{
+	height: 2px;
+	width: 8px;
+	background: #fff;
+}
+.giftHideTitle{
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+	margin-top: 20px;
+}
+.giftHideInput{
+	border: none;
+	border-bottom: 1px solid #fff;
+	display: block;
+	margin: auto;
+	background: none;
+	width: 200px;
+	margin-top: 10px;
+	outline: none;
+
+}
+.giftHideInput::placeholder{
+	color: #fff;
+	font-size: 12px;
+}
+.giftHideSubmit{
+	background: none;
+	border: 1px solid #fff;
+	margin-top: 15px;
+	width: 56px;
+	height: 23px;
+}
+.giftHideSubmit:hover{
+	background: #FFEF9C;
+	color: #2D317F;
+}
 
 
 footer{
@@ -693,4 +790,24 @@ a.footerMainItemContentItem{
 	color: #fff;
 	display: inline-block;
 	margin: 0 15px;
+}
+
+@media only screen and (max-width: 1440px) {
+    a.headerTinyCode{
+		margin-right: 70px;
+	}
+}
+@media only screen and (max-width: 1390px) {
+    a.headerTinyCode{
+		margin-right: 25px;
+	}
+	.headerTinyLeft ul li a{
+	    padding: 0 10px;
+	}
+	.headerTinyRight ul li a{
+		padding: 0 10px;
+	}
+	.inputSearchTiny{
+		right: 0;
+	}
 }

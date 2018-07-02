@@ -262,13 +262,20 @@
 		<div class="headerTinyRight">
 			<ul>
 				<li>
-					<a href="{{ asset('code') }}">
+					{{-- <a href="{{ asset('code') }}">
 						<div class="headerActiveCodeTiny">
 							<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 							<span>Kích hoạt mã code</span>
 						</div>
+					</a> --}}
+					<a href="{{ asset('code') }}" class="headerTinyCode">
+						<div class="headerTinyCodeLeft">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</div>
+						<div class="headerTinyCodeRight">
+							Kích hoạt mã code
+						</div>
 					</a>
-					
 				</li>
 				@if(Auth::check())
 				<li>
@@ -298,7 +305,7 @@
 				</li>
 				<li>
 					<a href="{{asset('cart/show')}}" class="cart">
-						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+						<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 						@if(Cart::count() != 0)
 							<div class="numOfCartTiny">{{Cart::count()}}</div>
 						@endif
@@ -321,6 +328,33 @@
 		</div>
 	</div>
 
+
+	<div class="giftShow">
+		<div class="giftShowTop">
+			<img src="img/king.png">
+			<span class="giftShowTopContent">
+				Nhận quà hấp dẫn từ Cedu
+			</span>
+			
+
+		</div>
+		<div class="giftShowBot">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</div>
+	</div>
+	<div class="giftHide">
+		<div class="giftHideBtn">
+			<div class="giftHideBtnLine"></div>
+		</div>
+		<div class="giftHideTitle">
+			Nhận kho tài liệu khủng từ Cedu
+		</div>
+		<form method="post" action="{{ asset('email') }}">
+			<input type="email" name="eamil" class="giftHideInput" placeholder="Email">
+			<input type="submit" name="sbm" class="giftHideSubmit" value="Gửi">
+			{{csrf_field()}}
+		</form>
+	</div> 
 	<div>
 		@yield('main')
 	</div>

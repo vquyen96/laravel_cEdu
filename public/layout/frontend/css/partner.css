@@ -126,15 +126,21 @@ h3{
 	border-radius: 50%;
 	border: 2px dashed #999;
 	background: #fff;
-	padding: 30px;
+	padding: 25px 20px;
 	overflow: hidden;
 	transition: 1s;
 	cursor: pointer;
 }
-
+/*
+.mapItem::-webkit-scrollbar {
+    width: 2px;
+}
+.mapItem:hover{
+	border-radius: 5%;
+}*/
 .mapItemImg{
-	width: 26px;
 	margin: auto;
+	text-align: center;
 }
 .mapItemTitle{
 	text-align: center;

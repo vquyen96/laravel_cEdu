@@ -66,4 +66,15 @@ $(document).ready(function () {
         
 
     });
+
+    $(document).on('click', ".giftShow", function(){
+        $(".giftShow").toggle();
+        $(".giftHide").toggle();
+        
+    });
+    $(document).on('click', ".giftHideBtn", function(){
+        $(".giftShow").toggle();
+        $(".giftHide").toggle();
+        
+    });
 });

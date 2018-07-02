@@ -35,6 +35,7 @@
 				</td>
 				<td>{{$item->acc->name}}</td>
 				<td>{{$item->acc->email}}</td>
+				<td>{{number_format($item->req_amount,0,',','.')}} đ</td>
 				<td>
 					@switch($item->acc->level)
 						@case(1)
@@ -67,7 +68,7 @@
 						
 					@endswitch
 				</td>
-				<td>{{number_format($item->req_amount,0,',','.')}} đ</td>
+				
 				<td>
 					@if ($item->req_status == 1)
 						<a href="{{asset('admin/acc_req/accept/'.$item->req_id)}}" class="btn btn-primary">Chấp nhận</a>

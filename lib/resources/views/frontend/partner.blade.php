@@ -61,7 +61,7 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						<b>Trở Thành Đối Tác Của Cedu</b><br>
+						<b>Trở Thành Đối Tác</b><br>
   						KẾT NỐI TRI THỨC – TỰ TIN TỎA SÁNG 
 
 					</div>
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						Lorem Ipsum is simply dummy text of the printing and typesetting.
+						Nội dung bài giảng được chuyên viên kiểm duyệt.
 					</div>
 				</div>
 				<div class="mapItem mapLeft">
@@ -89,7 +89,7 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						Lorem Ipsum is simply dummy text of the printing and typesetting.
+						Bạn sẽ được Cedu hỗ sợ trang thiết bị, phòng thu để dựng video
 					</div>
 				</div>
 				<div class="mapItem mapLeftBot">
@@ -102,7 +102,8 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						Lorem Ipsum is simply dummy text of the printing and typesetting.
+						Phát hành trên toàn hệ thống cedu sau khi được duyệt.
+						
 					</div>
 				</div>
 				<div class="mapItem mapMidBot">
@@ -115,7 +116,9 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						Lorem Ipsum is simply dummy text of the printing and typesetting.
+						KẾT NỐI TẠO THU NHẬP <br>
+						Bạn sẽ có nguồn thu nhập và thưởng hấp dẫn<br>
+						
 					</div>
 				</div>
 				<div class="mapItem mapRightTop">
@@ -128,7 +131,7 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						Lorem Ipsum is simply dummy text of the printing and typesetting.
+						Bạn sẽ được các chuyên viên của CEDU trực tiếp phỏng vấn.
 					</div>
 				</div>
 				<div class="mapItem mapRight">
@@ -141,7 +144,7 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						Lorem Ipsum is simply dummy text of the printing and typesetting.
+						Sau phỏng vấn CEDU sẽ thông báo kết quả và xác thực lần nữa.
 					</div>
 				</div>
 				<div class="mapItem mapRightBot">
@@ -154,7 +157,8 @@
 						</div>
 					</div>
 					<div class="mapItemBot">
-						Lorem Ipsum is simply dummy text of the printing and typesetting.
+						CTV sẽ được hướng dẫn cách bạn bán hàng , nhiều kĩ năng khác .
+						
 					</div>
 				</div>
 			</div>

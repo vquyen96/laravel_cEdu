@@ -204,7 +204,67 @@ window.onload = function () {
 	
 
 	@if(Auth::user()->level == 8)
+	<div class="dashboard">
+		<div  href="{{ asset('admin/order') }}" class="item earnings">
+			<div  class="icon green">
+				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>Tổng thu Nhập</p>
+				<div class="contentNum">
+					{{number_format($total_price,0,',','.')}} đ
+				</div>
+			</div>
+		</div>
 
+		<div href="{{ asset('admin/') }}" class="item student">
+			<div class="icon red">
+				<i class="fa fa-line-chart" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>Thu nhập tháng {{$month_now}}</p>
+				<div class="contentNum">
+					{{number_format($total_month_now,0,',','.')}} đ
+				</div>
+			</div>
+		</div>
+		<div href="{{ asset('admin/') }}" class="item rating">
+			<div  class="icon yell">
+				<i class="fa fa-pie-chart" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>Thu nhập tháng {{$month}}</p>
+				<div class="contentNum">
+					{{number_format($total_month,0,',','.')}} đ
+				</div>
+			</div>
+		</div>
+		<div class="item course">
+			<div class="icon blue">
+				<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+			</div>
+			<div class="content">
+				<p>
+
+				@if ($acc_req != null)
+					<i class="fa fa-check-square-o" aria-hidden="true"></i>
+				@endif
+				Yêu cầu rút tiền
+				</p>
+				<div class="contentNum">
+					{{number_format($total_month,0,',','.')}} đ
+				</div>
+				
+			</div>
+		</div>
+		<form method="post" action="{{ asset('acc_req') }}">
+			<input type="hidden" name="acc_id" value="{{Auth::user()->id}}">
+			<input type="hidden" name="amount" value="{{$total_month}}">
+			<input type="submit" name="sbm" value="gui" style="display: none;" id="sbm">
+			{{csrf_field()}}
+		</form>
+		
+	</div>
 	<div class="row ">
 		<div class="col-md-12">
 			<div class="btnShow showChart">
@@ -436,5 +496,11 @@ window.onload = function () {
 @section('script')
 <script type="text/javascript" src="js/user.js"></script>
 <script type="text/javascript" src="js/canvasjs.min.js"></script>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+        $('.item.course').click(function(){
+            $('#sbm').click();
+        });
+    });
+</script>
 @stop

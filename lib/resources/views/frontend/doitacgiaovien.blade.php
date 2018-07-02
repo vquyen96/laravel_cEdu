@@ -64,7 +64,7 @@
 			<span class="txt30">VIẾT TIẾP CÂU </span><br>
 			<span class="txt30">CHUYỆN </span>
 			<span class="txt30 yell">TRI THỨC</span>
-			<p>Bạn đã sẵn dằng chia sẻ kiến thức của mình</p>
+			<p>Bạn đã sẵn sàng chia sẻ kiến thức của mình</p>
 		</div>
 		<div class="headerImg">
 			<img src="{{asset('public/layout/frontend/img/say_yes.png')}}">
