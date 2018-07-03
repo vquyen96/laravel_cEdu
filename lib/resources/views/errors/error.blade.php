@@ -18,6 +18,9 @@
 			<div class="btn btn-default ">
 				Quay lại
 			</div>
+			<a href="{{ asset('') }}" class="btn btn-primary ">
+				Trang chủ
+			</a>
 		</div>
 
 	</div>
@@ -32,7 +35,7 @@
 				$('.errorContent').css('transform','translate(-50%, -50%) scale(1)')
 			},1000);
 			
-			$('.btn').click(function(){
+			$('.btn.btn-default').click(function(){
 				parent.history.back();
 				return false;
 			});

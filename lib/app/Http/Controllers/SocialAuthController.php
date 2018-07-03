@@ -18,10 +18,15 @@ class SocialAuthController extends Controller
 
     public function callback($social)
     {
-        $user = SocialAccountService::createOrGetUser(Socialite::driver($social)->user(), $social);
-        auth()->login($user);
+        try {
+            $user = SocialAccountService::createOrGetUser(Socialite::driver($social)->user(), $social);
+            auth()->login($user);
 
-        return redirect()->to('/home');
+            return redirect()->to('/home');
+        } catch (Exception $e) {
+           return redirect('errors');
+        }
+       
     }
 
     public function redirectToProvider($provider)
@@ -36,7 +41,7 @@ class SocialAuthController extends Controller
         }
 
         catch (customException $e) {
-            return view('frontend.error404');
+           return redirect('errors');
         }
             
     }  
@@ -72,7 +77,7 @@ class SocialAuthController extends Controller
         }
 
         catch (customException $e) {
-            return view('frontend.error404');
+           return redirect('errors');
         }
             
     }
@@ -101,7 +106,7 @@ class SocialAuthController extends Controller
         }
 
         catch (customException $e) {
-            return view('frontend.error404');
+           return redirect('errors');
         }
             
     }

@@ -40,12 +40,13 @@
 	</div>
 	<div class="loadingPage">
 		<div class="loadingPageIcon">
-			<div class="mainFormHeadCircle">
+			<img src="img/Pacman-0.8s-200px.gif">
+			{{-- <div class="mainFormHeadCircle">
 				<img src="img/vongtron.png">
 			</div>
 			<div class="mainFormHeadLogo">
 				<img src="img/logo.png">
-			</div>
+			</div> --}}
 		</div>
 	</div>
 	<input type="hidden" name="url" value="{{ asset('')}}">

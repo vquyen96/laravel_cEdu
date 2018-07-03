@@ -11,7 +11,7 @@ use Auth;
 class AffController extends Controller
 {
     public function getList(){
-    	if (Auth::user()->level != 3) {
+    	if (Auth::user()->level != 3 && Auth::user()->level != 6) {
     		$data['items'] = Account::where('level', 8)->orderBy('id','desc')->paginate(7);
     		return view('backend.affiliate',$data);
     	}

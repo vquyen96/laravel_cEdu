@@ -26,7 +26,7 @@
 					</script>
 				</div>
 			  	<div class="form-group">
-			    	<input type="submit" class="btn btn-success" value="Gửi đi">
+			    	<input type="submit" class="btn btn-success" value="Gửi đi" onclick="return confirm('Bạn có chắc chắn muốn gửi ?')">
 			  	</div>
 			  	
 			</div>

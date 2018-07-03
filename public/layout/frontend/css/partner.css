@@ -79,10 +79,38 @@ h3{
 	margin: 250px auto 50px;
 	max-width: 1000px;
 }
-.mainBodyBee img{
+.mainBodyBeeImg{
+	position: relative;
+}
+.mainBodyBeeImg img{
 	width: 100%;
 }
+.mainBodyBeeImgContent{
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	color: #fff;
+	text-align: center;
+	padding: 20px 0;
+	font-size: 16px;
 
+}
+.mainBodyBeeImgContent.one{
+	top: 0;
+	left: 350px;
+}
+.mainBodyBeeImgContent.two{
+	top: 172px;
+    left: 35px;
+}
+.mainBodyBeeImgContent.three{
+	top: 343px;
+	right: 350px;
+}
+.mainBodyBeeImgContent.four{
+	top: 172px;
+    right: 35px;
+}
 .mainBodyMapTitle{
 	text-align: center;
 	padding: 50px;

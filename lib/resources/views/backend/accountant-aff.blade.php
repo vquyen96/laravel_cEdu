@@ -22,7 +22,8 @@
 				<th>Tên</th>
 				<th>Email</th>
 				<th>Mã giới thiệu</th>
-				<th>Doanh thu</th>
+				<th>Tổng doanh thu</th>
+				<th>Gắn bó</th>
 				<th>Tuỳ chọn</th>
 			</tr>
 			@foreach($items as $item)
@@ -62,6 +63,9 @@
 						
 					@endforeach
 					<b style="color: #e33;">{{number_format($total,0,',','.')}} VND<b>
+				</td>
+				<td>
+					{{time_format($item->aff->created_at)}}
 				</td>
 				<td>
 					<a href="{{asset('admin/affiliate/detail/'.$item->id)}}" class="btn btn-primary">Chi tiết</a>

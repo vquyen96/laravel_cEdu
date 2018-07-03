@@ -17,7 +17,7 @@ h3{
 .mainHeadTitle{
 	width: 150px;
 	text-align: center;
-	background: #eee;
+	background: #fff;
 	margin: auto;
 }
 .newsHeadBig{
@@ -115,7 +115,7 @@ h3{
 .newsWeekTitle{
 	width: 300px;
 	text-align: center;
-	background: #eee;
+	background: #fff;
 	margin: auto;
 	font-size: 16px;
 }
@@ -224,7 +224,7 @@ h3{
 .newsCareTitle{
 	width: 300px;
 	text-align: center;
-	background: #eee;
+	background: #fff;
 	margin: auto;
 	font-size: 16px;
 }

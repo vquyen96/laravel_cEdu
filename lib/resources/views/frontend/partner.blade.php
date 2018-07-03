@@ -38,7 +38,30 @@
 			</div>
 		</div>
 		<div class="mainBodyBee">
-			<img src="img/loiichkhitrothanhdoitac.png">
+			<div class="mainBodyMapTitle">
+				<h3>Lợi ích của việc “Trở thành giảng viên cùng Cedu”</h3>
+			</div>
+			<div class="mainBodyBeeImg">
+				<img src="img/loiichkhitrothanhdoitac.png">
+				<div class="mainBodyBeeImgContent one">
+					<h4>KẾT NỐI TRI THỨC <br> CÙNG CEDU. </h4>
+					Cedu như một cầu nối, là nơi <br> các giảng viên có thể xây dựng nền tảng, <br>chia sẻ kiến thức tới những học viên trên toàn quốc mà không bị hạn chết về thời gian địa lý, là nơi học viên ai cũng có thể học cùng chuyên gia, hiểu quả<br> và tiết kiếm chi phí . 
+				</div>
+				<div class="mainBodyBeeImgContent two">
+					<h4> ĐỒNG HÀNH CÙNG <br> ĐỐI TÁC CHUYÊN NGHIỆP</h4>
+					Với tầm nhìn trở thành một <br> trang web giáo dục trực tuyến hàng<br> đầu Việt Nam, Cedu cam kết về một môi trường cùng phát triển và hợp tác chuyên nghiệp. Mọi hoạt động đều dựa trên <br> lợi ích của cả hai bên và chính <br> học viên. 
+				</div>
+				<div class="mainBodyBeeImgContent three">
+					<h4>MỨC CHIẾT KHẤU  <br>HẤP DẪN. </h4>
+					Đảm bảo một nguồn thu nhập <br> ổn định với mức chiết khấu hấp dẫn cho các giảng viên ứng với những giá trị thiết thực của các khóa học khác nhau trên Cedu. 
+				</div>
+				<div class="mainBodyBeeImgContent four">
+					<h4>TRỞ THÀNH NHỮNG  <br>GIẢNG VIÊN TÀI NĂNG VÀ  <br>NỔI TIẾNG. </h4>
+					Cedu là bệ phóng cho những giảng viên trẻ có thực lực, của những giảng viên đầy nhiệt huyết trên con đường “Nâng cao giá trị tri thức , phục vụ hàng triệu người Việt Nam”. 
+				</div>
+
+			</div>
+			
 		</div>
 		<div class="mainBodyMapTitle">
 			<h3>Quy trình chia sẻ đam mê cùng Cedu</h3>
@@ -230,7 +253,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="mainFormTitle">
+		{{-- <div class="mainFormTitle">
 			<h3>Bạn đã sẵn sàng đồng hành cùng cedu</h3>
 		</div>
 		<div class="mainForm">
@@ -270,7 +293,7 @@
 					</div>
 				</form>
 			</div>
-		</div>	
+		</div> --}}	
 	</div>
 </div>
 @stop

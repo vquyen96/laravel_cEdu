@@ -37,13 +37,10 @@ return [
     'facebook' => [
         'client_id' => '1577563652342523',
         'client_secret' => '34be9522e5f3d4debd126245a474619b',
-        'redirect' => 'http://demo2-cgroup.com/auth/facebook/callback',
+        // 'redirect' => 'http://ceduvn.com/auth/facebook/callback',
+        'redirect' => 'http://demo2-cgroup.com/errors',
     ],
-    // 'facebook' => [
-    //     'client_id' => env('FACEBOOK_APP_ID'),
-    //     'client_secret' => env('FACEBOOK_APP_SECRET'),
-    //     'redirect' => env('FACEBOOK_APP_CALLBACK_URL'),
-    // ],
+    
     'github' => [
         'client_id' => env('GITHUB_APP_ID'),
         'client_secret' => env('GITHUB_APP_SECRET'),
@@ -58,6 +55,7 @@ return [
         'client_id' => '135092102718-46cj889n3kjq1bk7d5b53o4b76dub1gc.apps.googleusercontent.com',
         'client_secret' => 'JrElwcihBo6EW9WEMepxxl0x',
         'redirect' => 'http://demo2-cgroup.com/auth/google/callback',
+
     ],
 
 ];

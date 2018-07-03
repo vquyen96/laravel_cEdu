@@ -27,7 +27,7 @@
 	<div class="header">
 		<div class="headerLogo">
 			<a href="{{ asset('') }}">
-				<img src="{{asset('public/layout/frontend/img/logoTiny.png')}}">
+				<img src="{{asset('public/layout/frontend/img/LOGO_CEDU1.png')}}">
 			</a>
 		</div>
 		<div class="headerMenu">

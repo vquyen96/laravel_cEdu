@@ -55,6 +55,9 @@ class HomeController extends Controller
                     
                 }
             }
+            if (Auth::user()->level > 3 && Auth::user()->level < 7) {
+                return redirect('admin/user');
+            }
             $data['total_price'] = $total;
             return view('backend.home',$data);
         }

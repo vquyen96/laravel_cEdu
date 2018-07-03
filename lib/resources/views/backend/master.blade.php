@@ -65,14 +65,15 @@
 				</a>
 			</li>
 			@endif
-			@if(Auth::user()->level < 7 && Auth::user()->level != 5)
+			@if(Auth::user()->level < 7 && Auth::user()->level != 5 && Auth::user()->level != 4
+			)
 			<li>
 				<a href="{{asset('admin/affiliate')}}" class="navAccount @if (Request::segment(2) == 'affiliate')  active @endif">
 					Cộng tác viên
 				</a>
 			</li>
 			@endif
-			@if(Auth::user()->level < 7 && Auth::user()->level != 6)
+			@if(Auth::user()->level < 7 && Auth::user()->level != 6  && Auth::user()->level != 4)
 			<li>
 				<a href="{{asset('admin/teacher')}}" class="navAccount @if (Request::segment(2) == 'teacher')  active @endif">
 					Giáo viên
@@ -86,7 +87,7 @@
 				</a>
 			</li>
 			@endif
-			@if(Auth::user()->level < 3)
+			@if(Auth::user()->level < 3 || Auth::user()->level == 5)
 			<li>
 				<a href="{{asset('admin/group')}}" class="navAccount @if (Request::segment(2) == 'group')  active @endif">
 					Lĩnh vực
@@ -137,6 +138,13 @@
 			<li>
 				<a href="{{asset('admin/about')}}" class="navAccount @if (Request::segment(2) == 'about')  active @endif">
 					Giới thiệu
+				</a>
+			</li>
+			@endif
+			@if(Auth::user()->level < 5  && Auth::user()->level != 3)
+			<li>
+				<a href="{{asset('admin/gift')}}" class="navAccount @if (Request::segment(2) == 'about')  active @endif">
+					Mail quà tặng
 				</a>
 			</li>
 			@endif
