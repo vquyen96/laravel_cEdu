@@ -48,7 +48,7 @@ $(document).ready(function () {
     $(document).on('click', ".btnScrollTop, .footerTopItemBtnScrollTop", function(){
        $('html, body').animate({
           scrollTop: 0
-        }, 500);
+        }, 1000);
     });
 
     $(document).on('click', ".btnSearchHeadTiny", function(){

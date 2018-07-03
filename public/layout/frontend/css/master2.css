@@ -559,6 +559,10 @@ footer{
 	/*background: #284da9;
 	color: #fff;*/
 }
+.headerTinyLeft ul li a.active{
+	background: #284da9;
+	color: #fff;
+}
 .headerTinyLeft ul li a:hover{
 	background: #284da9;
 	color: #fff;

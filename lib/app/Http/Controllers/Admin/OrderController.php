@@ -57,7 +57,7 @@ class OrderController extends Controller
                         $data['code'] = $code;
                         
                         Mail::send('frontend.emailCode', $data, function($message) use ($email){
-                            $message->from('vquyenaaa@gmail.com', 'Ceduvn');
+                            $message->from('info@ceduvn.com', 'Ceduvn');
                             $message->to($email, $email)->subject('Thank You!');
                             // $message->cc('thongminh.depzai@gmail.com', 'boss');
                             $message->subject('Mã code khóa học');

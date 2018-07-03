@@ -421,3 +421,79 @@ input[type=range]:focus::-ms-fill-lower {
 	min-height: 500px;
 	display: block;
 }
+
+
+
+
+a.homeCourseMainItem{
+	width: 265px;
+    height: 365px;
+    margin: 0 6px;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s;
+    color: #000;
+    text-decoration: none;
+    transform: translate(-15px, 0px);
+}
+.homeCourseMainItem:hover{
+	transform: translate(0 , -10px);
+	box-shadow: 1px 1px 15px #0000005c;
+}
+.homeCourseMainItemImg{
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+	margin: 10px;
+}
+.homeCourseMainItemImg img{
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50% ,0);
+}
+.homeCourseMainItemSale{
+    width: 45px;
+    height: 26px;
+    line-height: 26px;
+    background: #FE5252;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.homeCourseMainItemContent{
+	height: 145px;
+    padding: 5px 9px;
+}
+.homeCourseMainItemContentTea{
+
+	font-weight: 500;
+}
+.homeCourseMainItemContentTea img{
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+}
+.homeCourseMainItemContentStar{
+	font-size: 12px;
+	float: right;
+	padding: 5px;
+}
+.fa.fa-star{
+	margin-right: 3px;
+}
+.fa.fa-star.starActive{
+	color: #F7E276;
+}
+
+.homeCourseMainItemContentCourse{
+	height: 50px;
+	font-size: 16px;
+	font-weight: 500;
+	margin : 8px 0;
+}

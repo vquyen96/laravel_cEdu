@@ -62,11 +62,14 @@ $(document).ready(function(){
 		    }, 800);
 		});
 	}
-		
+	var price = url.searchParams.get("price");	
+	if (price == null) {
+		price = 800000;
+	}
 	var slider = document.getElementById('slider');
  	var slidePrice = document.getElementById('slidePrice');
 	noUiSlider.create(slider, {
-		start: [ 800000 ],
+		start: [ price ],
 		connect: [true, false],
 		padding: [ 100000, 0 ],
 		step: 10000,

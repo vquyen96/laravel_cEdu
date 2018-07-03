@@ -14,8 +14,8 @@ $(document).ready(function() {
 	    } else {
 	        $('.headerTiny').slideUp();
             $('.btnScrollTop').css('bottom','-120px');
-        	$('.headMenu').css({'position':'unset','top':'0','z-index':'9','width': '100%', 'box-shadow': 'none'});
-        	$('.courseParameter').css({'position':'unset','top':'0','z-index':'9','width': 'auto', 'box-shadow': 'none'});
+        	$('.headMenu').css({'position':'unset','top':'0','z-index':'9','width': '100%'});
+        	$('.courseParameter').css({'position':'unset','top':'0','z-index':'9','width': 'auto'});
 	    }
 	    if (document.body.scrollTop > ($("footer").offset().top-650) || document.documentElement.scrollTop > ($("footer").offset().top-650)) {
 	    	$(".courseParameter").hide();
@@ -29,8 +29,8 @@ $(document).ready(function() {
     	$('.headMenu').css({'position':'fixed','top':'47px','z-index':'9','width':widthHeadMenu, 'box-shadow': 'rgb(162, 162, 162) 7px 7px 20px'});
     	$('.courseParameter').css({'position':'fixed','top':'67px','z-index':'9','width':widthCourseParameter, 'box-shadow': 'rgb(162, 162, 162) 7px 7px 20px'});
     } else {
-    	$('.headMenu').css({'position':'unset','top':'0','z-index':'9','width': '100%', 'box-shadow': 'none'});
-    	$('.courseParameter').css({'position':'unset','top':'0','z-index':'9','width': 'auto', 'box-shadow': 'none'});
+    	$('.headMenu').css({'position':'unset','top':'0','z-index':'9','width': '100%'});
+    	$('.courseParameter').css({'position':'unset','top':'0','z-index':'9','width': 'auto'});
     }
     
     $(document).on('click', ".btnGetLink", function() {

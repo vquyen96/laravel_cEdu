@@ -252,11 +252,11 @@
 	<div class="headerTiny">
 		<div class="headerTinyLeft">
 			<ul>
-				<li><a href="{{asset("/")}}">Trang chủ</a></li>
-				<li><a href="{{asset("courses")}}">Khóa học</a></li>
-				<li><a href="{{asset("news")}}">Tin tức</a></li>
-				<li><a href="{{asset("partner")}}">Trở thành đối tác</a></li>
-				<li><a href="{{asset("doc")}}">Tài liệu</a></li>
+				<li><a class="@if (Request::segment(1) == "") active @endif" href="{{asset("/")}}">Trang chủ</a></li>
+				<li><a class="@if (Request::segment(1) == "courses") active @endif" href="{{asset("courses")}}">Khóa học</a></li>
+				<li><a class="@if (Request::segment(1) == "news") active @endif" href="{{asset("news")}}">Tin tức</a></li>
+				<li><a class="@if (Request::segment(1) == "partner") active @endif" href="{{asset("partner")}}">Trở thành đối tác</a></li>
+				<li><a class="@if (Request::segment(1) == "doc") active @endif" href="{{asset("doc")}}">Tài liệu</a></li>
 			</ul>
 		</div>
 		<div class="headerTinyRight">
@@ -349,8 +349,8 @@
 		<div class="giftHideTitle">
 			Nhận kho tài liệu khủng từ Cedu
 		</div>
-		<form method="post" action="{{ asset('email') }}">
-			<input type="email" name="eamil" class="giftHideInput" placeholder="Email">
+		<form method="post" action="{{ asset('gift') }}">
+			<input type="email" name="email" class="giftHideInput" placeholder="Email">
 			<input type="submit" name="sbm" class="giftHideSubmit" value="Gửi">
 			{{csrf_field()}}
 		</form>

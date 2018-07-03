@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 		if (maginleftGroup > 0) {
 			setTimeout(function(){
-				maginleftGroup -= 290;
+				maginleftGroup = -1160;
 				$('.menuGroupLine').css('margin-left',maginleftGroup);
 			}, 200);
 			
@@ -50,7 +50,7 @@ $(document).ready(function(){
 
 		if (maginleftGroup < -1160) {
 			setTimeout(function(){
-				maginleftGroup += 290;
+				maginleftGroup = 0;
 				$('.menuGroupLine').css('margin-left',maginleftGroup);
 			}, 200);
 		}
@@ -60,12 +60,12 @@ $(document).ready(function(){
 	var maginleftCourseFeatured = 0;
 	$('.featuredTitleMainBtnItem.left').click(function(){
 		
-		maginleftCourseFeatured += 581;
+		maginleftCourseFeatured += 582;
 		$('.featuredMainLine').css('margin-left',maginleftCourseFeatured);
 
 		if (maginleftCourseFeatured > 0) {
 			setTimeout(function(){
-				maginleftCourseFeatured -= 581;
+				maginleftCourseFeatured -= 2324;
 				$('.featuredMainLine').css('margin-left',maginleftCourseFeatured);
 			}, 200);
 		}
@@ -73,12 +73,12 @@ $(document).ready(function(){
 
 	});
 	$('.featuredTitleMainBtnItem.right').click(function(){
-		maginleftCourseFeatured -= 581;
+		maginleftCourseFeatured -= 582;
 		$('.featuredMainLine').css('margin-left',maginleftCourseFeatured);
 
-		if (maginleftCourseFeatured < -1160) {
+		if (maginleftCourseFeatured <= -2324) {
 			setTimeout(function(){
-				maginleftCourseFeatured += 581;
+				maginleftCourseFeatured = 0;
 				$('.featuredMainLine').css('margin-left',maginleftCourseFeatured);
 			}, 200);
 		}
@@ -110,9 +110,9 @@ $(document).ready(function(){
 		maginleftTeacher -= 293;
 		$('.teacherMainLine').css('margin-left',maginleftTeacher);
 
-		if (maginleftTeacher < -1750) {
+		if (maginleftTeacher < -1758) {
 			setTimeout(function(){
-				maginleftTeacher += 293;
+				maginleftTeacher = 0;
 				$('.teacherMainLine').css('margin-left',maginleftTeacher);
 			}, 200);
 		}
@@ -124,7 +124,7 @@ $(document).ready(function(){
 
 		if (maginleftTeacher > 0) {
 			setTimeout(function(){
-				maginleftTeacher -= 293;
+				maginleftTeacher = -1758;
 				$('.teacherMainLine').css('margin-left',maginleftTeacher);
 			}, 200);
 		}

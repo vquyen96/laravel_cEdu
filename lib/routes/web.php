@@ -185,6 +185,11 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'CheckAdmin'],function(){
 
 
 		});
+
+		Route::group(['prefix' => 'gift'],function(){
+			Route::get('/' , 'GiftController@getList');
+			Route::post('/' , 'GiftController@postGift');
+		});
 	});
 });
 Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
@@ -197,6 +202,9 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 	Route::post('user','UserController@postUser');
 	Route::get('share/{slug}','UserController@getShare');
 	Route::post('acc_req','UserController@postAccReq');
+
+
+	Route::post('gift', 'GiftController@postGift');
 	
 	Route::get('/slide_home_head', 'BannerController@HomeHead');
 
@@ -290,6 +298,9 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 		Route::get('complete_nganluong', 'CartController@getCompleteNganLuong');
 		Route::post('post_ngan_luong','CartController@postNganLuong');
 	});
+
+
+
 
 
 });

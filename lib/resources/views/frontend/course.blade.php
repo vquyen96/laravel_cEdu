@@ -49,34 +49,37 @@
 					{{$course->count()}} Khóa học
 				</div>
 				<div class="mainHeadTag">
-					@foreach(Request::all() as $item)
-						@if( $item != 'null')
-							<div class="mainHeadTagItem">
-								<div class="mainHeadTagItemContent">
-									@switch($item)
-										@case('all')
-											Mọi cấp độ
-											@break
-										@case('basic')
-											Cơ bản
-											@break
-										@case('master')
-											Nâng cao
-											@break
-										@default
-											{{number_format($item,0,',','.')}} VND
-											@break;
-									@endswitch
-									
+					@if (!isset($searchValue))
+						@foreach(Request::all() as $item)
+							@if( $item != 'null')
+								<div class="mainHeadTagItem">
+									<div class="mainHeadTagItemContent">
+										@switch($item)
+											@case('all')
+												Mọi cấp độ
+												@break
+											@case('basic')
+												Cơ bản
+												@break
+											@case('master')
+												Nâng cao
+												@break
+											@default
+												{{number_format($item,0,',','.')}} VND
+												@break;
+										@endswitch
+										
+									</div>
+									<div class="mainHeadTagItemRemove" onclick="btnRemove('{{$item}}')">
+										<i class="fa fa-times" aria-hidden="true"></i>
+									</div>
 								</div>
-								<div class="mainHeadTagItemRemove" onclick="btnRemove('{{$item}}')">
-									<i class="fa fa-times" aria-hidden="true"></i>
-								</div>
-							</div>
-						@endif
+							@endif
+								
 							
+						@endforeach
+					@endif
 						
-					@endforeach
 				</div>
 			</div>
 		</div>
@@ -91,51 +94,41 @@
 					 
 					@foreach($course as $item)
 					<div class="col-md-4 col-sm-6 col-xs-12">
-						<div class="courseItem">
-							<div class="courseItemPrice">
-								<span class="coursePrice">{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
-								@if($item->cou_sale != 0)
-									<span class="coursePriceSale">{{number_format((100*ROUND($item->cou_price/ (100 - $item->cou_sale))),0,',','.')}}<sup>đ</sup></span>
-								@endif
-								
+						<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+							<div class="homeCourseMainItemImg">
+								<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
 							</div>
-							<div class="courseItemSale" @if($item->cou_sale == 0) style="display: none;" @endif>
-								<img src="img/tag.png">
-								<span class="courseItemSaleContent">
-									{{$item->cou_sale}}%
-								</span>
-							</div>
-							<div class="courseItemCart" @if($item->cou_sale != 0) style="display: none;" @endif>
-								<a href="{{asset('cart/add/'.$item->cou_slug)}}">
-									<img src="img/ic_cart.png">
-								</a>
-							</div>
-								
-								
-							<div class="courseItemImg" >
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
-								</a>
-							</div>
-							<div class="courseItemTeacher">
-								<div class="courseItemStar">
-									@for($i=0;$i<5;$i++)
-										@if($item->cou_star > $i)
-											<i class="fa fa-star starActive" aria-hidden="true"></i>
-										@else
-											<i class="fa fa-star" aria-hidden="true"></i>
-										@endif
-									@endfor
+							@if ($item->cou_sale != 0)
+								<div class="homeCourseMainItemSale">
+									-{{$item->cou_sale}}%
 								</div>
-								<div class="courseItemTeacherInfo">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-									<span class="teacherName">{{$item->tea->name}}</span>
+							@endif
+							<div class="homeCourseMainItemContent">
+								<div class="homeCourseMainItemContentTea">
+									<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+									{{$item->tea->name}}
+									<div class="homeCourseMainItemContentStar">
+										@for($i=0;$i<5;$i++)
+											@if($item->cou_star > $i)
+												<i class="fa fa-star starActive" aria-hidden="true"></i>
+											@else
+												<i class="fa fa-star" aria-hidden="true"></i>
+											@endif
+										@endfor
+									</div>
 								</div>
-								<div class="courseItemName">
-									<h4>{{cut_string($item->cou_name,50)}}</h4>
+								
+								<div class="homeCourseMainItemContentCourse">
+									{{cut_string($item->cou_name , 80)}}
+								</div>
+								<div class="homeCourseMainItemContentPrice">
+									<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+									@if ($item->cou_price_old != null)
+										<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+									@endif
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					@endforeach
 					
@@ -150,52 +143,41 @@
 					 
 					@foreach($courseByMost as $item)
 					<div class="col-md-4 col-sm-6 col-xs-12">
-						<div class="courseItem">
-							<div class="courseItemPrice">
-								<span class="coursePrice">{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
-								@if($item->cou_sale != 0)
-									<span class="coursePriceSale">{{number_format((100*ROUND($item->cou_price/ (100 - $item->cou_sale))),0,',','.')}}<sup>đ</sup></span>
-								@endif
-								
+						<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+							<div class="homeCourseMainItemImg">
+								<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
 							</div>
-							<div class="courseItemSale" @if($item->cou_sale == 0) style="display: none;" @endif>
-								<img src="img/tag.png">
-								<span class="courseItemSaleContent">
-									{{$item->cou_sale}}%
-								</span>
-							</div>
-							<div class="courseItemCart" @if($item->cou_sale != 0) style="display: none;" @endif>
-								<a href="{{asset('cart/add/'.$item->cou_slug)}}">
-									<img src="img/ic_cart.png">
-								</a>
-							</div>
-								
-								
-							<div class="courseItemImg" >
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
-								</a>
-							</div>
-							<div class="courseItemTeacher">
-								<div class="courseItemStar">
-									@for($i=0;$i<5;$i++)
-										@if($item->cou_star > $i)
-											<i class="fa fa-star starActive" aria-hidden="true"></i>
-										@else
-											<i class="fa fa-star" aria-hidden="true"></i>
-										@endif
-									@endfor
-									
+							@if ($item->cou_sale != 0)
+								<div class="homeCourseMainItemSale">
+									-{{$item->cou_sale}}%
 								</div>
-								<div class="courseItemTeacherInfo">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-									<span class="teacherName">{{$item->tea->name}}</span>
+							@endif
+							<div class="homeCourseMainItemContent">
+								<div class="homeCourseMainItemContentTea">
+									<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+									{{$item->tea->name}}
+									<div class="homeCourseMainItemContentStar">
+										@for($i=0;$i<5;$i++)
+											@if($item->cou_star > $i)
+												<i class="fa fa-star starActive" aria-hidden="true"></i>
+											@else
+												<i class="fa fa-star" aria-hidden="true"></i>
+											@endif
+										@endfor
+									</div>
 								</div>
-								<div class="courseItemName">
-									<h4>{{cut_string($item->cou_name,50)}}</h4>
+								
+								<div class="homeCourseMainItemContentCourse">
+									{{cut_string($item->cou_name , 80)}}
+								</div>
+								<div class="homeCourseMainItemContentPrice">
+									<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+									@if ($item->cou_price_old != null)
+										<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+									@endif
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					@endforeach
 					
@@ -207,51 +189,41 @@
 					 
 					@foreach($courseNewMost as $item)
 					<div class="col-md-4 col-sm-6 col-xs-12">
-						<div class="courseItem">
-							<div class="courseItemPrice">
-								<span class="coursePrice">{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
-								@if($item->cou_sale != 0)
-									<span class="coursePriceSale">{{number_format((100*ROUND($item->cou_price/ (100 - $item->cou_sale))),0,',','.')}}<sup>đ</sup></span>
-								@endif
+						<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+							<div class="homeCourseMainItemImg">
+								<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
+							</div>
+							@if ($item->cou_sale != 0)
+								<div class="homeCourseMainItemSale">
+									-{{$item->cou_sale}}%
+								</div>
+							@endif
+							<div class="homeCourseMainItemContent">
+								<div class="homeCourseMainItemContentTea">
+									<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+									{{$item->tea->name}}
+									<div class="homeCourseMainItemContentStar">
+										@for($i=0;$i<5;$i++)
+											@if($item->cou_star > $i)
+												<i class="fa fa-star starActive" aria-hidden="true"></i>
+											@else
+												<i class="fa fa-star" aria-hidden="true"></i>
+											@endif
+										@endfor
+									</div>
+								</div>
 								
-							</div>
-							<div class="courseItemSale" @if($item->cou_sale == 0) style="display: none;" @endif>
-								<img src="img/tag.png">
-								<span class="courseItemSaleContent">
-									{{$item->cou_sale}}%
-								</span>
-							</div>
-							<div class="courseItemCart" @if($item->cou_sale != 0) style="display: none;" @endif>
-								<a href="{{asset('cart/add/'.$item->cou_slug)}}">
-									<img src="img/ic_cart.png">
-								</a>
-							</div>
-							<div class="courseItemImg" >
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
-								</a>
-								
-							</div>
-							<div class="courseItemTeacher">
-								<div class="courseItemStar">
-									@for($i=0;$i<5;$i++)
-										@if($item->cou_star > $i)
-											<i class="fa fa-star starActive" aria-hidden="true"></i>
-										@else
-											<i class="fa fa-star" aria-hidden="true"></i>
-										@endif
-									@endfor
-									
+								<div class="homeCourseMainItemContentCourse">
+									{{cut_string($item->cou_name , 80)}}
 								</div>
-								<div class="courseItemTeacherInfo">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-									<span class="teacherName">{{$item->tea->name}}</span>
-								</div>
-								<div class="courseItemName">
-									<h4>{{cut_string($item->cou_name,50)}}</h4>
+								<div class="homeCourseMainItemContentPrice">
+									<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+									@if ($item->cou_price_old != null)
+										<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+									@endif
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					@endforeach
 					
@@ -263,51 +235,41 @@
 					 
 					@foreach($courseVoteMost as $item)
 					<div class="col-md-4 col-sm-6 col-xs-12">
-						<div class="courseItem">
-							<div class="courseItemPrice">
-								<span class="coursePrice">{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
-								@if($item->cou_sale != 0)
-									<span class="coursePriceSale">{{number_format((100*ROUND($item->cou_price/ (100 - $item->cou_sale))),0,',','.')}}<sup>đ</sup></span>
-								@endif
+						<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+							<div class="homeCourseMainItemImg">
+								<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
+							</div>
+							@if ($item->cou_sale != 0)
+								<div class="homeCourseMainItemSale">
+									-{{$item->cou_sale}}%
+								</div>
+							@endif
+							<div class="homeCourseMainItemContent">
+								<div class="homeCourseMainItemContentTea">
+									<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+									{{$item->tea->name}}
+									<div class="homeCourseMainItemContentStar">
+										@for($i=0;$i<5;$i++)
+											@if($item->cou_star > $i)
+												<i class="fa fa-star starActive" aria-hidden="true"></i>
+											@else
+												<i class="fa fa-star" aria-hidden="true"></i>
+											@endif
+										@endfor
+									</div>
+								</div>
 								
-							</div>
-							<div class="courseItemSale" @if($item->cou_sale == 0) style="display: none;" @endif>
-								<img src="img/tag.png">
-								<span class="courseItemSaleContent">
-									{{$item->cou_sale}}%
-								</span>
-							</div>
-							<div class="courseItemCart" @if($item->cou_sale != 0) style="display: none;" @endif>
-								<a href="{{asset('cart/add/'.$item->cou_slug)}}">
-									<img src="img/ic_cart.png">
-								</a>
-							</div>
-							<div class="courseItemImg" >
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
-								</a>
-								
-							</div>
-							<div class="courseItemTeacher">
-								<div class="courseItemStar">
-									@for($i=0;$i<5;$i++)
-										@if($item->cou_star > $i)
-											<i class="fa fa-star starActive" aria-hidden="true"></i>
-										@else
-											<i class="fa fa-star" aria-hidden="true"></i>
-										@endif
-									@endfor
-									
+								<div class="homeCourseMainItemContentCourse">
+									{{cut_string($item->cou_name , 80)}}
 								</div>
-								<div class="courseItemTeacherInfo">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-									<span class="teacherName">{{$item->tea->name}}</span>
-								</div>
-								<div class="courseItemName">
-									<h4>{{cut_string($item->cou_name,50)}}</h4>
+								<div class="homeCourseMainItemContentPrice">
+									<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+									@if ($item->cou_price_old != null)
+										<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+									@endif
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					@endforeach
 					
@@ -319,51 +281,41 @@
 					 
 					@foreach($courseSaleMost as $item)
 					<div class="col-md-4 col-sm-6 col-xs-12">
-						<div class="courseItem">
-							<div class="courseItemPrice">
-								<span class="coursePrice">{{number_format($item->cou_price,0,',','.')}}<sup>đ</sup></span>
-								@if($item->cou_sale != 0)
-									<span class="coursePriceSale">{{number_format((100*ROUND($item->cou_price/ (100 - $item->cou_sale))),0,',','.')}}<sup>đ</sup></span>
-								@endif
+						<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+							<div class="homeCourseMainItemImg">
+								<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
+							</div>
+							@if ($item->cou_sale != 0)
+								<div class="homeCourseMainItemSale">
+									-{{$item->cou_sale}}%
+								</div>
+							@endif
+							<div class="homeCourseMainItemContent">
+								<div class="homeCourseMainItemContentTea">
+									<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+									{{$item->tea->name}}
+									<div class="homeCourseMainItemContentStar">
+										@for($i=0;$i<5;$i++)
+											@if($item->cou_star > $i)
+												<i class="fa fa-star starActive" aria-hidden="true"></i>
+											@else
+												<i class="fa fa-star" aria-hidden="true"></i>
+											@endif
+										@endfor
+									</div>
+								</div>
 								
-							</div>
-							<div class="courseItemSale" @if($item->cou_sale == 0) style="display: none;" @endif>
-								<img src="img/tag.png">
-								<span class="courseItemSaleContent">
-									{{$item->cou_sale}}%
-								</span>
-							</div>
-							<div class="courseItemCart" @if($item->cou_sale != 0) style="display: none;" @endif>
-								<a href="{{asset('cart/add/'.$item->cou_slug)}}">
-									<img src="img/ic_cart.png">
-								</a>
-							</div>
-							<div class="courseItemImg" >
-								<a href="{{asset('courses/detail/'.$item->cou_slug.'.html')}}">
-									<img src="{{asset('lib/storage/app/course/resized-'.$item->cou_img)}}" class="img-fluid">
-								</a>
-								
-							</div>
-							<div class="courseItemTeacher">
-								<div class="courseItemStar">
-									@for($i=0;$i<5;$i++)
-										@if($item->cou_star > $i)
-											<i class="fa fa-star starActive" aria-hidden="true"></i>
-										@else
-											<i class="fa fa-star" aria-hidden="true"></i>
-										@endif
-									@endfor
-									
+								<div class="homeCourseMainItemContentCourse">
+									{{cut_string($item->cou_name , 80)}}
 								</div>
-								<div class="courseItemTeacherInfo">
-									<img src="{{asset('lib/storage/app/avatar/'.$item->tea->img)}}">
-									<span class="teacherName">{{$item->tea->name}}</span>
-								</div>
-								<div class="courseItemName">
-									<h4>{{cut_string($item->cou_name,50)}}</h4>
+								<div class="homeCourseMainItemContentPrice">
+									<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+									@if ($item->cou_price_old != null)
+										<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+									@endif
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					@endforeach
 					
@@ -378,7 +330,7 @@
 						<div>Từ: 0 - <span id="slidePrice"></span> VND <div class="customPriceBtn">Lọc</div></div>
 						<div class="slidecontainer">
 						 {{--  <input type="range" min="0" max="400" @if(Request::get('price') == 0) value="300" @else value="{{ (int)Request::get('price') / 10000 }}" @endif class="slider" id="myRange"> --}}
-						  	<div id="slider"></div>
+						<div id="slider"></div>
 						</div>
 					</div>
 				</div>
