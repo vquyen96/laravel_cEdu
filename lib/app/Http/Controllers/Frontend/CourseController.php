@@ -49,10 +49,10 @@ class CourseController extends Controller
             return view('frontend/course',$data);
         }
         $data['course'] = Course::all();
-    	$data['courseByMost'] = Course::orderBy('cou_student','desc')->paginate(6);
-        $data['courseNewMost'] = Course::orderBy('created_at','desc')->paginate(6);
-        $data['courseVoteMost'] = Course::orderBy('cou_star','desc')->paginate(6);
-        $data['courseSaleMost'] = Course::orderBy('cou_sale','desc')->paginate(6);
+    	$data['courseByMost'] = Course::orderBy('cou_student','desc')->paginate(15);
+        $data['courseNewMost'] = Course::orderBy('created_at','desc')->paginate(15);
+        $data['courseVoteMost'] = Course::orderBy('cou_star','desc')->paginate(15);
+        $data['courseSaleMost'] = Course::orderBy('cou_sale','desc')->paginate(15);
 
     	$data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(7);
         $data['teacher_total'] = Teacher::count();

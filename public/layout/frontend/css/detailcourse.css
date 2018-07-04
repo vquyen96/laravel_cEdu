@@ -13,6 +13,7 @@
 }
 .headMenu {
 	transition: top 1s;
+	box-shadow: rgb(162, 162, 162) 7px 7px 20px;
 
 }
 .headMenu ul{
@@ -186,6 +187,7 @@
 	padding: 20px 10px;
 	position: relative;
 	transition: 1s;
+	box-shadow: rgb(162, 162, 162) 7px 7px 20px;
 }
 .courseImg img{
 	width: 100%;

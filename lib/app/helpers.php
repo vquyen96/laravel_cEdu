@@ -92,6 +92,7 @@
 			$date = new DateTime();
 			$date = strtotime(date_format($date,"Y-m-d h:m:s"));
 			$time = strtotime(date_format($time,"Y-m-d h:m:s"));
+			// echo $date . "----" . $time;
 			// return $date.' - '.$time;
 			$year = 31526000;
 			$month = 2592000;

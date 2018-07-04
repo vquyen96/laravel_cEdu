@@ -28,6 +28,7 @@
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:500|Roboto:400,500" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/master2.css">
 </head>
+
 <body>
 	
 	<div id="status">
@@ -72,7 +73,7 @@
 								</div>
 								<div class="headerTopMenuItemRight">
 									<div class="headerTopMenuItemRightTitle">
-										08.887.790.111
+										1900.633.972
 									</div>
 									<div class="headerTopMenuItemRightContent">
 										Hỗ trợ 24/7
@@ -84,12 +85,39 @@
 									<i class="fa fa-bell" aria-hidden="true"></i>
 								</div>
 								<div class="headerTopMenuItemRight">
+									<div class="headerTopMenuItemHover headerBell">
+										<div class="headerTopMenuItemHoverHead">
+											<img src="img/ic_menuc2.png">
+										</div>
+										<?php $countNoti = 0?>
+										@foreach ($noti as $item)
+											
+											@if ($item->noti_status == 1)
+												<?php $countNoti++ ?>
+												
+											@endif
+											<a href="{{$item->noti_link}}" class="headerBellItem">
+												<div class="headerBellItemImg">
+													<img src="{{ asset('lib/storage/app/noti/resized-'.$item->noti_img) }}">
+												</div>
+												<div class="headerBellItemContent">
+													<span class="title">{{$item->noti_name}}</span>
+													{{$item->noti_content}}
+												</div>
+												<div class="headerBellItemTime">
+													<i class="fa fa-clock-o" aria-hidden="true"></i>
+													{{time_format($item->created_at)}}
+												</div>
+											</a>
+										@endforeach
+									</div>
 									<div class="headerTopMenuItemRightTitle">
 										Thông báo 
 									</div>
 									<div class="headerTopMenuItemRightContent">
-										2 tin mới
+										{{$countNoti}} tin mới
 									</div>
+									
 								</div>
 							</div>
 							<div class="headerTopMenuItem">
@@ -300,8 +328,14 @@
 				</li>
 				@endif
 				<li>
-					<a href="">
+					<a href="" class="bellTiny">
 						<i class="fa fa-bell" aria-hidden="true"></i>
+						<div class="bellTinyHide">
+							<img src="img/ic_menuc2.png">
+							<div class="bellTinyItem">
+								
+							</div>
+						</div>
 					</a>
 				</li>
 				<li>
@@ -510,7 +544,8 @@
 						<p>
 							<i class="fa fa-phone" aria-hidden="true"></i>
 							08.887.790.111<br>
-							02.473.016.366
+							02.473.016.366<br>
+							1900.633.972 nhánh 1
 						</p>
 						<p>
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -580,6 +615,18 @@
 	     fjs.parentNode.insertBefore(js, fjs);
 	   }(document, 'script', 'facebook-jssdk'));
 	</script>	
-	
+	<!--Start of Tawk.to Script-->
+	{{-- <script type="text/javascript">
+	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	(function(){
+	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+	s1.async=true;
+	s1.src='https://embed.tawk.to/5b3c71934af8e57442dc5245/default';
+	s1.charset='UTF-8';
+	s1.setAttribute('crossorigin','*');
+	s0.parentNode.insertBefore(s1,s0);
+	})();
+	</script>
+	<!--End of Tawk.to Script--> --}}
 </body>
 </html>

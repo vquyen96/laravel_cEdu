@@ -14,6 +14,7 @@
 	background: #fff;
 	margin: 5px;
 	overflow: hidden;
+	box-shadow: 2px 2px 20px #0005;
 }
 .cartItemImg{
 	width: 200px;
@@ -35,7 +36,9 @@
 	font-weight: 500;
 	float: right;
 }
-
+.cartRight{
+	box-shadow: 2px 3px 20px 0px #0005;
+}
 .cartTotal{
 	background: #fff;
 	margin: 5px 0;

@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Group;
 use App\Models\About;
 use App\Models\Account_Request;
-
+use App\Models\Noti;
 use DateTime;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $data['group'] = Group::all();
         $data['about_list'] = About::all();
-
+        $data['noti'] = Noti::paginate(6);
         
         
         view()->share($data);

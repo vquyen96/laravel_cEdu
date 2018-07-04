@@ -85,7 +85,7 @@
 		</div>
 		
 		<div class="row">
-			@if(Request::segment(1) != 'courses')
+			{{-- @if(Request::segment(1) != 'courses')
 			<div class="col-md-9 col-sm-9">
 				<div class="row buyMost">
 					<div class="col-md-12 courseTitle">
@@ -321,8 +321,216 @@
 					
 				</div>
 			</div>
+			@endif --}}
+			@if(Request::segment(1) != 'courses')
+			<div class="col-md-9 col-sm-9">
+				<div class="buyMost">
+					 
+					@foreach($course as $item)
+								<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+									<div class="homeCourseMainItemImg">
+										<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
+									</div>
+									@if ($item->cou_sale != 0)
+										<div class="homeCourseMainItemSale">
+											-{{$item->cou_sale}}%
+										</div>
+									@endif
+									<div class="homeCourseMainItemContent">
+										<div class="homeCourseMainItemContentTea">
+											<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+											{{$item->tea->name}}
+											<div class="homeCourseMainItemContentStar">
+												@for($i=0;$i<5;$i++)
+													@if($item->cou_star > $i)
+														<i class="fa fa-star starActive" aria-hidden="true"></i>
+													@else
+														<i class="fa fa-star" aria-hidden="true"></i>
+													@endif
+												@endfor
+											</div>
+										</div>
+										
+										<div class="homeCourseMainItemContentCourse">
+											{{cut_string($item->cou_name , 70)}}
+										</div>
+										<div class="homeCourseMainItemContentPrice">
+											<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+											@if ($item->cou_price_old != null)
+												<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+											@endif
+										</div>
+									</div>
+								</a>
+							@endforeach
+					
+				</div>
+			</div>
+			@else
+
+			<div class="col-md-9">
+				<div class="courseMain">
+					<div class="couserLine">
+						<div class="couserLineItem buyMost">
+							@foreach($courseByMost as $item)
+								<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+									<div class="homeCourseMainItemImg">
+										<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
+									</div>
+									@if ($item->cou_sale != 0)
+										<div class="homeCourseMainItemSale">
+											-{{$item->cou_sale}}%
+										</div>
+									@endif
+									<div class="homeCourseMainItemContent">
+										<div class="homeCourseMainItemContentTea">
+											<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+											{{$item->tea->name}}
+											<div class="homeCourseMainItemContentStar">
+												@for($i=0;$i<5;$i++)
+													@if($item->cou_star > $i)
+														<i class="fa fa-star starActive" aria-hidden="true"></i>
+													@else
+														<i class="fa fa-star" aria-hidden="true"></i>
+													@endif
+												@endfor
+											</div>
+										</div>
+										
+										<div class="homeCourseMainItemContentCourse">
+											{{cut_string($item->cou_name , 70)}}
+										</div>
+										<div class="homeCourseMainItemContentPrice">
+											<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+											@if ($item->cou_price_old != null)
+												<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+											@endif
+										</div>
+									</div>
+								</a>
+							@endforeach
+						</div>
+						<div class="couserLineItem newMost">
+							@foreach($courseNewMost as $item)
+								<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+									<div class="homeCourseMainItemImg">
+										<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
+									</div>
+									@if ($item->cou_sale != 0)
+										<div class="homeCourseMainItemSale">
+											-{{$item->cou_sale}}%
+										</div>
+									@endif
+									<div class="homeCourseMainItemContent">
+										<div class="homeCourseMainItemContentTea">
+											<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+											{{$item->tea->name}}
+											<div class="homeCourseMainItemContentStar">
+												@for($i=0;$i<5;$i++)
+													@if($item->cou_star > $i)
+														<i class="fa fa-star starActive" aria-hidden="true"></i>
+													@else
+														<i class="fa fa-star" aria-hidden="true"></i>
+													@endif
+												@endfor
+											</div>
+										</div>
+										
+										<div class="homeCourseMainItemContentCourse">
+											{{cut_string($item->cou_name , 70)}}
+										</div>
+										<div class="homeCourseMainItemContentPrice">
+											<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+											@if ($item->cou_price_old != null)
+												<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+											@endif
+										</div>
+									</div>
+								</a>
+							@endforeach
+						</div>
+						<div class="couserLineItem voteMost">
+							@foreach($courseVoteMost as $item)
+								<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+									<div class="homeCourseMainItemImg">
+										<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
+									</div>
+									@if ($item->cou_sale != 0)
+										<div class="homeCourseMainItemSale">
+											-{{$item->cou_sale}}%
+										</div>
+									@endif
+									<div class="homeCourseMainItemContent">
+										<div class="homeCourseMainItemContentTea">
+											<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+											{{$item->tea->name}}
+											<div class="homeCourseMainItemContentStar">
+												@for($i=0;$i<5;$i++)
+													@if($item->cou_star > $i)
+														<i class="fa fa-star starActive" aria-hidden="true"></i>
+													@else
+														<i class="fa fa-star" aria-hidden="true"></i>
+													@endif
+												@endfor
+											</div>
+										</div>
+										
+										<div class="homeCourseMainItemContentCourse">
+											{{cut_string($item->cou_name , 70)}}
+										</div>
+										<div class="homeCourseMainItemContentPrice">
+											<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+											@if ($item->cou_price_old != null)
+												<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+											@endif
+										</div>
+									</div>
+								</a>
+							@endforeach
+						</div>
+						<div class="couserLineItem saleMost">
+							@foreach($courseSaleMost as $item)
+								<a href="{{ asset('courses/detail/'.$item->cou_slug.'.html') }}" class="homeCourseMainItem">
+									<div class="homeCourseMainItemImg">
+										<img src="{{ asset('lib/storage/app/course/resized-'.$item->cou_img) }}">
+									</div>
+									@if ($item->cou_sale != 0)
+										<div class="homeCourseMainItemSale">
+											-{{$item->cou_sale}}%
+										</div>
+									@endif
+									<div class="homeCourseMainItemContent">
+										<div class="homeCourseMainItemContentTea">
+											<img src="{{ asset('lib/storage/app/avatar/resized-'.$item->tea->img) }}">
+											{{$item->tea->name}}
+											<div class="homeCourseMainItemContentStar">
+												@for($i=0;$i<5;$i++)
+													@if($item->cou_star > $i)
+														<i class="fa fa-star starActive" aria-hidden="true"></i>
+													@else
+														<i class="fa fa-star" aria-hidden="true"></i>
+													@endif
+												@endfor
+											</div>
+										</div>
+										
+										<div class="homeCourseMainItemContentCourse">
+											{{cut_string($item->cou_name , 70)}}
+										</div>
+										<div class="homeCourseMainItemContentPrice">
+											<b> {{number_format($item->cou_price,0,',','.')}} đ </b>
+											@if ($item->cou_price_old != null)
+												<del>{{number_format($item->cou_price_old,0,',','.')}} đ</del>
+											@endif
+										</div>
+									</div>
+								</a>
+							@endforeach
+						</div>
+					</div>
+				</div> 
+			</div>
 			@endif
-			
 			<div class="col-md-3 col-sm-3 right">
 				<div class="row">
 					<div class="col-dm-12 customPrice rightItem">

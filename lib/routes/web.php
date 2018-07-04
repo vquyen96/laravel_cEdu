@@ -190,6 +190,15 @@ Route::group(['namespace'=>'Admin', 'middleware'=>'CheckAdmin'],function(){
 			Route::get('/' , 'GiftController@getList');
 			Route::post('/' , 'GiftController@postGift');
 		});
+		Route::group(['prefix' => 'noti'], function(){
+			Route::get('/', 'NotiController@getList');
+			Route::post('/', 'NotiController@postAdd');
+			Route::get('edit/{id}', 'NotiControlle@getEdit');
+			Route::post('edit/{id}', 'NotiControlle@postEdit');
+			Route::get('seen/{id}', 'NotiControlle@getSeen');
+			Route::get('delete/{id}', 'NotiControlle@getDelete');
+			
+		});
 	});
 });
 Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){

@@ -135,6 +135,29 @@
 	cursor: pointer;
 	border-left: 1px solid #ccc;
 }
+
+.courseMain{
+	overflow: hidden;
+	position: relative;
+	height: 1850px;
+
+}
+.couserLine{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3500px;
+	padding-top: 20px;
+	transition: 1s;
+
+}
+.couserLineItem{
+	height: 1850px;
+	width: 850px;
+	display: inline-block;
+
+}
+
 .courseItem{
 	margin: 0 0 30px;
 	transition: .6s;
@@ -434,7 +457,8 @@ a.homeCourseMainItem{
     transition: 0.3s;
     color: #000;
     text-decoration: none;
-    transform: translate(-15px, 0px);
+    background: #fff;
+    /*transform: translate(-15px, 0px);*/
 }
 .homeCourseMainItem:hover{
 	transform: translate(0 , -10px);

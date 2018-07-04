@@ -36,30 +36,22 @@ $(document).ready(function(){
 		$(document).on('click', "#courseMostBuy", function() {
 			$('.mainMenu .active').removeClass("active");
 			$('#courseMostBuy').addClass("active");
-			$('html, body').animate({
-		      scrollTop: $(".buyMost").offset().top-120
-		    }, 800);
+			$('.couserLine').css('margin-left', 0);
 		});
 		$(document).on('click', "#courseMostNew", function() {
 			$('.mainMenu .active').removeClass("active");
 			$('#courseMostNew').addClass("active");
-			$('html, body').animate({
-		      scrollTop: $(".newMost").offset().top-120
-		    }, 800);
+			$('.couserLine').css('margin-left', -854);
 		});
 		$(document).on('click', "#courseMostRate", function() {
 			$('.mainMenu .active').removeClass("active");
 			$('#courseMostRate').addClass("active");
-			$('html, body').animate({
-		      scrollTop: $(".ratingMost").offset().top-120
-		    }, 800);
+			$('.couserLine').css('margin-left', -1708);
 		});
 		$(document).on('click', "#courseMostSale", function() {
 			$('.mainMenu .active').removeClass("active");
 			$('#courseMostSale').addClass("active");
-			$('html, body').animate({
-		      scrollTop: $(".saleMost").offset().top-120
-		    }, 800);
+			$('.couserLine').css('margin-left', -2562);
 		});
 	}
 	var price = url.searchParams.get("price");	

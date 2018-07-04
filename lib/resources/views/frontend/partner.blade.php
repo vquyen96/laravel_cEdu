@@ -42,22 +42,35 @@
 				<h3>Lợi ích của việc “Trở thành giảng viên cùng Cedu”</h3>
 			</div>
 			<div class="mainBodyBeeImg">
-				<img src="img/loiichkhitrothanhdoitac.png">
+				<img src="img/partner_bee.png">
 				<div class="mainBodyBeeImgContent one">
-					<h4>KẾT NỐI TRI THỨC <br> CÙNG CEDU. </h4>
-					Cedu như một cầu nối, là nơi <br> các giảng viên có thể xây dựng nền tảng, <br>chia sẻ kiến thức tới những học viên trên toàn quốc mà không bị hạn chết về thời gian địa lý, là nơi học viên ai cũng có thể học cùng chuyên gia, hiểu quả<br> và tiết kiếm chi phí . 
+					<div class="mainBodyBeeImgContentHide">
+						<div class="content">
+							<span class="beeYell">Cedu</span> như một cầu nối, là nơi <br> các giảng viên có thể xây dựng nền  <br>tảng, chia sẻ kiến thức tới những học viên trên toàn quốc mà không bị hạn chế về thời gian địa lý, là nơi học viên ai cũng có thể <span class="beeYell">học cùng chuyên gia, hiểu quả<br> và tiết kiếm chi phí .</span>
+						</div>
+					</div>
 				</div>
 				<div class="mainBodyBeeImgContent two">
-					<h4> ĐỒNG HÀNH CÙNG <br> ĐỐI TÁC CHUYÊN NGHIỆP</h4>
-					Với tầm nhìn trở thành một <br> trang web giáo dục trực tuyến hàng<br> đầu Việt Nam, Cedu cam kết về một môi trường cùng phát triển và hợp tác chuyên nghiệp. Mọi hoạt động đều dựa trên <br> lợi ích của cả hai bên và chính <br> học viên. 
+					<div class="mainBodyBeeImgContentHide">
+						<div class="content">
+							Với tầm nhìn trở thành một <br> trang web giáo dục trực tuyến <span class="beeYell">hàng<br> đầu Việt Nam</span>, Cedu cam kết về một môi trường cùng phát triển và hợp tác <span class="beeYell">chuyên nghiệp.</span> Mọi hoạt động đều dựa trên <br> lợi ích của cả hai bên và chính <br> học viên. 
+						</div>
+					</div>
+					
 				</div>
 				<div class="mainBodyBeeImgContent three">
-					<h4>MỨC CHIẾT KHẤU  <br>HẤP DẪN. </h4>
-					Đảm bảo một nguồn thu nhập <br> ổn định với mức chiết khấu hấp dẫn cho các giảng viên ứng với những giá trị thiết thực của các khóa học khác nhau trên Cedu. 
+					<div class="mainBodyBeeImgContentHide">
+						<div class="content">
+							Đảm bảo một nguồn thu nhập <br> ổn định với mức <span class="beeYell">chiết khấu hấp dẫn</span> cho<br> các giảng viên ứng với những giá trị thiết thực của các khóa học khác nhau<br> trên <span class="beeYell">Cedu.</span> 
+						</div>
+					</div>
 				</div>
 				<div class="mainBodyBeeImgContent four">
-					<h4>TRỞ THÀNH NHỮNG  <br>GIẢNG VIÊN TÀI NĂNG VÀ  <br>NỔI TIẾNG. </h4>
-					Cedu là bệ phóng cho những giảng viên trẻ có thực lực, của những giảng viên đầy nhiệt huyết trên con đường “Nâng cao giá trị tri thức , phục vụ hàng triệu người Việt Nam”. 
+					<div class="mainBodyBeeImgContentHide">
+						<div class="content">
+							<span class="beeYell">Cedu </span>là bệ phóng cho những <br>giảng viên trẻ có thực lực, của những <br> giảng viên đầy nhiệt huyết trên con đường <span class="beeYell">“Nâng cao giá trị tri thức , phục vụ hàng triệu người Việt Nam”.</span> 
+						</div>
+					</div>
 				</div>
 
 			</div>

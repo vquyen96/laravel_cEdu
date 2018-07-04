@@ -46,25 +46,28 @@
 				
 		</div>
 		<div class="col-sm-4">
-			<div class="cartTotal">
-				<div class="cartTotalTitle">
-					Tổng
+			<div class="cartRight">
+				<div class="cartTotal">
+					<div class="cartTotalTitle">
+						Tổng
+					</div>
+					<div class="cartTotalContent">
+						<div class="cartTotalContentLeft">
+							Thành tiền
+						</div>
+						<div class="cartTotalContentRight price">
+							{{$total}} đ
+						</div>
+					</div>
 				</div>
-				<div class="cartTotalContent">
-					<div class="cartTotalContentLeft">
-						Thành tiền
-					</div>
-					<div class="cartTotalContentRight price">
-						{{$total}} đ
-					</div>
+				<div class="btnPayment">
+					<a href="{{asset('cart/login')}}">
+						Thanh toán
+					</a>
+					
 				</div>
 			</div>
-			<div class="btnPayment">
-				<a href="{{asset('cart/login')}}">
-					Thanh toán
-				</a>
 				
-			</div>
 		</div>
 	</div>
 	@endif
